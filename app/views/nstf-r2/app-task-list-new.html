@@ -1,0 +1,506 @@
+{% extends "layout_nstf.html" %}
+
+{% block pageTitle %}
+  Application task list | NS Round 2 | Funding Service Design Beta
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% set completed = [] %}
+{% if data['section-01-complete'] == "Yes" %}
+  {% set completed = (completed.push("1"), completed) %}
+{% endif %}
+{% if data['section-02-complete'] == "Yes" %}
+  {% set completed = (completed.push("2"), completed) %}
+{% endif %}
+{% if data['section-03-complete'] == "Yes" %}
+  {% set completed = (completed.push("3"), completed) %}
+{% endif %}
+{% if data['section-04-complete'] == "Yes" %}
+  {% set completed = (completed.push("4"), completed) %}
+{% endif %}
+{% set completedstatus = [completed.length] %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    {% if completed.length == 4 %}
+    <div class="govuk-grid-column-full">
+      <form action="confirmation">
+        <div class="assessment-alert govuk-!-margin-bottom-8">
+          <h1 class="assessment-alert__heading govuk-heading-xl govuk-!-margin-top-4">All sections complete</h1>
+          <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Submission deadline: <span class="govuk-body"> midday, {date} 2023 </span></h2>
+
+          <p>You can submit your application when you are ready.</p>
+          <p>Once your application has been submitted, you cannot change your answers. </p>
+
+          <button class="govuk-button" data-module="govuk-button">
+            Submit your application
+          </button>
+        </div>
+      </form>
+    </div>
+    {% endif %}
+
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Night Shelter Transformation Fund Round 2</span>
+      <h1 class="govuk-heading-xl">
+        Application for funding to transform your night shelter services in England
+      </h1>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with filling out your application
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          
+          <h2 class="govuk-heading govuk-heading-s">
+              Before you start
+            </h2>
+            <p class="govuk-body">
+              <a href="https://www.gov.uk/government/publications/night-shelter-transformation-fund-round-2-prospectus">Read the fund’s prospectus</a> before you apply.
+            </p>
+            <h2 class="govuk-heading govuk-heading-s">
+              Moving through the form
+            </h2>
+            <p class="govuk-body">
+              This form is split into sections based on how it will be assessed.
+            </p>
+            <p class="govuk-body">
+              You do not have to complete it in order, or all at once.
+            </p>
+            <p class="govuk-body">
+              When you have written something in every field in a section, the section will be marked as complete. You can still change your responses in sections that are marked as complete.
+            </p>
+
+            <h2 class="govuk-heading govuk-heading-s">
+              Saving progress and making changes
+            </h2>
+            <p class="govuk-body">
+              Your work will not save automatically. To make sure you do not lose anything, select <strong>Save and continue</strong> regularly, and always before you go back or close your internet browser window.
+            </p>
+            <p class="govuk-body">
+              If you need to edit or revisit any sections, use the browser back button.
+            </p>
+            <p class="govuk-body">
+              You can edit your responses as many times as you like before you submit.
+            </p>
+
+            <h2 class="govuk-heading govuk-heading-s">
+              Submitting your application
+            </h2>
+            <p class="govuk-body">
+              When you have completed all sections, you'll be able to submit your application.
+            </p>
+            <p class="govuk-body">
+              Once you have submitted your application, you'll not be able to edit, add or change any sections.
+            </p>
+
+            <h2 class="govuk-heading govuk-heading-s">
+              Get help
+            </h2>
+            <p class="govuk-body">
+              If you have questions about the form or the fund, email us at <a href = "mailto:transformationfund@levellingup.gov.uk" class="govuk-link">transformationfund@levellingup.gov.uk</a>.
+            </p>
+            <p>Do not send any applications or attachments by email. We'll only accept applications through this service.</p>
+
+
+            <h2 class="govuk-heading govuk-heading-s">
+              How we'll use your information
+            </h2>
+            <p class="govuk-body">
+              Read how we'll use the information from your application in our <a href="#">privacy notice</a>.
+            </p>
+
+        </div>
+      </details>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Submission deadline:
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {day} June 2023 at 11:59am
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reference:
+        </dt>
+        <dd class="govuk-summary-list__value">
+          NSTF-R2-YHGFVX
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status:
+        </dt>
+        {% if completed == 0 %}
+        <dd class="govuk-summary-list__value">
+          <p><span class="not-started-tag">Not started</span></p>
+          <p class="govuk-body">None of the sections have been completed.</p>
+        </dd>
+        {% elseif completed.length == 4 %}
+        <dd class="govuk-summary-list__value">
+          <p><span class="govuk-task-list__status">Complete</span></p>
+          <p class="govuk-body">You have completed {{completed.length}} of 4 sections.</p>
+        </dd>
+        {% else %}
+        <dd class="govuk-summary-list__value">
+          <p><span class="in-progress-tag-new">In progress</span></p>
+          <p class="govuk-body">You have completed {{completed.length}} of 4 sections.</p>
+        </dd>
+        {% endif %}
+
+      </div>
+    </dl>
+
+      <ol class="app-task-list save-return-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            Before you start</h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item task-list__new-design">
+              <span class="app-task-list__task-name">
+                <a href="forms/0-1/app-name">
+                  Name your application
+                </a>
+              </span>
+              {% if data['0-1-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['0-1-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span> About your organisation</h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item task-list__new-design">
+              <span class="app-task-list__task-name">
+                <a href="forms/1-1/intro">
+                  1.1 Organisation information
+                </a>
+              </span>
+              {% if data['1-1-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['1-1-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item task-list__new-design">
+              <span class="app-task-list__task-name">
+                <a href="forms/1-2/intro">
+                  1.2 Organisation type
+                </a>
+              </span>
+              {% if data['1-2-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['1-2-complete'] == "No" %}
+              <span class="tag-">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item task-list__new-design">
+              <span class="app-task-list__task-name">
+                <a href="forms/1-3/intro">
+                  1.3 Applicant information
+                </a>
+              </span>
+              {% if data['1-3-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['1-3-complete'] == "No" %}
+              <span class="tag-">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item task-list__new-design">
+              <span class="app-task-list__task-name">
+                <a href="forms/1-4/intro">
+                  1.4 Joint applications
+                </a>
+              </span>
+              {% if data['1-4-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['1-4-complete'] == "No" %}
+              <span class="tag-">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Your skills and experience
+          </h2>
+          <p>This section is worth <strong>15%</strong> of the assessment criteria.</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/2-1/intro">
+                  2.1 Staff and volunteers
+                </a>
+              </span>
+              {% if data['2-1-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['2-1-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/2-2/intro">
+                  2.2 Current services
+                </a>
+              </span>
+              {% if data['2-2-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['2-2-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> Your proposal
+          </h2>
+          <p>This section is worth <strong>40%</strong> of the assessment criteria.</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/3-1/intro">
+                  3.1 Objectives and activities
+                </a>
+              </span>
+              {% if data['3-1-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['3-1-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/3-2/intro">
+                  3.2 Project milestones
+                </a>
+              </span>
+              {% if data['3-2-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['3-2-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/3-3/intro">
+                  3.3 Local need and support
+                </a>
+              </span>
+              {% if data['3-3-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['3-3-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/3-4/intro">
+                  3.4 Proposed services
+                </a>
+              </span>
+              {% if data['3-4-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['3-4-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/3-5/intro">
+                  3.5 Working in partnership
+                </a>
+              </span>
+              {% if data['3-5-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['3-5-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/3-6/intro">
+                  3.6 Proposal sustainability
+                </a>
+              </span>
+              {% if data['3-6-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['3-6-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span> Outputs and outcomes
+          </h2>
+          <p>This section is worth <strong>15%</strong> of the assessment criteria.</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/4-1/intro">
+                  4.1 Outputs and outcomes
+                </a>
+              </span>
+              {% if data['4-1-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['4-1-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">5. </span> Risk and deliverability
+          </h2>
+          <p>This section is worth <strong>15%</strong> of the assessment criteria.</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/5-1/intro">
+                  5.1 Risk and deliverability
+                </a>
+              </span>
+              {% if data['5-1-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['5-1-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">6. </span> Value for money
+          </h2>
+          <p>This section is worth <strong>15%</strong> of the assessment criteria.</p>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/6-1/intro">
+                  6.1 Funding required
+                </a>
+              </span>
+              {% if data['6-1-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['6-1-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/6-2/intro">
+                  6.2 Building works
+                </a>
+              </span>
+              {% if data['6-2-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['6-2-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/6-3/intro">
+                  6.3 Match funding
+                </a>
+              </span>
+              {% if data['6-3-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['6-3-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">7. </span> Declarations
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="forms/7-1/intro">
+                  7.1 Declarations
+                </a>
+              </span>
+              {% if data['7-1-complete'] == "Yes" %}
+              <span class="govuk-task-list__status">Complete</span>
+              {% elseif data['7-1-complete'] == "No" %}
+              <span class="in-progress-tag-new">Incomplete</span>
+              {% else %}
+              <span class="not-started-tag">Not started</span>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Sustainability
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">3.6 Proposal sustainability</span>
+    <h1 class="govuk-heading-l">How will this funding support the longer-term sustainability of your proposal beyond the funding period?</h1>
+
+    <form action="check-your-answers" class="form" method="post">
+
+      <div class="govuk-form-group">
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="500">
+          <div class="govuk-form-group">
+            <textarea class="govuk-textarea govuk-js-character-count" id="nstf-r2-sustainability" name="nstf-r2-sustainability" rows="5" aria-describedby="nstf-r2-sustainability-info">{{ data['nstf-r2-sustainability'] }}</textarea>
+          </div>
+  
+        <div id="nstf-r2-sustainability-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 500 words
+        </div>
+      </div>
+
+
+<div>
+
+    <div>
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+    </div>
+  </form>
+  
+</div>
+{% endblock %}

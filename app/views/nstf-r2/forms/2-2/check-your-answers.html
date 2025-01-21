@@ -1,0 +1,440 @@
+{% extends "layout_nstf.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-l">2.2 Current services</span>
+    <h1 class="govuk-heading-l">Check your answers</h1>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Have you provided a night shelter or emergency accommodation on or after 1 April 2019?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-eligible-ns'] == "yes" %}
+          Yes
+          {% else %}
+          No
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="eligible-ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      
+      {%if data['nstf-r2-eligible-ns'] == "yes" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Is the night shelter or emergency accommodation communal?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r3-communal-current'] == "Yes" %}
+          Yes
+          {% else %}
+          No
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="current-ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Is the night shelter or emergency accommodation single room accommodation?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r3-single-current'] == "Yes" %}
+          Yes
+          {% else %}
+          No
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="current-ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          How many bed spaces did the night shelter or emergency accommodation provide from 1 April 2022 to 31 March 2023?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r3-beds-current'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="current-ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Is the night shelter or emergency accommodation used for SWEP (severe weather emergency protocol)?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r3-swep-current'] == "Yes" %}
+          Yes
+          {% else %}
+          No
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="current-ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Do you accept referrals from the local authority or other agencies for available bed spaces?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r3-referral-current'] == "Yes" %}
+          Yes
+          {% else %}
+          No
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="current-ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          How many nights did the night shelter or emergency accommodation open from 1 April 2022 to 31 March 2023?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r3-nights-open-current'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="nights-open-ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Do you currently provide day provision?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-day-provision'] == "yes" %}
+          yes
+          {% else %}
+          no
+          {% endif %}  
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="day-provision"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      {%if data['nstf-r2-day-provision'] == "yes" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          When did you start providing day provision?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r2-date-provision-month'] }}
+          {{ data['nstf-r2-date-provision-year'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="date-day-provision"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Which day provision services are you currently providing?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-day-provision-type'] == "outreach" %}
+           <li>Outreach</li>
+           {% endif %}
+           
+           {%if data['nstf-r2-day-provision-type-3'] == "health-interventions" %}
+           <li>Health interventions</li>
+            {% endif %}
+            
+            {%if data['nstf-r2-day-provision-type-4'] == "employment-support" %}
+           <li>Employment support</li>
+            {% endif %}
+            
+            {%if data['nstf-r2-day-provision-type-5'] == "financial-advice" %}
+            <li>Financial advice </li>
+             {% endif %}
+             
+             {%if data['nstf-r2-day-provision-type-6'] == "inreach" %}
+             <li>Onsite inreach services from other organisations </li>
+              {% endif %}
+             
+              {%if data['nstf-r2-day-provision-type-7'] == "housing-advice" %}
+             <li>Housing advice </li>
+              {% endif %}
+              
+              {%if data['nstf-r2-day-provision-type-8'] == "other" %}
+              <li>Other</li>
+               {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="current-day-provision"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      {%if data['nstf-r2-day-provision-type-8'] == "other" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Which other day provision will your proposal provide?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r2-other-day-provision'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="other-day-provision"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+      {% endif %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Do you currently provide any other services?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-other-services'] == "yes" %}
+          yes
+          {% else %}
+          no
+          {% endif %}    
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="other-services"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {%if data['nstf-r2-other-services'] == "yes" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          What other services are you currently providing?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r2-other-services-detail'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="other-services-yes"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Do you currently provide specialist support?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-specialist-support-answer'] == "yes" %}
+          yes
+          {% else %}
+          no
+          {% endif %}    
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="specialist-support"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {%if data['nstf-r2-specialist-support-answer'] == "yes" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Which day provision services are you currently providing?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-specialist-support'] == "women" %}
+           <li>Women</li>
+           {% endif %}
+            
+           {%if data['nstf-r2-specialist-support-2'] == "domestic-abuse" %}
+           <li>Survivors of domestic abuse</li>
+           {% endif %}
+           
+           {%if data['nstf-r2-day-provision-type-3'] == "health-interventions" %}
+           <li>Ethnic minorities</li>
+            {% endif %}
+            
+            {%if data['nstf-r2-specialist-support-4'] == "LGBT" %}
+           <li>People who identify as LGBTQIA+ (lesbian, gay, bisexual, transgender, queer, intersex, asexual, and agender)</li>
+            {% endif %}
+            
+            {%if data['nstf-r2-specialist-support-5'] == "non-uk" %}
+            <li>Non-UK nationals with restricted eligibility to public funds</li>
+             {% endif %}
+             
+             {%if data['nstf-r2-specialist-support-6'] == "mental-health" %}
+             <li>People with mental health problems</li>
+              {% endif %}
+             
+              {%if data['nstf-r2-specialist-support-7'] == "hsocial-care" %}
+             <li>People with social care needs</li>
+              {% endif %}
+              
+              {%if data['nstf-r2-specialist-support-8'] == "substance" %}
+              <li>People experiencing substance misuse</li>
+               {% endif %}
+
+               {%if data['nstf-r2-specialist-support-9'] == "disabled" %}
+              <li>Disabled people</li>
+               {% endif %}
+
+               {%if data['nstf-r2-specialist-support-10'] == "other" %}
+              <li>Other</li>
+               {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="current-specialist-support"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+      {%if data['nstf-r2-specialist-support-10'] == "other" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Which other specialist support will your proposal provide?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r2-special-other'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="specialist-other"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+    </dl>
+    
+
+    <form action="../../app-task-list-new" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Do you want to mark this section as complete?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+              id="section-02-complete"
+              name="2-2-complete" type="radio" value="Yes" {{
+              checked("2-2-complete", "Yes") }}>
+              <label
+                class="govuk-label govuk-radios__label"
+                for="section-02-complete"
+              >
+                Yes, I’ve completed this section
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+              id="section-02-complete-2"
+              name="2-2-complete" type="radio" value="No" {{
+              checked("2-2-complete", "No") }}>
+              <label
+                class="govuk-label govuk-radios__label"
+                for="section-02-complete-2"
+              >
+                No, I’ll come back to it later
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

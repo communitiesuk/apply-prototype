@@ -1,0 +1,60 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Organisation turnover
+{% endblock %}
+
+
+{% block content  %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">1.1 Organisation information</span>
+      <h1 class="govuk-heading-l">What is your organisation's annual turnover?</h1>
+
+      <form action="charity-membership" method="post" novalidate>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="turnover-amount">
+          1 April 2022 to 31 March 2023
+        </label>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input
+            class="govuk-input govuk-input--width-10"
+            id="nstf-r2-2022-turnover"
+            name="nstf-r2-2022-turnover"
+            type="text"
+            spellcheck="false"
+            aria-describedby="nstf-r2-2022-turnover-hint"
+            value="{{ data['nstf-r2-2022-turnover'] }}"
+          />
+        </div>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="turnover-amount">
+          1 April 2021 to 31 March 2022
+        </label>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input
+            class="govuk-input govuk-input--width-10"
+            id="nstf-r2-2021-turnover"
+            name="nstf-r2-2021-turnover"
+            type="text"
+            spellcheck="false"
+            aria-describedby="nstf-r2-2021-turnover-hint"
+            value="{{ data['nstf-r2-2021-turnover'] }}"
+          />
+        </div>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+  </div>
+  </div>
+{% endblock %}

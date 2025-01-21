@@ -1,0 +1,76 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Revenue and capital amount
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="revenue/02-revenue-add" class="form" method="post">
+
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-label-wrapper">
+              <span class="govuk-caption-l">6.1 Funding required</span>
+              <label class="govuk-label govuk-label--l">
+                How much funding are you applying for?
+              </label>
+            </h1>
+          </legend>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nstf-revenue-total-2324">
+              Revenue funding 1 April 2023 to 31 March 2024
+            </label>
+            <div class="govuk-input__wrapper">
+              <div class="govuk-input__prefix" aria-hidden="true">£</div>
+              <input class="govuk-input govuk-input--width-10" id="nstf-revenue-total-2324" name="nstf-revenue-total-2324" type="text" autocomplete="nstf-revenue-total-2324">
+            </div>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nstf-revenue-total-2425">
+              Revenue funding 1 April 2024 to 31 March 2025
+            </label>
+            <div class="govuk-input__wrapper">
+              <div class="govuk-input__prefix" aria-hidden="true">£</div>
+              <input class="govuk-input govuk-input--width-10" id="nstf-revenue-total-2425" name="nstf-revenue-total-2425" type="text" autocomplete="nstf-revenue-total-2425">
+            </div>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nstf-capital-total-2324">
+              Capital funding 1 April 2023 to 31 March 2024
+            </label>
+            <div class="govuk-input__wrapper">
+              <div class="govuk-input__prefix" aria-hidden="true">£</div>
+              <input class="govuk-input govuk-input--width-10" id="nstf-capital-total-2324" name="nstf-capital-total-2324" type="text" autocomplete="nstf-capital-total-2324">
+            </div>
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nstf-capital-total-2425">
+              Capital funding 1 April 2024 to 31 March 2025
+            </label>
+            <div class="govuk-input__wrapper">
+              <div class="govuk-input__prefix" aria-hidden="true">£</div>
+              <input class="govuk-input govuk-input--width-10" id="nstf-capital-total-2425" name="nstf-capital-total-2425" type="text" autocomplete="nstf-capital-total-2425">
+            </div>
+          </div>
+        </fieldset>
+
+      <button
+        class="govuk-button"
+        data-module="govuk-button"
+      >
+        Save and continue
+      </button>
+
+    </form>
+  </div>
+</div>
+{% endblock %}

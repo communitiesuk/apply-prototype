@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Night Shelter Transformation Fund Round 2 | Funding Service Design Beta
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Night Shelter Transformation Fund Round 2</span>
+
+      <h1 class="govuk-heading-xl">
+        Start or continue an application for funding to transform your night shelter services in England
+      </h1>
+
+      <p>
+        <a href="">Read the fund's prospectus</a> before you apply.
+      </p>
+      <p><strong>Submission deadline:</strong> {day} June 2023 at 11:59am</p>
+        <a href="email-link" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+          Enter your email address
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+          </svg>
+        </a>
+        <h2 class="govuk-heading-m">
+          Get help
+        </h2>
+
+        <p>
+          If you need help, email us at <a href = "mailto:transformationfund@levellingup.gov.uk" class="govuk-link">transformationfund@levellingup.gov.uk</a>.
+        </p>
+        <p>Do not send any applications or attachments by email. We'll only accept applications through this service.</p>
+
+
+    </div>
+
+
+  </div>
+{% endblock %}

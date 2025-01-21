@@ -1,0 +1,27 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Organisation classification
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">1.2 Organisation information</span>
+    <h1 class="govuk-heading-l">How is your organisation classified?</h1>
+
+  <form action="trustee-names-add" class="form" method="post">
+      
+      <div class="govuk-form-group">
+          <input class="govuk-input govuk-input--width-20" id="nstf-r2-org-classification" name="nstf-r2-org-classification" type="text" value="{{ data['nstf-r2-org-classification'] }}">
+        </div>
+
+    <div>
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+    </div>
+  </form>
+  
+</div>
+{% endblock %}

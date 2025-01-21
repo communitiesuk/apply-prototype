@@ -1,0 +1,37 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Local partners
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">3.5 Working in partnership</span>
+    <h1 class="govuk-heading-l">Describe your important local partners and how they will support your proposal</h1>
+
+    <form action="check-your-answers" class="form" method="post">
+
+      <div class="govuk-form-group">
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="500">
+          <div class="govuk-form-group">
+            <textarea class="govuk-textarea govuk-js-character-count" id="nstf-r2-local-partners" name="nstf-r2-local-partners" rows="5" aria-describedby="nstf-r2-local-partners-info">{{ data['nstf-r2-local-partners'] }}</textarea>
+          </div>
+  
+        <div id="nstf-r2-local-partners-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 500 words
+        </div>
+      </div>
+
+
+<div>
+
+    <div>
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+    </div>
+  </form>
+  
+</div>
+{% endblock %}

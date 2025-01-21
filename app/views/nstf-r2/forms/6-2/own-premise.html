@@ -1,0 +1,41 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Ownership of premises
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">6.2 Building works</span>
+    <h1 class="govuk-heading-l">Do you own the premises?</h1>
+
+      <form action="/own-premise-answer" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nstf-r3-own-premise" name="nstf-r3-own-premise" type="radio" value="yes"{{checked("nstf-r3-own-premise", "yes") }}>
+                <label class="govuk-label govuk-radios__label" for="nstf-r3-own-premise">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nstf-r3-own-premise-2" name="nstf-r3-own-premise" type="radio" value="no" {{checked("nstf-r3-own-premise", "no") }}>
+                <label class="govuk-label govuk-radios__label" for="nstf-r3-own-premise-2">
+                  No
+                </label>
+              </div>
+            </div>
+        
+          </fieldset>
+        </div>
+        
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

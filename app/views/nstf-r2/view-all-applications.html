@@ -1,0 +1,145 @@
+{% extends "layout_cof_w2-signed-in.html" %}
+
+{% block pageTitle %}
+  Funding Service Design Beta - PreAward
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        All applications
+
+      </h1>
+
+      {% if data['save-return-email'] == "person@company.co.uk" %}
+
+      <p class="govuk-body">This service is also available <a href="#" class="govuk-link">in Welsh (Cymraeg)</a>.</p>
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Night Shelter Transformation Fund
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <table class="govuk-table govuk-table__s22" role="table">
+                <thead role="rowgroup">
+                    <tr role="row">
+                      <th role="columnheader" scope="col">Project name</th>
+                      <th role="columnheader" scope="col">Status</th>
+                      <th role="columnheader" scope="col">Last edited</th>
+                      <th role="columnheader" scope="col">Application reference</th>
+                      <th role="columnheader" scope="col">Language</th>
+                      <th role="columnheader" scope="col">Action</th>
+                    </tr>
+                  </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Project name</span>Save the village hall</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Status</span><span class="in-progress-tag-new">In progress</span></td>
+                  <!--<td class="govuk-table__cell">09/05/22</td>-->
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Last edited</span>11/05/23 at 09:55am</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Application reference</span><span>COF-R3W1-YHGFVX</span></td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Language</span>English</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Action</span><a href="app-task-list-new.html" class="govuk-link govuk-link--no-visited-state">Continue application</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Project name</span>Test</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Status</span><span class="not-started-tag">Not started</span></td>
+                  <!--<td class="govuk-table__cell">04/05/22</td>-->
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Last edited</span>05/05/23 at 14:26pm</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Application reference</span><span>COF-R3W1-BEVKFS</span></td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Language</span>Welsh</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Action</span><a href="#" class="govuk-link govuk-link--no-visited-state">Continue application</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="govuk-body"><a href="application-list" class="govuk-link govuk-link--no-visited-state">View applications from all rounds/windows</a>
+            </p>
+          </div>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                Salmon Fisheries Fund
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+            <table class="govuk-table govuk-table__s22" role="table">
+                <thead role="rowgroup">
+                    <tr role="row">
+                      <th role="columnheader" scope="col">Project name</th>
+                      <th role="columnheader" scope="col">Status</th>
+                      <th role="columnheader" scope="col">Last edited</th>
+                      <th role="columnheader" scope="col">Application reference</th>
+                      <th role="columnheader" scope="col">Action</th>
+                    </tr>
+                  </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Project name</span>Project 1</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Status</span><span class="not-started-tag">Not started</span></td>
+                  <!--<td class="govuk-table__cell">09/05/22</td>-->
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Last edited</span>11/05/23 at 09:55am</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Application reference</span><span>SFF-R1-ABCDEF</span></td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Action</span><a href="#" class="govuk-link govuk-link--no-visited-state">Continue application</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View applications from all rounds/windows</a>
+            </p>
+          </div>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                Second Preaward Fund Name
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+            <table class="govuk-table govuk-table__s22" role="table">
+                <thead role="rowgroup">
+                    <tr role="row">
+                      <th role="columnheader" scope="col">Project name</th>
+                      <th role="columnheader" scope="col">Status</th>
+                      <th role="columnheader" scope="col">Last edited</th>
+                      <th role="columnheader" scope="col">Application reference</th>
+                    </tr>
+                  </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Project name</span>Project name that is very long</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Status</span><span class="">Submitted</span></td>
+                  <!--<td class="govuk-table__cell">09/05/22</td>-->
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Last edited</span>11/05/23 at 09:55am</td>
+                  <td class="govuk-table__cell"><span class="responsive-table__heading" aria-hidden="true">Application reference</span><span>SPF-R1W2-ZXYREW</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View applications from all rounds/windows</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+        {% else %}
+
+        <p class="govuk-body">You have not started any applications using this email.</p>
+
+        {% endif %}
+
+
+  </div>
+{% endblock %}

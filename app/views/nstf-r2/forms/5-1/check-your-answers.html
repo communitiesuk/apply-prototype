@@ -1,0 +1,82 @@
+{% extends "layout_nstf.html" %}
+
+{% block pageTitle %}
+  Check your answers 
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-l">5.1 Risk and deliverability</span>
+    <h1 class="govuk-heading-l">Check your answers</h1>
+
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Risks
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% for i in data.nstfRiskData %}
+            {{ i.type }} : {{ i.likelihood }} : {{ i.mitigation }}<br />
+          {% endfor %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="risk-loop">
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
+
+    <form action="../../app-task-list-new" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Do you want to mark this section as complete?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+              id="2-1-complete"
+              name="5-1-complete" type="radio" value="Yes" {{
+              checked("5-1-complete", "Yes") }}>
+              <label
+                class="govuk-label govuk-radios__label"
+                for="2-1-complete"
+              >
+                Yes, I’ve completed this section
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+              id="2-1-complete-2"
+              name="5-1-complete" type="radio" value="No" {{
+              checked("5-1-complete", "No") }}>
+              <label
+                class="govuk-label govuk-radios__label"
+                for="2-1-complete-2"
+              >
+                No, I’ll come back to it later
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

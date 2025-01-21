@@ -1,0 +1,48 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+Your trustees or committee members
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">1.2 Organisation type</span>
+      <h1 class="govuk-heading-xl">Your trustees or committee members</h1>
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Full name</th>
+        <th scope="col" class="govuk-table__header">Action</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      {% for i in data.nstfTrusteeData %}
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">{{ i.type }}</th>
+        <td class="govuk-table__cell"><a href="trustee-names-loop/delete/{{ loop.index0 }}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="govuk-button-group">
+    <a href="org-trading" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </a>
+    <a href="trustee-names-add" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Add another
+    </a>
+  </div>
+  </div>
+</div>
+{% endblock %}

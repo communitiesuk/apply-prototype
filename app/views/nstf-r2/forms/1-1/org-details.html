@@ -1,0 +1,95 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Organisation details
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">1.1 Organisation information</span>
+    <h1 class="govuk-heading-l">Organisation details</h1>
+
+    <form action="org-purpose" class="form" method="post">
+
+      <div class="govuk-form-group">
+        <label
+        class="govuk-label govuk-label--s"
+        for="project-description"
+        >Organisation name</label>
+        <div id="org-name-hint" class="govuk-hint">
+          This must match your registered legal organisation name.
+        </div>
+        <input
+        class="govuk-input"
+        id="org-name"
+        name="org-name"
+        type="text"
+        spellcheck="false"
+        value="{{ data['org-name'] }}"
+        />
+      </div>
+        
+        <fieldset class="govuk-fieldset">
+          <label class="govuk-label govuk-label--s" for="">
+              Organisation address
+            </label>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for=" -address-1">
+              Address line 1
+            </label>
+            <input class="govuk-input" id="nstf-r2-address-1" name="nstf-r2-address-1" type="text" autocomplete="address1" value="{{ data['nstf-r2-address-1'] }}">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nstf-r2-address-2">
+              Address line 2 (optional)
+            </label>
+            <input class="govuk-input" id="nstf-r2-address-2" name="nstf-r2-address-2" type="text" autocomplete="address2" value="{{ data['nstf-r2-address-2'] }}">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nstf-r2-address-town">
+              Town or city
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="nstf-r2-address-town" name="nstf-r2-address-town" type="text" autocomplete="address-level2" value="{{ data['nstf-r2-address-town'] }}">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nstf-r2-address-county">
+              County (optional)
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="nstf-r2-address-county" name="nstf-r2-address-county" type="text" value="{{ data['nstf-r2-address-county'] }}">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nstf-r2-address-postcode">
+              Postcode
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="nstf-r2-address-postcode" name="nstf-r2-address-postcode" type="text" autocomplete="postal-code" value="{{ data['nstf-r2-address-postcode'] }}">
+          </div>
+
+          <div class="govuk-form-group">
+            <label
+            class="govuk-label govuk-label--s"
+            for="project-description"
+            >Which region of England do you work in?</label>
+            <input
+            class="govuk-input"
+            id="region-work"
+            name="region-work"
+            type="text"
+            spellcheck="false"
+            value="{{ data['region-work'] }}"
+            />
+          </div>
+
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

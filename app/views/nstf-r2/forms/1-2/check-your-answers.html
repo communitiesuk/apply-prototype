@@ -1,0 +1,270 @@
+{% extends "layout_nstf.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-l">1.2 Organisation type</span>
+    <h1 class="govuk-heading-l">Check your answers</h1>
+
+    <dl class="govuk-summary-list">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          How is your organisation classified?
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+          <ul class="govuk-list govuk-list--bullet">
+            {%if data['nstf-r2-org-type'] == "charity" %}
+           <li>Charity</li>
+           {% endif %}
+            {%if data['nstf-r2-org-type-2'] == "company-limited-by-guarantee" %}
+           <li>Company limited by guarantee</li>
+           {% endif %}
+           {%if data['nstf-r2-org-type-3'] == "charitable-incorporated-organisation" %}
+           <li>Charitable incorporated organisation</li>
+            {% endif %}
+            {%if data['nstf-r2-org-type-4'] == "community-interest-company" %}
+           <li>Community interest company</li>
+            {% endif %}
+            {%if data['nstf-r2-org-type-5'] == "community-benefits-society" %}
+            <li>Community benefits society</li>
+             {% endif %}
+             {%if data['nstf-r2-org-type-6'] == "none" %}
+             None
+             {% endif %}
+            </ul>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="org-type">
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+     
+      {%if data['nstf-r2-company-registration']%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Company registration number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['nstf-r2-company-registration'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a
+              class="govuk-link"
+              href="org-company"
+            >
+              Change <span class="govuk-visually-hidden">answer</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {%if data['nstf-r2-charity-number']%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Charity number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['nstf-r2-charity-number'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a
+              class="govuk-link"
+              href="org-charity"
+            >
+              Change <span class="govuk-visually-hidden">answer</span>
+            </a>
+          </dd>
+        </div>
+      {% endif %}
+
+      {%if data['nstf-r2-org-type-6']%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            How is your organisation classified?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['nstf-r2-org-classification'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a
+              class="govuk-link"
+              href="org-other"
+            >
+              Change <span class="govuk-visually-hidden">answer</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Names of trustees or committee members
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% for i in data.nstfTrusteeData %}
+            {{ i.type }}<br />
+          {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a
+              class="govuk-link"
+              href="trustee-names-loop"
+            >
+              Change <span class="govuk-visually-hidden">answer</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            How long has your organisation been trading?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {%if data['nstf-r2-org-trading'] == "trading-01" %}
+            More than 3 years
+            {% endif %}
+            {%if data['nstf-r2-org-trading'] == "trading-02" %}
+            More than 2 years, but less than 3
+            {% endif %}
+            {%if data['nstf-r2-org-trading'] == "trading-03" %}
+            Less than 2 years
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a
+              class="govuk-link"
+              href="org-trading"
+            >
+              Change <span class="govuk-visually-hidden">answer</span>
+            </a>
+          </dd>
+        </div>
+
+        {%if data['nstf-r2-org-trading'] == "trading-01" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Upload your organisation's annual accounts from the last 3 years
+          </dt>
+          <dd class="govuk-summary-list__value">
+            file-name.file
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a
+              class="govuk-link"
+              href="accounts-01"
+            >
+              Change <span class="govuk-visually-hidden">answer</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {%if data['nstf-r2-org-trading'] == "trading-02" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Upload your organisation's annual accounts that you have available
+          </dt>
+          <dd class="govuk-summary-list__value">
+            file-name.file
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a
+              class="govuk-link"
+              href="accounts-02"
+            >
+              Change <span class="govuk-visually-hidden">answer</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        
+        {%if data['nstf-r2-org-trading'] == "trading-03" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Upload a current bank statement which is less than 2 months old
+          </dt>
+          <dd class="govuk-summary-list__value">
+            file-name.file
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a
+              class="govuk-link"
+              href="accounts-03"
+            >
+              Change <span class="govuk-visually-hidden">answer</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Upload an annual budget for your organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            file-name.file
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a
+              class="govuk-link"
+              href="accounts-04"
+            >
+              Change <span class="govuk-visually-hidden">answer</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+      {% endif %}
+
+
+    </dl>
+
+    <form action="../../app-task-list-new" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Do you want to mark this section as complete?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+              id="1-2-complete"
+              name="1-2-complete" type="radio" value="Yes" {{
+              checked("1-2-complete", "Yes") }}>
+              <label
+                class="govuk-label govuk-radios__label"
+                for="section-02-complete"
+              >
+                Yes, I’ve completed this section
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+              id="section-02-complete-2"
+              name="1-2-complete" type="radio" value="No" {{
+              checked("1-2-complete", "No") }}>
+              <label
+                class="govuk-label govuk-radios__label"
+                for="section-02-complete-2"
+              >
+                No, I’ll come back to it later
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

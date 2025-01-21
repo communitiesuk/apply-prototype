@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "dev": "govuk-prototype-kit dev",
+    "serve": "govuk-prototype-kit serve",
+    "start": "govuk-prototype-kit start"
+  },
+  "dependencies": {
+    "@govuk-prototype-kit/common-templates": "2.0.1",
+    "@x-govuk/govuk-prototype-components": "^3.0.9",
+    "@x-govuk/govuk-prototype-filters": "^1.4.3",
+    "govuk-frontend": "5.8.0",
+    "govuk-notifications": "^1.0.10",
+    "govuk-prototype-kit": "13.16.2",
+    "radio-button-redirect": "^1.2.0"
+  }
+}

@@ -1,0 +1,32 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Cost estimate upload
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">6.2 Building works</span>
+      <h1 class="govuk-heading-l">Upload cost estimate</h1>
+
+    <form action="condition-survey" class="form" method="post">
+      <div class="govuk-form-group">
+        <p class="govuk-hint">This can be from:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-hint">
+              <li>a qualified quantity surveyor</li>
+              <li>a contract administrator</li>
+              <li>a reputable building contractor</li>  
+          </ul>
+              <div class="govuk-form-group">
+                <p class="govuk-hint">It should be a single file no bigger than 5MB in an accepted format (jpg, jpeg, png, pdf, txt, doc, docx, odt, rtf, csv, xls, xlsx, ods).</p>
+                <input class="govuk-file-upload" id="nstf-r2-cost-estimate" name="nstf-r2-cost-estimate" type="file">
+              </div>
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+    
+  </div>
+{% endblock %}

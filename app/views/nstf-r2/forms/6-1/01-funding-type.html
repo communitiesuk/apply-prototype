@@ -1,0 +1,58 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Funding type
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="01-funding-type-post" class="form" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <span class="govuk-caption-l">6.1 Funding required</span>
+            <label class="govuk-label govuk-label--l" for="nstf-project-summary">
+              What funding are you applying for?
+            </label>
+          </h1>
+          <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="nstf-funding-type" name="nstf-funding-type" type="radio" value="Revenue"{{ checked("nstf-funding-type", "Revenue") }}>
+            <label class="govuk-label govuk-radios__label" for="nstf-funding-type">
+              Revenue
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="nstf-funding-type-2" name="nstf-funding-type" type="radio" value="Capital"{{ checked("nstf-funding-type", "Capital") }}>
+            <label class="govuk-label govuk-radios__label" for="nstf-funding-type">
+              Capital
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="nstf-funding-type-3" name="nstf-funding-type" type="radio" value="Both revenue and capital"{{ checked("nstf-funding-type", "Both revenue and capital") }}>
+            <label class="govuk-label govuk-radios__label" for="nstf-funding-type">
+              Both revenue and capital
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="govuk-button"
+        data-module="govuk-button"
+      >
+        Save and continue
+      </button>
+
+    </form>
+  </div>
+</div>
+{% endblock %}

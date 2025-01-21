@@ -1,0 +1,52 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Joint bid | Joint applications | NS Round 2 | Funding Service Design Beta
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/joint-application-answer" class="form" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <span class="govuk-caption-l">1.4 Joint applications</span>
+            <label class="govuk-label govuk-label--l" for="nstf-project-summary">
+              Is your application a joint bid in partnership with other organisations?
+            </label>
+          </h1>
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="nstf-joint-bid" name="nstf-joint-bid" type="radio" value="yes"{{ checked("nstf-joint-bid", "yes") }}>
+            <label class="govuk-label govuk-radios__label" for="nstf-joint-bid">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="nstf-joint-bid-2" name="nstf-joint-bid" type="radio" value="no"{{ checked("nstf-joint-bid", "no") }}>
+            <label class="govuk-label govuk-radios__label" for="nstf-joint-bid">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="govuk-button"
+        data-module="govuk-button"
+      >
+        Save and continue
+      </button>
+
+    </form>
+  </div>
+</div>
+{% endblock %}

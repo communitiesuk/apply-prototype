@@ -1,0 +1,109 @@
+{% extends "layout_cof_w2.html" %} {% block pageTitle %} Check your answers {% endblock
+    %} {% block content %}
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <span class="govuk-caption-l">Final confirmations</span>
+        <h1 class="govuk-heading-l">Check your answers</h1>
+    
+        <!-- {{ data | dump }} -->
+    
+        <!-- <h2 class="govuk-heading-m">
+            Organisation name
+          </h2> -->
+    
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Confirm you have a bank account set up and associated with the organisation you are applying on behalf of
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cofr3-subsidy-implications'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a
+                class="govuk-link"
+                href="/nstf-r2/forms/7-1/declaration"
+              >
+                Change <span class="govuk-visually-hidden">answer</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Confirm that the information you've provided in this application is accurate to the best of your knowledge on the date of submission
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cofr3-protected-characteristics-considered'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a
+                class="govuk-link"
+                href="/nstf-r2/forms/7-1/declaration"
+              >
+                Change <span class="govuk-visually-hidden">answer</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Confirm you have a safeguarding, data protection and health and safety policy
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cofr3-sustainability-considered'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a
+                class="govuk-link"
+                href="/nstf-r2/forms/7-1/declaration"
+              >
+                Change <span class="govuk-visually-hidden">answer</span>
+              </a>
+            </dd>
+          </div>
+        </dl>  
+    
+        <form action="/nstf-r2/app-task-list-new" method="post" novalidate>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  Do you want to mark this section as complete?
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
+                    id="cofr3declarationsComplete"
+                    name="7-1-complete" type="radio" value="Yes" {{
+                    checked("7-1-complete", "Yes") }}>
+                    <label
+                      class="govuk-label govuk-radios__label"
+                      for="cofr3declarationsComplete"
+                    >
+                      Yes, I’ve completed this section
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
+                    id="cofr3declarationsComplete-2"
+                    name="7-1-complete" type="radio" value="No" {{
+                    checked("7-1-complete", "No") }}>
+                    <label
+                      class="govuk-label govuk-radios__label"
+                      for="cofr3sdeclarationsComplete-2"
+                    >
+                      No, I’ll come back to it later
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+      
+            <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+        </form>
+      </div>
+    </div>
+    
+    {% endblock %}
+    

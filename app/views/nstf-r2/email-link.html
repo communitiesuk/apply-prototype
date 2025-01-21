@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter email | NS Round 2 | Funding Service Design Beta
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+tag: {
+text: "prototype"
+},
+html: 'This is not a live service. This is a service currently being designed. '
+}) }}
+
+{% endblock%}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <form action="email-sent" class="form" method="post">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="save-return-email">
+          Email address
+        </label>
+        </h1>
+        <p>
+          We’ll email you a link to start a new application, or continue any applications you have in progress.
+        </p>
+        <p>
+          The link will work once and stop working after 24 hours.
+        </p>
+        <p>
+          If you want to return to an application, you must use the email you started the application with.
+        </p>
+        <input class="govuk-input" id="save-return-email" name="save-return-email" type="email" spellcheck="false" aria-describedby="save-return-email-hint" autocomplete="email">
+        </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+{% endblock %}

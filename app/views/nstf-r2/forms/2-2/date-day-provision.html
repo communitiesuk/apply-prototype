@@ -1,0 +1,48 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Date day provision
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">2.2 Current services</span>
+    <h1 class="govuk-heading-l">When did you start providing day provision?</h1>
+
+      <form action="current-day-provision" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-provision-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <div id="date-provision-hint" class="govuk-hint">
+              For example, 3 2007
+            </div>
+            <div class="govuk-date-input" id="date-provision">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-provision-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="nstf-r2-date-provision-month" name="nstf-r2-date-provision-month" type="text" inputmode="numeric" {{ data['nstf-r2-date-provision-month'] }}>
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-provision-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="nstf-r2-date-provision-year" name="nstf-r2-date-provision-year" type="text" inputmode="numeric" {{ data['nstf-r2-date-provision-year'] }}>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

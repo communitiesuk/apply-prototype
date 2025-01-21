@@ -1,0 +1,56 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Your match funding
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">6.3 Match funding</span>
+      <h1 class="govuk-heading-l">Your match funding</h1>
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Source</th>
+        <th scope="col" class="govuk-table__header">Amount</th>
+        <th scope="col" class="govuk-table__header">Financial year</th>
+        <th scope="col" class="govuk-table__header">Capital or revenue</th>
+        <th scope="col" class="govuk-table__header">Secured</th>
+        <th scope="col" class="govuk-table__header">Action</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      {% for i in data.nstfMatchData %}
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">{{ i.source }}</th>
+        <td class="govuk-table__cell">£{{ i.amount}}</td>
+        <td class="govuk-table__cell">{{ i.year }}</td>
+        <td class="govuk-table__cell">{{ i.type }}</td>
+        <td class="govuk-table__cell">{{ i.secured }}</td>
+        <td class="govuk-table__cell"><a href="match-funding-loop/delete/{{ loop.index0 }}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="govuk-button-group">
+    <a href="check-your-answers" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </a>
+    <a href="match-funding-add" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Add another
+    </a>
+  </div>
+  </div>
+</div>
+{% endblock %}

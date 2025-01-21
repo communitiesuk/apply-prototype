@@ -1,0 +1,41 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Insurance
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">6.2 Building works</span>
+    <h1 class="govuk-heading-l">Do you have a buildings and contents insurance certificate?</h1>
+
+      <form action="/insurance-answer" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nstf-r3-insurance" name="nstf-r3-insurance" type="radio" value="yes"{{checked("nstf-r3-insurance", "yes") }}>
+                <label class="govuk-label govuk-radios__label" for="nstf-r3-insurance">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nstf-r3-insurance-2" name="nstf-r3-insurance" type="radio" value="no" {{checked("nstf-r3-insurance", "no") }}>
+                <label class="govuk-label govuk-radios__label" for="nstf-r3-insurance-2">
+                  No
+                </label>
+              </div>
+            </div>
+        
+          </fieldset>
+        </div>
+        
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

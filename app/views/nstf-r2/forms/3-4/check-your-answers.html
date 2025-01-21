@@ -1,0 +1,321 @@
+{% extends "layout_nstf.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-l">3.4 Proposed services</span>
+    <h1 class="govuk-heading-l">Check your answers</h1>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Tell us how your proposal will transform your existing services
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r2-transform-services'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="service-summary"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Do you plan to use this funding to make any changes to the existing night shelter or emergency accommodation?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r3-future-ns'] == "yes" %}
+          Yes
+          {% else %}
+          No
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      
+      {%if data['nstf-r3-future-ns'] == "yes" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          How many single rooms will you provide with the funding?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r3-rooms-future'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="future-ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Do you plan to use this funding to make any changes to the existing day provision?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-future-day-provision'] == "yes" %}
+          Yes
+          {% else %}
+          No
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="future-ns"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      {%if data['nstf-r2-future-day-provision'] == "yes" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Which additional day provision will your proposal provide?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-future-future-day-provision-type'] == "outreach" %}
+           <li>Outreach</li>
+           {% endif %}
+           
+           {%if data['nstf-r2-future-day-provision-type-2'] %}
+           <li>Non-UK nationals with restricted eligibility to public funds</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-day-provision-type-3']%}
+           <li>Health interventions</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-day-provision-type-4']%}
+           <li>Employment support</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-day-provision-type-5']%}
+           <li>Financial advice </li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-day-provision-type-6']%}
+           <li>Onsite inreach services from other organisations</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-day-provision-type-7']%}
+           <li>Housing advice</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-day-provision-type-8']%}
+           <li>Other</li>
+           {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="future-provision-details"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Which other additional day provision will your proposal provide?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r2-other-day-provision'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="future-other-day-provision"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Will you provide any other additional services?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-future-other-services'] == "yes" %}
+          Yes
+          {% else %}
+          No
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="other-services"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      {%if data['nstf-r2-future-other-services'] == "yes" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Which other services will you use the funding to provide?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nstf-r2-org-purpose'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="future-other-services-yes"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Will your proposal provide additional specialist support?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-future-specialist-answer'] == "yes" %}
+          Yes
+          {% else %}
+          No
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="specialist-support"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+
+      {%if data['nstf-r2-future-specialist-answer'] == "yes" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Who will your proposal provide specialist support to?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {%if data['nstf-r2-future-specialist-support'] %}
+           <li>Women</li>
+           {% endif %}
+           
+           {%if data['nstf-r2-future-specialist-support-2'] %}
+           <li>Survivors of domestic abuse</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-specialist-support-3'] %}
+           <li>Ethnic minorities</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-specialist-support-4'] %}
+           <li>People who identify as LGBTQIA+ (lesbian, gay, bisexual, transgender, queer, intersex, asexual, and agender) </li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-specialist-support-5'] %}
+           <li>Non-UK nationals with restricted eligibility to public funds</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-specialist-support-6'] %}
+           <li>People with mental health problems</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-specialist-support-7'] %}
+           <li>People with social care needs</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-specialist-support-8'] %}
+           <li>People experiencing substance misuse</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-specialist-support-9'] %}
+           <li>Disabled people</li>
+           {% endif %}
+
+           {%if data['nstf-r2-future-specialist-support-10'] %}
+           <li>Other</li>
+           {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a
+            class="govuk-link"
+            href="future-specialist-support"
+          >
+            Change <span class="govuk-visually-hidden">answer</span>
+          </a>
+        </dd>
+      </div>
+      {% endif %}
+
+    </dl>
+
+    <form action="../../app-task-list-new" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Do you want to mark this section as complete?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+              id="section-02-complete"
+              name="3-4-complete" type="radio" value="Yes" {{
+              checked("3-4-complete", "Yes") }}>
+              <label
+                class="govuk-label govuk-radios__label"
+                for="section-02-complete"
+              >
+                Yes, I’ve completed this section
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+              id="section-02-complete-2"
+              name="3-4-complete" type="radio" value="No" {{
+              checked("3-4-complete", "No") }}>
+              <label
+                class="govuk-label govuk-radios__label"
+                for="section-02-complete-2"
+              >
+                No, I’ll come back to it later
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

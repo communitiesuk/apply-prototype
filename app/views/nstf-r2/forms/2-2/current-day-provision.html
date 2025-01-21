@@ -1,0 +1,74 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Current day provision
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">2.2 Current services</span>
+    <h1 class="govuk-heading-l">Which day provision services are you currently providing?</h1>
+
+    <form class="form" action="/day-provision-other" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="nstf-r2-day-provision-type-hint">
+         <div id="nstf-r2-day-provision-type-hint" class="govuk-hint">
+          Select all that apply.
+         </div>
+         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="nstf-r2-day-provision-type" name="nstf-r2-day-provision-type" type="checkbox" value="outreach" {{ checked('nstf-r2-day-provision-type', 'outreach') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-day-provision-type">
+            Outreach
+           </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="nstf-r2-day-provision-type-3" name="nstf-r2-day-provision-type-3" type="checkbox" value="health-interventions" {{ checked('nstf-r2-day-provision-type-3', 'health-interventions') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-day-provision-type-3">
+            Health interventions
+           </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nstf-r2-day-provision-type-4" name="nstf-r2-day-provision-type-4" type="checkbox" value="employment-support" {{ checked('nstf-r2-day-provision-type-4', 'employment-support') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-day-provision-type-4">
+              Employment support 
+            </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nstf-r2-day-provision-type-5" name="nstf-r2-day-provision-type-5" type="checkbox" value="financial-advice" {{ checked('nstf-r2-day-provision-type-5', 'financial-advice') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-day-provision-type-5">
+              Financial advice 
+            </label>
+           </div>
+          <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="nstf-r2-day-provision-type-6" name="nstf-r2-day-provision-type-6" type="checkbox" value="inreach"{{ checked('nstf-r2-day-provision-type-6', 'inreach') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-day-provision-type-6">
+            Onsite inreach services from other organisations
+           </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nstf-r2-day-provision-type-7" name="nstf-r2-day-provision-type-7" type="checkbox" value="housing-advice" {{ checked('nstf-r2-day-provision-type-7', 'housing-advice') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-day-provision-type-5">
+              Housing advice 
+            </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nstf-r2-day-provision-type-8" name="nstf-r2-day-provision-type-8" type="checkbox" value="other" {{ checked('nstf-r2-day-provision-type-8', 'other') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-day-provision-type-5">
+              Other
+            </label>
+           </div>
+         </div>
+        </fieldset>
+       </div> 
+      
+
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

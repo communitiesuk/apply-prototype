@@ -1,0 +1,59 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Joint applications | NS Round 2 | Funding Service Design Beta
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">1.4 Joint applications</span>
+      <h1 class="govuk-heading-l">Partner organisation details</h1>
+
+  <form action="03-partner-loop" method="post" novalidate>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-label--s" for="nstf-partner-name-hint">
+        Partner organisation name
+      </label>
+      <input
+        class="govuk-input govuk-input--width-20"
+        id="nstf-partner-name"
+        name="nstfPartner[name]"
+        type="text"
+        aria-describedby="nstf-partner-name-hint"
+        value=""
+      />
+    </div>
+
+    <div class="govuk-form-group">
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="500">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="nstf-partner-description">
+            Tell us about your partnership and how you plan to work together
+          </label>
+          <textarea class="govuk-textarea govuk-js-character-count" id="nstf-partner-description" name="nstfPartner[description]" rows="5" aria-describedby="nstf-partner-description-info">{{ data['nstf-partner-description'] }}</textarea>
+        </div>
+      <div id="nstf-partner-description-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 500 words
+      </div>
+    </div>
+
+    <button
+      class="govuk-button govuk-button--secondary"
+      data-module="govuk-button"
+    >
+      Add and continue
+    </button>
+
+    </form>
+  </div>
+</div>
+{% endblock %}

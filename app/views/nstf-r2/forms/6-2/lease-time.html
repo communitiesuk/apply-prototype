@@ -1,0 +1,46 @@
+{% extends "layout_with_back_to_task_list_cof_r3.html" %}
+
+{% block pageTitle %}
+  Remaining time on lease
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">6.2 Building works</span>
+      <h1 class="govuk-heading-l">How long is left on the lease agreement?</h1>
+
+    <form action="/lease-time-answer" class="form" method="post">
+        
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="nstf-r3-lease-time-hint">
+              <div id="nstf-r3-lease-time-hint" class="govuk-hint">
+                Select one option
+              </div>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="nstf-r3-lease-time" name="nstf-r3-lease-time" type="radio" value="more-4-years" {{ checked("nstf-r3-lease-time", "more-4-years") }}>
+                  <label class="govuk-label govuk-radios__label" for="nstf-r3-lease-time">
+                    More than 4 years
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="nstf-r3-lease-time-2" name="nstf-r3-lease-time" type="radio" value="less-4-years" {{ checked("nstf-r3-lease-time", "less-4-years") }}>
+                  <label class="govuk-label govuk-radios__label" for="nstf-r3-lease-time-2">
+                    Less than 4 years
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+    
+
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+    
+  </div>
+{% endblock %}

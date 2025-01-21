@@ -1,0 +1,29 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Upload accounts
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">1.2 Organisation type</span>
+      <h1 class="govuk-heading-l">Upload your organisation's annual accounts that you have available</h1>
+
+    <form action="check-your-answers" class="form" method="post">
+      <div class="govuk-form-group">
+
+              <div class="govuk-form-group">
+                <p class="govuk-hint">It should be a single file no bigger than 5MB in an accepted format (jpg, jpeg, png, pdf, txt, doc, docx, odt, rtf, csv, xls, xlsx, ods).</p>
+                <input class="govuk-file-upload" id="cofr3-local-support-evidence" name="cofr3-local-support-evidence" type="file">
+              </div>
+      
+
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+    
+  </div>
+{% endblock %}

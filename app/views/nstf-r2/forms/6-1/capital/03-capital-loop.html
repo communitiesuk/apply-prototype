@@ -1,0 +1,54 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Your capital expenditure
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">6.1 Funding required</span>
+      <h1 class="govuk-heading-l">Your capital costs</h1>
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Item of expenditure</th>
+        <th scope="col" class="govuk-table__header">Amount</th>
+        <th scope="col" class="govuk-table__header">Financial year</th>
+        <th scope="col" class="govuk-table__header">How it's been calculated</th>
+        <th scope="col" class="govuk-table__header">Action</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      {% for i in data.nstfCapitalData %}
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">{{ i.name }}</th>
+        <td class="govuk-table__cell">{{ i.amount }}</td>
+        <td class="govuk-table__cell">{{ i.year }}</td>
+        <td class="govuk-table__cell">{{ i.calculated }}</td>
+        <td class="govuk-table__cell"><a href="03-capital-loop/delete/{{ loop.index0 }}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="govuk-button-group">
+    <a href="../check-your-answers" class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </a>
+    <a href="02-capital-add" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Add another
+    </a>
+  </div>
+  </div>
+</div>
+{% endblock %}

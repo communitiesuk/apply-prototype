@@ -1,0 +1,25 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Intro example
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">2.1 Section heading</h1>
+
+    <p class="govuk-body"><strong>In this section, we'll ask about:  </strong></p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>example</li>
+        <li>example</li>
+        <li>example</li>
+    </ul>
+
+    <a href="question-example" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Continue
+    </a>
+  </div>
+{% endblock %}

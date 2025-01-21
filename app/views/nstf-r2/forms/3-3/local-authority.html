@@ -1,0 +1,67 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Local authority
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">3.3 Local need and support</span>
+    <h1 class="govuk-heading-l">Local authority support</h1>
+
+    <form action="check-your-answers" class="form" method="post">
+
+    
+      <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--s" for="nstf-r2-hint">
+            What is the name of the local authority where your proposal will be based?
+          </label>
+          <input class="govuk-input" id="nstf-local-authority-support" name="localauthority" type="text" value= "{{ data['nstf-r2-local-authority'] }}">
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-label govuk-label--s">
+            Do you have the local authority's support and endorsement for your proposal?
+          </legend>
+
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nstf-r3-support-yes" name="nstf-r3-support-yes" type="radio" value="Yes"{{checked("nstf-r3-support-yes", "Yes") }}>
+
+              <label class="govuk-label govuk-radios__label" for="nstf-r3-support-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nstf-r3-support-yes-2" name="nstf-r3-support-yes" type="radio" value="No"{{checked("nstf-r3-support-yes", "No") }}>
+              <label class="govuk-label govuk-radios__label" for="nstf-r3-support-yes-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="nstf-r2-hint">
+          Upload letter of endorsement from your local authority (optional)
+        </label>
+        <p class="govuk-hint">Upload the letter now if you have it.</p>
+        <p class="govuk-hint">If you do not have it at the moment, we might contact you by email when we assess your application.</p>
+        <p class="govuk-hint">The letter should be written by a rough sleeping lead and must not be written by a local councillor.</p>
+        <p class="govuk-hint">Your application will not be considered if you cannot provide the letter of endorsement.</p>
+        <p class="govuk-hint">It should be a single file no bigger than 5MB in an accepted format (jpg, jpeg, png, pdf, txt, doc, docx, odt, rtf, csv, xls, xlsx, ods.)</p>
+        <div class="govuk-form-group">
+          <input class="govuk-file-upload" id="nstf-r2-support-letter-upload" name="nstf-r2-condition-survey-upload" type="file">
+        </div>
+
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

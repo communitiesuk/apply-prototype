@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Email sent | NS Round 2 | Funding Service Design Beta
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: "Apply for funding to transform your night shelter services in England"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-top-2">
+          Email sent
+      </h1>
+
+      <p class="govuk-body">We have sent an email to <span class="govuk-!-font-weight-bold">{% if data['save-return-email'] %}{{ data['save-return-email'] }}{% else %}email@example.com{% endif %}</span><p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">Use the link to confirm your email address and start a new application, or continue any applications you have in progress.</p>
+
+      <p>The link will work once and stop working after 24 hours.</p>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            If you do not receive an email
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">The email may take a few minutes to arrive.</p>
+          <p class="govuk-body">Check your spam or junk folder – if it still has not arrived, you can <a href="email-link" class="govuk-link govuk-link--no-visited-state">request a new email</a>.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+    {{ govukFooter({
+      meta: {
+        items: [
+        {
+          href: "email",
+          text: "Use me to visit your 'email inbox'"
+        },
+          {
+            href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+          },
+          {
+            href: "/prototype-admin/clear-data",
+            text: "Clear data"
+          }
+        ]
+      }
+    }) }}
+  {% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layout_with_back_nstf.html" %}
+{% block pageTitle %}
+  Organisation classification
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">1.2 Organisation type</span>
+    <h1 class="govuk-heading-l">How is your organisation classified?</h1>
+    <form class="form" action="/nstf-r2-org-type-test" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="nstf-r2-org-type-hint">
+         <div id="nstf-r2-org-type-hint" class="govuk-hint">
+          Select all that apply.
+         </div>
+         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="nstf-r2-org-type" name="nstf-r2-org-type" type="checkbox" value="charity" {{ checked('nstf-r2-org-type', 'charity') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-org-type">
+            Charity
+           </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="nstf-r2-org-type-2" name="nstf-r2-org-type-2" type="checkbox" value="company-limited-by-guarantee" {{ checked('nstf-r2-org-type-2', 'company-limited-by-guarantee') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-org-type-2">
+            Company limited by guarantee
+           </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="nstf-r2-org-type-3" name="nstf-r2-org-type-3" type="checkbox" value="charitable-incorporated-organisation" {{ checked('nstf-r2-org-type-3', 'charitable-incorporated-organisation') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-org-type-3">
+            Charitable incorporated organisation
+           </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nstf-r2-org-type-34" name="nstf-r2-org-type-4" type="checkbox" value="community-interest-company" {{ checked('nstf-r2-org-type-4', 'community-interest-company') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-org-type-4">
+              Community interest company 
+            </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nstf-r2-org-type-5" name="nstf-r2-org-type-5" type="checkbox" value="community-benefits-society" {{ checked('nstf-r2-org-type-5', 'community-benefits-society') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-org-type-5">
+              Community benefits society 
+            </label>
+           </div>
+           <div class="govuk-checkboxes__divider">or</div>
+          <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="nstf-r2-org-type-6" name="nstf-r2-org-type-6" type="checkbox" value="none" {{ checked('nstf-r2-org-type-6', 'none') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="nstf-r2-org-type-6">
+            None of these
+           </label>
+          </div>
+         </div>
+        </fieldset>
+       </div> 
+  
+    <div>
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+    </div>
+  </form>
+  
+</div>
+{% endblock %}

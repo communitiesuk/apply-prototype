@@ -1,0 +1,31 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Nights open
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">2.2 Current services</span>
+    <h1 class="govuk-heading-l">How many nights did the night shelter or emergency accommodation open from 1 April 2022 to 31 March 2023?</h1>
+
+      <form action="day-provision" method="post" novalidate>
+        <div class="govuk-form-group">
+          <input class="govuk-input govuk-input--width-5"
+          id="nstf-r3-nights-open-current"
+          name="nstf-r3-nights-open-current"
+          type="text"
+          spellcheck="false"
+          value="{{ data['nstf-r3-nights-open-current'] }}"
+          />
+        </div>
+        
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

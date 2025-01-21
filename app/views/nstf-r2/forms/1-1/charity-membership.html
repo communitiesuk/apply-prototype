@@ -1,0 +1,56 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Charity membership
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">1.1 Organisation information</span>
+    
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="membership-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Which membership organisations are you a member of?
+          </h1>
+        </legend>
+        <form action="check-your-answers" class="form" method="post">
+
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="nstf-r3-membership" name="nstf-r3-membership" type="radio" value="homeless-link" {{ checked('nstf-r3-membership', 'homeless-link') }}>
+          <label class="govuk-label govuk-radios__label" for="nstf-r3-membership">
+            Homeless Link
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="nstf-r3-membership-2" name="nstf-r3-membership" type="radio" value="housing-justice" {{ checked("nstf-r3-membership", "housing-justice") }}>
+          <label class="govuk-label govuk-radios__label" for="nstf-r3-membership-2">
+            Housing Justice
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="nstf-r3-membership-3" name="nstf-r3-membership" type="radio" value="both" {{ checked("nstf-r3-membership", "both") }}>
+          <label class="govuk-label govuk-radios__label" for="nstf-r3-membership-3">
+          Both
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="nstf-r3-membership-4" name="nstf-r3-membership" type="radio" value="none" {{ checked("nstf-r3-membership", "none") }}>
+          <label class="govuk-label govuk-radios__label" for="nstf-r3-membership-4">
+           None
+          </label>
+         </div>
+        </fieldset>
+      </div>
+
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

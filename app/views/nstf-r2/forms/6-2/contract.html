@@ -1,0 +1,45 @@
+{% extends "layout_with_back_nstf.html" %}
+
+{% block pageTitle %}
+  Contract
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">6.2 Building works</span>
+    <h1 class="govuk-heading-l">Will you procure a construction contract for the building works?</h1>
+
+      <form action="advisors" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <p class="govuk-hint">You’re expected to enter into a legally binding agreement when procuring any building works.</p>
+            <p class="govuk-hint">Where appropriate, you should use a recognised standard form of contract.</p>
+            <p class="govuk-hint">For example, a JCT Minor Works Building Contract.</p>
+              
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nstf-r3-contract" name="nstf-r3-contract" type="radio" value="yes"{{checked("nstf-r3-contract", "yes") }}>
+                <label class="govuk-label govuk-radios__label" for="nstf-r3-contract">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nstf-r3-contract-2" name="nstf-r3-contract" type="radio" value="no" {{checked("nstf-r3-contract", "no") }}>
+                <label class="govuk-label govuk-radios__label" for="nstf-r3-contract-2">
+                  No
+                </label>
+              </div>
+            </div>
+        
+          </fieldset>
+        </div>
+        
+      <div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}

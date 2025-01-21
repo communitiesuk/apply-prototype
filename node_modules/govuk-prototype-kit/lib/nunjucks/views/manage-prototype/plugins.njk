@@ -1,0 +1,154 @@
+{% extends "views/manage-prototype/layout.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+{% block content %}
+    <form method="post" action="">
+        <div class="govuk-grid-row govuk-!-margin-bottom-5">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                <h1 class="govuk-heading-l">Plugins</h1>
+                <p class="govuk-body">
+                    Plugins provide you with new components, styles and other features
+                </p>
+            </div>
+        </div>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-quarter">
+                {% if isSearchPage %}
+                    <div class="sub-nav govuk-!-margin-bottom-6 govuk-prototype-kit-manage-prototype-plugin-subnav--current">
+                        <h2 class="govuk-heading-m">Find plugins</h2>
+                    </div>
+                    <div class="sub-nav">
+                        <a id="installed-plugins-link" href="./plugins-installed" class="govuk-heading-m govuk-link--no-visited-state">
+                            Installed plugins
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="sub-nav govuk-!-margin-bottom-6">
+                        <a id="available-plugins-link" href="./plugins" class="govuk-heading-m govuk-link--no-visited-state">
+                            Find plugins
+                        </a>
+                    </div>
+                    <div class="sub-nav govuk-prototype-kit-manage-prototype-plugin-subnav--current">
+                        <h2 class="govuk-heading-m">Installed plugins</h2>
+                    </div>
+                {% endif %}
+                {% if updatesMessage %}
+                    {{ govukTag({
+                        attributes: {id: "plugins-updates-available-message"},
+                        text: updatesMessage
+                    }) }}
+                {% endif %}
+            </div>
+
+            <div class="govuk-grid-column-three-quarters">
+                {% if isSearchPage %}
+                <div class="govuk-!-margin-bottom-5">
+                    <div id="search-container">
+                        {{ govukInput({
+                            id: "search",
+                            label: {
+                                text: "Search",
+                                classes: "govuk-label--s"
+                            },
+                            classes: "govuk-!-width-one-half",
+                            formGroup: {
+                                classes: "govuk-!-margin-bottom-3"
+                            },
+                            name: "search",
+                            value: search
+                        }) }}
+
+                        <div class="govuk-button-group">
+                            {{ govukButton({
+                                text: "Search",
+                                classes: "govuk-button--secondary",
+                                attributes: { id: "search-button", formaction: "#" }
+                            }) }}
+
+                            {% if search %}
+                                <a class="govuk-link govuk-link--no-visited-state" href="?">Clear search</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <h3 class="govuk-body govuk-!-font-weight-bold">
+                        {{ foundMessage }}
+                    </h3>
+                </div>
+                {% endif %}
+
+                <ul class="govuk-list govuk-prototype-kit-manage-prototype-plugin-list-plugin-list"
+                    data-plugin-group-status="{{ status }}">
+                    {% for plugin in plugins %}
+                        <li class="govuk-prototype-kit-manage-prototype-plugin-list-plugin-list__item"
+                            data-plugin-package-name="{{ plugin.packageName }}">
+
+                            <div class="govuk-grid-column-one-third govuk-body">
+                                <h4 class="govuk-body govuk-!-font-weight-bold">
+                                    {{ plugin.name }}
+                                </h4>
+                                {% if plugin.scope %}
+                                    <div>
+                                        By {{ plugin.scope }}
+                                    </div>
+                                {% endif %}
+                                {% if plugin.installedVersion %}
+                                    <div class="govuk-!-margin-top-3">
+                                        v{{ plugin.installedVersion }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="govuk-grid-column-two-thirds govuk-body">
+                                {% if isSearchPage and plugin.installedVersion %}
+                                    <p>
+                                        {{ govukTag({
+                                            text: "Installed",
+                                            classes: "govuk-tag--grey"
+                                        }) }}
+                                    </p>
+                                {% endif %}
+                                {% if plugin.description %}
+                                    <div class="govuk-!-margin-bottom-3">
+                                        {{ plugin.description }}
+                                    </div>
+                                {% endif %}
+                                <div class="govuk-prototype-kit-manage-prototype-plugin-list-plugin-list__item-buttons">
+                                    <div class="govuk-button-group">
+                                        {% if not plugin.installedVersion %}
+                                            {{ govukButton({
+                                                html: 'Install <span class="govuk-visually-hidden"> ' + plugin.name + '</span>',
+                                                attributes: { id: "install-" + plugin.packageName, formaction: plugin.installLink }
+                                            }) }}
+                                        {% endif %}
+                                        {% if isInstalledPage %}
+                                            {% if plugin.updateLink %}
+                                                {{ govukButton({
+                                                    html: 'Update <span class="govuk-visually-hidden"> ' + plugin.name + '</span>',
+                                                    attributes: { id: "update-" + plugin.packageName, formaction: plugin.updateLink }
+                                                }) }}
+                                            {% endif %}
+                                            {% if plugin.uninstallLink %}
+                                                {{ govukButton({
+                                                    html: 'Uninstall <span class="govuk-visually-hidden"> ' + plugin.name + '</span>',
+                                                    classes: "govuk-button--secondary",
+                                                    attributes: { id: "uninstall-" + plugin.packageName, formaction: plugin.uninstallLink }
+                                                }) }}
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if plugin.helpLink %}
+                                            <a class=""
+                                               href="{{ plugin.helpLink }}">Help<span
+                                                        class="govuk-visually-hidden"> - {{ plugin.name }}</span></a>
+                                        {% endif %}
+                                     </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </form>
+{% endblock %}

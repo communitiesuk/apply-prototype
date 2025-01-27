@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "What is the estimated cost of backfilling roles?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        	
+
+        <form method="post" action="/roles-and-recruitment/project-lead" > 
+            
+			{{ govukInput({
+                label: {
+                    text: "What is the estimated cost of backfilling roles?",
+                    classes: "govuk-label govuk-visually-hidden",
+                    isPageHeading: false
+                },    
+                prefix: {
+                    text: "£"
+                  },            
+                classes: "govuk-!-width-one-third",
+                id: "rolesEstimatedCost",
+                name: "rolesEstimatedCost",
+                value: data['rolesEstimatedCost']                
+            }) }} 
+
+			
+            
+            
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}    
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

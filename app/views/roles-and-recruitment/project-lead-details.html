@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Who will be the project lead?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        	
+
+        <form method="post" action="/roles-and-recruitment/check-your-answers" > 
+            
+			{{ govukInput({
+                label: {
+                    text: "Project lead first name",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },                
+                classes: "govuk-!-width-two-thirds",
+                id: "rolesProjectLeadFirstName",
+                name: "rolesProjectLeadFirstName",
+                value: data['rolesProjectLeadFirstName']                
+            }) }} 
+
+			{{ govukInput({
+                label: {
+                    text: "Project lead last name",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },                
+                classes: "govuk-!-width-two-thirds",
+                id: "rolesProjectLeadLastName",
+                name: "rolesProjectLeadLastName",
+                value: data['rolesProjectLeadLastName']                
+            }) }} 
+            
+            
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}    
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

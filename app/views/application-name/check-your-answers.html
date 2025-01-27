@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = "Name your application" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <h2 class="govuk-heading-m">Name your application</h2>
+
+      	{{ govukSummaryList({
+        	rows: [
+          		{ key: { text: "Name your application" }, value: { text: "data['applicationName']" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Question 1" } ] } }          
+        	]
+      	}) }}
+
+		<form action="/task-list" method="post" novalidate>
+			
+			{{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "applicationNameComplete",
+				fieldset: {
+					legend: {
+						text: "Do you want to mark this section as complete?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--l"
+					}
+				},			
+				items: [
+				{ value: "yes", text: "Yes", checked: checked("applicationNameComplete", "yes")  },
+				{ value: "no", text: "No", checked: checked("applicationNameComplete", "no") }
+				]
+			}) }}
+
+			{{ govukButton({
+			text: "Save and continue"
+			}) }}
+
+		</form>
+
+    </div>
+  </div>
+{% endblock %}

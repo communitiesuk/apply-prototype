@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <h2 class="govuk-heading-m">Organisation information</h2>
+
+      	{{ govukSummaryList({
+        	rows: [
+          		{ key: { text: "Organisation name" }, value: { text: data['orgName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
+				{ key: { text: "Project sponsor first name" }, value: { text: data['projectSponsorFirstName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor first name" } ] } },
+				{ key: { text: "Project sponsor last name" }, value: { text: data['projectSponsorLasttName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor last name" } ] } },
+				{ key: { text: "Project sponsor email address" }, value: { text: data['projectSponsorEmail'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor email address" } ] } },
+				{ key: { text: "Project sponsor telephone number" }, value: { text: data['projectSponsorTelephone'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor telephone number" } ] } },
+				{ key: { text: "Section 151 officer first name" }, value: { text: data['section151FirstName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Section 151 officer first name" } ] } },
+				{ key: { text: "Section 151 officer last name" }, value: { text: data['section151LasttName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Section 151 officer last name" } ] } },
+				{ key: { text: "Section 151 officer email address" }, value: { text: data['section151Email'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Section 151 officer email address" } ] } },
+				{ key: { text: "Section 151 officer telephone number" }, value: { text: data['section151Telephone'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Section 151 officer telephone number" } ] } },
+				{ key: { text: "Lead contact first name" }, value: { text: data['leadContactFirstName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Lead contact first name" } ] } },
+				{ key: { text: "Lead contact last name" }, value: { text: data['leadContactLasttName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Lead contact last name" } ] } },
+				{ key: { text: "Lead contact’s job title" }, value: { text: data['leadContactJobTitle'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Lead contact job title" } ] } }, 
+				{ key: { text: "Lead contact email address" }, value: { text: data['leadContactEmail'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Lead contact email address" } ] } },
+				{ key: { text: "Lead contact telephone number" }, value: { text: data['leadContactTelephone'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Lead contact telephone number" } ] } }
+				  
+        	]
+      	}) }}
+
+		<form action="/task-list" method="post" novalidate>
+			
+			{{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "organisationDetailsComplete",
+				fieldset: {
+					legend: {
+						text: "Do you want to mark this section as complete?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--l"
+					}
+				},			
+				items: [
+				{ value: "yes", text: "Yes", checked: checked("organisationDetailsComplete", "yes")  },
+				{ value: "no", text: "No", checked: checked("organisationDetailsComplete", "no") }
+				]
+			}) }}
+
+			{{ govukButton({
+			text: "Save and continue"
+			}) }}
+
+		</form>
+
+    </div>
+  </div>
+{% endblock %}

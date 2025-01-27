@@ -3,8 +3,8 @@
 {% set pageName="Home" %}
 
 
-{% set pageHeading = "What’s the SOR’s email address?" %}
-{% set pageSection = "Create a grant profile" %}
+{% set pageHeading = "Apply for funding" %}
+{% set pageSection = "Prototype" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	<span class="govuk-caption-xl">Prototype</span>
     	<h1 class="govuk-heading-xl">Apply for funding</h1>
 

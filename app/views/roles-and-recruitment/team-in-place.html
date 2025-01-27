@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "How will you make sure you have a team in place ready to deliver the project?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+		<p class="govuk-body govuk-hint">Tell us about how you plan to recruit any new roles if they are needed</p>
+        <form method="post" action="/roles-and-recruitment/tell-us-about-the-team" > 
+            
+
+			{{ govukCharacterCount({
+				name: "rolesTeamInPlace",
+				id: "rolesTeamInPlace",
+				maxwords: 250,
+				value: data['rolesTeamInPlace']  ,
+				label: {
+				  text: "How will you make sure you have a team in place ready to deliver the project?",
+				  classes: "govuk-label--l govuk-visually-hidden",
+				  isPageHeading: false
+				}				
+			  }) }}         
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}    
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

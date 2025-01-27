@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Will you need to backfill any roles in your organisation?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
+
+        <form method="post" action="/roles-and-recruitment/project-lead" > 
+            
+            {{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "rolesTeamBackfill",
+				fieldset: {
+					legend: {
+						text: "Will you need to backfill any roles in your organisation?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend govuk-visually-hidden"
+					}
+				},			
+				items: [
+				{ value: "yes~/roles-and-recruitment/estimated-cost", text: "Yes", checked: checked("rolesTeamBackfill", "yes")  },
+				{ value: "no", text: "No", checked: checked("rolesTeamBackfill", "no") }
+				]
+			}) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}    
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

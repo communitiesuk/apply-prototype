@@ -41,10 +41,17 @@
         {% endif %}
 
         <!-- Back Link -->
-        {% if showBackLink != false %}
+        {% if showBackLink == true %}
             {{ govukBackLink({
                 text: "Back",
                 href: "javascript:history.go(-1)"
+            }) }}
+        {% endif %}
+
+        {% if showBackApplicationsLink != false %}
+            {{ govukBackLink({
+                text: "Back to your applications",
+                href: "/account/"
             }) }}
         {% endif %}
 

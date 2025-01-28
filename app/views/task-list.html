@@ -1,5 +1,6 @@
 {% extends "layouts/main.html" %}
 
+{% set showBackLink = false %}
 
 {% if data['fundName'] == "High Street Rental Auctions" %}
     {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
@@ -95,11 +96,6 @@
 		<p>None of the sections have been completed.</p>
 
 		{% endif %}
-
-		
-		
-
-
 
 
         {% set completedStatus = { text: "Completed" } %}

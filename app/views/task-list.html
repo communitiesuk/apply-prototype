@@ -123,7 +123,7 @@
       	{{ govukTaskList({
         	idPrefix: "first-section",
         	items: [
-          		{ title: { text: "5.1 Future work" }, href: "#", status: notstartedStatus }          		
+          		{ title: { text: "5.1 Future work" }, href: "/future-work/", status: ( completedStatus if data['futureWorkComplete'] == "yes" else notstartedStatus ) }          		
         	]
       	}) }}
 

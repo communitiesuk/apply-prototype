@@ -20,13 +20,13 @@
 
       	{{ govukSummaryList({
         	rows: [
-          		{ key: { text: "Does your organisation collect at least one of the datasets?" }, value: { text: data['engagingOrganisationHow'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },				
-				{ key: { text: "Which datasets have you collected?" }, value: { text: data['engagingOrganisationProgress'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
+          		{ key: { text: "Does your organisation collect at least one of the datasets?" }, value: { text: data['datasetInfoCollect'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },				
+				{ key: { text: "Which datasets have you collected?" }, value: { text: data['datasetInfoWhich'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
 				{ key: { text: "Which format is your dataset in for conservation areas?" }, value: { text: data['engagingOrganisationProgress'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
-				{ key: { text: "How long do you think it will take your organisation to publish all 4 datasets?" }, value: { text: data['engagingOrganisationProgress'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
-				{ key: { text: "What are the current known issues and challenges you have with data quality and publication?" }, value: { text: data['engagingOrganisationProgress'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } }
+				{ key: { text: "How long do you think it will take your organisation to publish all 4 datasets?" }, value: { text: data['datasetInfoTimePublish'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
+				{ key: { text: "What are the current known issues and challenges you have with data quality and publication?" }, value: { text: data['datasetInfoIssuesChallenges'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } }
 				
-				
+
 
 
 
@@ -37,7 +37,7 @@
 			
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "engagingOrganisationComplete",
+				name: "datasetInfoComplete",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -46,8 +46,8 @@
 					}
 				},			
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("engagingOrganisationComplete", "yes")  },
-				{ value: "no", text: "No", checked: checked("engagingOrganisationComplete", "no") }
+				{ value: "yes", text: "Yes", checked: checked("datasetInfoComplete", "yes")  },
+				{ value: "no", text: "No", checked: checked("datasetInfoComplete", "no") }
 				]
 			}) }}
 

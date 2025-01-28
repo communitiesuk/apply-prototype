@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Engaging the organisation" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        
+        <p class="govuk-body govuk-!-font-weight-bold">In this section, we'll ask about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>how you will make sure team members engage with other parts of your organisation</li>
+            <li>how you will share the progress of the work across your organisation</li>            
+        </ul>
+        
+
+        <form method="post" action="/engaging-the-organisation/team-engagement" >       
+            
+            
+            {{ govukButton({
+                text: "Continue"
+            }) }}    
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -113,9 +113,9 @@
       	{{ govukTaskList({
         	idPrefix: "first-section",
         	items: [
-          		{ title: { text: "4.1 Engaging the ODP (Open Digital Planning) community" }, href: "#", status: notstartedStatus },
-				{ title: { text: "4.2 Engaging the organisation" }, href: "#", status: notstartedStatus },
-				{ title: { text: "4.3 Dataset information" }, href: "#", status: notstartedStatus }				
+          		{ title: { text: "4.1 Engaging the ODP (Open Digital Planning) community" }, href: "/engaging-digital-planning/", status: ( completedStatus if data['engagingDigitalPlanningComplete'] == "yes" else notstartedStatus ) },
+				{ title: { text: "4.2 Engaging the organisation" }, href: "/engaging-the-organisation/", status: ( completedStatus if data['engagingOrganisationComplete'] == "yes" else notstartedStatus ) },
+				{ title: { text: "4.3 Dataset information" }, href: "/dataset-information/", status: ( completedStatus if data['engagingOrganisationComplete'] == "yes" else notstartedStatus ) }				
         	]
       	}) }}
 
@@ -123,7 +123,7 @@
       	{{ govukTaskList({
         	idPrefix: "first-section",
         	items: [
-          		{ title: { text: "5.1 Future work" }, href: "/future-work/", status: ( completedStatus if data['futureWorkComplete'] == "yes" else notstartedStatus ) }          		
+          		{ title: { text: "5.1 Future work" }, href: "/future-work/", status: ( completedStatus if data['futureWorComplete'] == "yes" else notstartedStatus ) }          		
         	]
       	}) }}
 

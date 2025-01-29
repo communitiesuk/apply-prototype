@@ -73,7 +73,7 @@
 
 
 		<p><strong>Submission deadline:</strong> 31 January 2025 at 11:59am
-		<br><span class="govuk-!-margin-bottom-7"><strong>Reference:</strong> DPIF-R3-IQPIJK</span>
+		<br><span><strong>Reference:</strong> DPIF-R3-IQPIJK</span>
 		
 		{% if data['statusApplication'] == "Complete" %}
 
@@ -91,7 +91,7 @@
 
 		{% else %}
 		
-		<br><span class="govuk-!-margin-bottom-7"><strong>Status:</strong> {{ govukTag({ text: "In Progress" }) }}</span></p>
+		<br><span><strong>Status:</strong></span> {{ govukTag({ text: "Not Started", classes: "govuk-tag--grey"  }) }}</p>
 
 		<p>None of the sections have been completed.</p>
 

@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
 
 {% if data['fundName'] == "High Street Rental Auctions" %}
     {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
@@ -30,8 +30,8 @@
 
 
         {% if data['fundName'] == "High Street Rental Auctions" %}
-        
-            <p><a href="https://www.gov.uk/government/publications/high-street-rental-auctions-grants-for-local-authorities/high-street-rental-auctions-fund-prospectus" class="govuk-link">Read the fund's prospectus</a> before you apply.</p>        
+
+            <p><a href="https://www.gov.uk/government/publications/high-street-rental-auctions-grants-for-local-authorities/high-street-rental-auctions-fund-prospectus" class="govuk-link">Read the fund's prospectus</a> before you apply.</p>
             <p><strong>Submission deadline:</strong> 01 February 2025 at 11:59am</p>
 
             {{ govukButton({
@@ -43,15 +43,15 @@
 
             <h2 class="govuk-heading-m">Get help</h2>
             <p>If you need help, contact us through our <a href="https://mhclgdigital.atlassian.net/servicedesk/customer/portal/5/group/68" class="govuk-link">support desk</a></p>
-            <p>Do not send any applications or attachments through the support desk. We'll only accept applications through this service.</p>            
+            <p>Do not send any applications or attachments through the support desk. We'll only accept applications through this service.</p>
 
-        
+
         {% elif data['fundName'] == "Community Ownership" %}
 
         <p><strong>Submission deadline:</strong> 26 January 2025 at 11:59am</p>
-    
+
         {% elif data['fundName'] == "Digital Planning Improvement" %}
-                        
+
             <p><strong>Submission deadline:</strong> 31 January 2025 at 11:59am</p>
 
             {{ govukButton({
@@ -64,7 +64,7 @@
             <h3 class="govuk-heading-s">What we’ll ask you for</h3>
             <p>We have outlined the information needed to complete the application form in our <a href="https://www.localdigital.gov.uk/digital-planning/digital-planning-improvement-fund-2024/">prospectus</a>. If you have not received the prospectus, contact digitalplanningteam@communities.gov.uk.</p>
             <p>You can <a href="#" class="govuk-link">preview the full list of application questions</a>.</p>
-            
+
 
             <h3 class="govuk-heading-s">Moving through the form</h3>
             <p>The form is split into sections based on how it will be assessed.</p>
@@ -80,14 +80,14 @@
 
             <h3 class="govuk-heading-s">Submitting your application</h3>
             <p>When you have completed all sections, you’ll be able to submit your application.</p>
-            <p>Once you have submitted your application, you’ll not be able to edit, add or change any section.</p> 
+            <p>Once you have submitted your application, you’ll not be able to edit, add or change any section.</p>
 
 
             <h2 class="govuk-heading-m">Get help</h2>
             <p>If you have questions about the form or the fund, <a href="https://frontend.uat.access-funding.test.levellingup.gov.uk/contact_us?fund=DPIF&round=R3" class="govuk-link">contact us</a></p>
-            <p>Do not send any applications or attachments through the support desk. We'll only accept applications through this service.</p>            
+            <p>Do not send any applications or attachments through the support desk. We'll only accept applications through this service.</p>
 
-<!--             
+<!--
             <h2 class="govuk-heading-m">Get help</h2>
             <p>If you have any questions about the form or the fund, email us at <a href = "mailto:emailaddress@levellingup.gov.uk" class="govuk-link">emailaddress@levellingup.gov.uk</a>.</p>
             <p>Do not send any applications or attachments by email. We'll only accept applications through this service.</p> -->
@@ -95,22 +95,22 @@
             <h2 class="govuk-heading-m">How we’ll use your information</h2>
             <p>Read how we’ll use the information from your application in our <a href="#" class="govuk-link">privacy notice</a></p>
 
-           
-        
+
+
         {% else %}
-    
+
         <p><strong>Submission deadline:</strong> 26 January 2025 at 11:59am</p>
-        
+
         {% endif %}
 
 
 
 
-        
 
-        
 
-        
+
+
+
 
     </div>
 </div>

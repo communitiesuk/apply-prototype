@@ -20,12 +20,15 @@
 
       	{{ govukSummaryList({
         	rows: [
-          		{ key: { text: "Name your application" }, value: { text: "data['applicationName']" }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Question 1" } ] } }          
+          		{ key: { text: "Name your application" }, value: { text: data['applicationName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Question 1" } ] } }
         	]
       	}) }}
 
+
+
+
 		<form action="/task-list" method="post" novalidate>
-			
+
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
 				name: "applicationNameComplete",
@@ -35,7 +38,7 @@
 						isPageHeading: false,
 						classes: "govuk-fieldset__legend--l"
 					}
-				},			
+				},
 				items: [
 				{ value: "yes", text: "Yes", checked: checked("applicationNameComplete", "yes")  },
 				{ value: "no", text: "No", checked: checked("applicationNameComplete", "no") }

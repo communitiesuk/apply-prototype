@@ -10,3 +10,134 @@
     border-color: #2b8cc4;
     background-color: #dbeff9;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// Email
+
+
+
+.email-message {
+    margin-bottom: 30px;
+    border: 1px solid #b1b4b6
+}
+
+.email-message-meta {
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    margin: 0
+}
+
+@media print {
+    .email-message-meta {
+        font-family: sans-serif
+    }
+}
+
+@media (min-width: 40.0625em) {
+    .email-message-meta {
+        font-size:19px;
+        font-size: 1.1875rem;
+        line-height: 1.3157894737
+    }
+}
+
+@media print {
+    .email-message-meta {
+        font-size: 14pt;
+        line-height: 1.15
+    }
+}
+
+.email-message-meta td,.email-message-meta th {    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-top: 0;
+    border-bottom: 1px solid #b1b4b6;
+    vertical-align: top
+}
+
+
+@media (min-width: 40.0625em) {
+    .email-message-meta td,.email-message-meta th {
+        font-size:19px;
+        font-size: 1.1875rem;
+        line-height: 1.3157894737
+    }
+}
+
+
+.email-message-meta th {
+    color: #505a5f;
+    padding-left: 60px
+}
+
+.email-message-meta td {
+    width: 99%;
+    padding-right: 60px;
+    word-break: break-word
+}
+
+.email-message-meta td:last-child {
+    padding-right: 60px
+}
+
+.email-message-from {
+    padding-top: 15px
+}
+
+.email-message-body {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 35px 60px 40px 60px;
+    margin: 0;
+    clear: both;
+    position: relative;
+    word-wrap: break-word
+}
+
+.email-message-body table {
+    margin: 0 0 20px 0
+}
+
+.email-message-body table td {
+    border: 0;
+    padding: 0;
+    
+}
+
+.email-message-body table li:first-child {
+    margin-top: 0!important
+}
+
+.email-branding-crest-or-insignia {
+    height: 27px;
+    margin: 0 5px -7.5px 0
+}
+
+.email-branding-coloured-stripe {
+    display: inline-block;
+    height: 25px;
+    width: 4px;
+    margin-bottom: -6px;
+    margin-right: 1px;
+    margin-left: 5px
+}

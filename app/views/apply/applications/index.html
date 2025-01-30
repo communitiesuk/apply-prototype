@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/signedin.html" %}
 
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -71,7 +71,7 @@
                     { text: "Status" },
                     { text: "Last edited" },
                     { text: "Application Reference" },
-                    { text: "Action", format: "numeric" }
+                    { text: "Action" }
                 ],
                 rows: [
                   [
@@ -79,7 +79,7 @@
                     { html: { tag: { text: "Not Started", classes: "govuk-tag--grey" } } },
                     { text: "29 January 2025 at 9:01am" },
                     { text: "DPIF-R3-FMWFZS" },
-                    { html: "Continue application", format: "numeric" }
+                    { html: "Continue application" }
                   ]
                 ]
               }) }}

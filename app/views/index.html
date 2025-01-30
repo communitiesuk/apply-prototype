@@ -1,8 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Home" %}
-
-
 {% set pageHeading = "Funding Service" %}
 {% set pageSection = "Prototype" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -27,7 +24,7 @@
 		<h2 class="govuk-heading-m">Apply for funding</h2>
 		<p>Apply for funding journey flow.</p>
 
-		<form method="post" action="/apply/" >
+		<form method="post" action="/preload" >
 
 			<input type="hidden" name="fundService" id="fundService" value="apply" />
 			{{ govukButton({

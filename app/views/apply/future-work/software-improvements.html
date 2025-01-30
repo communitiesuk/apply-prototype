@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Which software improvements are you interested in working on in the future?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p class="govuk-hint">If you're successful, you may be invited to apply for additional funding to improve the planning software in your organisation.</p>
+
+
+        <form method="post" action="/apply/future-work/check-your-answers" >
+
+
+			{{ govukCheckboxes({
+				name: "futureWorkSoftware",
+				fieldset: {
+				  legend: {
+					text: pageHeading,
+					isPageHeading: true,
+					classes: "govuk-fieldset__legend--l govuk-visually-hidden"
+				  }
+				},
+				hint: {
+				  text: "Select all that apply"
+				},
+				items: [
+				  { value: "Adopting PlanX", text: "Adopting PlanX", checked: checked("futureWorkSoftware", "Adopting PlanX") },
+				  { value: "Adopting BOPS (Back Office Planning System)", text: "Adopting BOPS (Back Office Planning System)", checked: checked("futureWorkSoftware", "Adopting BOPS (Back Office Planning System)") },
+				  { value: "Working with an existing software provide", text: "Working with an existing software provide", checked: checked("futureWorkSoftware", "Working with an existing software provide") },
+				  { value: "Working with a new software provider", text: "Working with a new software provider", checked: checked("futureWorkSoftware", "Working with a new software provider") }
+				]
+			}) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

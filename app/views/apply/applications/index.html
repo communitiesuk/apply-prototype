@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set completedStatus = { text: "Completed" } %}
+{% set notstartedStatus = { tag: { text: "Not Started", classes: "govuk-tag--grey" } } %}
+{% set incompleteStatus = { tag: { text: "In Progress", classes: "govuk-tag--blue" } } %}
+
+{% if data['fundName'] == "High Street Rental Auctions" %}
+    {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
+    {% set pageSection = "High Street Rental Auctions fund Refurbishment project" %}
+{% elif data['fundName'] == "Community Ownership" %}
+    {% set pageHeading = "Start or continue an application for funding to save an asset in your community" %}
+    {% set pageSection = "Community Ownership Fund Round 4 Window 1" %}
+{% elif data['fundName'] == "Digital Planning Improvement" %}
+    {% set pageHeading = "Your applications for Digital Planning Improvement Fund" %}
+    {% set pageSection = "" %}
+{% else %}
+    {% set pageHeading = "Start or continue an application for {fund details}" %}
+    {% set pageSection = "Fund name and round information" %}
+{% endif %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+
+
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        {% if data['fundName'] == "High Street Rental Auctions" %}
+
+            <p><a href="https://www.gov.uk/government/publications/high-street-rental-auctions-grants-for-local-authorities/high-street-rental-auctions-fund-prospectus" class="govuk-link">Read the fund's prospectus</a> before you apply.</p>
+            <p><strong>Submission deadline:</strong> 01 February 2025 at 11:59am</p>
+
+            {{ govukButton({
+                text: "Enter your email address",
+                href: "/apply/email-address",
+                isStartButton: true
+            }) }}
+
+
+            <h2 class="govuk-heading-m">Get help</h2>
+            <p>If you need help, contact us through our <a href="https://mhclgdigital.atlassian.net/servicedesk/customer/portal/5/group/68" class="govuk-link">support desk</a></p>
+            <p>Do not send any applications or attachments through the support desk. We'll only accept applications through this service.</p>
+
+
+        {% elif data['fundName'] == "Community Ownership" %}
+
+        <p><strong>Submission deadline:</strong> 26 January 2025 at 11:59am</p>
+
+        {% elif data['fundName'] == "Digital Planning Improvement" %}
+
+            <p>You have started 0 applications using this email address.</p>
+
+            <span class="govuk-caption-m">{{ data.fundName }}</span>
+            <h2 class="govuk-heading-l">Round 3</h2>
+
+            <p>Deadline for applications: 31 January 2025 at 11:59pm</p>
+
+            {{ govukTable({
+                caption: "Months and rates",
+                captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+                head: [
+                    { text: "Project name" },
+                    { text: "Status" },
+                    { text: "Last edited" },
+                    { text: "Application Reference" },
+                    { text: "Action", format: "numeric" }
+                ],
+                rows: [
+                  [
+                    { text: "Untitled project" },
+                    { html: { tag: { text: "Not Started", classes: "govuk-tag--grey" } } },
+                    { text: "29 January 2025 at 9:01am" },
+                    { text: "DPIF-R3-FMWFZS" },
+                    { html: "Continue application", format: "numeric" }
+                  ]
+                ]
+              }) }}
+
+
+
+
+            {{ govukButton({
+                text: "Start new application",
+                classes: "govuk-button--secondary",
+                href: "/apply/task-list"
+            }) }}
+
+
+
+
+        {% else %}
+
+        <p><strong>Submission deadline:</strong> 26 January 2025 at 11:59am</p>
+
+        {% endif %}
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

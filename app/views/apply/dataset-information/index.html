@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Dataset information" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <p class="govuk-body govuk-!-font-weight-bold">In this section, we'll ask about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>if your organisation collects datasets for conservation areas, article 4 direction, listed buildings and tree preservation orders</li>
+            <li>which datasets you have collected (if applicable)</li>
+            <li>which format your datasets are in (if applicable)</li>
+            <li>how long you think it will take your organisation to publish all 4 datasets (if applicable)</li>
+            <li>what the current known issues and challenges you have with data quality and publication are</li>
+        </ul>
+
+
+        <form method="post" action="/apply/dataset-information/collect" >
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

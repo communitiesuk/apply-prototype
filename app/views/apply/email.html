@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageHeading = "Email sent" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    You requested a link to start or continue an application:
+
+    <a href="/apply/start">Link to continue with application.</a>
+
+    The link will work once and stop working after 24 hours.
+
+    If your link expires
+    You can request a new email: https://authenticator.uat.access-funding.test.levellingup.gov.uk/service/magic-links/new?fund=DPIF&round=R3
+
+    Regards,
+    Digital Planning Improvement Fund
+
+    Gofynnoch i ni am ddolen i’ch cais:
+
+    https://authenticator.uat.access-funding.test.levellingup.gov.uk/service/magic-links/landing/cIoEetbY?fund=DPIF&round=R3
+
+    Bydd y ddolen yn gweithio am 24 awr.
+
+    This is an automated message. Do not reply to this email. If you need help, contact us: digitalplanningteam@communities.gov.uk.
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

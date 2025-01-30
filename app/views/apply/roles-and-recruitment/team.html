@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Do you have a team in place ready to deliver the project?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <form method="post" action="/apply/roles-and-recruitment/team-in-place" >
+
+            {{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "rolesTeam",
+				fieldset: {
+					legend: {
+						text: "Do you have a team in place ready to deliver the project?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend govuk-visually-hidden"
+					}
+				},
+				items: [
+				{ value: "yes~/apply/roles-and-recruitment/tell-us-about-the-team", text: "Yes", checked: checked("rolesTeam", "yes")  },
+				{ value: "no", text: "No", checked: checked("rolesTeam", "no") }
+				]
+			}) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

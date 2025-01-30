@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Has your organisation delivered projects like this before?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <form method="post" action="/apply/skills-and-experience/check-your-answers" >
+
+            {{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "skillsDeliveredProjects",
+				fieldset: {
+					legend: {
+						text: "Has your organisation delivered projects like this before?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend govuk-visually-hidden"
+					}
+				},
+				items: [
+				{ value: "yes~/apply/skills-and-experience/tell-us-how", text: "Yes", checked: checked("skillsDeliveredProjects", "yes")  },
+				{ value: "no", text: "No", checked: checked("skillsDeliveredProjects", "no") }
+				]
+			}) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

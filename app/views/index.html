@@ -3,7 +3,7 @@
 {% set pageName="Home" %}
 
 
-{% set pageHeading = "Apply for funding" %}
+{% set pageHeading = "Funding Service" %}
 {% set pageSection = "Prototype" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -17,16 +17,41 @@
 	<div class="govuk-grid-column-two-thirds">
 
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	
-		<p class="govuk-body-s">Last updated 27 January 2025
+
+		<p class="govuk-body-s">Last updated 30 January 2025
     	<br>GOV.UK Prototype Kit: {{releaseVersion}}</p>
 
-    	<p>This is a new prototype to show the Apply for funding journey flow.</p>
-    	<p class="govuk-body">Intro content to follow.</p>
+    	<p>This is a new prototype to show the various stages throughout the Funding Service.</p>
+
+		<!-- Apply service -->
+		<h2 class="govuk-heading-m">Apply for funding</h2>
+		<p>Apply for funding journey flow.</p>
+
+		<form method="post" action="/apply/" >
+
+			<input type="hidden" name="fundService" id="fundService" value="apply" />
+			{{ govukButton({
+                text: "Start journey"
+            }) }}
+		</form>
+
+		<!-- Assess service -->
+		<h2 class="govuk-heading-m">Assess applications for funding</h2>
+		<p>Assess funding applications journey flow.</p>
+
+		<form method="post" action="/assess/" >
+
+			<input type="hidden" name="fundService" id="fundService" value="assess" />
+			{{ govukButton({
+                text: "Start journey"
+            }) }}
+		</form>
 
 
+
+		<hr>
 		<h2 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-1">User research</h2>
-        <p class="govuk-body">No research currently taking place. </p>
+        <p class="govuk-body">There is no research currently taking place. </p>
 
   </div>
 </div>

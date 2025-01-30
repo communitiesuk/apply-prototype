@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Why do you want to be a part of the ODP (Open Digital Planning) community?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p class="govuk-body govuk-hint">Tell us:</p>
+
+		<ul class="govuk-list govuk-list--bullet govuk-hint">
+			<li>what you will get from the community</li>
+			<li>what you will give to the community</li>
+		</ul>
+
+
+        <form method="post" action="/apply/engaging-digital-planning/check-your-answers" >
+
+
+			{{ govukCharacterCount({
+				name: "engagingDigitalPlanningWhy",
+				id: "engagingDigitalPlanningWhy",
+				maxwords: 250,
+				value: data['engagingDigitalPlanningWhy']  ,
+				label: {
+				  text: "How will you make sure you have a team in place ready to deliver the project?",
+				  classes: "govuk-label--l govuk-visually-hidden",
+				  isPageHeading: false
+				}
+			  }) }}
+
+
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

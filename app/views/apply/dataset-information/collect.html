@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Does your organisation collect at least one of the datasets?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p>The 4 datasets are:</p>
+		<ul class="govuk-list govuk-list--bullet govuk-hint">
+			<li>Conservation areas</li>
+			<li>Article 4 direction</li>
+			<li>Listed buildings</li>
+			<li>Tree preservation orders</li>
+		</ul>
+
+        <form method="post" action="/apply/dataset-information/issues-and-challenges" >
+
+            {{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "datasetInfoCollect",
+				fieldset: {
+					legend: {
+						text: pageHeading,
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend govuk-visually-hidden"
+					}
+				},
+				items: [
+				{ value: "yes~/apply/dataset-information/which-datasets", text: "Yes", checked: checked("datasetInfoCollect", "yes")  },
+				{ value: "no", text: "No", checked: checked("datasetInfoCollect", "no") }
+				]
+			}) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

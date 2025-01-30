@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Project sponsor details" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <p class="govuk-body">The project sponsor is the person sponsoring your application. They are usually a 'head of' or higher.</p>
+
+        <form method="post" action="/apply/organisation/section-151" >
+
+            {{ govukInput({
+                label: {
+                    text: "Project sponsor first name",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "projectSponsorFirstName",
+                name: "projectSponsorFirstName",
+                value: data['projectSponsorFirstName']
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Project sponsor last name",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "projectSponsorLasttName",
+                name: "projectSponsorLasttName",
+                value: data['projectSponsorLasttName']
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Project sponsor email address",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "projectSponsorEmail",
+                name: "projectSponsorEmail",
+                value: data['projectSponsorEmail']
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Project sponsor telephone number",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-one-third",
+                id: "projectSponsorTelephone",
+                name: "projectSponsorTelephone",
+                value: data['projectSponsorTelephone']
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,6 +1,8 @@
 {% extends "layouts/main.html" %}
 
 {% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
 
 {% if data['fundName'] == "High Street Rental Auctions" %}
     {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
@@ -12,7 +14,7 @@
     {% set pageHeading = "Start or continue an application for funding to begin your digital planning improvement journey" %}
     {% set pageSection = "Digital Planning Improvement Fund Round 3" %}
 {% else %}
-    {% set pageHeading = "Start or continue an application for {fund details}" %}
+    {% set pageHeading = 'Start or continue an application for ' + data.fundName  + ' ' %}
     {% set pageSection = "Fund name and round information" %}
 {% endif %}
 
@@ -64,8 +66,8 @@
             }) }}
 
             <h2 class="govuk-heading-m">Get help</h2>
-            <p>If you have questions about the form or the fund, <a href="https://frontend.uat.access-funding.test.levellingup.gov.uk/contact_us?fund=DPIF&round=R3" class="govuk-link">contact us</a></p>
-            <p>Do not send any applications or attachments through the support desk. We'll only accept applications through this service.</p>
+            <p>If you need help, contact us through our <a href="https://mhclgdigital.atlassian.net/servicedesk/customer/portal/5/group/68" class="govuk-link">support desk</a>.</p>
+            <p>Do not send any applications or attachments from the service desk portal. We'll only accept applications through this service.</p>
 
 
         {% else %}
@@ -81,7 +83,7 @@
 
 
 
-        <h2 class="govuk-heading-m">How to complete your application</h2>
+        <!-- <h2 class="govuk-heading-m">How to complete your application</h2>
         <h3 class="govuk-heading-s">What we’ll ask you for</h3>
         <p>You can preview the <a href="#" class="govuk-link">full list of application questions</a>.</p>
         <p>We’ll also ask you to upload a business plan to support the answers you’ve given us in the management case section.</p>
@@ -100,16 +102,16 @@
 
         <h3 class="govuk-heading-s">Submitting your application</h3>
         <p>When you have completed all sections, you’ll be able to submit your application.</p>
-        <p>Once you have submitted your application, you’ll not be able to edit, add or change any section.</p>
+        <p>Once you have submitted your application, you’ll not be able to edit, add or change any section.</p> -->
 
 
 
-        <h2 class="govuk-heading-m">Get help</h2>
+        <!-- <h2 class="govuk-heading-m">Get help</h2>
         <p>If you have any questions about the form or the fund, email us at <a href = "mailto:emailaddress@levellingup.gov.uk" class="govuk-link">emailaddress@levellingup.gov.uk</a>.</p>
         <p>Do not send any applications or attachments by email. We'll only accept applications through this service.</p>
 
         <h2 class="govuk-heading-m">How we’ll use your information</h2>
-        <p>Read how we’ll use the information from your application in our <a href="#" class="govuk-link">privacy notice</a></p>
+        <p>Read how we’ll use the information from your application in our <a href="#" class="govuk-link">privacy notice</a></p> -->
 
     </div>
 </div>

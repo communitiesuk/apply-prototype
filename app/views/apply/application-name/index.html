@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Name your application" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <p class="govuk-hint">This is what your application will be called and will help you find it when you save and return.</p>
+        <p class="govuk-hint">Choose a memorable name that describes your application.</p>
+
+        <form method="post" action="/apply/application-name/check-your-answers" >
+
+            {{ govukInput({
+                label: {
+                    text: "Name your application",
+                    classes: "govuk-label govuk-visually-hidden",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "applicationName",
+                name: "applicationName",
+                value: data['applicationName']
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

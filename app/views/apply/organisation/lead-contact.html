@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Lead contact details" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p class="govuk-body">The lead contact will receive all the information about this application.</p>
+
+        <form method="post" action="/apply/organisation/check-your-answers" >
+
+            {{ govukInput({
+                label: {
+                    text: "Lead contact first name",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "leadContactFirstName",
+                name: "leadContactFirstName",
+                value: data['leadContactFirstName']
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Lead contact last name",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "leadContactLasttName",
+                name: "leadContactLasttName",
+                value: data['leadContactLasttName']
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Lead contact job title",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "leadContactJobTitle",
+                name: "leadContactJobTitle",
+                value: data['leadContactJobTitle']
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Lead contact email address",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "leadContactEmail",
+                name: "leadContactEmail",
+                value: data['leadContactEmail']
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Lead contact telephone number",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-one-third",
+                id: "leadContactTelephone",
+                name: "leadContactTelephone",
+                value: data['leadContactTelephone']
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

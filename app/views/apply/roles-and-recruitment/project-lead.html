@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Do you know who the project lead will be?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <form method="post" action="/apply/roles-and-recruitment/project-lead" >
+
+            {{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "rolesTeamProjectLead",
+				fieldset: {
+					legend: {
+						text: "Do you know who the project lead will be?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend govuk-visually-hidden"
+					}
+				},
+				items: [
+				{ value: "yes~/apply/roles-and-recruitment/project-lead-details", text: "Yes", checked: checked("rolesTeamProjectLead", "yes")  },
+				{ value: "no", text: "No", checked: checked("rolesTeamProjectLead", "no") }
+				]
+			}) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

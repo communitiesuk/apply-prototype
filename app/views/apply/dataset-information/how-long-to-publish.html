@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "How long do you think it will take your organisation to publish all 4 datasets?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p class="govuk-hint">Part of this funding is to support your organisation to improve and publish 4 datasets to the Planning Data platform.</p>
+		<p class="govuk-hint">Select one option</p>
+
+        <form method="post" action="/apply/dataset-information/check-your-answers" >
+
+            {{ govukRadios({
+				name: "datasetInfoTimePublish",
+				fieldset: {
+					legend: {
+						text: pageHeading,
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend govuk-visually-hidden"
+					}
+				},
+				items: [
+				{ value: "0 to 3 months", text: "0 to 3 months", checked: checked("datasetInfoTimePublish", "0 to 3 months")  },
+				{ value: "4 to 7 months", text: "4 to 7 months", checked: checked("datasetInfoTimePublish", "4 to 7 months")  },
+				{ value: "8 to 11 months", text: "8 to 11 months", checked: checked("datasetInfoTimePublish", "8 to 11 months")  },
+				{ value: "Longer than 11 months", text: "Longer than 11 months", checked: checked("datasetInfoTimePublish", "Longer than 11 months") }
+				]
+			}) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

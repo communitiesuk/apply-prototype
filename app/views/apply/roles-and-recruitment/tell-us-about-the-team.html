@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Tell us about the shape of the project team" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p class="govuk-body govuk-hint">Tell us about:</p>
+		<ul class="govuk-list govuk-list--bullet govuk-hint">
+			<li>how many people are in the team</li>
+			<li>the roles in the team</li>
+			<li>whether you have a GIS (geographic information system) officer to support the project or if you plan to recruit one</li>
+        </ul>
+
+
+
+
+        <form method="post" action="/apply/roles-and-recruitment/backfill" >
+
+
+			{{ govukCharacterCount({
+				name: "rolesTeamInfo",
+				id: "rolesTeamInfo",
+				maxwords: 250,
+				value: data['rolesTeamInfo']  ,
+				label: {
+				  text: "Tell us about the shape of the project team",
+				  classes: "govuk-label--l govuk-visually-hidden",
+				  isPageHeading: false
+				}
+			  }) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

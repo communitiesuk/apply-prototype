@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "How will you share the progress of the work across your organisation?" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+
+
+        <form method="post" action="/apply/engaging-the-organisation/check-your-answers" >
+
+
+			{{ govukCharacterCount({
+				name: "engagingOrganisationProgress",
+				id: "engagingOrganisationProgress",
+				maxwords: 250,
+				value: data['engagingOrganisationProgress']  ,
+				label: {
+				  text: pageHeading,
+				  classes: "govuk-label--l govuk-visually-hidden",
+				  isPageHeading: false
+				}
+			  }) }}
+
+
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

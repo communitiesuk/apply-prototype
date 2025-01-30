@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageHeading = "Email address" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <p class="govuk-hint">We'll email you a link to start a new application, or continue any applications you have in progress.</p>
+        <p class="govuk-hint">The link will work once and stop working after 24 hours.</p>
+        <p class="govuk-hint">If you want to return to an application, you must use the email you started the application with.</p>
+
+        <form method="post" action="/apply/email-sent" >
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label govuk-visually-hidden",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "magicLinkEmail",
+                name: "magicLinkEmail",
+                type: "email"
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

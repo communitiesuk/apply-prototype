@@ -23,6 +23,8 @@
 
         <form method="post" action="/apply/email-sent" >
 
+            <input type="hidden" name="loggedIn" id="loggedIn" value="Yes" />
+
             {{ govukInput({
                 label: {
                     text: "Email address",

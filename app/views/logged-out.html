@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackApplicationsLink = false %}
+
+{% set pageHeading = "You are not logged in" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+    	<p class="govuk-body govuk-!-margin-bottom-7">To re-access your account, please click below to request a new link.</p>
+
+
+
+
+		<form method="post" action="/apply/email-address" >
+
+			<input type="hidden" name="loggedIn" id="loggedIn" value="No" />
+
+			{{ govukButton({
+                text: "Request a new link"
+            }) }}
+		</form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

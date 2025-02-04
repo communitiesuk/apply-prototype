@@ -16,6 +16,10 @@
 
         <form method="post" action="/apply/skills-and-experience/check-your-answers" >
 
+			<!-- Session information to say section started - but not completed -->
+            <input type="hidden" id="skillsExperienceComplete" name="skillsExperienceComplete" value="Started" />
+
+
             {{ govukRadios({
 				classes: "govuk-radios--inline",
 				name: "skillsDeliveredProjects",

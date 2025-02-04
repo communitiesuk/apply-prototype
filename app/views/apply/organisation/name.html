@@ -18,6 +18,9 @@
 
         <form method="post" action="/apply/organisation/project-sponsor" >
 
+            <!-- Session information to say section started - but not completed -->
+            <input type="hidden" id="organisationDetailsComplete" name="organisationDetailsComplete" value="Started" />
+
             {{ govukInput({
                 label: {
                     text: "Name your application",

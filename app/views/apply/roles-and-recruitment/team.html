@@ -16,6 +16,9 @@
 
         <form method="post" action="/apply/roles-and-recruitment/team-in-place" >
 
+			<!-- Session information to say section started - but not completed -->
+            <input type="hidden" id="rolesRecruitmentComplete" name="rolesRecruitmentComplete" value="Started" />
+
             {{ govukRadios({
 				classes: "govuk-radios--inline",
 				name: "rolesTeam",

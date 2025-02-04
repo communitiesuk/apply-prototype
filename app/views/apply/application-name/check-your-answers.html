@@ -30,8 +30,7 @@
 
 		<form action="/apply/task-list" method="post" novalidate>
 
-			<input type="hidden" name="applicationNameStatus" id="applicationNameStatus" value="Completed" />
-
+			<!-- Session information to inform although section is finished is it completed -->
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
 				name: "applicationNameComplete",

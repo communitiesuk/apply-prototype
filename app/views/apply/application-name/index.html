@@ -29,6 +29,9 @@
                 value: data['applicationName']
             }) }}
 
+            <!-- Session information to say section started - but not completed -->
+            <input type="hidden" id="applicationNameComplete" name="applicationNameComplete" value="Started" />
+
             {{ govukButton({
                 text: "Continue"
             }) }}

@@ -18,6 +18,8 @@
 
         <form method="post" action="/apply/future-work/check-your-answers" >
 
+			<!-- Session information to say section started - but not completed -->
+            <input type="hidden" id="futureWorkComplete" name="futureWorkComplete" value="Started" />
 
 			{{ govukCheckboxes({
 				name: "futureWorkSoftware",

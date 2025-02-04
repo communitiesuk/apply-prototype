@@ -27,6 +27,8 @@
 
         <form method="post" action="/apply/engaging-the-organisation/share-progress" >
 
+			<!-- Session information to say section started - but not completed -->
+            <input type="hidden" id="engagingOrganisationComplete" name="engagingOrganisationComplete" value="Started" />
 
 			{{ govukCharacterCount({
 				name: "engagingOrganisationHow",

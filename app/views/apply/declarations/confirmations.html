@@ -16,6 +16,8 @@
 
         <form method="post" action="/apply/declarations/check-your-answers" >
 
+			<!-- Session information to say section started - but not completed -->
+            <input type="hidden" id="declarationsComplete" name="declarationsComplete" value="Started" />
 
 			{{ govukCheckboxes({
 				name: "confirmationsAgreed",

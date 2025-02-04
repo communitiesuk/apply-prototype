@@ -12,7 +12,7 @@
     {% set pageSection = "Community Ownership Fund Round 4 Window 1" %}
 {% elif data['fundName'] == "Digital Planning Improvement" %}
     {% set pageHeading = "Start or continue an application for funding to begin your digital planning improvement journey" %}
-    {% set pageSection = "Digital Planning Improvement Fund Round 3" %}
+    {% set pageSection = "Digital Planning Improvement Fund {{ data.fundRound }}" %}
 {% else %}
     {% set pageHeading = 'Start or continue an application for ' + data.fundName  + ' ' %}
     {% set pageSection = "Fund name and round information" %}
@@ -34,19 +34,19 @@
         {% if data['fundName'] == "High Street Rental Auctions" %}
 
             <!-- Include file for content -->
-            {% include "/apply/includes/high-street-rental-auctions.html" %}        
+            {% include "/apply/includes/high-street-rental-auctions.html" %}
 
         {% elif data['fundName'] == "Community Ownership" %}
-            
+
             <!-- Include file for content -->
             {% include "/apply/includes/community-ownership.html" %}
 
         {% elif data['fundName'] == "Digital Planning Improvement" %}
 
             <!-- Include file for content -->
-            {% include "/apply/includes/digital-planning.html" %}        
+            {% include "/apply/includes/digital-planning.html" %}
 
-        {% endif %}        
+        {% endif %}
 
     </div>
 </div>

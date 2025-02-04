@@ -10,7 +10,7 @@
     {% set pageSection = "Community Ownership Fund Round 4 Window 1" %}
 {% elif data['fundName'] == "Digital Planning Improvement" %}
     {% set pageHeading = "Apply for funding to begin your digital planning improvement journey" %}
-    {% set pageSection = "Digital Planning Improvement Fund Round 3" %}
+    {% set pageSection = "Digital Planning Improvement Fund {{ data.fundRound }}" %}
 {% else %}
     {% set pageHeading = "Start or continue an application for {fund details}" %}
     {% set pageSection = "Fund name and round information" %}

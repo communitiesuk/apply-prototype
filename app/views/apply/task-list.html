@@ -2,15 +2,22 @@
 
 {% set showBackLink = false %}
 
+<!-- Set statuses -->
+{% set completedStatus = { text: "Completed" } %}
+{% set notstartedStatus = { tag: { text: "Not Started", classes: "govuk-tag--grey" } } %}
+{% set incompleteStatus = { tag: { text: "In Progress", classes: "govuk-tag--blue" } } %}
+<!-- // -->
+
+
 {% if data['fundName'] == "High Street Rental Auctions" %}
     {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
     {% set pageSection = "High Street Rental Auctions fund Refurbishment project" %}
 {% elif data['fundName'] == "Community Ownership" %}
     {% set pageHeading = "Start or continue an application for funding to save an asset in your community" %}
-    {% set pageSection = "Community Ownership Fund Round 4 Window 1" %}
+    {% set pageSection = 'Community Ownership Fund ' + data.fundRound + '' %}
 {% elif data['fundName'] == "Digital Planning Improvement" %}
     {% set pageHeading = "Application for funding to begin your digital planning improvement journey" %}
-    {% set pageSection = "Digital Planning Improvement Fund {{ data.fundRound }}" %}
+    {% set pageSection = 'Digital Planning Improvement Fund ' + data.fundRound + '' %}
 {% else %}
     {% set pageHeading = "Start or continue an application for {fund details}" %}
     {% set pageSection = "Fund name and round information" %}
@@ -26,54 +33,16 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		<details class="govuk-details">
-			<summary class="govuk-details__summary">
-			  <span class="govuk-details__summary-text">
-				Help with filling out your application
-			  </span>
-			</summary>
-			<div class="govuk-details__text">
-				<h2 class="govuk-heading-s">What we’ll ask you for</h2>
-				<p>We have outlined the information needed to complete the application form in our <a href="https://www.localdigital.gov.uk/digital-planning/digital-planning-improvement-fund-2024/">prospectus</a>. If you have not received the prospectus, contact digitalplanningteam@communities.gov.uk.</p>
-				<p>You can <a href="#" class="govuk-link">preview the full list of application questions</a>.</p>
+		<!-- Help details content -->
+		{% include "/apply/includes/help-with-application.html" %}
+		<!-- // -->
 
-
-				<h2 class="govuk-heading-s">Moving through the form</h2>
-				<p>The form is split into sections based on how it will be assessed.</p>
-				<p>You do not have to complete it in order, or all at once.</p>
-				<p>When you have written something in a field in every section, the section will be marked as complete. You can still change your responses in sections that are marked as complete.</p>
-
-
-				<h2 class="govuk-heading-s">Saving progress and making changes</h2>
-				<p>Your work will not save automatically. To make sure you do not lose anything, select Save and continue regularly, and always before you go back or close your internet browser window.</p>
-				<p>If you need to edit or revisit any sections, use the browser back button.</p>
-				<p>You can edit your responses as many times as you like before you submit.</p>
-
-
-				<h2 class="govuk-heading-s">Submitting your application</h2>
-				<p>When you have completed all sections, you’ll be able to submit your application.</p>
-				<p>Once you have submitted your application, you’ll not be able to edit, add or change any section.</p>
-
-
-				<h2 class="govuk-heading-s">Get help</h2>
-				<p>If you have questions about the form or the fund, <a href="https://frontend.uat.access-funding.test.levellingup.gov.uk/contact_us?fund=DPIF&round=R3" class="govuk-link">contact us</a></p>
-				<p>Do not send any applications or attachments through the support desk. We'll only accept applications through this service.</p>
-
-	<!--
-				<h2 class="govuk-heading-m">Get help</h2>
-				<p>If you have any questions about the form or the fund, email us at <a href = "mailto:emailaddress@levellingup.gov.uk" class="govuk-link">emailaddress@levellingup.gov.uk</a>.</p>
-				<p>Do not send any applications or attachments by email. We'll only accept applications through this service.</p> -->
-
-				<h2 class="govuk-heading-s">How we’ll use your information</h2>
-				<p>Read how we’ll use the information from your application in our <a href="#" class="govuk-link">privacy notice</a></p>
-			</div>
-		  </details>
-
-
-
-
-		<p><strong>Submission deadline:</strong> 31 January 2025 at 11:59am
+		<!-- Fund date and reference -->
+		<p><strong>Submission deadline:</strong> {{ data.fundDeadlineDate }}
 		<br><span><strong>Reference:</strong> DPIF-R3-IQPIJK</span>
+		<!-- // -->
+
+
 
 		{% if data['statusApplication'] == "Complete" %}
 
@@ -83,24 +52,22 @@
 			<p>You can submit your application when you are ready.</p>
 			<p>Once your application has been submitted, you cannot change your answers.</p>
 
-			{{ govukButton({
-                text: "Submit your application"
-            }) }}
+			<form method="post" action="" >
 
+				{{ govukButton({
+                	text: "Submit your application"
+            	}) }}
+
+			</form>
 		</div>
 
 		{% else %}
 
-		<br><span><strong>Status:</strong></span> {{ govukTag({ text: "Not Started", classes: "govuk-tag--grey"  }) }}</p>
-
-		<p>None of the sections have been completed.</p>
+			<br><span><strong>Status:</strong></span> {{ govukTag({ text: "Not Started", classes: "govuk-tag--grey"  }) }}</p>
+			<p>None of the sections have been completed.</p>
 
 		{% endif %}
 
-
-        {% set completedStatus = { text: "Completed" } %}
-		{% set notstartedStatus = { tag: { text: "Not Started", classes: "govuk-tag--grey" } } %}
-      	{% set incompleteStatus = { tag: { text: "In Progress", classes: "govuk-tag--blue" } } %}
 
       	{# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
 

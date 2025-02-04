@@ -44,7 +44,17 @@
 
 
 		<!-- Application status -->
-		{% if data['statusApplication'] == "Complete" %}
+		{% if (
+			(data['applicationNameComplete'] == "yes") and 
+			( data['organisationDetailsComplete'] == "yes") and
+			( data['skillsExperienceComplete'] == "yes") and
+			( data['rolesRecruitmentComplete'] == "yes") and
+			( data['engagingDigitalPlanningComplete'] == "yes") and
+			( data['engagingOrganisationComplete'] == "yes") and
+			( data['datasetInfoComplete'] == "yes") and
+			( data['futureWorkComplete'] == "yes") and
+			( data['declarationsComplete'] == "yes")			
+		) %}
 
 		</p>
 		<div class="govuk-inset-text blue govuk-!-padding-bottom-7 govuk-!-margin-bottom-8">

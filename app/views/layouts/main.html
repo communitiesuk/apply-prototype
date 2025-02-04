@@ -2,7 +2,26 @@
 
     {% import "macros/page-title.njk" as macroPageTitle %}
     {% import "macros/page-header.njk" as macroPageHeader %}
-    
+
+    {% if data['loggedIn'] == "Yes" %}
+
+    {% block header %}
+
+      {{ govukHeader({
+        homepageUrl: "#",
+        serviceName: "Apply for funding to begin your digital planning improvement journey",
+        serviceUrl: "#",
+        navigation: [
+          { href: "#", text: "View all applications" },
+          { href: "#", text: "Sign out" }
+        ]
+      }) }}
+
+    {% endblock %}
+
+    {% endif %}
+
+
 
     {% block beforeContent %}
 

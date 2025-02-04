@@ -43,7 +43,7 @@
 		<!-- // -->
 
 
-
+		<!-- Application status -->
 		{% if data['statusApplication'] == "Complete" %}
 
 		</p>
@@ -67,61 +67,31 @@
 			<p>None of the sections have been completed.</p>
 
 		{% endif %}
+		<!-- // -->
+
+
 
 
       	{# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
 
-		<h2 class="govuk-heading-m">1. Before you start</h2>
-      	{{ govukTaskList({
-        	idPrefix: "first-section",
-        	items: [
-          		{ title: { text: "1.1 Name your application" }, href: "/apply/application-name/", status: ( completedStatus if data['applicationNameComplete'] == "yes" else notstartedStatus ) }
+		<!-- Task lists dependent on fund -->
+		{% if data['fundName'] == "High Street Rental Auctions" %}
 
-        	]
-      	}) }}
+	  	{% elif data['fundName'] == "Community Ownership" %}
 
-		  <h2 class="govuk-heading-m">2. About your organisation</h2>
-      	{{ govukTaskList({
-        	idPrefix: "first-section",
-        	items: [
-          		{ title: { text: "2.1 Organisation information" }, href: "/apply/organisation/", status: ( completedStatus if data['organisationDetailsComplete'] == "yes" else notstartedStatus ) }
-        	]
-      	}) }}
+	  	{% elif data['fundName'] == "Digital Planning Improvement" %}
 
-		  <h2 class="govuk-heading-m">3. Your skills and experience</h2>
-      	{{ govukTaskList({
-        	idPrefix: "first-section",
-        	items: [
-          		{ title: { text: "3.1 Your skills and experience" }, href: "/apply/skills-and-experience/", status: ( completedStatus if data['skillsExperienceComplete'] == "yes" else notstartedStatus ) },
-				{ title: { text: "3.2 Roles and recruitment" }, href: "/apply/roles-and-recruitment/", status: ( completedStatus if data['rolesRecruitmentComplete'] == "yes" else notstartedStatus ) }
-        	]
-      	}) }}
+			{% include "/apply/includes/taskDPI.html" %}
 
-		  <h2 class="govuk-heading-m">4. About your project</h2>
-      	{{ govukTaskList({
-        	idPrefix: "first-section",
-        	items: [
-          		{ title: { text: "4.1 Engaging the ODP (Open Digital Planning) community" }, href: "/apply/engaging-digital-planning/", status: ( completedStatus if data['engagingDigitalPlanningComplete'] == "yes" else notstartedStatus ) },
-				{ title: { text: "4.2 Engaging the organisation" }, href: "/apply/engaging-the-organisation/", status: ( completedStatus if data['engagingOrganisationComplete'] == "yes" else notstartedStatus ) },
-				{ title: { text: "4.3 Dataset information" }, href: "/apply/dataset-information/", status: ( completedStatus if data['engagingOrganisationComplete'] == "yes" else notstartedStatus ) }
-        	]
-      	}) }}
+	  	{% else %}
+			<p>You have not set which fund you are dealing with.</p>
+	  	{% endif %}
+		<!-- // task list -->
 
-		  <h2 class="govuk-heading-m">5. Future work</h2>
-      	{{ govukTaskList({
-        	idPrefix: "first-section",
-        	items: [
-          		{ title: { text: "5.1 Future work" }, href: "/apply/future-work/", status: ( completedStatus if data['futureWorComplete'] == "yes" else notstartedStatus ) }
-        	]
-      	}) }}
 
-		  <h2 class="govuk-heading-m">6. Declarations</h2>
-      	{{ govukTaskList({
-        	idPrefix: "first-section",
-        	items: [
-          		{ title: { text: "6.1 Declarations" }, href: "/apply/declarations/", status: ( completedStatus if data['declarationsComplete'] == "yes" else notstartedStatus ) }
-        	]
-      	}) }}
+
+
+
 
       	<!-- <div class="govuk-!-margin-top-5">
         	{{ govukButton({ text: "Apply", href: "#" }) }}

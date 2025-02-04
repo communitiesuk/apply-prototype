@@ -13,8 +13,11 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-        <form method="post" action="/apply/organisation/lead-contact" >
+        {% if data['link'] == "change" %}
+            <form method="post" action="/apply/organisation/check-your-answers?link=" >
+        {% else %}
+            <form method="post" action="/apply/organisation/lead-contact" >
+        {% endif %}        
 
             {{ govukInput({
                 label: {

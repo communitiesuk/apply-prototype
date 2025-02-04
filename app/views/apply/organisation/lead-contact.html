@@ -15,7 +15,11 @@
 
         <p class="govuk-body">The lead contact will receive all the information about this application.</p>
 
-        <form method="post" action="/apply/organisation/check-your-answers" >
+        {% if data['link'] == "change" %}
+            <form method="post" action="/apply/organisation/check-your-answers?link=" >
+        {% else %}
+            <form method="post" action="/apply/organisation/check-your-answers" >
+        {% endif %}                
 
             {{ govukInput({
                 label: {

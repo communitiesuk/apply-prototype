@@ -16,7 +16,12 @@
 
         <p class="govuk-hint">This must match your registered legal organisation name</p>
 
-        <form method="post" action="/apply/organisation/project-sponsor" >
+
+        {% if data['link'] == "change" %}
+            <form method="post" action="/apply/organisation/check-your-answers?link=" >
+        {% else %}
+            <form method="post" action="/apply/organisation/project-sponsor" >
+        {% endif %}
 
             <!-- Session information to say section started - but not completed -->
             <input type="hidden" id="organisationDetailsComplete" name="organisationDetailsComplete" value="Started" />

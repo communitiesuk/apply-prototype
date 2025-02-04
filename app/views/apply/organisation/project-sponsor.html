@@ -16,7 +16,11 @@
 
         <p class="govuk-body">The project sponsor is the person sponsoring your application. They are usually a 'head of' or higher.</p>
 
-        <form method="post" action="/apply/organisation/section-151" >
+        {% if data['link'] == "change" %}
+            <form method="post" action="/apply/organisation/check-your-answers?link=" >
+        {% else %}
+            <form method="post" action="/apply/organisation/section-151" >
+        {% endif %}
 
             {{ govukInput({
                 label: {

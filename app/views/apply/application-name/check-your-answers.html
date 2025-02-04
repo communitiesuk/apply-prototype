@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% set showBackLink = false %}
-
+{% set showBackApplicationsLink = false %}
 
 {% set pageHeading = "Check your answers" %}
 {% set pageSection = "Name your application" %}
@@ -18,16 +18,19 @@
 
         <h2 class="govuk-heading-m">Name your application</h2>
 
-      	{{ govukSummaryList({
-        	rows: [
-          		{ key: { text: "Name your application" }, value: { text: data['applicationName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Question 1" } ] } }
-        	]
-      	}) }}
-
-
-
+		<dl class="govuk-summary-list">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Name your application</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['applicationName'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/application-name?link=change">Change<span class="govuk-visually-hidden"> application name</span></a>
+			  	</dd>
+			</div>						
+		</dl>
 
 		<form action="/apply/task-list" method="post" novalidate>
+
+			<input type="hidden" name="applicationNameStatus" id="applicationNameStatus" value="Completed" />
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
@@ -40,8 +43,8 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("applicationNameComplete", "yes")  },
-				{ value: "no", text: "No", checked: checked("applicationNameComplete", "no") }
+					{ value: "yes", text: "Yes", checked: checked("applicationNameComplete", "yes")  },
+					{ value: "no", text: "No", checked: checked("applicationNameComplete", "no") }
 				]
 			}) }}
 

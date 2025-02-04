@@ -7,15 +7,13 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-        <p class="govuk-hint">This is what your application will be called and will help you find it when you save and return.</p>
-        <p class="govuk-hint">Choose a memorable name that describes your application.</p>
+        <p class="govuk-body govuk-hint">This is what your application will be called and will help you find it when you save and return.</p>
+        <p class="govuk-body govuk-hint">Choose a memorable name that describes your application.</p>
 
         <form method="post" action="/apply/application-name/check-your-answers" >
 
@@ -25,7 +23,7 @@
                     classes: "govuk-label govuk-visually-hidden",
                     isPageHeading: false
                 },
-                classes: "govuk-!-width-two-thirds",
+                classes: "govuk-!-width-full",
                 id: "applicationName",
                 name: "applicationName",
                 value: data['applicationName']

@@ -18,14 +18,28 @@
 
         <h2 class="govuk-heading-m">Your skills and experience</h2>
 
-      	{{ govukSummaryList({
-        	rows: [
-          		{ key: { text: "Has your organisation delivered projects like this before?" }, value: { text: data['skillsDeliveredProjects'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
-				{ key: { text: "Tell us about how your organisation has worked on similar previous projects" }, value: { text: data['skillsDeliveredHow'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor first name" } ] } }
 
-        	]
-      	}) }}
+		<dl class="govuk-summary-list">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Has your organisation delivered projects like this before?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['skillsDeliveredProjects'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/skills-and-experience/delivered-projects?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+			  	</dd>
+			</div>	
 
+			{% if data['skillsDeliveredProjects'] == "yes" %}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Tell us about how your organisation has worked on similar previous projects</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['skillsDeliveredHow'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/skills-and-experience/tell-us-how?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
+			  	</dd>
+			</div>	
+			{% endif %}
+		</dl>
+
+		
 		<form action="/apply/task-list" method="post" novalidate>
 
 			<!-- Session information to inform although section is finished is it completed -->

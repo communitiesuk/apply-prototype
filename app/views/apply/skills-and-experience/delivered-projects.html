@@ -14,11 +14,14 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        <form method="post" action="/apply/skills-and-experience/check-your-answers" >
+		{% if data['link'] == "change" %}
+			<form method="post" action="/apply/skills-and-experience/check-your-answers" >
+        {% else %}
+			<form method="post" action="/apply/skills-and-experience/check-your-answers" >
+        {% endif %}         
 
 			<!-- Session information to say section started - but not completed -->
             <input type="hidden" id="skillsExperienceComplete" name="skillsExperienceComplete" value="Started" />
-
 
             {{ govukRadios({
 				classes: "govuk-radios--inline",
@@ -31,11 +34,10 @@
 					}
 				},
 				items: [
-				{ value: "yes~/apply/skills-and-experience/tell-us-how", text: "Yes", checked: checked("skillsDeliveredProjects", "yes")  },
-				{ value: "no", text: "No", checked: checked("skillsDeliveredProjects", "no") }
+					{ value: "yes~/apply/skills-and-experience/tell-us-how", text: "Yes", checked: checked("skillsDeliveredProjects", "yes")  },
+					{ value: "no", text: "No", checked: checked("skillsDeliveredProjects", "no") }
 				]
 			}) }}
-
 
             {{ govukButton({
                 text: "Continue"

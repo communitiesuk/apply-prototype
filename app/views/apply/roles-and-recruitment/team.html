@@ -14,7 +14,11 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        <form method="post" action="/apply/roles-and-recruitment/team-in-place" >
+		{% if data['link'] == "change" %}
+			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?link=" >
+		{% else %}
+			<form method="post" action="/apply/roles-and-recruitment/team-in-place" >
+		{% endif %}   
 
 			<!-- Session information to say section started - but not completed -->
             <input type="hidden" id="rolesRecruitmentComplete" name="rolesRecruitmentComplete" value="Started" />

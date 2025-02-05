@@ -20,11 +20,12 @@
 			<li>who was involved</li>
         </ul>
 
-
-
-
-        <form method="post" action="/apply/skills-and-experience/check-your-answers" >
-
+		{% if data['link'] == "change" %}
+			<form method="post" action="/apply/skills-and-experience/check-your-answers" >
+        {% else %}
+			<form method="post" action="/apply/skills-and-experience/check-your-answers" >
+        {% endif %} 
+        
 
 			{{ govukCharacterCount({
 				name: "skillsDeliveredHow",

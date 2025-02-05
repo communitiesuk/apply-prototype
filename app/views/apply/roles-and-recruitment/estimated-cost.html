@@ -14,7 +14,12 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        <form method="post" action="/apply/roles-and-recruitment/project-lead" >
+        {% if data['link'] == "change" %}
+			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?link=" >
+		{% else %}
+            <form method="post" action="/apply/roles-and-recruitment/project-lead" >
+		{% endif %} 
+        
 
 			{{ govukInput({
                 label: {
@@ -30,10 +35,6 @@
                 name: "rolesEstimatedCost",
                 value: data['rolesEstimatedCost']
             }) }}
-
-
-
-
 
             {{ govukButton({
                 text: "Continue"

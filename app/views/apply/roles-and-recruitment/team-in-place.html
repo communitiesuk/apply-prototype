@@ -14,7 +14,13 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 		<p class="govuk-body govuk-hint">Tell us about how you plan to recruit any new roles if they are needed</p>
-        <form method="post" action="/apply/roles-and-recruitment/tell-us-about-the-team" >
+
+		{% if data['link'] == "change" %}
+			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?link=" >
+		{% else %}
+			<form method="post" action="/apply/roles-and-recruitment/tell-us-about-the-team" >
+		{% endif %} 
+        
 
 
 			{{ govukCharacterCount({

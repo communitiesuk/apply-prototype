@@ -18,19 +18,83 @@
 
         <h2 class="govuk-heading-m">Roles and recruitment</h2>
 
-      	{{ govukSummaryList({
-        	rows: [
-          		{ key: { text: "Do you have a team in place ready to deliver the project?" }, value: { text: data['rolesTeam'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
-				{ key: { text: "How will you make sure you have a team in place ready to deliver the project?" }, value: { text: data['rolesTeamInPlace'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor first name" } ] } },
-				{ key: { text: "Tell us about the shape of the project team" }, value: { text: data['rolesTeamInfo'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor first name" } ] } },
-				{ key: { text: "Will you need to backfill any roles in your organisation?" }, value: { text: data['rolesTeamBackfill'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor first name" } ] } },
-				{ key: { text: "What is the estimated cost of backfilling roles?" }, value: { text: '£' + data['rolesEstimatedCost'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor first name" } ] } },
-				{ key: { text: "Do you know who the project lead will be?" }, value: { text: data['rolesTeamProjectLead'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor first name" } ] } },
-				{ key: { text: "Project lead first name" }, value: { text: data['rolesProjectLeadFirstName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor first name" } ] } },
-				{ key: { text: "Project lead last name" }, value: { text: data['rolesProjectLeadLastName'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Project sponsor first name" } ] } }
 
-        	]
-      	}) }}
+		<dl class="govuk-summary-list">
+			<!-- Group -->
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Do you have a team in place ready to deliver the project?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['rolesTeam'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/roles-and-recruitment/team?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+			  	</dd>
+			</div>				
+			{% if data['rolesTeam'] == "no" %}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">How will you make sure you have a team in place ready to deliver the project?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['rolesTeamInPlace'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/roles-and-recruitment/team-in-place?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
+			  	</dd>
+			</div>
+			{% endif %}
+			<!-- // -->
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Tell us about the shape of the project team</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['rolesTeamInfo'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/roles-and-recruitment/tell-us-about-the-team?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
+			  	</dd>
+			</div>
+
+			<!-- Group -->
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Will you need to backfill any roles in your organisation?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['rolesTeamBackfill'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/roles-and-recruitment/backfill?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
+			  	</dd>
+			</div>		
+			{% if data['rolesTeamBackfill'] == "yes" %}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">What is the estimated cost of backfilling roles?</dt>
+			  	<dd class="govuk-summary-list__value">&pound;{{ data['rolesEstimatedCost'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/roles-and-recruitment/team?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
+			  	</dd>
+			</div>
+			{% endif %}
+			<!-- // -->
+
+			<!-- Group -->
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Do you know who the project lead will be?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['rolesTeamProjectLead'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/roles-and-recruitment/project-lead?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
+			  	</dd>
+			</div>
+
+			{% if data['rolesTeamProjectLead'] == "yes" %}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Project lead first name</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['rolesProjectLeadFirstName'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/roles-and-recruitment/team?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
+			  	</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Project lead last name</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['rolesProjectLeadLastName'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/roles-and-recruitment/team?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
+			  	</dd>
+			</div>	
+			{% endif %}
+			<!-- // -->
+			
+		</dl>
+      	
 
 		<form action="/apply/task-list" method="post" novalidate>
 			

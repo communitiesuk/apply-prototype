@@ -21,9 +21,13 @@
         </ul>
 
 
+		{% if data['link'] == "change" %}
+			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?link=" >				
+		{% else %}
+			<form method="post" action="/apply/roles-and-recruitment/backfill" >
+		{% endif %}   
 
-
-        <form method="post" action="/apply/roles-and-recruitment/backfill" >
+        
 
 
 			{{ govukCharacterCount({

@@ -47,13 +47,13 @@
 					<a class="govuk-link" href="/apply/declarations/confirmations?link=change">Change<span class="govuk-visually-hidden"> organisation name</span></a>
 			  	</dd>
 			</div>
-		</dl>	
+		</dl>
 
 		<form action="/apply/task-list" method="post" novalidate>
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "declarationsComplete",
+				name: "section6_1Complete",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -62,8 +62,8 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("declarationsComplete", "yes")  },
-				{ value: "no", text: "No", checked: checked("declarationsComplete", "no") }
+				{ value: "yes", text: "Yes", checked: checked("section6_1Complete", "yes")  },
+				{ value: "no", text: "No", checked: checked("section6_1Complete", "no") }
 				]
 			}) }}
 

@@ -27,7 +27,7 @@
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/skills-and-experience/delivered-projects?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
 			  	</dd>
-			</div>	
+			</div>
 
 			{% if data['skillsDeliveredProjects'] == "yes" %}
 			<div class="govuk-summary-list__row">
@@ -36,18 +36,18 @@
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/skills-and-experience/tell-us-how?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
 			  	</dd>
-			</div>	
+			</div>
 			{% endif %}
 		</dl>
 
-		
+
 		<form action="/apply/task-list" method="post" novalidate>
 
 			<!-- Session information to inform although section is finished is it completed -->
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "skillsExperienceComplete",
+				name: "section3_1Complete",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -56,8 +56,8 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("skillsExperienceComplete", "yes")  },
-				{ value: "no", text: "No", checked: checked("skillsExperienceComplete", "no") }
+				{ value: "yes", text: "Yes", checked: checked("section3_1Complete", "yes")  },
+				{ value: "no", text: "No", checked: checked("section3_1Complete", "no") }
 				]
 			}) }}
 

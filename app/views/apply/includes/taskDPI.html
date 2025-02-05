@@ -5,10 +5,10 @@
 					<a class="govuk-link govuk-task-list__link" href="/apply/application-name/" aria-describedby="company-details-1-status">1.1 Name your application</a>
 			  	</div>
 			  	<div class="govuk-task-list__status" id="company-details-1-status">
-					{% if data['applicationNameComplete'] == "yes" %}					
+					{% if data['section1_1Complete'] == "yes" %}
 						Completed
 					{% else %}
-						{% if ((data['applicationNameComplete'] == "no") or ( data['applicationNameComplete'] == "Started" )) %}					
+						{% if ((data['section1_1Complete'] == "no") or ( data['section1_1Complete'] == "Started" )) %}
 							<strong class="govuk-tag">In Progress</strong>
 						{% else %}
 							<strong class="govuk-tag govuk-tag--grey">Not Started</strong>
@@ -26,10 +26,10 @@
 			  	</div>
 			  	<div class="govuk-task-list__status" id="company-details-1-status">
 
-					{% if data['organisationDetailsComplete'] == "yes" %}					
+					{% if data['section2_1Complete'] == "yes" %}
 						Completed
 					{% else %}
-						{% if ((data['organisationDetailsComplete'] == "no") or ( data['organisationDetailsComplete'] == "Started" )) %}					
+						{% if ((data['section2_1Complete'] == "no") or ( data['section2_1Complete'] == "Started" )) %}
 							<strong class="govuk-tag">In Progress</strong>
 						{% else %}
 							<strong class="govuk-tag govuk-tag--grey">Not Started</strong>
@@ -48,14 +48,14 @@
 			  	</div>
 			  	<div class="govuk-task-list__status" id="company-details-1-status">
 
-					{% if data['skillsExperienceComplete'] == "yes" %}					
+					{% if data['section3_1Complete'] == "yes" %}
 						Completed
 					{% else %}
-						{% if ((data['skillsExperienceComplete'] == "no") or ( data['skillsExperienceComplete'] == "Started" )) %}					
+						{% if ((data['section3_1Complete'] == "no") or ( data['section3_1Complete'] == "Started" )) %}
 							<strong class="govuk-tag">In Progress</strong>
 						{% else %}
 							<strong class="govuk-tag govuk-tag--grey">Not Started</strong>
-						{% endif %}						
+						{% endif %}
 					{% endif %}
 				</div>
 			</li>
@@ -65,10 +65,10 @@
 			  	</div>
 			  	<div class="govuk-task-list__status" id="company-details-1-status">
 
-					{% if data['rolesRecruitmentComplete'] == "yes" %}					
+					{% if data['section3_2Complete'] == "yes" %}
 						Completed
 					{% else %}
-						{% if ((data['rolesRecruitmentComplete'] == "no") or ( data['rolesRecruitmentComplete'] == "Started" )) %}					
+						{% if ((data['section3_2Complete'] == "no") or ( data['section3_2Complete'] == "Started" )) %}
 							<strong class="govuk-tag">In Progress</strong>
 						{% else %}
 							<strong class="govuk-tag govuk-tag--grey">Not Started</strong>
@@ -88,10 +88,10 @@
 			  	</div>
 			  	<div class="govuk-task-list__status" id="company-details-1-status">
 
-					{% if data['engagingDigitalPlanningComplete'] == "yes" %}					
+					{% if data['section4_1Complete'] == "yes" %}
 						Completed
 					{% else %}
-						{% if ((data['engagingDigitalPlanningComplete'] == "no") or ( data['engagingDigitalPlanningComplete'] == "Started" )) %}					
+						{% if ((data['section4_1Complete'] == "no") or ( data['section4_1Complete'] == "Started" )) %}
 							<strong class="govuk-tag">In Progress</strong>
 						{% else %}
 							<strong class="govuk-tag govuk-tag--grey">Not Started</strong>
@@ -105,10 +105,10 @@
 			  	</div>
 			  	<div class="govuk-task-list__status" id="company-details-1-status">
 
-					{% if data['engagingOrganisationComplete'] == "yes" %}					
+					{% if data['section4_2Complete'] == "yes" %}
 						Completed
 					{% else %}
-						{% if ((data['engagingOrganisationComplete'] == "no") or ( data['engagingOrganisationComplete'] == "Started" )) %}					
+						{% if ((data['section4_2Complete'] == "no") or ( data['section4_2Complete'] == "Started" )) %}
 							<strong class="govuk-tag">In Progress</strong>
 						{% else %}
 							<strong class="govuk-tag govuk-tag--grey">Not Started</strong>
@@ -122,10 +122,10 @@
 			  	</div>
 			  	<div class="govuk-task-list__status" id="company-details-1-status">
 
-					{% if data['datasetInfoComplete'] == "yes" %}					
+					{% if data['section4_3Complete'] == "yes" %}
 						Completed
 					{% else %}
-						{% if ((data['datasetInfoComplete'] == "no") or ( data['datasetInfoComplete'] == "Started" )) %}					
+						{% if ((data['section4_3Complete'] == "no") or ( data['section4_3Complete'] == "Started" )) %}
 							<strong class="govuk-tag">In Progress</strong>
 						{% else %}
 							<strong class="govuk-tag govuk-tag--grey">Not Started</strong>
@@ -143,17 +143,17 @@
 			  	</div>
 			  	<div class="govuk-task-list__status" id="company-details-1-status">
 
-					{% if data['futureWorkComplete'] == "yes" %}					
+					{% if data['section5_1Complete'] == "yes" %}
 						Completed
 					{% else %}
-						{% if ((data['futureWorkComplete'] == "no") or ( data['futureWorkComplete'] == "Started" )) %}					
+						{% if ((data['section5_1Complete'] == "no") or ( data['section5_1Complete'] == "Started" )) %}
 							<strong class="govuk-tag">In Progress</strong>
 						{% else %}
 							<strong class="govuk-tag govuk-tag--grey">Not Started</strong>
 						{% endif %}
 					{% endif %}
 				</div>
-			</li>			
+			</li>
 		</ul>
 
 		<h2 class="govuk-heading-m">6. Declarations</h2>
@@ -164,15 +164,15 @@
 			  	</div>
 			  	<div class="govuk-task-list__status" id="company-details-1-status">
 
-					{% if data['declarationsComplete'] == "yes" %}					
+					{% if data['section6_1Complete'] == "yes" %}
 						Completed
 					{% else %}
-						{% if ((data['declarationsComplete'] == "no") or ( data['declarationsComplete'] == "Started" )) %}					
+						{% if ((data['section6_1Complete'] == "no") or ( data['section6_1Complete'] == "Started" )) %}
 							<strong class="govuk-tag">In Progress</strong>
 						{% else %}
 							<strong class="govuk-tag govuk-tag--grey">Not Started</strong>
-						{% endif %}					
+						{% endif %}
 					{% endif %}
 				</div>
-			</li>			
+			</li>
 		</ul>

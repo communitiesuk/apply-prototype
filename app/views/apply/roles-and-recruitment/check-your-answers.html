@@ -28,7 +28,7 @@
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/roles-and-recruitment/team?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
 			  	</dd>
-			</div>				
+			</div>
 			{% if data['rolesTeam'] == "no" %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">How will you make sure you have a team in place ready to deliver the project?</dt>
@@ -55,7 +55,7 @@
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/roles-and-recruitment/backfill?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
 			  	</dd>
-			</div>		
+			</div>
 			{% if data['rolesTeamBackfill'] == "yes" %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">What is the estimated cost of backfilling roles?</dt>
@@ -90,20 +90,20 @@
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/roles-and-recruitment/team?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
 			  	</dd>
-			</div>	
+			</div>
 			{% endif %}
 			<!-- // -->
-			
+
 		</dl>
-      	
+
 
 		<form action="/apply/task-list" method="post" novalidate>
-			
+
 			<!-- Session information to inform although section is finished is it completed -->
-			 
+
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "rolesRecruitmentComplete",
+				name: "section3_2Complete",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -112,8 +112,8 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("rolesRecruitmentComplete", "yes")  },
-				{ value: "no", text: "No", checked: checked("rolesRecruitmentComplete", "no") }
+				{ value: "yes", text: "Yes", checked: checked("section3_2Complete", "yes")  },
+				{ value: "no", text: "No", checked: checked("section3_2Complete", "no") }
 				]
 			}) }}
 

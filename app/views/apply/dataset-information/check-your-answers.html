@@ -26,7 +26,7 @@
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/dataset-information/collect?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
 			  	</dd>
-			</div>	
+			</div>
 
 			{% if data['datasetInfoCollect'] == "yes" %}
 			<div class="govuk-summary-list__row">
@@ -62,16 +62,16 @@
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/dataset-information/issues-and-challenges?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
 			  	</dd>
-			</div>	
-		</dl>      
+			</div>
+		</dl>
 
 		<form action="/apply/task-list" method="post" novalidate>
 
-			
+
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "datasetInfoComplete",
+				name: "section4_3Complete",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -80,8 +80,8 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("datasetInfoComplete", "yes")  },
-				{ value: "no", text: "No", checked: checked("datasetInfoComplete", "no") }
+				{ value: "yes", text: "Yes", checked: checked("section4_3Complete", "yes")  },
+				{ value: "no", text: "No", checked: checked("section4_3Complete", "no") }
 				]
 			}) }}
 

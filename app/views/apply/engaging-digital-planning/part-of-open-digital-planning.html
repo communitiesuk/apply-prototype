@@ -25,11 +25,11 @@
 		<form method="post" action="/apply/engaging-digital-planning/check-your-answers?link=" >
 		{% else %}
 		<form method="post" action="/apply/engaging-digital-planning/check-your-answers" >
-		{% endif %} 
-        
+		{% endif %}
+
 
 			<!-- Session information to say section started - but not completed -->
-            <input type="hidden" id="engagingDigitalPlanningComplete" name="engagingDigitalPlanningComplete" value="Started" />
+            <input type="hidden" id="section4_1Complete" name="section4_1Complete" value="Started" />
 
 			{{ govukCharacterCount({
 				name: "engagingDigitalPlanningWhy",

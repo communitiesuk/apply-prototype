@@ -19,10 +19,10 @@
 			<form method="post" action="/apply/future-work/check-your-answers?link=" >
 		{% else %}
 			<form method="post" action="/apply/future-work/check-your-answers" >
-		{% endif %}    
-        
+		{% endif %}
+
 				<!-- Session information to say section started - but not completed -->
-				<input type="hidden" id="futureWorkComplete" name="futureWorkComplete" value="Started" />
+				<input type="hidden" id="section5_1Complete" name="section5_1Complete" value="Started" />
 
 				{{ govukCheckboxes({
 					name: "futureWorkSoftware",
@@ -47,7 +47,7 @@
 				{{ govukButton({
 					text: "Continue"
 				}) }}
-        
+
 			</form>
     </div>
 </div>

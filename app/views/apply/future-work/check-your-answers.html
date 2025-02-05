@@ -19,21 +19,21 @@
 
         <h2 class="govuk-heading-m">Future work</h2>
 
-		<dl class="govuk-summary-list">			
+		<dl class="govuk-summary-list">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Which software improvements are you interested in working on in the future?</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['futureWorkSoftware'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/future-work/software-improvements?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
 			  	</dd>
-			</div>				
-		</dl>			
+			</div>
+		</dl>
 
 		<form action="/apply/task-list" method="post" novalidate>
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "futureWorkComplete",
+				name: "section5_1Complete",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -42,8 +42,8 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("futureWorkComplete", "yes")  },
-				{ value: "no", text: "No", checked: checked("futureWorkComplete", "no") }
+				{ value: "yes", text: "Yes", checked: checked("section5_1Complete", "yes")  },
+				{ value: "no", text: "No", checked: checked("section5_1Complete", "no") }
 				]
 			}) }}
 

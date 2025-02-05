@@ -25,7 +25,7 @@
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/application-name?link=change">Change<span class="govuk-visually-hidden"> application name</span></a>
 			  	</dd>
-			</div>						
+			</div>
 		</dl>
 
 		<form action="/apply/task-list" method="post" novalidate>
@@ -33,7 +33,7 @@
 			<!-- Session information to inform although section is finished is it completed -->
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "applicationNameComplete",
+				name: "section1_1Complete",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -42,8 +42,8 @@
 					}
 				},
 				items: [
-					{ value: "yes", text: "Yes", checked: checked("applicationNameComplete", "yes")  },
-					{ value: "no", text: "No", checked: checked("applicationNameComplete", "no") }
+					{ value: "yes", text: "Yes", checked: checked("section1_1Complete", "yes")  },
+					{ value: "no", text: "No", checked: checked("section1_1Complete", "no") }
 				]
 			}) }}
 

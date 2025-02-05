@@ -17,11 +17,11 @@
 		<form method="post" action="/apply/declarations/check-your-answers?link=" >
 		{% else %}
 		<form method="post" action="/apply/declarations/check-your-answers" >
-		{% endif %}      
-        
+		{% endif %}
+
 
 			<!-- Session information to say section started - but not completed -->
-            <input type="hidden" id="declarationsComplete" name="declarationsComplete" value="Started" />
+            <input type="hidden" id="section6_1Complete" name="section6_1Complete" value="Started" />
 
 			{{ govukCheckboxes({
 				name: "confirmationsAgreed",

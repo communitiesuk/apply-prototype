@@ -18,10 +18,10 @@
 			<form method="post" action="/apply/skills-and-experience/check-your-answers?link=" >
         {% else %}
 			<form method="post" action="/apply/skills-and-experience/check-your-answers" >
-        {% endif %}         
+        {% endif %}
 
 			<!-- Session information to say section started - but not completed -->
-            <input type="hidden" id="skillsExperienceComplete" name="skillsExperienceComplete" value="Started" />
+            <input type="hidden" id="section3_1Complete" name="section3_1Complete" value="Started" />
 
             {{ govukRadios({
 				classes: "govuk-radios--inline",

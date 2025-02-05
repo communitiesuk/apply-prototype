@@ -19,8 +19,8 @@
         <form method="post" action="/apply/application-name/check-your-answers?link=" >
         {% else %}
         <form method="post" action="/apply/application-name/check-your-answers" >
-        {% endif %} 
-        
+        {% endif %}
+
 
             {{ govukInput({
                 label: {
@@ -35,7 +35,7 @@
             }) }}
 
             <!-- Session information to say section started - but not completed -->
-            <input type="hidden" id="applicationNameComplete" name="applicationNameComplete" value="Started" />
+            <input type="hidden" id="section1_1Complete" name="section1_1Complete" value="Started" />
 
             {{ govukButton({
                 text: "Continue"

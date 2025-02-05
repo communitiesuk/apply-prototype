@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Which datasets have you collected?" %}
+{% set pageHeading = "Agree to the final confirmations" %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -13,8 +13,12 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-        <form method="post" action="/apply/declarations/check-your-answers" >
+		{% if data['link'] == "change" %}
+		<form method="post" action="/apply/declarations/check-your-answers?link=" >
+		{% else %}
+		<form method="post" action="/apply/declarations/check-your-answers" >
+		{% endif %}      
+        
 
 			<!-- Session information to say section started - but not completed -->
             <input type="hidden" id="declarationsComplete" name="declarationsComplete" value="Started" />

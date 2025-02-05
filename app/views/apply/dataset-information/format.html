@@ -14,11 +14,16 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        <form method="post" action="/apply/dataset-information/check-your-answers" >
+		{% if data['link'] == "change" %}
+		<form method="post" action="/apply/dataset-information/check-your-answers?link=" >
+		{% else %}
+		<form method="post" action="/apply/dataset-information/how-long-to-publish" >
+		{% endif %} 
+        
 
 
 			{{ govukCheckboxes({
-				name: "datasetInfoWhich",
+				name: "datasetInfoFormat",
 				fieldset: {
 				  legend: {
 					text: pageHeading,
@@ -30,10 +35,10 @@
 				  text: "Select all that apply"
 				},
 				items: [
-				  { value: "Conservation areas", text: "Conservation areas", checked: checked("datasetInfoWhich", "Conservation areas") },
-				  { value: "Article 4 direction", text: "Article 4 direction", checked: checked("datasetInfoWhich", "Article 4 direction") },
-				  { value: "Listed buildings", text: "Listed buildings", checked: checked("datasetInfoWhich", "Listed buildings") },
-				  { value: "Tree preservation orders", text: "Tree preservation orders", checked: checked("datasetInfoWhich", "Tree preservation orders") }
+				  { value: "Paper or PDF copy", text: "Paper or PDF copy", checked: checked("datasetInfoFormat", "Paper or PDF copy") },
+				  { value: "Spreadsheet (for example, an Excel file)", text: "Spreadsheet (for example, an Excel file)", checked: checked("datasetInfoFormat", "Spreadsheet (for example, an Excel file)") },
+				  { value: "Database on a third party software", text: "Database on a third party software", checked: checked("datasetInfoFormat", "Database on a third party software") },
+				  { value: "GIS (geographical information system)", text: "GIS (geographical information system)", checked: checked("datasetInfoFormat", "GIS (geographical information system)") }
 				]
 			}) }}
 

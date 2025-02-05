@@ -13,8 +13,12 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-        <form method="post" action="/apply/roles-and-recruitment/check-your-answers" >
+		{% if data['link'] == "change" %}
+		<form method="post" action="/apply/roles-and-recruitment/check-your-answers?link=" >
+		{% else %}
+		<form method="post" action="/apply/roles-and-recruitment/check-your-answers" >
+		{% endif %} 
+        
 
             {{ govukRadios({
 				classes: "govuk-radios--inline",

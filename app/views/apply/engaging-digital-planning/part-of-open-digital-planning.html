@@ -21,7 +21,12 @@
 		</ul>
 
 
-        <form method="post" action="/apply/engaging-digital-planning/check-your-answers" >
+		{% if data['link'] == "change" %}
+		<form method="post" action="/apply/engaging-digital-planning/check-your-answers?link=" >
+		{% else %}
+		<form method="post" action="/apply/engaging-digital-planning/check-your-answers" >
+		{% endif %} 
+        
 
 			<!-- Session information to say section started - but not completed -->
             <input type="hidden" id="engagingDigitalPlanningComplete" name="engagingDigitalPlanningComplete" value="Started" />

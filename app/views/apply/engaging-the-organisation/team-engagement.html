@@ -25,7 +25,12 @@
 		</ul>
 
 
-        <form method="post" action="/apply/engaging-the-organisation/share-progress" >
+		{% if data['link'] == "change" %}
+		<form method="post" action="/apply/engaging-the-organisation/check-your-answers?link=" >
+		{% else %}
+		<form method="post" action="/apply/engaging-the-organisation/share-progress" >
+		{% endif %} 
+        
 
 			<!-- Session information to say section started - but not completed -->
             <input type="hidden" id="engagingOrganisationComplete" name="engagingOrganisationComplete" value="Started" />

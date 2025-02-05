@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
 
 
 {% set pageHeading = "Check your answers" %}
@@ -18,20 +19,51 @@
 
         <h2 class="govuk-heading-m">Dataset information</h2>
 
-      	{{ govukSummaryList({
-        	rows: [
-          		{ key: { text: "Does your organisation collect at least one of the datasets?" }, value: { text: data['datasetInfoCollect'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
-				{ key: { text: "Which datasets have you collected?" }, value: { text: data['datasetInfoWhich'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
-				{ key: { text: "Which format is your dataset in for conservation areas?" }, value: { text: data['engagingOrganisationProgress'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
-				{ key: { text: "How long do you think it will take your organisation to publish all 4 datasets?" }, value: { text: data['datasetInfoTimePublish'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } },
-				{ key: { text: "What are the current known issues and challenges you have with data quality and publication?" }, value: { text: data['datasetInfoIssuesChallenges'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } }
+		<dl class="govuk-summary-list">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Does your organisation collect at least one of the datasets?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoCollect'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/collect?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+			  	</dd>
+			</div>	
+
+			{% if data['datasetInfoCollect'] == "yes" %}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Which datasets have you collected?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoWhich'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/which-datasets?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+			  	</dd>
+			</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Which format is your dataset in for conservation areas?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoFormat'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/format?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+			  	</dd>
+			</div>
 
 
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">How long do you think it will take your organisation to publish all 4 datasets?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoTimePublish'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/how-long-to-publish?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+			  	</dd>
+			</div>
+			{% endif %}
 
 
-
-        	]
-      	}) }}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">What are the current known issues and challenges you have with data quality and publication?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoIssuesChallenges'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/issues-and-challenges?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+			  	</dd>
+			</div>	
+		</dl>      
 
 		<form action="/apply/task-list" method="post" novalidate>
 

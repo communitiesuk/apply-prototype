@@ -15,8 +15,12 @@
 
 
 
-
-        <form method="post" action="/apply/dataset-information/check-your-answers" >
+		{% if data['link'] == "change" %}
+		<form method="post" action="/apply/dataset-information/check-your-answers?link=" >
+		{% else %}
+		<form method="post" action="/apply/dataset-information/check-your-answers" >
+		{% endif %} 
+        
 
 
 			{{ govukCharacterCount({

@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
 
 
 {% set pageHeading = "Check your answers" %}
@@ -18,11 +19,16 @@
 
         <h2 class="govuk-heading-m">Engaging the ODP community</h2>
 
-      	{{ govukSummaryList({
-        	rows: [
-          		{ key: { text: "Why do you want to be a part of the ODP (Open Digital Planning) community?" }, value: { text: data['engagingDigitalPlanningWhy'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } }
-        	]
-      	}) }}
+		<dl class="govuk-summary-list">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Why do you want to be a part of the ODP (Open Digital Planning) community?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['engagingDigitalPlanningWhy'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/engaging-digital-planning/part-of-open-digital-planning?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+			  	</dd>
+			</div>	
+		</dl>
+
 
 		<form action="/apply/task-list" method="post" novalidate>
 

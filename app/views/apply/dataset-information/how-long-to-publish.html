@@ -16,7 +16,12 @@
 		<p class="govuk-hint">Part of this funding is to support your organisation to improve and publish 4 datasets to the Planning Data platform.</p>
 		<p class="govuk-hint">Select one option</p>
 
-        <form method="post" action="/apply/dataset-information/check-your-answers" >
+		{% if data['link'] == "change" %}
+		<form method="post" action="/apply/dataset-information/check-your-answers?link=" >
+		{% else %}
+		<form method="post" action="/apply/dataset-information/issues-and-challenges" >
+		{% endif %} 
+        
 
             {{ govukRadios({
 				name: "datasetInfoTimePublish",

@@ -15,7 +15,12 @@
         <p class="govuk-body govuk-hint">This is what your application will be called and will help you find it when you save and return.</p>
         <p class="govuk-body govuk-hint">Choose a memorable name that describes your application.</p>
 
+        {% if data['link'] == "change" %}
+        <form method="post" action="/apply/application-name/check-your-answers?link=" >
+        {% else %}
         <form method="post" action="/apply/application-name/check-your-answers" >
+        {% endif %} 
+        
 
             {{ govukInput({
                 label: {

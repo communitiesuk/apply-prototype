@@ -13,11 +13,11 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-
-
-        <form method="post" action="/apply/engaging-the-organisation/check-your-answers" >
-
+		{% if data['link'] == "change" %}
+		<form method="post" action="/apply/engaging-the-organisation/check-your-answers?link=" >
+		{% else %}
+		<form method="post" action="/apply/engaging-the-organisation/check-your-answers" >
+		{% endif %} 
 
 			{{ govukCharacterCount({
 				name: "engagingOrganisationProgress",

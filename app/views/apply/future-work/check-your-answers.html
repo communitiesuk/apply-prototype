@@ -18,11 +18,15 @@
 
         <h2 class="govuk-heading-m">Future work</h2>
 
-      	{{ govukSummaryList({
-        	rows: [
-          		{ key: { text: "Which software improvements are you interested in working on in the future?" }, value: { text: data['skillsDeliveredProjects'] }, actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "Organisation name" } ] } }
-        	]
-      	}) }}
+		<dl class="govuk-summary-list">			
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Which software improvements are you interested in working on in the future?</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['futureWorkSoftware'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/future-work/software-improvements?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+			  	</dd>
+			</div>				
+		</dl>			
 
 		<form action="/apply/task-list" method="post" novalidate>
 

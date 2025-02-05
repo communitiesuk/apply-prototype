@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
 
 
 {% set pageHeading = "Check your answers" %}
@@ -30,91 +31,91 @@
 				<dt class="govuk-summary-list__key">Project sponsor first name</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['projectSponsorFirstName'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/project-sponsor?link=change">Change<span class="govuk-visually-hidden"> Project sponsor first name</span></a>
+					<a class="govuk-link" href="/apply/organisation/project-sponsor?link=change">Change<span class="govuk-visually-hidden"> project sponsor’s first name</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Project sponsor last name</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['projectSponsorLasttName'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/project-sponsor?link=change">Change<span class="govuk-visually-hidden"> Project sponsor last name</span></a>
+					<a class="govuk-link" href="/apply/organisation/project-sponsor?link=change">Change<span class="govuk-visually-hidden"> project sponsor’s last name</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Project sponsor email address</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['projectSponsorEmail'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/project-sponsor?link=change">Change<span class="govuk-visually-hidden"> Project sponsor email address</span></a>
+					<a class="govuk-link" href="/apply/organisation/project-sponsor?link=change">Change<span class="govuk-visually-hidden"> project sponsor’s email address</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Project sponsor telephone number</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['projectSponsorTelephone'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/project-sponsor?link=change">Change<span class="govuk-visually-hidden"> Project sponsor telephone number</span></a>
+					<a class="govuk-link" href="/apply/organisation/project-sponsor?link=change">Change<span class="govuk-visually-hidden"> project sponsor’s telephone number</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Section 151 officer first name</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['section151FirstName'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/section-151?link=change">Change<span class="govuk-visually-hidden"> Section 151 officer first name</span></a>
+					<a class="govuk-link" href="/apply/organisation/section-151?link=change">Change<span class="govuk-visually-hidden"> section 151 officer’s first name</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Section 151 officer last name</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['section151LastName'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/section-151?link=change">Change<span class="govuk-visually-hidden"> Section 151 officer last name</span></a>
+					<a class="govuk-link" href="/apply/organisation/section-151?link=change">Change<span class="govuk-visually-hidden"> section 151 officer’s last name</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Section 151 officer email address</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['section151Email'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/section-151?link=change">Change<span class="govuk-visually-hidden"> Section 151 officer email address</span></a>
+					<a class="govuk-link" href="/apply/organisation/section-151?link=change">Change<span class="govuk-visually-hidden"> section 151 officer’s email address</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Section 151 officer telephone number</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['section151Telephone'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/section-151?link=change">Change<span class="govuk-visually-hidden"> Section 151 officer telephone number</span></a>
+					<a class="govuk-link" href="/apply/organisation/section-151?link=change">Change<span class="govuk-visually-hidden"> section 151 officer’s telephone number</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Lead contact first name</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['leadContactFirstName'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> Section 151 officer first name</span></a>
+					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> lead contact’s first name</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Lead contact last name</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['leadContactLasttName'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> organisation name</span></a>
+					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> lead contact’s last name</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Lead contact’s job title</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['leadContactJobTitle'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> organisation name</span></a>
+					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> lead contact’s job title</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Lead contact email address</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['leadContactEmail'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> organisation name</span></a>
+					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> lead contact’s email address</span></a>
 			  	</dd>
 			</div>								
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Lead contact telephone number</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['leadContactTelephone'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> organisation name</span></a>
+					<a class="govuk-link" href="/apply/organisation/lead-contact?link=change">Change<span class="govuk-visually-hidden"> lead contact’s telephone number</span></a>
 			  	</dd>
 			</div>						
 		</dl>

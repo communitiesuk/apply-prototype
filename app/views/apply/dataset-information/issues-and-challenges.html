@@ -15,12 +15,12 @@
 
 
 
-		{% if data['link'] == "change" %}
-		<form method="post" action="/apply/dataset-information/check-your-answers?link=" >
+		{% if data['linkStatus'] == "change" %}
+		<form method="post" action="/apply/dataset-information/check-your-answers?linkStatus=" >
 		{% else %}
 		<form method="post" action="/apply/dataset-information/check-your-answers" >
-		{% endif %} 
-        
+		{% endif %}
+
 
 
 			{{ govukCharacterCount({

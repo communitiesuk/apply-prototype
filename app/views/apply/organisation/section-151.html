@@ -13,11 +13,11 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        {% if data['link'] == "change" %}
-            <form method="post" action="/apply/organisation/check-your-answers?link=" >
+        {% if data['linkStatus'] == "change" %}
+            <form method="post" action="/apply/organisation/check-your-answers?linkStatus=" >
         {% else %}
             <form method="post" action="/apply/organisation/lead-contact" >
-        {% endif %}        
+        {% endif %}
 
             {{ govukInput({
                 label: {
@@ -26,9 +26,10 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "section151FirstName",
-                name: "section151FirstName",
-                value: data['section151FirstName']
+                id: "2_1_section151FirstName",
+                name: "2_1_section151FirstName",
+                value: data['2_1_section151FirstName'],
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -38,9 +39,10 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "section151LasttName",
-                name: "section151LasttName",
-                value: data['section151LasttName']
+                id: "2_1_section151LastName",
+                name: "2_1_section151LastName",
+                value: data['2_1_section151LastName'],
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -50,9 +52,12 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "section151Email",
-                name: "section151Email",
-                value: data['section151Email']
+                id: "2_1_section151Email",
+                name: "2_1_section151Email",
+                value: data['2_1_section151Email'],
+                type: "email",
+                autocomplete: "email",
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -62,9 +67,11 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-one-third",
-                id: "section151Telephone",
-                name: "section151Telephone",
-                value: data['section151Telephone']
+                id: "2_1_section151Phone",
+                name: "2_1_section151Phone",
+                value: data['2_1_section151Phone'],
+                type: "tel",
+                autocomplete: "tel"
             }) }}
 
             {{ govukButton({

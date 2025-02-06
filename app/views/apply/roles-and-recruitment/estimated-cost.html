@@ -14,12 +14,12 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        {% if data['link'] == "change" %}
-			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?link=" >
+        {% if data['linkStatus'] == "change" %}
+			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?linkStatus=" >
 		{% else %}
             <form method="post" action="/apply/roles-and-recruitment/project-lead" >
-		{% endif %} 
-        
+		{% endif %}
+
 
 			{{ govukInput({
                 label: {
@@ -31,9 +31,9 @@
                     text: "£"
                   },
                 classes: "govuk-!-width-one-third",
-                id: "rolesEstimatedCost",
-                name: "rolesEstimatedCost",
-                value: data['rolesEstimatedCost']
+                id: "3_2_estimatedCost",
+                name: "3_2_estimatedCost",
+                value: data['3_2_estimatedCost']
             }) }}
 
             {{ govukButton({

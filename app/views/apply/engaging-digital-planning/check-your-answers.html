@@ -3,7 +3,6 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-
 {% set pageHeading = "Check your answers" %}
 {% set pageSection = "" %}
 
@@ -11,32 +10,32 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <h2 class="govuk-heading-m">Engaging the ODP community</h2>
-
 		<dl class="govuk-summary-list">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Why do you want to be a part of the ODP (Open Digital Planning) community?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['engagingDigitalPlanningWhy'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['4_1_whyOpenDigitalPlanning'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/engaging-digital-planning/part-of-open-digital-planning?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/engaging-digital-planning/part-of-open-digital-planning?linkStatus=change">Change<span class="govuk-visually-hidden"> Why do you want to be a part of the ODP (Open Digital Planning) community</span></a>
 			  	</dd>
 			</div>
 		</dl>
 
+		<form action="/apply/task-list" method="post" >
 
-		<form action="/apply/task-list" method="post" novalidate>
+			<!-- Remove the change link status -->
+			{% include "/apply/includes/linkStatus.html" %}
 
 			<!-- Session information to inform although section is finished is it completed -->
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "section4_1Complete",
+				name: "section4_1",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -45,13 +44,13 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("section4_1Complete", "yes")  },
-				{ value: "no", text: "No", checked: checked("section4_1Complete", "no") }
+					{ value: "yes", text: "Yes", checked: checked("section4_1", "yes")  },
+					{ value: "no", text: "No", checked: checked("section4_1", "no") }
 				]
 			}) }}
 
 			{{ govukButton({
-			text: "Save and continue"
+				text: "Save and continue"
 			}) }}
 
 		</form>

@@ -15,8 +15,8 @@
 
 		<p class="govuk-hint">If you're successful, you may be invited to apply for additional funding to improve the planning software in your organisation.</p>
 
-		{% if data['link'] == "change" %}
-			<form method="post" action="/apply/future-work/check-your-answers?link=" >
+		{% if data['linkStatus'] == "change" %}
+			<form method="post" action="/apply/future-work/check-your-answers?linkStatus=" >
 		{% else %}
 			<form method="post" action="/apply/future-work/check-your-answers" >
 		{% endif %}

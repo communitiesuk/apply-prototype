@@ -38,12 +38,12 @@
 
 		<!-- Application status -->
 		{% if (
-			(data['section1_1Complete'] == "yes") and
-			( data['section2_1Complete'] == "yes") and
-			( data['section3_1Complete'] == "yes") and
-			( data['section3_2Complete'] == "yes") and
-			( data['section4_1Complete'] == "yes") and
-			( data['section4_2Complete'] == "yes") and
+			(data['section1_1'] == "yes") and
+			( data['section2_1'] == "yes") and
+			( data['section3_1'] == "yes") and
+			( data['section3_2'] == "yes") and
+			( data['section4_1'] == "yes") and
+			( data['section4_2'] == "yes") and
 			( data['section4_3Complete'] == "yes") and
 			( data['section5_1Complete'] == "yes") and
 			( data['section6_1Complete'] == "yes")) %}
@@ -75,7 +75,7 @@
 	  	{% elif data['fundName'] == "Community Ownership" %}
 		  	{% include "/apply/includes/taskCO.html" %}
 	  	{% elif data['fundName'] == "Digital Planning Improvement" %}
-			{% include "/apply/includes/taskDPI.html" %}
+			{% include "/apply/includes/tlist-digitalPlanning.html" %}
 	  	{% else %}
 			<p class="govuk-body">You have not set which fund you are dealing with.</p>
 	  	{% endif %}

@@ -7,17 +7,15 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
         <p class="govuk-body">The project sponsor is the person sponsoring your application. They are usually a 'head of' or higher.</p>
 
-        {% if data['link'] == "change" %}
-            <form method="post" action="/apply/organisation/check-your-answers?link=" >
+        {% if data['linkStatus'] == "change" %}
+            <form method="post" action="/apply/organisation/check-your-answers?linkStatus=" >
         {% else %}
             <form method="post" action="/apply/organisation/section-151" >
         {% endif %}
@@ -29,9 +27,10 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "projectSponsorFirstName",
-                name: "projectSponsorFirstName",
-                value: data['projectSponsorFirstName']
+                id: "2_1_sponsorFirstName",
+                name: "2_1_sponsorFirstName",
+                value: data['2_1_sponsorFirstName'],
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -41,9 +40,10 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "projectSponsorLasttName",
-                name: "projectSponsorLasttName",
-                value: data['projectSponsorLasttName']
+                id: "2_1_sponsorLastName",
+                name: "2_1_sponsorLastName",
+                value: data['2_1_sponsorLastName'],
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -53,9 +53,12 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "projectSponsorEmail",
-                name: "projectSponsorEmail",
-                value: data['projectSponsorEmail']
+                id: "2_1_sponsorEmail",
+                name: "2_1_sponsorEmail",
+                value: data['2_1_sponsorEmail'],
+                type: "email",
+                autocomplete: "email",
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -65,15 +68,16 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-one-third",
-                id: "projectSponsorTelephone",
-                name: "projectSponsorTelephone",
-                value: data['projectSponsorTelephone']
+                id: "2_1_sponsorPhone",
+                name: "2_1_sponsorPhone",
+                value: data['2_1_sponsorPhone'],
+                type: "tel",
+                autocomplete: "tel"
             }) }}
 
             {{ govukButton({
                 text: "Continue"
             }) }}
-
 
         </form>
 

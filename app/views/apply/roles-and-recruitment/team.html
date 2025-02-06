@@ -14,18 +14,18 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-		{% if data['link'] == "change" %}
-			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?link=" >
+		{% if data['linkStatus'] == "change" %}
+			<form method="post" action="/apply/roles-and-recruitment/team-in-place" >
 		{% else %}
 			<form method="post" action="/apply/roles-and-recruitment/team-in-place" >
 		{% endif %}
 
 			<!-- Session information to say section started - but not completed -->
-            <input type="hidden" id="section3_2Complete" name="section3_2Complete" value="Started" />
+            <input type="hidden" id="section3_2" name="section3_2" value="Started" />
 
             {{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "rolesTeam",
+				name: "3_2_team",
 				fieldset: {
 					legend: {
 						text: "Do you have a team in place ready to deliver the project?",
@@ -34,8 +34,8 @@
 					}
 				},
 				items: [
-				{ value: "yes~/apply/roles-and-recruitment/tell-us-about-the-team", text: "Yes", checked: checked("rolesTeam", "yes")  },
-				{ value: "no", text: "No", checked: checked("rolesTeam", "no") }
+				{ value: "yes~/apply/roles-and-recruitment/tell-us-about-the-team", text: "Yes", checked: checked("3_2_team", "yes")  },
+				{ value: "no", text: "No", checked: checked("3_2_team", "no") }
 				]
 			}) }}
 

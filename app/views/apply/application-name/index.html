@@ -15,27 +15,26 @@
         <p class="govuk-body govuk-hint">This is what your application will be called and will help you find it when you save and return.</p>
         <p class="govuk-body govuk-hint">Choose a memorable name that describes your application.</p>
 
-        {% if data['link'] == "change" %}
-        <form method="post" action="/apply/application-name/check-your-answers?link=" >
+        {% if data['linkStatus'] == "change" %}
+        <form method="post" action="/apply/application-name/check-your-answers" >
         {% else %}
         <form method="post" action="/apply/application-name/check-your-answers" >
         {% endif %}
 
-
             {{ govukInput({
                 label: {
-                    text: "Name your application",
+                    text: pageHeading,
                     classes: "govuk-label govuk-visually-hidden",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-full",
-                id: "applicationName",
-                name: "applicationName",
-                value: data['applicationName']
+                id: "1_1_applicationName",
+                name: "1_1_applicationName",
+                value: data['1_1_applicationName']
             }) }}
 
             <!-- Session information to say section started - but not completed -->
-            <input type="hidden" id="section1_1Complete" name="section1_1Complete" value="Started" />
+            <input type="hidden" id="section1_1" name="section1_1" value="Started" />
 
             {{ govukButton({
                 text: "Continue"

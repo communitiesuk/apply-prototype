@@ -15,11 +15,11 @@
 
         <p class="govuk-body">The lead contact will receive all the information about this application.</p>
 
-        {% if data['link'] == "change" %}
-            <form method="post" action="/apply/organisation/check-your-answers?link=" >
+        {% if data['linkStatus'] == "change" %}
+            <form method="post" action="/apply/organisation/check-your-answers?linkStatus=" >
         {% else %}
             <form method="post" action="/apply/organisation/check-your-answers" >
-        {% endif %}                
+        {% endif %}
 
             {{ govukInput({
                 label: {
@@ -28,9 +28,10 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "leadContactFirstName",
-                name: "leadContactFirstName",
-                value: data['leadContactFirstName']
+                id: "2_1_contactFirstName",
+                name: "2_1_contactFirstName",
+                value: data['2_1_contactFirstName'],
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -40,9 +41,10 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "leadContactLasttName",
-                name: "leadContactLasttName",
-                value: data['leadContactLasttName']
+                id: "2_1_contactLastName",
+                name: "2_1_contactLastName",
+                value: data['2_1_contactLastName'],
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -52,9 +54,10 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "leadContactJobTitle",
-                name: "leadContactJobTitle",
-                value: data['leadContactJobTitle']
+                id: "2_1_contactJobTitle",
+                name: "2_1_contactJobTitle",
+                value: data['2_1_contactJobTitle'],
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -64,9 +67,12 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "leadContactEmail",
-                name: "leadContactEmail",
-                value: data['leadContactEmail']
+                id: "2_1_contactEmail",
+                name: "2_1_contactEmail",
+                value: data['2_1_contactEmail'],
+                type: "email",
+                autocomplete: "email",
+                spellcheck: "false"
             }) }}
 
             {{ govukInput({
@@ -76,9 +82,11 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-one-third",
-                id: "leadContactTelephone",
-                name: "leadContactTelephone",
-                value: data['leadContactTelephone']
+                id: "2_1_contactPhone",
+                name: "2_1_contactPhone",
+                value: data['2_1_contactPhone'],
+                type: "tel",
+                autocomplete: "tel"
             }) }}
 
             {{ govukButton({

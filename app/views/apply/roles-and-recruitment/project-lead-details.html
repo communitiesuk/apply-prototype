@@ -14,12 +14,12 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        {% if data['link'] == "change" %}
-			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?link=" >
+        {% if data['linkStatus'] == "change" %}
+			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?linkStatus=" >
 		{% else %}
             <form method="post" action="/apply/roles-and-recruitment/check-your-answers" >
-		{% endif %} 
-        
+		{% endif %}
+
 
 			{{ govukInput({
                 label: {
@@ -28,9 +28,9 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "rolesProjectLeadFirstName",
-                name: "rolesProjectLeadFirstName",
-                value: data['rolesProjectLeadFirstName']
+                id: "3_2_projectLeadFirstName",
+                name: "3_2_projectLeadFirstName",
+                value: data['3_2_projectLeadFirstName']
             }) }}
 
 			{{ govukInput({
@@ -40,9 +40,9 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "rolesProjectLeadLastName",
-                name: "rolesProjectLeadLastName",
-                value: data['rolesProjectLeadLastName']
+                id: "3_2_projectLeadLastName",
+                name: "3_2_projectLeadLastName",
+                value: data['3_2_projectLeadLastName']
             }) }}
 
 

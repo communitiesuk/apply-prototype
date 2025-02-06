@@ -7,7 +7,6 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
@@ -20,25 +19,23 @@
 			<li>who was involved</li>
         </ul>
 
-		{% if data['link'] == "change" %}
-			<form method="post" action="/apply/skills-and-experience/check-your-answers?link=" >
+		{% if data['linkStatus'] == "change" %}
+			<form method="post" action="/apply/skills-and-experience/check-your-answers" >
         {% else %}
 			<form method="post" action="/apply/skills-and-experience/check-your-answers" >
-        {% endif %} 
-        
+        {% endif %}
 
 			{{ govukCharacterCount({
-				name: "skillsDeliveredHow",
-				id: "skillsDeliveredHow",
+				name: "3_1_previousProjects",
+				id: "3_1_previousProjects",
 				maxwords: 250,
-				value: data['skillsDeliveredHow']  ,
+				value: data['3_1_previousProjects']  ,
 				label: {
-				  text: "Tell us about how your organisation has worked on similar previous projects",
-				  classes: "govuk-label--l govuk-visually-hidden",
+				  text: pageHeading,
+				  classes: "govuk-label govuk-visually-hidden",
 				  isPageHeading: false
 				}
 			  }) }}
-
 
             {{ govukButton({
                 text: "Continue"

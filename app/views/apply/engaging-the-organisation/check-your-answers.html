@@ -21,27 +21,30 @@
 		<dl class="govuk-summary-list">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">How will you make sure team members engage with other parts of your organisation?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['engagingOrganisationHow'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['4_2_engagement'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/engaging-the-organisation/team-engagement?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/engaging-the-organisation/team-engagement?linkStatus=change">Change<span class="govuk-visually-hidden"> How will you make sure team members engage with other parts of your organisation</span></a>
 			  	</dd>
 			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">How will you share the progress of the work across your organisation?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['engagingOrganisationProgress'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['4_2_shareProgress'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/engaging-the-organisation/share-progress?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/engaging-the-organisation/share-progress?linkStatus=change">Change<span class="govuk-visually-hidden"> How will you share the progress of the work across your organisation</span></a>
 			  	</dd>
 			</div>
 		</dl>
 
-		<form action="/apply/task-list" method="post" novalidate>
+		<form action="/apply/task-list" method="post">
+
+			<!-- Remove the change link status -->
+			{% include "/apply/includes/linkStatus.html" %}
 
 			<!-- Session information to inform although section is finished is it completed -->
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "section4_2Complete",
+				name: "section4_2",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -50,13 +53,13 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("section4_2Complete", "yes")  },
-				{ value: "no", text: "No", checked: checked("section4_2Complete", "no") }
+					{ value: "yes", text: "Yes", checked: checked("section4_2", "yes")  },
+					{ value: "no", text: "No", checked: checked("section4_2", "no") }
 				]
 			}) }}
 
 			{{ govukButton({
-			text: "Save and continue"
+				text: "Save and continue"
 			}) }}
 
 		</form>

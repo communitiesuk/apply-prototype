@@ -3,14 +3,12 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-
 {% set pageHeading = "Check your answers" %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
@@ -19,35 +17,37 @@
 
         <h2 class="govuk-heading-m">Your skills and experience</h2>
 
-
 		<dl class="govuk-summary-list">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Has your organisation delivered projects like this before?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['skillsDeliveredProjects'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['3_1_deliveredProjects'] | capitalize }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/skills-and-experience/delivered-projects?link=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/skills-and-experience/delivered-projects?linkStatus=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
 			  	</dd>
 			</div>
 
-			{% if data['skillsDeliveredProjects'] == "yes" %}
+			{% if data['3_1_deliveredProjects'] == "yes" %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Tell us about how your organisation has worked on similar previous projects</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['skillsDeliveredHow'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['3_1_previousProjects'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/skills-and-experience/tell-us-how?link=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
+					<a class="govuk-link" href="/apply/skills-and-experience/tell-us-how?linkStatus=change">Change<span class="govuk-visually-hidden"> Tell us about how your organisation has worked on similar previous projects</span></a>
 			  	</dd>
 			</div>
 			{% endif %}
 		</dl>
 
 
-		<form action="/apply/task-list" method="post" novalidate>
+		<form action="/apply/task-list" method="post" >
+
+			<!-- Remove the change link status -->
+			{% include "/apply/includes/linkStatus.html" %}
 
 			<!-- Session information to inform although section is finished is it completed -->
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "section3_1Complete",
+				name: "section3_1",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -56,8 +56,8 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("section3_1Complete", "yes")  },
-				{ value: "no", text: "No", checked: checked("section3_1Complete", "no") }
+				{ value: "yes", text: "Yes", checked: checked("section3_1", "yes")  },
+				{ value: "no", text: "No", checked: checked("section3_1", "no") }
 				]
 			}) }}
 

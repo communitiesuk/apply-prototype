@@ -7,41 +7,37 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
         <p class="govuk-hint">This must match your registered legal organisation name</p>
 
-
-        {% if data['link'] == "change" %}
-            <form method="post" action="/apply/organisation/check-your-answers?link=" >
+        {% if data['linkStatus'] == "change" %}
+            <form method="post" action="/apply/organisation/check-your-answers?linkStatus=" >
         {% else %}
             <form method="post" action="/apply/organisation/project-sponsor" >
         {% endif %}
 
-            <!-- Session information to say section started - but not completed -->
-            <input type="hidden" id="section2_1Complete" name="section2_1Complete" value="Started" />
+            <!-- Session information to say section started -->
+            <input type="hidden" id="section2_1" name="section2_1" value="Started" />
 
             {{ govukInput({
                 label: {
-                    text: "Name your application",
+                    text: pageHeading,
                     classes: "govuk-label govuk-visually-hidden",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "orgName",
-                name: "orgName",
-                value: data['orgName']
+                id: "2_1_organisationName",
+                name: "2_1_organisationName",
+                value: data['2_1_organisationName']
             }) }}
 
             {{ govukButton({
                 text: "Continue"
             }) }}
-
 
         </form>
 

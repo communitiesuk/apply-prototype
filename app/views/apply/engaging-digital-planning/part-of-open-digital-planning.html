@@ -14,30 +14,27 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 		<p class="govuk-body govuk-hint">Tell us:</p>
-
 		<ul class="govuk-list govuk-list--bullet govuk-hint">
 			<li>what you will get from the community</li>
 			<li>what you will give to the community</li>
 		</ul>
 
-
-		{% if data['link'] == "change" %}
-		<form method="post" action="/apply/engaging-digital-planning/check-your-answers?link=" >
+		{% if data['linkStatus'] == "change" %}
+		<form method="post" action="/apply/engaging-digital-planning/check-your-answers" >
 		{% else %}
 		<form method="post" action="/apply/engaging-digital-planning/check-your-answers" >
 		{% endif %}
 
-
 			<!-- Session information to say section started - but not completed -->
-            <input type="hidden" id="section4_1Complete" name="section4_1Complete" value="Started" />
+            <input type="hidden" id="section4_1" name="section4_1" value="Started" />
 
 			{{ govukCharacterCount({
-				name: "engagingDigitalPlanningWhy",
-				id: "engagingDigitalPlanningWhy",
+				name: "4_1_whyOpenDigitalPlanning",
+				id: "4_1_whyOpenDigitalPlanning",
 				maxwords: 250,
-				value: data['engagingDigitalPlanningWhy']  ,
+				value: data['4_1_whyOpenDigitalPlanning']  ,
 				label: {
-				  text: "How will you make sure you have a team in place ready to deliver the project?",
+				  text: pageHeading,
 				  classes: "govuk-label--l govuk-visually-hidden",
 				  isPageHeading: false
 				}

@@ -7,7 +7,6 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
@@ -21,7 +20,7 @@
             <li>lead contact details</li>
         </ul>
 
-        <form method="post" action="/apply/organisation/name" >
+        <form method="post" action="/apply/organisation/name?linkStatus=" >
             {{ govukButton({
                 text: "Continue"
             }) }}

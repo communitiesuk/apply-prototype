@@ -13,8 +13,8 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		{% if data['link'] == "change" %}
-		<form method="post" action="/apply/declarations/check-your-answers?link=" >
+		{% if data['linkStatus'] == "change" %}
+		<form method="post" action="/apply/declarations/check-your-answers?linkStatus=" >
 		{% else %}
 		<form method="post" action="/apply/declarations/check-your-answers" >
 		{% endif %}

@@ -2,7 +2,7 @@
       	{{ govukTaskList({
         	idPrefix: "first-section",
         	items: [
-          		{ title: { text: "1.1 Name your application" }, href: "/apply/application-name/", status: ( completedStatus if data['section1_1Complete'] == "yes" else notstartedStatus ) }
+          		{ title: { text: "1.1 Name your application" }, href: "/apply/application-name/", status: ( completedStatus if data['section1_1'] == "yes" else notstartedStatus ) }
         	]
       	}) }}
 
@@ -10,7 +10,7 @@
       	{{ govukTaskList({
         	idPrefix: "first-section",
         	items: [
-          		{ title: { text: "2.1 Organisation information" }, href: "/apply/organisation/", status: ( completedStatus if data['section2_1Complete'] == "yes" else notstartedStatus ) }
+          		{ title: { text: "2.1 Organisation information" }, href: "/apply/organisation/", status: ( completedStatus if data['section2_1'] == "yes" else notstartedStatus ) }
         	]
       	}) }}
 
@@ -18,8 +18,8 @@
       	{{ govukTaskList({
         	idPrefix: "first-section",
         	items: [
-          		{ title: { text: "3.1 Your skills and experience" }, href: "/apply/skills-and-experience/", status: ( completedStatus if data['section3_1Complete'] == "yes" else notstartedStatus ) },
-				{ title: { text: "3.2 Roles and recruitment" }, href: "/apply/roles-and-recruitment/", status: ( completedStatus if data['section3_2Complete'] == "yes" else notstartedStatus ) }
+          		{ title: { text: "3.1 Your skills and experience" }, href: "/apply/skills-and-experience/", status: ( completedStatus if data['section3_1'] == "yes" else notstartedStatus ) },
+				{ title: { text: "3.2 Roles and recruitment" }, href: "/apply/roles-and-recruitment/", status: ( completedStatus if data['section3_2'] == "yes" else notstartedStatus ) }
         	]
       	}) }}
 
@@ -27,9 +27,9 @@
       	{{ govukTaskList({
         	idPrefix: "first-section",
         	items: [
-          		{ title: { text: "4.1 Engaging the ODP (Open Digital Planning) community" }, href: "/apply/engaging-digital-planning/", status: ( completedStatus if data['section4_1Complete'] == "yes" else notstartedStatus ) },
-				{ title: { text: "4.2 Engaging the organisation" }, href: "/apply/engaging-the-organisation/", status: ( completedStatus if data['section4_2Complete'] == "yes" else notstartedStatus ) },
-				{ title: { text: "4.3 Dataset information" }, href: "/apply/dataset-information/", status: ( completedStatus if data['section4_2Complete'] == "yes" else notstartedStatus ) }
+          		{ title: { text: "4.1 Engaging the ODP (Open Digital Planning) community" }, href: "/apply/engaging-digital-planning/", status: ( completedStatus if data['section4_1'] == "yes" else notstartedStatus ) },
+				{ title: { text: "4.2 Engaging the organisation" }, href: "/apply/engaging-the-organisation/", status: ( completedStatus if data['section4_2'] == "yes" else notstartedStatus ) },
+				{ title: { text: "4.3 Dataset information" }, href: "/apply/dataset-information/", status: ( completedStatus if data['section4_2'] == "yes" else notstartedStatus ) }
         	]
       	}) }}
 

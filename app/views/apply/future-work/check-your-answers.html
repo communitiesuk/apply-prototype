@@ -21,7 +21,13 @@
 		<dl class="govuk-summary-list">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Which software improvements are you interested in working on in the future?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['futureWorkSoftware'] }}</dd>
+			  	<dd class="govuk-summary-list__value">
+					<ul class="govuk-list govuk-list--bullet">
+					{% for item in data.futureWorkSoftware %}
+					<li>{{ item }}</li>
+                	{% endfor %}
+					</ul>
+				</dd>
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/future-work/software-improvements?linkStatus=change">Change<span class="govuk-visually-hidden"> HWhich software improvements are you interested in working on in the future</span></a>
 			  	</dd>

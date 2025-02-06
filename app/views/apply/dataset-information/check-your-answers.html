@@ -28,14 +28,26 @@
 			{% if data['4_3_datasetCollect'] == "yes" %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Which datasets have you collected?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['4_3_datasets'] }}</dd>
+				<dd class="govuk-summary-list__value">
+					<ul class="govuk-list govuk-list--bullet">
+					{% for item in data.4_3_datasets %}
+					<li>{{ item }}</li>
+                	{% endfor %}
+					</ul>
+				</dd>
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/dataset-information/which-datasets?linkStatus=change">Change<span class="govuk-visually-hidden"> Which datasets have you collected</span></a>
 			  	</dd>
 			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Which format is your dataset in for conservation areas?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['4_3_format'] }}</dd>
+				<dd class="govuk-summary-list__value">
+					<ul class="govuk-list govuk-list--bullet">
+					{% for item in data.4_3_format %}
+					<li>{{ item }}</li>
+                	{% endfor %}
+					</ul>
+				</dd>
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/dataset-information/format?linkStatus=change">Change<span class="govuk-visually-hidden"> Which format is your dataset in for conservation areas</span></a>
 			  	</dd>

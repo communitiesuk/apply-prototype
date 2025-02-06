@@ -54,7 +54,7 @@
 			{% if data['3_2_teamBackfill'] == "yes" %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">What is the estimated cost of backfilling roles?</dt>
-			  	<dd class="govuk-summary-list__value">&pound;{{ data['3_2_estimatedCost'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['3_2_estimatedCost'] | currency(trailingZeros=false) }}</dd>
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/roles-and-recruitment/estimated-cost?linkStatus=change">Change<span class="govuk-visually-hidden"> What is the estimated cost of backfilling roles</span></a>
 			  	</dd>

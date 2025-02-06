@@ -4,7 +4,7 @@ module.exports = {
 
 fundName: "Digital Planning Improvement",
 fundRound: "Round 3",
-fundDeadlineDate: "31 March 2025 at 11:59am",
+fundDeadlineDate: "2025-03-31T23:59:00",
 applicationsStarted: "0",
 loggedIn: "no"
 

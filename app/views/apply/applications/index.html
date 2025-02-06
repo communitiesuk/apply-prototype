@@ -36,7 +36,7 @@
         <p>You have started {{ data.applicationsStarted }} applications using this email address.</p>
         <span class="govuk-caption-m">{{ data.fundName }}</span>
         <h2 class="govuk-heading-l">{{ data.fundRound }}</h2>
-        <p>Deadline for applications: {{ data.fundDeadlineDate }}</p>
+        <p>Deadline for applications: {{ data.fundDeadlineDate | govukDateTime }}</p>
         <!-- // -->
 
         {% if data['fundName'] == "High Street Rental Auctions" %}
@@ -79,6 +79,11 @@
                 text: "Start new application"
             }) }}
         </form>
+
+
+        {{ "2024-05-04" | daysAgo }}
+
+
 
     </div>
 </div>

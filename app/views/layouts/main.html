@@ -9,7 +9,7 @@
 
     {% if data['loggedIn'] != "no" %}
       {{ govukHeader({
-        homepageUrl: "#",
+        homepageUrl: "/",
         serviceName: "Apply for funding to begin your digital planning improvement journey",
         serviceUrl: "/",
         navigation: [
@@ -19,7 +19,7 @@
       }) }}
     {% else %}
     {{ govukHeader({
-      homepageUrl: "#",
+      homepageUrl: "/",
       serviceName: "Apply for funding to begin your digital planning improvement journey",
       serviceUrl: "/"
     }) }}

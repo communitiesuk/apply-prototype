@@ -7,15 +7,24 @@
 
     {% block header %}
 
+    {% if data['loggedIn'] != "no" %}
       {{ govukHeader({
         homepageUrl: "#",
         serviceName: "Apply for funding to begin your digital planning improvement journey",
-        serviceUrl: "#",
+        serviceUrl: "/",
         navigation: [
           { href: "#", text: "View all applications" },
-          { href: "#", text: "Sign out" }
+          { href: "/apply/signed-out?loggedIn=no", text: "Sign out" }
         ]
       }) }}
+    {% else %}
+    {{ govukHeader({
+      homepageUrl: "#",
+      serviceName: "Apply for funding to begin your digital planning improvement journey",
+      serviceUrl: "/"
+    }) }}
+
+    {% endif %}
 
     {% endblock %}
 

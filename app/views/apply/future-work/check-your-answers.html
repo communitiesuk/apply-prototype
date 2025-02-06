@@ -18,13 +18,12 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <h2 class="govuk-heading-m">Future work</h2>
-
 		<dl class="govuk-summary-list">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Which software improvements are you interested in working on in the future?</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['futureWorkSoftware'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/future-work/software-improvements?linkStatus=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/future-work/software-improvements?linkStatus=change">Change<span class="govuk-visually-hidden"> HWhich software improvements are you interested in working on in the future</span></a>
 			  	</dd>
 			</div>
 		</dl>
@@ -36,7 +35,7 @@
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "section5_1Complete",
+				name: "section5_1",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -45,8 +44,8 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("section5_1Complete", "yes")  },
-				{ value: "no", text: "No", checked: checked("section5_1Complete", "no") }
+					{ value: "yes", text: "Yes", checked: checked("section5_1", "yes")  },
+					{ value: "no", text: "No", checked: checked("section5_1", "no") }
 				]
 			}) }}
 

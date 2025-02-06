@@ -43,7 +43,6 @@
 			</div>
 			{% endif %}
 			<!-- // -->
-
 			<!-- Group -->
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Will you need to backfill any roles in your organisation?</dt>
@@ -62,7 +61,6 @@
 			</div>
 			{% endif %}
 			<!-- // -->
-
 			<!-- Group -->
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Do you know who the project lead will be?</dt>
@@ -71,7 +69,6 @@
 					<a class="govuk-link" href="/apply/roles-and-recruitment/project-lead?linkStatus=change">Change<span class="govuk-visually-hidden"> Do you know who the project lead will be</span></a>
 			  	</dd>
 			</div>
-
 			{% if data['3_2_projectLead'] == "yes" %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Project lead first name</dt>
@@ -89,9 +86,7 @@
 			</div>
 			{% endif %}
 			<!-- // -->
-
 		</dl>
-
 
 		<form action="/apply/task-list" method="post">
 
@@ -111,13 +106,13 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("section3_2", "yes")  },
-				{ value: "no", text: "No", checked: checked("section3_2", "no") }
+					{ value: "yes", text: "Yes", checked: checked("section3_2", "yes")  },
+					{ value: "no", text: "No", checked: checked("section3_2", "no") }
 				]
 			}) }}
 
 			{{ govukButton({
-			text: "Save and continue"
+				text: "Save and continue"
 			}) }}
 
 		</form>

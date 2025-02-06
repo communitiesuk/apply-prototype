@@ -16,7 +16,6 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <h2 class="govuk-heading-m">Organisation information</h2>
-
 		<dl class="govuk-summary-list">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Organisation name</dt>
@@ -118,7 +117,6 @@
 			</div>
 		</dl>
 
-
 		<form action="/apply/task-list" method="post" >
 
 			<!-- Remove the change link status -->
@@ -136,13 +134,13 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("section2_1", "yes")  },
-				{ value: "no", text: "No", checked: checked("section2_1", "no") }
+					{ value: "yes", text: "Yes", checked: checked("section2_1", "yes")  },
+					{ value: "no", text: "No", checked: checked("section2_1", "no") }
 				]
 			}) }}
 
 			{{ govukButton({
-			text: "Save and continue"
+				text: "Save and continue"
 			}) }}
 
 		</form>

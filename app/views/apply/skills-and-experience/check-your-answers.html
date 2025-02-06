@@ -16,7 +16,6 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <h2 class="govuk-heading-m">Your skills and experience</h2>
-
 		<dl class="govuk-summary-list">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Has your organisation delivered projects like this before?</dt>
@@ -25,7 +24,6 @@
 					<a class="govuk-link" href="/apply/skills-and-experience/delivered-projects?linkStatus=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
 			  	</dd>
 			</div>
-
 			{% if data['3_1_deliveredProjects'] == "yes" %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Tell us about how your organisation has worked on similar previous projects</dt>
@@ -36,7 +34,6 @@
 			</div>
 			{% endif %}
 		</dl>
-
 
 		<form action="/apply/task-list" method="post" >
 
@@ -56,8 +53,8 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("section3_1", "yes")  },
-				{ value: "no", text: "No", checked: checked("section3_1", "no") }
+					{ value: "yes", text: "Yes", checked: checked("section3_1", "yes")  },
+					{ value: "no", text: "No", checked: checked("section3_1", "no") }
 				]
 			}) }}
 

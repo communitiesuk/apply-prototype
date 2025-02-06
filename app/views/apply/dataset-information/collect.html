@@ -7,13 +7,12 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		<p>The 4 datasets are:</p>
+		<p class="govuk-body govuk-hint">The 4 datasets are:</p>
 		<ul class="govuk-list govuk-list--bullet govuk-hint">
 			<li>Conservation areas</li>
 			<li>Article 4 direction</li>
@@ -21,14 +20,18 @@
 			<li>Tree preservation orders</li>
 		</ul>
 
+		{% if data['linkStatus'] == "change" %}
+		<form method="post" action="/apply/dataset-information/check-your-answers" >
+		{% else %}
         <form method="post" action="/apply/dataset-information/issues-and-challenges" >
+		{% endif %}
 
 			<!-- Session information to say section started - but not completed -->
-            <input type="hidden" id="section4_3Complete" name="section4_3Complete" value="Started" />
+            <input type="hidden" id="section4_3" name="section4_3" value="Started" />
 
             {{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "datasetInfoCollect",
+				name: "4_3_datasetCollect",
 				fieldset: {
 					legend: {
 						text: pageHeading,
@@ -37,8 +40,8 @@
 					}
 				},
 				items: [
-				{ value: "yes~/apply/dataset-information/which-datasets", text: "Yes", checked: checked("datasetInfoCollect", "yes")  },
-				{ value: "no", text: "No", checked: checked("datasetInfoCollect", "no") }
+					{ value: "yes~/apply/dataset-information/which-datasets", text: "Yes", checked: checked("4_3_datasetCollect", "yes")  },
+					{ value: "no", text: "No", checked: checked("4_3_datasetCollect", "no") }
 				]
 			}) }}
 

@@ -7,44 +7,41 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
 		{% if data['linkStatus'] == "change" %}
-		<form method="post" action="/apply/dataset-information/check-your-answers?linkStatus=" >
+		<form method="post" action="/apply/dataset-information/how-long-to-publish" >
 		{% else %}
 		<form method="post" action="/apply/dataset-information/how-long-to-publish" >
 		{% endif %}
 
-
-
 			{{ govukCheckboxes({
-				name: "datasetInfoFormat",
+				name: "4_3_format",
 				fieldset: {
-				  legend: {
-					text: pageHeading,
-					isPageHeading: true,
-					classes: "govuk-fieldset__legend--l govuk-visually-hidden"
-				  }
+					legend: {
+						text: pageHeading,
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend--l govuk-visually-hidden"
+				  	}
 				},
 				hint: {
-				  text: "Select all that apply"
+				  	text: "Select all that apply"
 				},
 				items: [
-				  { value: "Paper or PDF copy", text: "Paper or PDF copy", checked: checked("datasetInfoFormat", "Paper or PDF copy") },
-				  { value: "Spreadsheet (for example, an Excel file)", text: "Spreadsheet (for example, an Excel file)", checked: checked("datasetInfoFormat", "Spreadsheet (for example, an Excel file)") },
-				  { value: "Database on a third party software", text: "Database on a third party software", checked: checked("datasetInfoFormat", "Database on a third party software") },
-				  { value: "GIS (geographical information system)", text: "GIS (geographical information system)", checked: checked("datasetInfoFormat", "GIS (geographical information system)") }
+				  	{ value: "Paper or PDF copy", text: "Paper or PDF copy", checked: checked("4_3_format", "Paper or PDF copy") },
+				  	{ value: "Spreadsheet (for example, an Excel file)", text: "Spreadsheet (for example, an Excel file)", checked: checked("4_3_format", "Spreadsheet (for example, an Excel file)") },
+				  	{ value: "Database on a third party software", text: "Database on a third party software", checked: checked("4_3_format", "Database on a third party software") },
+				  	{ value: "GIS (geographical information system)", text: "GIS (geographical information system)", checked: checked("4_3_format", "GIS (geographical information system)") }
 				]
 			}) }}
 
             {{ govukButton({
                 text: "Continue"
             }) }}
+
         </form>
 
     </div>

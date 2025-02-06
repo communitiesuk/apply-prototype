@@ -3,14 +3,12 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-
 {% set pageHeading = "Check your answers" %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
@@ -22,45 +20,40 @@
 		<dl class="govuk-summary-list">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Does your organisation collect at least one of the datasets?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoCollect'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['4_3_datasetCollect'] | capitalize }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/dataset-information/collect?linkStatus=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/dataset-information/collect?linkStatus=change">Change<span class="govuk-visually-hidden"> Does your organisation collect at least one of the datasets</span></a>
 			  	</dd>
 			</div>
-
-			{% if data['datasetInfoCollect'] == "yes" %}
+			{% if data['4_3_datasetCollect'] == "yes" %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Which datasets have you collected?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoWhich'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['4_3_datasets'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/dataset-information/which-datasets?linkStatus=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/dataset-information/which-datasets?linkStatus=change">Change<span class="govuk-visually-hidden"> Which datasets have you collected</span></a>
 			  	</dd>
 			</div>
-
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Which format is your dataset in for conservation areas?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoFormat'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['4_3_format'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/dataset-information/format?linkStatus=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/dataset-information/format?linkStatus=change">Change<span class="govuk-visually-hidden"> Which format is your dataset in for conservation areas</span></a>
 			  	</dd>
 			</div>
-
-
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">How long do you think it will take your organisation to publish all 4 datasets?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoTimePublish'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['4_3_publishTime'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/dataset-information/how-long-to-publish?linkStatus=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/dataset-information/how-long-to-publish?linkStatus=change">Change<span class="govuk-visually-hidden"> How long do you think it will take your organisation to publish all 4 datasets</span></a>
 			  	</dd>
 			</div>
 			{% endif %}
 
-
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">What are the current known issues and challenges you have with data quality and publication?</dt>
-			  	<dd class="govuk-summary-list__value">{{ data['datasetInfoIssuesChallenges'] }}</dd>
+			  	<dd class="govuk-summary-list__value">{{ data['4_3_datasetChallenges'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
-					<a class="govuk-link" href="/apply/dataset-information/issues-and-challenges?linkStatus=change">Change<span class="govuk-visually-hidden"> Has your organisation delivered projects like this before?</span></a>
+					<a class="govuk-link" href="/apply/dataset-information/issues-and-challenges?linkStatus=change">Change<span class="govuk-visually-hidden"> What are the current known issues and challenges you have with data quality and publication</span></a>
 			  	</dd>
 			</div>
 		</dl>
@@ -72,7 +65,7 @@
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "section4_3Complete",
+				name: "section4_3",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -81,13 +74,13 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("section4_3Complete", "yes")  },
-				{ value: "no", text: "No", checked: checked("section4_3Complete", "no") }
+					{ value: "yes", text: "Yes", checked: checked("section4_3", "yes")  },
+					{ value: "no", text: "No", checked: checked("section4_3", "no") }
 				]
 			}) }}
 
 			{{ govukButton({
-			text: "Save and continue"
+				text: "Save and continue"
 			}) }}
 
 		</form>

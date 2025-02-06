@@ -7,38 +7,33 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-
 		{% if data['linkStatus'] == "change" %}
-		<form method="post" action="/apply/dataset-information/check-your-answers?linkStatus=" >
+		<form method="post" action="/apply/dataset-information/check-your-answers" >
 		{% else %}
 		<form method="post" action="/apply/dataset-information/check-your-answers" >
 		{% endif %}
 
-
-
 			{{ govukCharacterCount({
-				name: "datasetInfoIssuesChallenges",
-				id: "datasetInfoIssuesChallenges",
+				name: "4_3_datasetChallenges",
+				id: "4_3_datasetChallenges",
 				maxwords: 250,
-				value: data['datasetInfoIssuesChallenges']  ,
+				value: data['4_3_datasetChallenges']  ,
 				label: {
-				  text: pageHeading,
-				  classes: "govuk-label--l govuk-visually-hidden",
-				  isPageHeading: false
+					text: pageHeading,
+				  	classes: "govuk-label--l govuk-visually-hidden",
+				  	isPageHeading: false
 				}
-			  }) }}
-
+			}) }}
 
             {{ govukButton({
                 text: "Save and continue"
             }) }}
+
         </form>
 
     </div>

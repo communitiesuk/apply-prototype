@@ -3,14 +3,12 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-
 {% set pageHeading = "Check your answers" %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
@@ -56,7 +54,7 @@
 
 			{{ govukRadios({
 				classes: "govuk-radios--inline",
-				name: "section6_1Complete",
+				name: "section6_1",
 				fieldset: {
 					legend: {
 						text: "Do you want to mark this section as complete?",
@@ -65,13 +63,13 @@
 					}
 				},
 				items: [
-				{ value: "yes", text: "Yes", checked: checked("section6_1Complete", "yes")  },
-				{ value: "no", text: "No", checked: checked("section6_1Complete", "no") }
+					{ value: "yes", text: "Yes", checked: checked("section6_1", "yes")  },
+					{ value: "no", text: "No", checked: checked("section6_1", "no") }
 				]
 			}) }}
 
 			{{ govukButton({
-			text: "Save and continue"
+				text: "Save and continue"
 			}) }}
 
 		</form>

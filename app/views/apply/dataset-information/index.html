@@ -13,7 +13,6 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
         <p class="govuk-body govuk-!-font-weight-bold">In this section, we'll ask about:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>if your organisation collects datasets for conservation areas, article 4 direction, listed buildings and tree preservation orders</li>
@@ -23,9 +22,7 @@
             <li>what the current known issues and challenges you have with data quality and publication are</li>
         </ul>
 
-
-        <form method="post" action="/apply/dataset-information/collect" >
-
+        <form method="post" action="/apply/dataset-information/collect?linkStatus=" >
 
             {{ govukButton({
                 text: "Continue"

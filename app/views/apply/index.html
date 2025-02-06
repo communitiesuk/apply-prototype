@@ -3,7 +3,7 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-
+<!-- Title dependent on the FUND NAME -->
 {% if data['fundName'] == "High Street Rental Auctions" %}
     {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
     {% set pageSection = "High Street Rental Auctions fund Refurbishment project" %}
@@ -17,36 +17,29 @@
     {% set pageHeading = 'Start or continue an application for ' + data.fundName  + ' ' %}
     {% set pageSection = "Fund name and round information" %}
 {% endif %}
+<!-- // -->
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
         <!-- Dynamic content dependent on which FUND you are applying for -->
-
         {% if data['fundName'] == "High Street Rental Auctions" %}
-
             <!-- Include file for content -->
             {% include "/apply/includes/high-street-rental-auctions.html" %}
-
         {% elif data['fundName'] == "Community Ownership" %}
-
             <!-- Include file for content -->
             {% include "/apply/includes/community-ownership.html" %}
-
         {% elif data['fundName'] == "Digital Planning Improvement" %}
-
             <!-- Include file for content -->
             {% include "/apply/includes/digital-planning.html" %}
-
         {% endif %}
+        <!-- // -->
 
     </div>
 </div>

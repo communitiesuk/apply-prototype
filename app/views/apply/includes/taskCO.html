@@ -45,6 +45,6 @@
       	{{ govukTaskList({
         	idPrefix: "first-section",
         	items: [
-          		{ title: { text: "6.1 Declarations" }, href: "/apply/declarations/", status: ( completedStatus if data['section6_1Complete'] == "yes" else notstartedStatus ) }
+          		{ title: { text: "6.1 Declarations" }, href: "/apply/declarations/", status: ( completedStatus if data['section6_1'] == "yes" else notstartedStatus ) }
         	]
       	}) }}

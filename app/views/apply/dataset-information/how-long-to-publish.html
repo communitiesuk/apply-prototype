@@ -7,24 +7,22 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		<p class="govuk-hint">Part of this funding is to support your organisation to improve and publish 4 datasets to the Planning Data platform.</p>
-		<p class="govuk-hint">Select one option</p>
+		<p class="govuk-body govuk-hint">Part of this funding is to support your organisation to improve and publish 4 datasets to the Planning Data platform.</p>
+		<p class="govuk-body govuk-hint">Select one option</p>
 
 		{% if data['linkStatus'] == "change" %}
-		<form method="post" action="/apply/dataset-information/check-your-answers?linkStatus=" >
+		<form method="post" action="/apply/dataset-information/check-your-answers" >
 		{% else %}
 		<form method="post" action="/apply/dataset-information/issues-and-challenges" >
 		{% endif %}
 
-
             {{ govukRadios({
-				name: "datasetInfoTimePublish",
+				name: "4_3_publishTime",
 				fieldset: {
 					legend: {
 						text: pageHeading,
@@ -33,17 +31,17 @@
 					}
 				},
 				items: [
-				{ value: "0 to 3 months", text: "0 to 3 months", checked: checked("datasetInfoTimePublish", "0 to 3 months")  },
-				{ value: "4 to 7 months", text: "4 to 7 months", checked: checked("datasetInfoTimePublish", "4 to 7 months")  },
-				{ value: "8 to 11 months", text: "8 to 11 months", checked: checked("datasetInfoTimePublish", "8 to 11 months")  },
-				{ value: "Longer than 11 months", text: "Longer than 11 months", checked: checked("datasetInfoTimePublish", "Longer than 11 months") }
+					{ value: "0 to 3 months", text: "0 to 3 months", checked: checked("4_3_publishTime", "0 to 3 months")  },
+					{ value: "4 to 7 months", text: "4 to 7 months", checked: checked("4_3_publishTime", "4 to 7 months")  },
+					{ value: "8 to 11 months", text: "8 to 11 months", checked: checked("4_3_publishTime", "8 to 11 months")  },
+					{ value: "Longer than 11 months", text: "Longer than 11 months", checked: checked("4_3_publishTime", "Longer than 11 months") }
 				]
 			}) }}
-
 
             {{ govukButton({
                 text: "Continue"
             }) }}
+
         </form>
 
     </div>

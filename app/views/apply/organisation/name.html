@@ -20,8 +20,10 @@
             <form method="post" action="/apply/organisation/project-sponsor" >
         {% endif %}
 
-            <!-- Session information to say section started -->
+            <!-- Session information to say section started - but not completed -->
+            {% if not data.section2_1 %}
             <input type="hidden" id="section2_1" name="section2_1" value="Started" />
+            {% endif %}
 
             {{ govukInput({
                 label: {

@@ -19,9 +19,10 @@
 		<form method="post" action="/apply/declarations/check-your-answers" >
 		{% endif %}
 
-
-			<!-- Session information to say section started - but not completed -->
+			 <!-- Session information to say section started - but not completed -->
+			{% if not data.section6_1 %}
             <input type="hidden" id="section6_1" name="section6_1" value="Started" />
+            {% endif %}
 
 			{{ govukCheckboxes({
 				name: "confirmationsAgreed",

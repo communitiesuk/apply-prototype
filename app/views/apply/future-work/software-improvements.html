@@ -22,7 +22,9 @@
 		{% endif %}
 
 				<!-- Session information to say section started - but not completed -->
+				{% if not data.section5_1 %}
 				<input type="hidden" id="section5_1" name="section5_1" value="Started" />
+				{% endif %}
 
 				{{ govukCheckboxes({
 					name: "futureWorkSoftware",

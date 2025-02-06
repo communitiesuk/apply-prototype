@@ -29,7 +29,9 @@
 		{% endif %}
 
 			<!-- Session information to say section started - but not completed -->
+			{% if not data.section4_2 %}
             <input type="hidden" id="section4_2" name="section4_2" value="Started" />
+            {% endif %}
 
 			{{ govukCharacterCount({
 				name: "4_2_engagement",

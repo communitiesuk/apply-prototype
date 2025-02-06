@@ -2,16 +2,17 @@
 
     {% import "macros/page-title.njk" as macroPageTitle %}
     {% import "macros/page-header.njk" as macroPageHeader %}
+    {% import "macros/status.njk" as macroSectionStatus %}
 
     {% block header %}
-    
+
       {{ govukHeader({
-        homepageUrl: "#",      
+        homepageUrl: "#",
         serviceName: "Apply for funding to begin your digital planning improvement journey",
         serviceUrl: "#",
         navigation: [
           { href: "#", text: "View all applications" },
-          { href: "#", text: "Sign out" }          
+          { href: "#", text: "Sign out" }
         ]
       }) }}
 

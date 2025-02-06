@@ -33,7 +33,7 @@
 		{% include "/apply/includes/help-with-application.html" %}
 
 		<!-- Fund date and reference -->
-		<p class="govuk-body govuk-!-margin-bottom-2"><strong>Submission deadline:</strong> {{ data.fundDeadlineDate }}</p>
+		<p class="govuk-body govuk-!-margin-bottom-2"><strong>Submission deadline:</strong> {{ data.fundDeadlineDate | govukDateTime }}</p>
 		<p class="govuk-body govuk-!-margin-bottom-2"><span><strong>Reference:</strong> DPIF-R3-IQPIJK</span></p>
 
 		<!-- Application status -->
@@ -54,6 +54,8 @@
 					<p class="govuk-body">Once your application has been submitted, you cannot change your answers.</p>
 					<form method="post" action="/apply/submit-application?applicationStatus=submitted" >
 
+						<input type="hidden" id="applicationStatus" name="applicationStatus" value="submitted" />
+
 						{{ govukButton({
 							text: "Submit your application"
 						}) }}
@@ -64,7 +66,21 @@
 		{% else %}
 
 			<p class="govuk-body"><span><strong>Status:</strong></span> {{ govukTag({ text: "Not Started", classes: "govuk-tag--grey"  }) }}</p>
-			<p class="govuk-body">None of the sections have been completed.</p>
+
+			{% if (
+				(data['section1_1'] == "yes") or
+				( data['section2_1'] == "yes") or
+				( data['section3_1'] == "yes") or
+				( data['section3_2'] == "yes") or
+				( data['section4_1'] == "yes") or
+				( data['section4_2'] == "yes") or
+				( data['section4_3'] == "yes") or
+				( data['section5_1'] == "yes") or
+				( data['section6_1'] == "yes")) %}
+				<p class="govuk-body">You have completed X out of {{ data.tlistSections }} sections.</p>
+			{% else %}
+				<p class="govuk-body">None of the sections have been completed.</p>
+			{% endif %}
 
 		{% endif %}
 		<!-- // -->

@@ -25,8 +25,10 @@
 		<form method="post" action="/apply/engaging-digital-planning/check-your-answers" >
 		{% endif %}
 
-			<!-- Session information to say section started - but not completed -->
+			 <!-- Session information to say section started - but not completed -->
+			{% if not data.section4_1 %}
             <input type="hidden" id="section4_1" name="section4_1" value="Started" />
+            {% endif %}
 
 			{{ govukCharacterCount({
 				name: "4_1_whyOpenDigitalPlanning",

@@ -3,6 +3,8 @@
 {% set pageHeading = "Name your application" %}
 {% set pageSection = "" %}
 
+
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -34,7 +36,9 @@
             }) }}
 
             <!-- Session information to say section started - but not completed -->
+            {% if not data.section1_1 %}
             <input type="hidden" id="section1_1" name="section1_1" value="Started" />
+            {% endif %}
 
             {{ govukButton({
                 text: "Continue"

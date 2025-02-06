@@ -1,24 +1,20 @@
 {% extends "layouts/main.html" %}
 
+{% set showBackApplicationsLink = false %}
+{% set showBackApplicationsOverview = false %}
+
 {% set pageHeading = "Preload data" %}
 {% set pageSection = "Prototype" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-
-
-
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}		
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
     	<p class="govuk-body govuk-!-margin-bottom-7">As the prototype uses dynamic content and screens depending on various types of fund you can choose to preload the prototype with various options.</p>
-
-		
-
 
 		<form method="post" action="/apply/" >
 
@@ -36,18 +32,14 @@
 				items: [
 					{ value: "Digital Planning Improvement", text: "Digital Planning Improvement", checked: checked("fundName", "Digital Planning Improvement")  },
 					{ value: "High Street Rental Auctions", text: "High Street Rental Auctions", checked: checked("fundName", "High Street Rental Auctions")  },
-					{ value: "Community Ownership", text: "Community Ownership", checked: checked("fundName", "Community Ownership")  }								
+					{ value: "Community Ownership", text: "Community Ownership", checked: checked("fundName", "Community Ownership")  }
 				]
 			}) }}
-
-
 
 			{{ govukButton({
                 text: "Preload choices and continue"
             }) }}
 		</form>
-
-		
 
   </div>
 </div>

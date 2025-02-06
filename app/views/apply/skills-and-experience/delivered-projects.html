@@ -19,7 +19,9 @@
         {% endif %}
 
 			<!-- Session information to say section started - but not completed -->
+            {% if not data.section3_1 %}
             <input type="hidden" id="section3_1" name="section3_1" value="Started" />
+            {% endif %}
 
             {{ govukRadios({
 				classes: "govuk-radios--inline",

@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
 
 {% set pageHeading = "Application complete" %}
 {% set pageSection = "" %}
@@ -20,10 +21,10 @@
           }) }}
 
 
-        <p>We have sent you a confirmation email and a copy of your answers to brian.coult@communities.gov.uk</p>
+        <p>We have sent you a confirmation email and a copy of your answers to <span class="govuk-!-font-weight-bold">{{ data.magicLinkEmail or "test.email@communities.gov.uk" }}</span></p>
 
         <h2 class="govuk-heading-m">What happens next</h2>
-        <p>Your application to the Digital Planning Improvement Fund has been submitted.</p>
+        <p>Your application to the {{ data.fundName }} Fund has been submitted.</p>
         <p>We'll email you to let you know whether you have been successful.</p>
 
         <p class="govuk-link"><a href="/apply/applications">Return to your applications page</a>.</p>

@@ -1,36 +1,33 @@
-    {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
-    {% import "macros/page-title.njk" as macroPageTitle %}
-    {% import "macros/page-header.njk" as macroPageHeader %}
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
 
+{% block header %}
 
-    {% if data['loggedIn'] == "Yes" %}
+	{% if data['loggedIn'] == "yes" %}
 
-    {% block header %}
+    	{{ govukHeader({
+        	homepageUrl: "/?loggedIn=no",
+          	serviceName: "Apply for funding to begin your digital planning improvement journey",
+          	serviceUrl: "/?loggedIn=no",
+          	navigation: [
+            	{ href: "#", text: "View all applications" },
+            	{ href: "/apply/signed-out?loggedIn=no", text: "Sign out" }
+          	]
+        }) }}
 
-    {% if data['loggedIn'] != "no" %}
-      {{ govukHeader({
-        homepageUrl: "/",
-        serviceName: "Apply for funding to begin your digital planning improvement journey",
-        serviceUrl: "/",
-        navigation: [
-          { href: "#", text: "View all applications" },
-          { href: "/apply/signed-out?loggedIn=no", text: "Sign out" }
-        ]
-      }) }}
-    {% else %}
-    {{ govukHeader({
-      homepageUrl: "/",
-      serviceName: "Apply for funding to begin your digital planning improvement journey",
-      serviceUrl: "/"
-    }) }}
+    {% elif data['loggedIn'] == "no" %}
 
-    {% endif %}
-
-    {% endblock %}
+    	{{ govukHeader({
+        	homepageUrl: "/?loggedIn=no",
+        	serviceName: "Funding Service Prototype",
+        	serviceUrl: "/?loggedIn=no"
+      	}) }}
 
     {% endif %}
 
+{% endblock %}
 
 
     {% block beforeContent %}

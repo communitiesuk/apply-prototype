@@ -8,8 +8,8 @@
 {% if data['fundName'] == "High Street Rental Auctions" %}
     {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
     {% set pageSection = "High Street Rental Auctions fund Refurbishment project" %}
-{% elif data['fundName'] == "Community Ownership" %}
-    {% set pageHeading = "Start or continue an application for funding to save an asset in your community" %}
+{% elif data['fundName'] == "Community Ownership Fund" %}
+    {% set pageHeading = "Application for funding to save an asset in your community" %}
     {% set pageSection = 'Community Ownership Fund ' + data.fundRound + '' %}
 {% elif data['fundName'] == "Digital Planning Improvement" %}
     {% set pageHeading = "Application for funding to begin your digital planning improvement journey" %}
@@ -88,8 +88,8 @@
 		<!-- Various task lists dependent on fund and its requirements -->
 		{% if data['fundName'] == "High Street Rental Auctions" %}
 			{% include "/apply/includes/taskHSRA.html" %}
-	  	{% elif data['fundName'] == "Community Ownership" %}
-		  	{% include "/apply/includes/taskCO.html" %}
+	  	{% elif data['fundName'] == "Community Ownership Fund" %}
+		  {% include "/apply/includes/tlist-communityFund.html" %}
 	  	{% elif data['fundName'] == "Digital Planning Improvement" %}
 			{% include "/apply/includes/tlist-digitalPlanning.html" %}
 	  	{% else %}

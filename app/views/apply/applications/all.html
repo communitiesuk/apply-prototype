@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+
+{% set pageHeading = "All applications" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <!-- Dynamic data -->
+
+        <p>You have started {{ data.applicationsStarted or "1" }} applications using this email address.</p>
+
+
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                    Community Ownership Fund
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+                    {% include "/apply/includes/tables/fund.html" %}
+              </div>
+            </div>
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                    Community Ownership Fund 2025
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+                {% include "/apply/includes/tables/fund.html" %}
+              </div>
+            </div>
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                    Digital Planning Improvement Fund
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-3" class="govuk-accordion__section-content">
+                {% include "/apply/includes/tables/fund.html" %}
+              </div>
+            </div>
+          </div>
+
+    </div>
+</div>
+
+{% endblock %}

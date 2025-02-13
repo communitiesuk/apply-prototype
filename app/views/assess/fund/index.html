@@ -1,0 +1,82 @@
+{% extends "layouts/mainAssess.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageHeading = "Team dashboard" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block main %}
+
+  <div class="x-govuk-masthead">
+    <div class="govuk-width-container">
+      <div class="govuk-phase-banner x-govuk-phase-banner--inverse">
+        <p class="govuk-phase-banner__content">
+          <strong class="govuk-tag govuk-phase-banner__content__tag x-govuk-tag--inverse">Alpha</strong><span class="govuk-phase-banner__text">This is a new service</span>
+        </p>
+      </div>
+      <!-- <nav class="govuk-breadcrumbs govuk-breadcrumbs--inverse" aria-label="Breadcrumb">
+        <ol class="govuk-breadcrumbs__list">
+          <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="/">Home</a></li>
+        </ol>
+      </nav> -->
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+          <h1 class="x-govuk-masthead__title">{{ pageHeading }}</h1>
+          <p class="x-govuk-masthead__description">All active assessments</p>
+          <p class="x-govuk-masthead__description">Fund: Local Plans Delivery Fund<br>Round: Round 2</p>          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+
+
+
+
+
+
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "All applications",
+            id: "past-day",
+            panel: {
+              html: pastDayHtml
+            }
+          },
+          {
+            label: "Assigned to you",
+            id: "past-week",
+            panel: {
+              html: pastWeekHtml
+            }
+          },
+          {
+            label: "Reporting to you",
+            id: "past-month",
+            panel: {
+              html: pastMonthHtml
+            }
+          }
+          
+        ]
+      }) }}
+
+
+
+       
+
+       
+
+    </div>
+</div>
+
+{% endblock %}

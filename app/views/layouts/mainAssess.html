@@ -9,9 +9,12 @@
 {% endif %}
 {% endset %}
 
-
-
-
+<!-- Overides the max width only in assess -->
+{% block stylesheets %}
+  {{ super() }}
+  <link href="/public/css/assessOveride.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+<!-- // -->
 
 
 {% block header %}
@@ -20,19 +23,15 @@
 
     	{{ govukHeader({
         	homepageUrl: "/?loggedIn=no",
-          	serviceName: serviceName,
-          	serviceUrl: "/?loggedIn=no",
-          	navigation: [
-            	{ href: "/apply/applications/all", text: "View all applications" },
-            	{ href: "/apply/signed-out?loggedIn=no", text: "Sign out" }
-          	]
+            serviceName: "Assess grant applications",
+          	serviceUrl: "/?loggedIn=no"          	
         }) }}
 
     {% elif data['loggedIn'] == "no" %}
 
     	{{ govukHeader({
         	homepageUrl: "/?loggedIn=no",
-        	serviceName: "Funding Service Prototype",
+        	serviceName: "Assess grant applications",
         	serviceUrl: "/?loggedIn=no"
       	}) }}
 

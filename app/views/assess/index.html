@@ -1,0 +1,42 @@
+{% extends "layouts/mainAssess.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageHeading = "Assessment tool" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        <p>The Funding Service assessment tool has been designed to help evaluate fund applications, to facilitate fund decision-making.</p>
+
+        <p>Here you can:</p>
+        <ul class="govuk-list govuk-list govuk-list--bullet">
+            <li>assess applications end to end</li>
+            <li>comment on specific applicant responses</li>
+            <li>monitor the assessment progress of a fund</li>
+        </ul>
+
+        <form method="post" action="/assess/dashboard?loggedIn=yes" >
+
+            {{ govukButton({
+                text: "Sign in",
+                isStartButton: true
+            }) }}
+
+        </form>
+
+        <h2 class="govuk-heading-l">Get help</h2>
+        <p class="govuk-body">If you are having issues logging in, contact the FSD support team through our <a href="#">support desk</a>.</p>
+
+    </div>
+</div>
+
+{% endblock %}

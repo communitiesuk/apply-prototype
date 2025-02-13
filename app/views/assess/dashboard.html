@@ -1,0 +1,87 @@
+{% extends "layouts/mainAssess.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageHeading = "Funding service dashboard" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        <h2 class="govuk-heading-l">All funds (2), sorted A-Z</h2>
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                    Fund name (1)
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-third">
+                    {% include "/assess/includes/fundSummaryCard.html" %}
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                    {% include "/assess/includes/fundSummaryCard.html" %}
+                    </div>
+                </div>
+
+
+
+
+              </div>
+            </div>
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                    Fund name (3)
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-third">
+                    {% include "/assess/includes/fundSummaryCard.html" %}
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                    {% include "/assess/includes/fundSummaryCard.html" %}
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        {% include "/assess/includes/fundSummaryCard.html" %}
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        <form method="post" action="/assess/dashboard?loggedIn=yes" >
+
+            {{ govukButton({
+                text: "Sign in",
+                isStartButton: true
+            }) }}
+
+        </form>
+
+
+        <p class="govuk-body">Information last updated: [13/02/2025 at 07:29]
+        <br>Refresh page for most up-to-date information.</p>
+
+    </div>
+</div>
+
+{% endblock %}

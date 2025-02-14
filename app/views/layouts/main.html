@@ -4,14 +4,13 @@
 {% import "macros/page-header.njk" as macroPageHeader %}
 
 {% set serviceName %}
-{% if data['fundName'] == "Digital Planning Improvement" %}
-	Apply for funding to begin your digital planning improvement journey
-{% elif data['fundName'] == "High Street Rental Auctions" %}
-	Apply for funding
-{% elif data['fundName'] == "Community Ownership" %}
-	Application for funding to save an asset in your community
-{% endif %}
-
+  {% if data['fundName'] == "Digital Planning Improvement" %}
+	  Apply for funding to begin your digital planning improvement journey
+  {% elif data['fundName'] == "High Street Rental Auctions" %}
+	  Apply for funding
+  {% elif data['fundName'] == "Community Ownership" %}
+	  Application for funding to save an asset in your community
+  {% endif %}
 {% endset %}
 
 
@@ -37,7 +36,7 @@
 
     	{{ govukHeader({
         	homepageUrl: "/?loggedIn=no",
-        	serviceName: "Funding Service Prototype",
+        	serviceName: serviceName,
         	serviceUrl: "/?loggedIn=no"
       	}) }}
 

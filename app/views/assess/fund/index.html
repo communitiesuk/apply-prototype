@@ -39,14 +39,14 @@
 			{{ govukTable({
 				head: [
 					{ text: "Reference" },
-					{ text: "Project name" },
-					{ text: "Funding requested" },
-					{ text: "Asset type" },
-					{ text: "Location" },
-					{ text: "Tags" },
-					{ text: "Status" },
-					{ text: "Assigned to" },
-					{ text: "Date submitted" }
+					{ html: '<a href="#">Project name</a>' },
+					{ html: '<a href="#">Funding requested</a>' },
+					{ html: '<a href="#">Asset type</a>' },
+					{ html: '<a href="#">Location</a>' },
+					{ html: '<a href="#">Tags</a>' },
+					{ html: '<a href="#">Status</a>' },
+					{ html: '<a href="#">Assigned to</a>' },
+					{ html: '<a href="#">Date submitte</a>' }
 				],
 				rows: [
 					[
@@ -71,6 +71,7 @@
 						{ text: "-" },
 						{ text: "13/12/2024 at 17:28" }
 					]
+
 
 				]
 			}) }}

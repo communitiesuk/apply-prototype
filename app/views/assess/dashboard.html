@@ -8,12 +8,73 @@
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
+
 {% block content %}
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
 
+
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<form method="post" action="" >
+
+			{{ govukInput({
+				label: {
+				  text: "Search fund name",
+				  classes: "govuk-label",
+				  isPageHeading: false
+				},
+				classes: "search-input",
+				id: "event-name",
+				name: "eventName"
+			}) }}
+
+
+
+
+
+								{{ govukSelect({
+									id: "sort",
+									name: "sort",
+									label: {
+									text: "Filter by fund type"
+									},
+									classes: "govuk-!-display-inline-block govuk-input--width-20",
+									items: [
+										{ value: "all", text: "All", selected: true },
+										{ value: "competitiveFund", text: "Competitive fund" },
+										{ value: "allocativeFund", text: "Allocative fund" }
+									]
+								}) }}
+
+
+
+
+											{{ govukSelect({
+								id: "sort",
+								name: "sort",
+								label: {
+								text: "Filter by assessment status"
+								},
+								classes: "govuk-!-display-inline-block govuk-input--width-20",
+								items: [
+									{ value: "all", text: "All", selected: true },
+									{ value: "competitiveFund", text: "Active assessments" },
+									{ value: "allocativeFund", text: "Live applications" },
+									{ value: "allocativeFund", text: "Closed assessments" }
+								]
+							}) }}
+
+							<button type="submit" class="govuk-button search-button" data-module="govuk-button">
+								Search
+							  </button>
+
+
+		</form>
+
+		</div>
+		<div class="govuk-grid-column-full">
 
 
         <h2 class="govuk-heading-l">All funds (2), sorted A-Z</h2>

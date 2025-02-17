@@ -1,3 +1,36 @@
 .govuk-width-container {
     max-width: 1600px;
 }
+
+.search-button {
+    margin-bottom: 0;
+    margin-left: 8px;
+    vertical-align: baseline;
+}
+
+.search-input {
+    width: 16em;
+}
+
+
+.govuk-service-navigation {
+    border-bottom: none;
+    background-color: #fff;
+}
+
+.govuk-service-navigation__item, .govuk-service-navigation__service-name {
+    margin: 4px 0;
+    border: none;
+    font-size: 16px;
+}
+
+nav {
+    float: right;
+}
+
+.govuk-service-navigation__container {
+
+    float: right;
+}
+
+

@@ -33,6 +33,9 @@
       	{% set pastDayHtml %}
 
 			<h2 class="govuk-heading-l">All applications</h2>
+
+			{% include "/assess/includes/search_and_filter.html" %}
+
 			{{ govukTable({
 				head: [
 					{ text: "Reference" },
@@ -67,6 +70,8 @@
 		{% set pastWeekHtml %}
 
 			<h2 class="govuk-heading-l">Assigned to you</h2>
+			{% include "/assess/includes/search_and_filter.html" %}
+
 			<p class="govuk-body govuk-!-font-weight-bold">No matching results.</p>
 			<p class="govuk-body">Improve your results by:</p>
 			<ul class="govuk-list govuk-list--bullet">
@@ -79,6 +84,8 @@
 		{% set pastMonthHtml %}
 
 			<h2 class="govuk-heading-l">Reporting to you</h2>
+			{% include "/assess/includes/search_and_filter.html" %}
+
 			<p class="govuk-body govuk-!-font-weight-bold">No matching results.</p>
 			<p class="govuk-body">Improve your results by:</p>
 			<ul class="govuk-list govuk-list--bullet">

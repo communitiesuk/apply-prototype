@@ -1,3 +1,19 @@
 <div class="govuk-!-margin-bottom-5">
-{Seach and filter component}
+
+<form method="post" action="" >
+
+ {% include "/assess/includes/sf_searchInput.html" %}
+
+ {% include "/assess/includes/sf_statusInput.html" %}
+
+ {% include "/assess/includes/sf_assignedInput.html" %}
+
+ {% include "/assess/includes/sf_tagInput.html" %}
+
+
+{{ govukButton({
+    text: "Search"
+}) }}
+</form>
+
 </div>

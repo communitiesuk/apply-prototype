@@ -10,36 +10,83 @@
 
 {% block main %}
 
-  <div class="x-govuk-masthead">
-    <div class="govuk-width-container">
-      <div class="govuk-phase-banner x-govuk-phase-banner--inverse">
-        <p class="govuk-phase-banner__content">
-          <strong class="govuk-tag govuk-phase-banner__content__tag x-govuk-tag--inverse">Alpha</strong><span class="govuk-phase-banner__text">This is a new service</span>
-        </p>
-      </div>
-      <!-- <nav class="govuk-breadcrumbs govuk-breadcrumbs--inverse" aria-label="Breadcrumb">
-        <ol class="govuk-breadcrumbs__list">
-          <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="/">Home</a></li>
-        </ol>
-      </nav> -->
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds-from-desktop">
-          <h1 class="x-govuk-masthead__title">{{ pageHeading }}</h1>
-          <p class="x-govuk-masthead__description">All active assessments</p>
-          <p class="x-govuk-masthead__description">Fund: Local Plans Delivery Fund<br>Round: Round 2</p>          
-        </div>
-      </div>
+<div class="x-govuk-masthead">
+	<div class="govuk-width-container">
+    	<div class="govuk-phase-banner x-govuk-phase-banner--inverse">
+        	<p class="govuk-phase-banner__content">
+          		<strong class="govuk-tag govuk-phase-banner__content__tag x-govuk-tag--inverse">Alpha</strong><span class="govuk-phase-banner__text">This is a new service</span>
+        	</p>
+      	</div>
+      	<div class="govuk-grid-row">
+        	<div class="govuk-grid-column-two-thirds-from-desktop">
+          		<h1 class="x-govuk-masthead__title">{{ pageHeading }}</h1>
+          		<p class="x-govuk-masthead__description">All active assessments</p>
+          		<p class="x-govuk-masthead__description">Fund: Local Plans Delivery Fund<br>Round: Round 2</p>
+        	</div>
+      	</div>
     </div>
-  </div>
+</div>
+
+<div class="govuk-width-container">
+	<main class="govuk-main-wrapper" id="main-content" role="main">
+
+      	{% set pastDayHtml %}
+
+			<h2 class="govuk-heading-l">All applications</h2>
+			{{ govukTable({
+				head: [
+					{ text: "Reference" },
+					{ text: "Project name" },
+					{ text: "Funding requested" },
+					{ text: "Asset type" },
+					{ text: "Location" },
+					{ text: "Tags" },
+					{ text: "Status" },
+					{ text: "Assigned to" },
+					{ text: "Date submitted" }
+				],
+				rows: [
+					[
+						{ text: "ZWNEHL" },
+						{ html: '<a href="#">E07000038</a>' },
+						{ text: "£0.00" },
+						{ text: "" },
+						{ text: "Not Available" },
+						{ text: "" },
+						{ text: "" },
+						{ text: "" },
+						{ text: "13/12/2024 at 17:28" }
+					]
+
+				]
+			}) }}
+
+		{% endset -%}
 
 
+		{% set pastWeekHtml %}
 
-  <div class="govuk-width-container">
-    <main class="govuk-main-wrapper" id="main-content" role="main">
+			<h2 class="govuk-heading-l">Assigned to you</h2>
+			<p class="govuk-body govuk-!-font-weight-bold">No matching results.</p>
+			<p class="govuk-body">Improve your results by:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>removing filters</li>
+				<li>double-checking your spelling</li>
+			</ul>
 
+		{% endset -%}
 
+		{% set pastMonthHtml %}
 
+			<h2 class="govuk-heading-l">Reporting to you</h2>
+			<p class="govuk-body govuk-!-font-weight-bold">No matching results.</p>
+			<p class="govuk-body">Improve your results by:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>removing filters</li>
+				<li>double-checking your spelling</li>
+			</ul>
 
+		{% endset -%}
 
 
 
@@ -66,15 +113,15 @@
               html: pastMonthHtml
             }
           }
-          
+
         ]
       }) }}
 
 
 
-       
 
-       
+
+
 
     </div>
 </div>

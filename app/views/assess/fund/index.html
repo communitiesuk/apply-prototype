@@ -12,16 +12,18 @@
 
 <div class="x-govuk-masthead">
 	<div class="govuk-width-container">
-    	<div class="govuk-phase-banner x-govuk-phase-banner--inverse">
-        	<p class="govuk-phase-banner__content">
-          		<strong class="govuk-tag govuk-phase-banner__content__tag x-govuk-tag--inverse">Alpha</strong><span class="govuk-phase-banner__text">This is a new service</span>
-        	</p>
-      	</div>
+
+
       	<div class="govuk-grid-row">
         	<div class="govuk-grid-column-two-thirds-from-desktop">
           		<h1 class="x-govuk-masthead__title">{{ pageHeading }}</h1>
-          		<p class="x-govuk-masthead__description">All active assessments</p>
-          		<p class="x-govuk-masthead__description">Fund: Local Plans Delivery Fund<br>Round: Round 2</p>
+				<div class="lead-dashboard-stat">
+					<p id="lead-dashboard-stat-assessments-total">2</p>
+				  	<p>Assessments</p>
+				</div>
+          		<p class="x-govuk-masthead__description govuk-!-font-size-36 govuk-!-font-weight-bold">All active assessments</p>
+          		<p class="x-govuk-masthead__description"><span class="govuk-!-font-weight-bold">Fund:</span> Local Plans Delivery Fund
+				<br><span class="govuk-!-font-weight-bold">Round:</span> Round 2</p>
         	</div>
       	</div>
     </div>
@@ -51,7 +53,7 @@
 				rows: [
 					[
 						{ text: "ZWNEHL" },
-						{ html: '<a href="#">E07000038</a>' },
+						{ html: '<a href="/assess/fund/application/">E07000038</a>' },
 						{ text: "£0.00" },
 						{ text: "" },
 						{ text: "Not Available" },
@@ -62,7 +64,7 @@
 					],
 					[
 						{ text: "ZWNEHL" },
-						{ html: '<a href="#">E07000038</a>' },
+						{ html: '<a href="/assess/fund/application/">E07000038</a>' },
 						{ text: "£0.00" },
 						{ text: "" },
 						{ text: "Not Available" },

@@ -34,4 +34,28 @@ nav {
     float: right;
 }
 
+.lead-dashboard-stat {
+    min-width: 100px;
+    max-width: 100px;
+    padding: 20px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
 
+
+.lead-dashboard-stat p:first-of-type {
+    font-size: 3em;
+    line-height: 1.31579;
+}
+
+.lead-dashboard-stat p {
+    font-weight: 600;
+    font-size: 0.7em;
+    color: #1d70b8;
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+.fright {
+    float: right;
+}

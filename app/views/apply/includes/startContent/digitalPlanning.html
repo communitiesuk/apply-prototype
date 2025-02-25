@@ -1,3 +1,43 @@
+
+
+{% if data['version'] == "suggested" %}
+
+<!-- <h2 class="govuk-heading-m">Digital Planning Improvement Fund (Round 3)</h2> -->
+<p class="govuk-body">You’ll need to use the <a href="https://www.localdigital.gov.uk/digital-planning/digital-planning-improvement-fund-2024/" class="govuk-link" target="_blank">fund’s prospectus (opens in new tab)</a> to help you answer the questions in the application.</p>
+
+
+
+    <div class="govuk-inset-text govuk-!-margin-bottom-6">
+            
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Submission deadline</p>
+        <p class="govuk-obody">{{ data.fundDeadlineDate | govukDateTime  }}</p>
+    </div>
+
+            {{ govukButton({
+                text: "Continue to application",
+                href: "/apply/applications/?version=",
+                isStartButton: true,
+                classes: "govuk-!-margin-bottom-9"
+            }) }}
+
+
+            <h2 class="govuk-heading-m">Get help with your application</h2>
+    <p class="govuk-body">If you need help, contact us through our <a href="https://mhclgdigital.atlassian.net/servicedesk/customer/portal/5/group/68" class="govuk-link" target="_blank">support desk (opens in new tab)</a>.</p>
+    <p class="govuk-body">Monday to Friday: 9am to 5pm (except public holidays)</p>
+    <div class="govuk-inset-text govuk-!-margin-bottom-7 govuk-!-padding-top-1 govuk-!-padding-bottom-1">
+        <p class="govuk-body">We only accept applications through this service. Do not send any applications or attachments to the support desk. </p>
+    </div>
+
+           
+            <h2 class="govuk-heading-m">How we use your information</h2>
+            <p>Read how we’ll use the information from your application in our <a href="https://www.gov.uk/guidance/digital-planning-improvement-fund-privacy-notice" target="_blank" class="govuk-link">privacy notice (opens in new tab)</a>.</p>
+
+
+
+{% else %}
+
+
+
 <p><strong>Submission deadline:</strong> {{ data.fundDeadlineDate | govukDateTime  }}</p>
 
             {{ govukButton({
@@ -40,3 +80,5 @@
 
             <h2 class="govuk-heading-m">How we’ll use your information</h2>
             <p>Read how we’ll use the information from your application in our <a href="#" class="govuk-link">privacy notice</a></p>
+
+{% endif %}

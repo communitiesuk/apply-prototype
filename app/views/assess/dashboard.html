@@ -14,78 +14,22 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
 
-
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-
-		<form method="post" action="" >
-
-			{{ govukInput({
-				label: {
-				  text: "Search fund name",
-				  classes: "govuk-label",
-				  isPageHeading: false
-				},
-				classes: "search-input",
-				id: "event-name",
-				name: "eventName"
-			}) }}
+		{% include "/assess/includes/search_and_filter_small.html" %}
 
 
+	</div>
+	<div class="govuk-grid-column-full">
 
-
-
-								{{ govukSelect({
-									id: "sort",
-									name: "sort",
-									label: {
-									text: "Filter by fund type"
-									},
-									classes: "govuk-!-display-inline-block govuk-input--width-20",
-									items: [
-										{ value: "all", text: "All", selected: true },
-										{ value: "competitiveFund", text: "Competitive fund" },
-										{ value: "allocativeFund", text: "Allocative fund" }
-									]
-								}) }}
-
-
-
-
-											{{ govukSelect({
-								id: "sort",
-								name: "sort",
-								label: {
-								text: "Filter by assessment status"
-								},
-								classes: "govuk-!-display-inline-block govuk-input--width-20",
-								items: [
-									{ value: "all", text: "All", selected: true },
-									{ value: "competitiveFund", text: "Active assessments" },
-									{ value: "allocativeFund", text: "Live applications" },
-									{ value: "allocativeFund", text: "Closed assessments" }
-								]
-							}) }}
-
-							<button type="submit" class="govuk-button search-button" data-module="govuk-button">
-								Search
-							  </button>
-
-
-		</form>
-
-		</div>
-		<div class="govuk-grid-column-full">
-
-
-        <h2 class="govuk-heading-l">All funds (2), sorted A-Z</h2>
+        <h2 class="govuk-heading-l">All funds (3), sorted A-Z</h2>
         <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
             <div class="govuk-accordion__section">
               <div class="govuk-accordion__section-header">
                 <h2 class="govuk-accordion__section-heading">
                   <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-                    Fund name (1)
+                    Digital Planning Improvement Fund (2)
                   </span>
                 </h2>
               </div>
@@ -96,7 +40,7 @@
                     {% include "/assess/includes/fundSummaryCard.html" %}
                     </div>
                     <div class="govuk-grid-column-one-third">
-                    {% include "/assess/includes/fundSummaryCard.html" %}
+                    {% include "/assess/includes/fundSummaryCardComplete.html" %}
                     </div>
                 </div>
 
@@ -109,7 +53,7 @@
               <div class="govuk-accordion__section-header">
                 <h2 class="govuk-accordion__section-heading">
                   <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-                    Fund name (3)
+                    Green Belt Review Funding
                   </span>
                 </h2>
               </div>
@@ -141,7 +85,7 @@
         </form> -->
 
 
-        <p class="govuk-body">Information last updated: [13/02/2025 at 07:29]
+        <p class="govuk-body">Information last updated: [25 February 2025 at 08:38]
         <br>Refresh page for most up-to-date information.</p>
 
     </div>

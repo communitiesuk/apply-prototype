@@ -30,11 +30,11 @@
             <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Continuing an application</h2>
             <p class="govuk-body">You must use the same email address you started that application with.</p>
             <div class="govuk-inset-text">
-                <p class="govuk-body">The link will only work once and stop working after 24 hours.</p>
+                <p class="govuk-body">The link will work once and stop working after 24 hours.</p>
             </div>
             
 
-            <form method="post" action="/apply/email-sent" >
+            <form method="post" action="/apply/email-sent?version=" >
 
                 {{ govukInput({
                     label: {

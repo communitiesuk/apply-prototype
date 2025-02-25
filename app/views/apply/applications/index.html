@@ -94,7 +94,7 @@
     
                             {{ govukButton({
                                 text: "Start new application",
-                                classes: "govuk-button--secondary"
+                                classes: "govuk-button--secondar"
                             }) }}
     
                         {% else %}
@@ -115,9 +115,10 @@
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
                             <th scope="col" class="govuk-table__header">Name</th>
+                            <th scope="col" class="govuk-table__header">Reference</th>
                             <th scope="col" class="govuk-table__header">Status</th>
                             <th scope="col" class="govuk-table__header">Last edited</th>
-                            <th scope="col" class="govuk-table__header">Reference</th>
+                            
                             <th scope="col" class="govuk-table__header"></th>
                         </tr>
                     </thead>
@@ -135,6 +136,7 @@
                     <tbody class="govuk-table__body">
                         <tr class="govuk-table__row">
                             <th scope="row" class="govuk-table__header">{{ data.1_1_applicationName }}</th>
+                            <td class="govuk-table__cell">DPIF-R3-FMWFZS</td>
                             <td class="govuk-table__cell">
 
                                 {% if data.applicationStatus %}
@@ -158,13 +160,12 @@
                                 </strong>
                                 {% endif %}
                             </td>
-                            <td class="govuk-table__cell">29 January 2025 at 9:01am</td>
-                            <td class="govuk-table__cell">DPIF-R3-FMWFZS</td>
+                            <td class="govuk-table__cell">29 January 2025</td>                            
                             <td class="govuk-table__cell">
                                 {% if data.applicationStatus %}
 
                                 {% else %}
-                                <a class="govuk-link" href="/apply/task-list">Continue application</a>
+                                <a class="govuk-link" href="/apply/task-list">Continue</a>
                                 {% endif %}
                             </td>
                         </tr>

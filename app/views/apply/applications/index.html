@@ -11,8 +11,15 @@
     {% set pageHeading = "Your applications for Community Ownership Fund" %}
     {% set pageSection = "Community Ownership Fund Round 4 Window 1" %}
 {% elif data['fundName'] == "Digital Planning Improvement" %}
-    {% set pageHeading = "Your applications for Digital Planning Improvement Fund" %}
-    {% set pageSection = "" %}
+    <!-- Suggested -->
+    {% if data['version'] == "suggested" %}
+        {% set pageHeading = "Your applications" %}
+        {% set pageSection = "Digital Planning Improvement Fund (Round 3)" %}
+    {% else %}
+        {% set pageHeading = "Your applications for Digital Planning Improvement Fund" %}
+        {% set pageSection = "" %}
+    {% endif %}
+
 {% else %}
     {% set pageHeading = "Your applications for {fund details}" %}
     {% set pageSection = "Fund name and round information" %}
@@ -25,49 +32,248 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        <!-- Dynamic data -->
+        {% if data['version'] == "suggested" %}
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+                
+
+            {% if data['fundName'] == "High Street Rental Auctions" %}
+
+            {% elif data['fundName'] == "Community Ownership Fund" %}
+
+                <p>You have started {{ data.applicationsStarted }} applications using this email address.</p>
+
+                <p>This service is also available <a href="https://frontend.test.access-funding.test.levellingup.gov.uk/funding-round/cof/r4w1">in Welsh (Cymraeg)</a>.</p>
+                {{ govukWarningText({
+                    text: "You cannot change the language of an existing application.",
+                    iconFallbackText: "Warning"
+                }) }}
+
+                <span class="govuk-caption-m">{{ data.fundName }}</span>
+                <h2 class="govuk-heading-l">{{ data.fundRound }}</h2>
+                <p>Deadline for applications: {{ data.fundDeadlineDate | govukDateTime }}</p>
 
 
-        <!-- // -->
+            {% elif data['fundName'] == "Digital Planning Improvement" %}
+                            
+                <!-- <h2 class="govuk-heading-l">{{ data.fundRound }}</h2>                                 -->
+                <div class="govuk-inset-text govuk-!-margin-bottom-6">        
+                    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Submission deadline</p>
+                    <p class="govuk-obody">{{ data.fundDeadlineDate | govukDateTime }}</p>
+                </div>
 
-        {% if data['fundName'] == "High Street Rental Auctions" %}
+                {% if not (
+                    (data['section1_1'] == "yes") or
+                    ( data['section2_1'] == "yes") or
+                    ( data['section3_1'] == "yes") or
+                    ( data['section3_2'] == "yes") or
+                    ( data['section4_1'] == "yes") or
+                    ( data['section4_2'] == "yes") or
+                    ( data['section4_3'] == "yes") or
+                    ( data['section5_1'] == "yes") or
+                    ( data['section6_1'] == "yes")) %}
+                <p class="govuk-body govuk-!-margin-bottom-7">You have not started any applications for this funding using <strong>{{ data['magicLinkEmail'] or "test@apply.mhclg.gov.uk"  }}</strong>.</p>
+                {% endif %}
 
-        {% elif data['fundName'] == "Community Ownership Fund" %}
+                <form method="post" action="/apply/task-list" >
 
-            <p>You have started {{ data.applicationsStarted }} applications using this email address.</p>
+                    {% if (
+                        (data['section1_1'] == "yes") or
+                        ( data['section2_1'] == "yes") or
+                        ( data['section3_1'] == "yes") or
+                        ( data['section3_2'] == "yes") or
+                        ( data['section4_1'] == "yes") or
+                        ( data['section4_2'] == "yes") or
+                        ( data['section4_3'] == "yes") or
+                        ( data['section5_1'] == "yes") or
+                        ( data['section6_1'] == "yes")) %}
+    
+                            {{ govukButton({
+                                text: "Start new application",
+                                classes: "govuk-button--secondary"
+                            }) }}
+    
+                        {% else %}
+                            {{ govukButton({
+                                text: "Start new application"
+                            }) }}
+                        {% endif %}
+                </form>
 
-            <p>This service is also available <a href="https://frontend.test.access-funding.test.levellingup.gov.uk/funding-round/cof/r4w1">in Welsh (Cymraeg)</a>.</p>
-            {{ govukWarningText({
-                text: "You cannot change the language of an existing application.",
-                iconFallbackText: "Warning"
-            }) }}
 
-            <span class="govuk-caption-m">{{ data.fundName }}</span>
-            <h2 class="govuk-heading-l">{{ data.fundRound }}</h2>
-            <p>Deadline for applications: {{ data.fundDeadlineDate | govukDateTime }}</p>
+                
+                </div>
+            </div>
+
+                
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Applications</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Name</th>
+                            <th scope="col" class="govuk-table__header">Status</th>
+                            <th scope="col" class="govuk-table__header">Last edited</th>
+                            <th scope="col" class="govuk-table__header">Reference</th>
+                            <th scope="col" class="govuk-table__header"></th>
+                        </tr>
+                    </thead>
+
+                    {% if (
+                        (data['section1_1'] == "yes") or
+                        ( data['section2_1'] == "yes") or
+                        ( data['section3_1'] == "yes") or
+                        ( data['section3_2'] == "yes") or
+                        ( data['section4_1'] == "yes") or
+                        ( data['section4_2'] == "yes") or
+                        ( data['section4_3'] == "yes") or
+                        ( data['section5_1'] == "yes") or
+                        ( data['section6_1'] == "yes")) %}
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">{{ data.1_1_applicationName }}</th>
+                            <td class="govuk-table__cell">
+
+                                {% if data.applicationStatus %}
+                                    Submitted
+                                {% else %}
+                                <strong class="govuk-tag">
+                                    {% if (
+                                        (data['section1_1'] == "yes") and
+                                        ( data['section2_1'] == "yes") and
+                                        ( data['section3_1'] == "yes") and
+                                        ( data['section3_2'] == "yes") and
+                                        ( data['section4_1'] == "yes") and
+                                        ( data['section4_2'] == "yes") and
+                                        ( data['section4_3'] == "yes") and
+                                        ( data['section5_1'] == "yes") and
+                                        ( data['section6_1'] == "yes")) %}
+                                        Ready To Submit
+                                    {% else %}
+                                        In Progress
+                                    {% endif %}
+                                </strong>
+                                {% endif %}
+                            </td>
+                            <td class="govuk-table__cell">29 January 2025 at 9:01am</td>
+                            <td class="govuk-table__cell">DPIF-R3-FMWFZS</td>
+                            <td class="govuk-table__cell">
+                                {% if data.applicationStatus %}
+
+                                {% else %}
+                                <a class="govuk-link" href="/apply/task-list">Continue application</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                    {% endif %}
+                </table>
+
+            
 
 
-        {% elif data['fundName'] == "Digital Planning Improvement" %}
+            {% endif %}
 
-            <p>You have started {{ data.applicationsStarted }} applications using this email address.</p>
-            <span class="govuk-caption-m">{{ data.fundName }}</span>
-            <h2 class="govuk-heading-l">{{ data.fundRound }}</h2>
-            <p>Deadline for applications: {{ data.fundDeadlineDate | govukDateTime }}</p>
+            
 
-            <table class="govuk-table">
-                <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Applications</caption>
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Project name</th>
-                        <th scope="col" class="govuk-table__header">Status</th>
-                        <th scope="col" class="govuk-table__header">Last edited</th>
-                        <th scope="col" class="govuk-table__header">Application Reference</th>
-                        <th scope="col" class="govuk-table__header">Action</th>
-                    </tr>
-                </thead>
+
+        {% else %}       
+
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+            {% if data['fundName'] == "High Street Rental Auctions" %}
+
+            {% elif data['fundName'] == "Community Ownership Fund" %}
+
+                <p>You have started {{ data.applicationsStarted }} applications using this email address.</p>
+
+                <p>This service is also available <a href="https://frontend.test.access-funding.test.levellingup.gov.uk/funding-round/cof/r4w1">in Welsh (Cymraeg)</a>.</p>
+                {{ govukWarningText({
+                    text: "You cannot change the language of an existing application.",
+                    iconFallbackText: "Warning"
+                }) }}
+
+                <span class="govuk-caption-m">{{ data.fundName }}</span>
+                <h2 class="govuk-heading-l">{{ data.fundRound }}</h2>
+                <p>Deadline for applications: {{ data.fundDeadlineDate | govukDateTime }}</p>
+
+
+            {% elif data['fundName'] == "Digital Planning Improvement" %}
+
+                <p>You have started {{ data.applicationsStarted }} applications using this email address.</p>
+                <span class="govuk-caption-m">{{ data.fundName }}</span>
+                <h2 class="govuk-heading-l">{{ data.fundRound }}</h2>
+                <p>Deadline for applications: {{ data.fundDeadlineDate | govukDateTime }}</p>
+
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Applications</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Project name</th>
+                            <th scope="col" class="govuk-table__header">Status</th>
+                            <th scope="col" class="govuk-table__header">Last edited</th>
+                            <th scope="col" class="govuk-table__header">Application Reference</th>
+                            <th scope="col" class="govuk-table__header">Action</th>
+                        </tr>
+                    </thead>
+
+                    {% if (
+                        (data['section1_1'] == "yes") or
+                        ( data['section2_1'] == "yes") or
+                        ( data['section3_1'] == "yes") or
+                        ( data['section3_2'] == "yes") or
+                        ( data['section4_1'] == "yes") or
+                        ( data['section4_2'] == "yes") or
+                        ( data['section4_3'] == "yes") or
+                        ( data['section5_1'] == "yes") or
+                        ( data['section6_1'] == "yes")) %}
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">{{ data.1_1_applicationName }}</th>
+                            <td class="govuk-table__cell">
+
+                                {% if data.applicationStatus %}
+                                    Submitted
+                                {% else %}
+                                <strong class="govuk-tag">
+                                    {% if (
+                                        (data['section1_1'] == "yes") and
+                                        ( data['section2_1'] == "yes") and
+                                        ( data['section3_1'] == "yes") and
+                                        ( data['section3_2'] == "yes") and
+                                        ( data['section4_1'] == "yes") and
+                                        ( data['section4_2'] == "yes") and
+                                        ( data['section4_3'] == "yes") and
+                                        ( data['section5_1'] == "yes") and
+                                        ( data['section6_1'] == "yes")) %}
+                                        Ready To Submit
+                                    {% else %}
+                                        In Progress
+                                    {% endif %}
+                                </strong>
+                                {% endif %}
+                            </td>
+                            <td class="govuk-table__cell">29 January 2025 at 9:01am</td>
+                            <td class="govuk-table__cell">DPIF-R3-FMWFZS</td>
+                            <td class="govuk-table__cell">
+                                {% if data.applicationStatus %}
+
+                                {% else %}
+                                <a class="govuk-link" href="/apply/task-list">Continue application</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                    {% endif %}
+                </table>
+
+            {% endif %}
+
+            <form method="post" action="/apply/task-list" >
 
                 {% if (
                     (data['section1_1'] == "yes") or
@@ -79,72 +285,27 @@
                     ( data['section4_3'] == "yes") or
                     ( data['section5_1'] == "yes") or
                     ( data['section6_1'] == "yes")) %}
-                <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">{{ data.1_1_applicationName }}</th>
-                        <td class="govuk-table__cell">
 
-                            {% if data.applicationStatus %}
-                                Submitted
-                            {% else %}
-                            <strong class="govuk-tag">
-                                {% if (
-                                    (data['section1_1'] == "yes") and
-                                    ( data['section2_1'] == "yes") and
-                                    ( data['section3_1'] == "yes") and
-                                    ( data['section3_2'] == "yes") and
-                                    ( data['section4_1'] == "yes") and
-                                    ( data['section4_2'] == "yes") and
-                                    ( data['section4_3'] == "yes") and
-                                    ( data['section5_1'] == "yes") and
-                                    ( data['section6_1'] == "yes")) %}
-                                    Ready To Submit
-                                {% else %}
-                                    In Progress
-                                {% endif %}
-                            </strong>
-                            {% endif %}
-                          </td>
-                        <td class="govuk-table__cell">29 January 2025 at 9:01am</td>
-                        <td class="govuk-table__cell">DPIF-R3-FMWFZS</td>
-                        <td class="govuk-table__cell">
-                            {% if data.applicationStatus %}
+                        {{ govukButton({
+                            text: "Start new application",
+                            classes: "govuk-button--secondary"
+                        }) }}
 
-                            {% else %}
-                            <a class="govuk-link" href="/apply/task-list">Continue application</a>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </tbody>
-                {% endif %}
-            </table>
+                    {% else %}
+                        {{ govukButton({
+                            text: "Start new application"
+                        }) }}
+                    {% endif %}
+            </form>
 
         {% endif %}
 
-        <form method="post" action="/apply/task-list" >
+        {% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+        {% else %}
+            {{ macroSuggested.pageSuggested(url) }}
+        {% endif %}
 
-            {% if (
-                (data['section1_1'] == "yes") or
-                ( data['section2_1'] == "yes") or
-                ( data['section3_1'] == "yes") or
-                ( data['section3_2'] == "yes") or
-                ( data['section4_1'] == "yes") or
-                ( data['section4_2'] == "yes") or
-                ( data['section4_3'] == "yes") or
-                ( data['section5_1'] == "yes") or
-                ( data['section6_1'] == "yes")) %}
-
-                    {{ govukButton({
-                        text: "Start new application",
-                        classes: "govuk-button--secondary"
-                    }) }}
-
-                {% else %}
-                    {{ govukButton({
-                        text: "Start new application"
-                    }) }}
-                {% endif %}
-        </form>
 
     </div>
 </div>

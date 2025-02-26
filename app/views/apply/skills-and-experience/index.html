@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Your skills and experience" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+    {% set pageHeading = "What you need to tell us" %}
+    {% set pageSection = "Your skills and experience" %}
+{% else %}
+    {% set pageHeading = "Your skills and experience" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,6 +16,25 @@
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        {% if data['version'] == "suggested" %}
+
+        <p class="govuk-body">In this section, you’ll need to tell us:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+            <li>if your organisation has delivered projects like this before </li>
+            <li>about the projects you’ve delivered before (if applicable) </li>
+        </ul>
+
+        <form method="post" action="/apply/skills-and-experience/delivered-projects?linkStatus=" >
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+
+        {% else %}
 
         <p class="govuk-body govuk-!-font-weight-bold">In this section, we'll ask about:</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -25,6 +49,18 @@
             }) }}
 
         </form>
+
+        {% endif %}
+
+
+
+        {% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+      	{% else %}
+        	{{ macroSuggested.pageSuggested(url) }}
+      	{% endif %}
+
+
 
     </div>
 </div>

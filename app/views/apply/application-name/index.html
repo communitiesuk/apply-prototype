@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Name your application" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+    {% set pageHeading = "Give your application a name" %}
+    {% set pageSection = "Name your application" %}
+{% else %}
+    {% set pageHeading = "Name your application" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 
 
@@ -13,6 +18,44 @@
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+        {% if data['version'] == "suggested" %}
+
+        <!-- <p class="govuk-body govuk-hint">This is what your application will be called and will help you find it when you save and return.</p> -->
+        <p class="govuk-body">Choose a memorable name that describes what your application is for.</p>
+
+        {% if data['linkStatus'] == "change" %}
+        <form method="post" action="/apply/application-name/check-your-answers" >
+        {% else %}
+        <form method="post" action="/apply/application-name/check-your-answers" >
+        {% endif %}
+
+            {{ govukInput({
+                label: {
+                    text: pageHeading,
+                    classes: "govuk-label govuk-visually-hidden",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "1_1_applicationName",
+                name: "1_1_applicationName",
+                value: data['1_1_applicationName']
+            }) }}
+
+            <!-- Session information to say section started - but not completed -->
+            {% if not data.section1_1 %}
+            <input type="hidden" id="section1_1" name="section1_1" value="Started" />
+            {% endif %}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+
+        </form>
+
+        {% else %}
 
         <p class="govuk-body govuk-hint">This is what your application will be called and will help you find it when you save and return.</p>
         <p class="govuk-body govuk-hint">Choose a memorable name that describes your application.</p>
@@ -46,6 +89,16 @@
 
 
         </form>
+
+        {% endif %}
+
+
+        {% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+      	{% else %}
+        	{{ macroSuggested.pageSuggested(url) }}
+      	{% endif %}
+
 
     </div>
 </div>

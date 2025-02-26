@@ -1,7 +1,13 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Organisation name" %}
-{% set pageSection = "" %}
+
+{% if data['version'] == "suggested" %}
+    {% set pageHeading = "What is the name of your organisation?" %}
+    {% set pageSection = "Organisation information" %}
+{% else %}
+    {% set pageHeading = "Organisation name" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <p class="govuk-hint">This must match your registered legal organisation name</p>
+        <p class="govuk-hint">This is the legal registered name of your organisation.</p>
 
         {% if data['linkStatus'] == "change" %}
             <form method="post" action="/apply/organisation/check-your-answers?linkStatus=" >
@@ -42,6 +48,12 @@
             }) }}
 
         </form>
+
+        {% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+      	{% else %}
+        	{{ macroSuggested.pageSuggested(url) }}
+      	{% endif %}
 
     </div>
 </div>

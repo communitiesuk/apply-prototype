@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Section 151 officer details" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+    {% set pageHeading = "Who is your  Section 151 officer?" %}
+    {% set pageSection = "Organisation information" %}
+{% else %}
+    {% set pageHeading = "Section 151 officer details" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -21,8 +26,8 @@
 
             {{ govukInput({
                 label: {
-                    text: "Section 151 officer first name",
-                    classes: "govuk-label--s",
+                    text: "First name",
+                    classes: "govuk-label",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
@@ -34,8 +39,8 @@
 
             {{ govukInput({
                 label: {
-                    text: "Section 151 officer last name",
-                    classes: "govuk-label--s",
+                    text: "Last name",
+                    classes: "govuk-label",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
@@ -47,8 +52,8 @@
 
             {{ govukInput({
                 label: {
-                    text: "Section 151 officer email address",
-                    classes: "govuk-label--s",
+                    text: "Email address",
+                    classes: "govuk-label",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
@@ -62,11 +67,11 @@
 
             {{ govukInput({
                 label: {
-                    text: "Section 151 officer telephone number",
-                    classes: "govuk-label--s",
+                    text: "Telephone number",
+                    classes: "govuk-label",
                     isPageHeading: false
                 },
-                classes: "govuk-!-width-one-third",
+                classes: "govuk-!-width-two-thirds",
                 id: "2_1_section151Phone",
                 name: "2_1_section151Phone",
                 value: data['2_1_section151Phone'],
@@ -80,6 +85,14 @@
 
 
         </form>
+
+
+        {% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+        {% else %}
+            {{ macroSuggested.pageSuggested(url) }}
+        {% endif %}
+
 
     </div>
 </div>

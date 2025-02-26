@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Will you need to backfill any roles in your organisation?" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+	{% set pageHeading = "Do you need to backfill any roles in your organisation?" %}
+	{% set pageSection = "Roles and recruitment" %}
+{% else %}
+	{% set pageHeading = "Will you need to backfill any roles in your organisation?" %}
+	{% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -39,6 +44,13 @@
             }) }}
 
         </form>
+
+
+		{% if data['version'] == "suggested" %}
+			{{ macroCurrent.pageCurrent(url) }}
+		{% else %}
+			{{ macroSuggested.pageSuggested(url) }}
+		{% endif %}
 
     </div>
 </div>

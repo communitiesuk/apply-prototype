@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Who will be the project lead?" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+    {% set pageHeading = "What’s the name of the project lead?" %}
+    {% set pageSection = "Roles and recruitment" %}
+{% else %}
+    {% set pageHeading = "Who will be the project lead?" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,6 +18,48 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+
+        {% if data['version'] == "suggested" %}
+
+        {% if data['linkStatus'] == "change" %}
+			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?linkStatus=" >
+		{% else %}
+            <form method="post" action="/apply/roles-and-recruitment/check-your-answers" >
+		{% endif %}
+
+			{{ govukInput({
+                label: {
+                    text: "First name",
+                    classes: "govuk-label",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "3_2_projectLeadFirstName",
+                name: "3_2_projectLeadFirstName",
+                value: data['3_2_projectLeadFirstName']
+            }) }}
+
+			{{ govukInput({
+                label: {
+                    text: "Last name",
+                    classes: "govuk-label",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "3_2_projectLeadLastName",
+                name: "3_2_projectLeadLastName",
+                value: data['3_2_projectLeadLastName']
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+
+
+
+        {% else %}
 
         {% if data['linkStatus'] == "change" %}
 			<form method="post" action="/apply/roles-and-recruitment/check-your-answers?linkStatus=" >
@@ -51,6 +98,15 @@
                 text: "Continue"
             }) }}
         </form>
+
+        {% endif %}
+
+
+		{% if data['version'] == "suggested" %}
+			{{ macroCurrent.pageCurrent(url) }}
+		{% else %}
+			{{ macroSuggested.pageSuggested(url) }}
+		{% endif %}        
 
     </div>
 </div>

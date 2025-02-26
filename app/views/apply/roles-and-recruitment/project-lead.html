@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Do you know who the project lead will be?" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+	{% set pageHeading = "Do you know who the project lead will be?" %}
+	{% set pageSection = "Roles and recruitment" %}
+{% else %}
+	{% set pageHeading = "Do you know who the project lead will be?" %}
+	{% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -40,6 +45,13 @@
 
         </form>
 
+		{% if data['version'] == "suggested" %}
+			{{ macroCurrent.pageCurrent(url) }}
+		{% else %}
+			{{ macroSuggested.pageSuggested(url) }}
+		{% endif %}
+		
+		
     </div>
 </div>
 

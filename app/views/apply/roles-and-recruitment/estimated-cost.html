@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "What is the estimated cost of backfilling roles?" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+    {% set pageHeading = "What’s the estimated cost of backfilling these roles, in pounds?" %}
+    {% set pageSection = "Roles and recruitment" %}
+{% else %}
+    {% set pageHeading = "What is the estimated cost of backfilling roles?" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -41,6 +46,13 @@
             }) }}
         </form>
 
+		{% if data['version'] == "suggested" %}
+			{{ macroCurrent.pageCurrent(url) }}
+		{% else %}
+			{{ macroSuggested.pageSuggested(url) }}
+		{% endif %}
+        
+        
     </div>
 </div>
 

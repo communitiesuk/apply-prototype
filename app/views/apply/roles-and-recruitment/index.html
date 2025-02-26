@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Roles and recruitment" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+    {% set pageHeading = "What we need to know" %}
+    {% set pageSection = "Roles and recruitment" %}
+{% else %}
+    {% set pageHeading = "Roles and recruitment" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,6 +16,25 @@
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        {% if data['version'] == "suggested" %}
+
+        <p class="govuk-body">In this section, you may need to tell us about:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+            <li>your team, or how you plan to have a team in place to deliver the project</li>
+            <!-- <li>how you will make sure you have a team in place ready to deliver the project (if applicable)</li> -->
+            <li>who’s involved in the team and how it will be structured</li>
+            <li>if you need to backfill any roles and the estimated cost of this</li>            
+            <li>who the project lead will be if you know</li>            
+        </ul>
+
+        <form method="post" action="/apply/roles-and-recruitment/team?linkStatus=" >
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+        {% else %}
 
         <p class="govuk-body govuk-!-font-weight-bold">In this section, we'll ask about:</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -28,6 +52,14 @@
                 text: "Continue"
             }) }}
         </form>
+
+        {% endif %}
+
+        {% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+        {% else %}
+            {{ macroSuggested.pageSuggested(url) }}
+        {% endif %}
 
     </div>
 </div>

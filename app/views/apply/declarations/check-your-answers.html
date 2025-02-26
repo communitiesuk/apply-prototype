@@ -3,8 +3,13 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-{% set pageHeading = "Check your answers" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+	{% set pageHeading = "Remove this page" %}
+	{% set pageSection = "Declaration" %}
+{% else %}
+	{% set pageHeading = "Check your answers" %}
+	{% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,6 +19,38 @@
 	<div class="govuk-grid-column-full">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		{% if data['version'] == "suggested" %}
+
+		<p>Page is not needed</p>
+		<form action="/apply/task-list" method="post" >
+
+			<!-- Remove the change link status -->
+			{% include "/apply/includes/linkStatus.html" %}
+
+			{{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "section6_1",
+				fieldset: {
+					legend: {
+						text: "Do you want to mark this section as complete?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend"
+					}
+				},
+				items: [
+					{ value: "yes", text: "Yes", checked: checked("section6_1", "yes")  },
+					{ value: "no", text: "No", checked: checked("section6_1", "no") }
+				]
+			}) }}
+
+			{{ govukButton({
+				text: "Save and continue"
+			}) }}
+
+		</form>
+
+		{% else %}
 
         <h2 class="govuk-heading-m">Declarations</h2>
 		<dl class="govuk-summary-list">
@@ -73,6 +110,15 @@
 			}) }}
 
 		</form>
+
+		{% endif %}
+
+		{% if data['version'] == "suggested" %}
+		{{ macroCurrent.pageCurrent(url) }}
+	  {% else %}
+		{{ macroSuggested.pageSuggested(url) }}
+	  {% endif %}
+
 
     </div>
   </div>

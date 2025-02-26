@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = 'Which format is your dataset in for ' + data.4_3_datasets + '?' %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+	{% set pageHeading = 'What format is your ' + data.4_3_datasets + ' dataset?' %}
+	{% set pageSection = "Dataset information" %}
+{% else %}
+	{% set pageHeading = 'Which format is your dataset in for ' + data.4_3_datasets + '?' %}
+	{% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -43,6 +48,12 @@
             }) }}
 
         </form>
+
+		{% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+        {% else %}
+            {{ macroSuggested.pageSuggested(url) }}
+        {% endif %}	
 
     </div>
 </div>

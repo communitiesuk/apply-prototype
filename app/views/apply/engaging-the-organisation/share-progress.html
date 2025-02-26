@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "How will you share the progress of the work across your organisation?" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+	{% set pageHeading = "How will you share the progress of the work across your organisation?" %}
+	{% set pageSection = "Engaging the organisation" %}
+{% else %}
+	{% set pageHeading = "How will you share the progress of the work across your organisation?" %}
+	{% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -35,6 +40,12 @@
             }) }}
 
         </form>
+
+		{% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+        {% else %}
+            {{ macroSuggested.pageSuggested(url) }}
+        {% endif %}	 	
 
     </div>
 </div>

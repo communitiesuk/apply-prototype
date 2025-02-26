@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "What are the current known issues and challenges you have with data quality and publication?" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+	{% set pageHeading = "What are your current known issues and challenges with data quality and publication?" %}
+	{% set pageSection = "Dataset information" %}
+{% else %}
+	{% set pageHeading = "What are the current known issues and challenges you have with data quality and publication?" %}
+	{% set pageSection = "" %}
+{% endif %}	
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -35,6 +40,12 @@
             }) }}
 
         </form>
+
+		{% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+        {% else %}
+            {{ macroSuggested.pageSuggested(url) }}
+        {% endif %}	
 
     </div>
 </div>

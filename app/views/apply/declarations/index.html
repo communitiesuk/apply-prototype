@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Declarations" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+    {% set pageHeading = "Remove this page" %}
+    {% set pageSection = "Declarations" %}
+{% else %}
+    {% set pageHeading = "Declarations" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,7 +18,17 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+        {% if data['version'] == "suggested" %}
 
+        <form method="post" action="/apply/declarations/confirmations" >
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+        {% else %}
         <p class="govuk-body govuk-!-font-weight-bold">In this section, we'll ask about:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>confirm you have signed the Local Digital Declaration and agree to follow the 5 principles</li>
@@ -30,6 +45,14 @@
                 text: "Continue"
             }) }}
         </form>
+
+        {% endif %}
+
+		{% if data['version'] == "suggested" %}
+		{{ macroCurrent.pageCurrent(url) }}
+	  {% else %}
+		{{ macroSuggested.pageSuggested(url) }}
+	  {% endif %}
 
     </div>
 </div>

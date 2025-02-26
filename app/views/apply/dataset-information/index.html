@@ -1,7 +1,12 @@
 {% extends "layouts/main.html" %}
 
-{% set pageHeading = "Dataset information" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+    {% set pageHeading = "What we need to know" %}
+    {% set pageSection = "Dataset information" %}
+{% else %}
+    {% set pageHeading = "Dataset information" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -13,6 +18,24 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+
+        {% if data['version'] == "suggested" %}
+
+        <p class="govuk-body">In this section, you may need to tell us:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+            <li>if you collect datasets, which ones and in what format</li>                        
+            <li>how long you think it will take you to publish all 4 datasets</li>
+            <li>what known issues and challenges you have with data quality and publication</li>
+        </ul>
+
+        <form method="post" action="/apply/dataset-information/collect?linkStatus=" >
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+        </form>
+
+        {% else %}
         <p class="govuk-body govuk-!-font-weight-bold">In this section, we'll ask about:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>if your organisation collects datasets for conservation areas, article 4 direction, listed buildings and tree preservation orders</li>
@@ -28,7 +51,16 @@
                 text: "Continue"
             }) }}
         </form>
+        
+        {% endif %}
 
+		{% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+        {% else %}
+            {{ macroSuggested.pageSuggested(url) }}
+        {% endif %}	 
+        
+        
     </div>
 </div>
 

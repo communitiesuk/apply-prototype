@@ -3,8 +3,13 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-{% set pageHeading = "Check your answers" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+	{% set pageHeading = "Check your answers" %}
+	{% set pageSection = "Dataset information" %}
+{% else %}
+	{% set pageHeading = "Check your answers" %}
+	{% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,6 +19,90 @@
 	<div class="govuk-grid-column-full">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		{% if data['version'] == "suggested" %}		
+
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Collect any datasets</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['4_3_datasetCollect'] | capitalize }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/collect?linkStatus=change">Change<span class="govuk-visually-hidden"> Does your organisation collect at least one of the datasets</span></a>
+			  	</dd>
+			</div>
+			{% if data['4_3_datasetCollect'] == "yes" %}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Which datasets</dt>
+				<dd class="govuk-summary-list__value">
+					<ul class="govuk-list govuk-list--bullet">
+					{% for item in data.4_3_datasets %}
+					<li>{{ item }}</li>
+                	{% endfor %}
+					</ul>
+				</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/which-datasets?linkStatus=change">Change<span class="govuk-visually-hidden"> Which datasets have you collected</span></a>
+			  	</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">What format is your conservation areas dataset</dt>
+				<dd class="govuk-summary-list__value">
+					<ul class="govuk-list govuk-list--bullet">
+					{% for item in data.4_3_format %}
+					<li>{{ item }}</li>
+                	{% endfor %}
+					</ul>
+				</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/format?linkStatus=change">Change<span class="govuk-visually-hidden"> Which format is your dataset in for conservation areas</span></a>
+			  	</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">How long to publish all 4 datasets</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['4_3_publishTime'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/how-long-to-publish?linkStatus=change">Change<span class="govuk-visually-hidden"> How long do you think it will take your organisation to publish all 4 datasets</span></a>
+			  	</dd>
+			</div>
+			{% endif %}
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Current known issues and challenges with data quality and publication</dt>
+			  	<dd class="govuk-summary-list__value">{{ data['4_3_datasetChallenges'] }}</dd>
+			  	<dd class="govuk-summary-list__actions">
+					<a class="govuk-link" href="/apply/dataset-information/issues-and-challenges?linkStatus=change">Change<span class="govuk-visually-hidden"> What are the current known issues and challenges you have with data quality and publication</span></a>
+			  	</dd>
+			</div>
+		</dl>
+
+		<form action="/apply/task-list" method="post" >
+
+			<!-- Remove the change link status -->
+			{% include "/apply/includes/linkStatus.html" %}
+
+			{{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "section4_3",
+				fieldset: {
+					legend: {
+						text: "Do you want to mark this section as complete?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend"
+					}
+				},
+				items: [
+					{ value: "yes", text: "Yes", checked: checked("section4_3", "yes")  },
+					{ value: "no", text: "No", checked: checked("section4_3", "no") }
+				]
+			}) }}
+
+			{{ govukButton({
+				text: "Save and continue"
+			}) }}
+
+		</form>
+
+		{% else %}
 
         <h2 class="govuk-heading-m">Dataset information</h2>
 
@@ -96,6 +185,14 @@
 			}) }}
 
 		</form>
+
+		{% endif %}
+
+		{% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+        {% else %}
+            {{ macroSuggested.pageSuggested(url) }}
+        {% endif %}	
 
     </div>
   </div>

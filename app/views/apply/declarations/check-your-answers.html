@@ -29,7 +29,6 @@
 			{% include "/apply/includes/linkStatus.html" %}
 
 			{{ govukRadios({
-				classes: "govuk-radios--inline",
 				name: "section6_1",
 				fieldset: {
 					legend: {
@@ -40,7 +39,7 @@
 				},
 				items: [
 					{ value: "yes", text: "Yes, I’ve completed this section", checked: checked("section6_1", "yes")  },
-					{ value: "no", text: "No", checked: checked("section6_1", "no") }
+					{ value: "no", text: "No, I’ll come back to it later", checked: checked("section6_1", "no") }
 				]
 			}) }}
 

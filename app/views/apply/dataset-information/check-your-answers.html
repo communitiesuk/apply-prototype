@@ -20,7 +20,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		{% if data['version'] == "suggested" %}		
+		{% if data['version'] == "suggested" %}
 
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
@@ -81,18 +81,17 @@
 			{% include "/apply/includes/linkStatus.html" %}
 
 			{{ govukRadios({
-				classes: "govuk-radios--inline",
 				name: "section4_3",
 				fieldset: {
 					legend: {
-						text: "Do you want to mark this section as complete?",
+						text: "Have you completed this section?",
 						isPageHeading: false,
-						classes: "govuk-fieldset__legend"
+						classes: "govuk-fieldset__legend--m"
 					}
 				},
 				items: [
-					{ value: "yes", text: "Yes", checked: checked("section4_3", "yes")  },
-					{ value: "no", text: "No", checked: checked("section4_3", "no") }
+					{ value: "yes", text: "Yes, I’ve completed this section", checked: checked("section4_3", "yes")  },
+					{ value: "no", text: "No, I’ll come back to it later", checked: checked("section4_3", "no") }
 				]
 			}) }}
 
@@ -192,7 +191,7 @@
             {{ macroCurrent.pageCurrent(url) }}
         {% else %}
             {{ macroSuggested.pageSuggested(url) }}
-        {% endif %}	
+        {% endif %}
 
     </div>
   </div>

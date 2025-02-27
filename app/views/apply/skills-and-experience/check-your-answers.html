@@ -50,18 +50,17 @@
 			<!-- Session information to inform although section is finished is it completed -->
 
 			{{ govukRadios({
-				classes: "govuk-radios--inline",
 				name: "section3_1",
 				fieldset: {
 					legend: {
-						text: "Do you want to mark this section as complete?",
+						text: "Have you completed this section?",
 						isPageHeading: false,
-						classes: "govuk-fieldset__legend"
+						classes: "govuk-fieldset__legend--m"
 					}
 				},
 				items: [
-					{ value: "yes", text: "Yes", checked: checked("section3_1", "yes")  },
-					{ value: "no", text: "No", checked: checked("section3_1", "no") }
+					{ value: "yes", text: "Yes, I’ve completed this section", checked: checked("section3_1", "yes")  },
+					{ value: "no", text: "No, I’ll come back to it later", checked: checked("section3_1", "no") }
 				]
 			}) }}
 

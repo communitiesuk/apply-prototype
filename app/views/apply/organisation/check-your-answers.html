@@ -24,10 +24,10 @@
 
 				{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-		<dl class="govuk-summary-list govuk-!-margin-bottom-7">
+		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Organisation</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Organisation</dt>
+				<dt class="govuk-summary-list__key">Name</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['2_1_organisationName'] }}</dd>
 			  	<dd class="govuk-summary-list__actions">
 					<a class="govuk-link" href="/apply/organisation/name?linkStatus=change">Change<span class="govuk-visually-hidden"> name of the organisation</span></a>
@@ -62,7 +62,7 @@
 		</dl>
 
 		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Section 151 officer</h2>
-		<dl class="govuk-summary-list govuk-!-margin-bottom-7">
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Name</dt>
 			  	<dd class="govuk-summary-list__value">{{ data['2_1_section151FirstName'] }} {{ data['2_1_section151LastName'] }}</dd>
@@ -126,18 +126,17 @@
 
 			<!-- Session information to inform although section is finished is it completed -->
 			{{ govukRadios({
-				classes: "govuk-radios--inline",
 				name: "section2_1",
 				fieldset: {
 					legend: {
-						text: "Do you want to mark this section as complete?",
+						text: "Have you completed this section?",
 						isPageHeading: false,
-						classes: "govuk-fieldset__legend"
+						classes: "govuk-fieldset__legend--m"
 					}
 				},
 				items: [
-					{ value: "yes", text: "Yes", checked: checked("section2_1", "yes")  },
-					{ value: "no", text: "No", checked: checked("section2_1", "no") }
+					{ value: "yes", text: "Yes, I’ve completed this section", checked: checked("section2_1", "yes")  },
+					{ value: "no", text: "No, I’ll come back to it later", checked: checked("section2_1", "no") }
 				]
 			}) }}
 

@@ -1,18 +1,19 @@
-<table class="govuk-table">
+<table class="govuk-table govuk-!-margin-bottom-9">
     <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Applications</caption>
     <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Project name</th>
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Reference</th>
             <th scope="col" class="govuk-table__header">Status</th>
             <th scope="col" class="govuk-table__header">Last edited</th>
-            <th scope="col" class="govuk-table__header">Application Reference</th>
-            <th scope="col" class="govuk-table__header">Action</th>
+            <th scope="col" class="govuk-table__header"></th>
         </tr>
     </thead>
 
     <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">{{ data.1_1_applicationName or "{name}"  }}</td>
+            <td scope="row" class="govuk-table__cell">{{ data.1_1_applicationName or "Sole Heaven"  }}</td>
+            <td class="govuk-table__cell">DPIF-R3-FMWFZS</td>
             <td class="govuk-table__cell">
 
                 {% if data.applicationStatus %}
@@ -36,8 +37,8 @@
                 </strong>
                 {% endif %}
               </td>
-            <td class="govuk-table__cell">29 January 2025 at 9:01am</td>
-            <td class="govuk-table__cell">DPIF-R3-FMWFZS</td>
+            <td class="govuk-table__cell">29 January 2025</td>
+
             <td class="govuk-table__cell">
                 {% if data.applicationStatus %}
 
@@ -46,9 +47,32 @@
                 {% endif %}
             </td>
         </tr>
+        <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">{{ data.1_1_applicationName or "Sneaker Politics"  }}</td>
+            <td class="govuk-table__cell">DPIF-R3-FMWFZS</td>
+            <td class="govuk-table__cell">
+
+                {% if data.applicationStatus %}
+                    Submitted
+                {% else %}
+
+                    Submitted
+
+                {% endif %}
+              </td>
+            <td class="govuk-table__cell">29 January 2025</td>
+
+            <td class="govuk-table__cell">
+                {% if data.applicationStatus %}
+
+                {% else %}
+                <a class="govuk-link" href="/apply/task-list">View application</a>
+                {% endif %}
+            </td>
+        </tr>
     </tbody>
 
 </table>
 
-<p class="govuk-body govuk-link"><a href="/apply/applications/">View applications from all rounds/windows</a></p>
+<!-- <p class="govuk-body govuk-link"><a href="/apply/applications/">View applications from all rounds/windows</a></p> -->
 

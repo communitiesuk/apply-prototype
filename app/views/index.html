@@ -47,11 +47,21 @@
 		{% set serviceAssessHtml %}
 			<!-- Assess service -->
 			<h2 class="govuk-heading-m">Assess applications for funding</h2>
-			<p class="govuk-body">Assess funding applications journey flow.</p>
+
+			<p class="govuk-body">The Funding Service assessment tool has been designed to help evaluate fund applications, to facilitate fund decision-making.</p>
+			<p class="govuk-body">Here you can:</p>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+				<li>assess applications end to end</li>
+				<li>comment on specific applicant responses</li>
+				<li>monitor the assessment progress of a fund</li>
+			</ul>
+
+
+
 			<form method="post" action="/assess/" >
 				<input type="hidden" name="fundService" id="fundService" value="assess" />
 				{{ govukButton({
-					text: "Start journey"
+					text: "Start user journey"
 				}) }}
 			</form>
 		{% endset -%}
@@ -64,17 +74,23 @@
 			]
 		}) }}
 
+
+		<div class="govuk-grid-row govuk-!-margin-top-9">
+			<div class="govuk-grid-column-one-half">
+
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">User research</h2>
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+				<!-- <p class="govuk-body-s">{{ "today" | govukDate }}</p> -->
+        		<p class="govuk-body">There is no research currently taking place. </p>
+			</div>
+			<div class="govuk-grid-column-one-half">
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Assets</h2>
+				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+			</div>
+
 	</div>
-	<div class="govuk-grid-column-two-thirds">
-
-
-		<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">User research</h2>
-		<p class="govuk-body-s">{{ "today" | govukDate }}</p>
-        <p class="govuk-body">There is no research currently taking place. </p>
-
-  </div>
 </div>
 
 {% endblock %}

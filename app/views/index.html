@@ -9,45 +9,69 @@
 {% set showBackApplicationsLink = false %}
 {% set showBackApplicationsOverview = false %}
 
-{% set pageHeading = "Funding Service" %}
+{% set pageHeading = "The Funding Service" %}
 {% set pageSection = "Prototype" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-3">
 
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 		<p class="govuk-body-s">Last updated on {{ "today" | govukDate }}
     	<br>GOV.UK Prototype Kit: {{releaseVersion}}</p>
 
-    	<p>This is a new prototype to show the various stages throughout the Funding Service process.</p>
+    	<p class="govuk-body">This is a prototype to show the various stages of the Funding Service process.</p>
+		<p>The Funding Service is a team at the Ministry of Housing, Communities and Local Government (MHCLG) that aims to improve how funding is given to local authorities, charities, and community groups. </p>
 
-		<!-- Apply service -->
-		<h2 class="govuk-heading-m">Apply for funding</h2>
-		<p>Apply for funding journey flow.</p>
-		<form method="post" action="/preload" >
-			<input type="hidden" name="fundService" id="fundService" value="apply" />
-			{{ govukButton({
-                text: "Start journey"
-            }) }}
-		</form>
+	</div>
 
-		<!-- Assess service -->
-		<h2 class="govuk-heading-m">Assess applications for funding</h2>
-		<p>Assess funding applications journey flow.</p>
-		<form method="post" action="/assess/" >
-			<input type="hidden" name="fundService" id="fundService" value="assess" />
-			{{ govukButton({
-                text: "Start journey"
-            }) }}
-		</form>
+	<div class="govuk-grid-column-full">
+
+		{% set serviceApplyHtml %}
+
+			<!-- Apply service -->
+			<h2 class="govuk-heading-m">Apply for funding</h2>
+			<p class="govuk-body">Apply for funding journey flow.</p>
+			<form method="post" action="/preload" >
+				<input type="hidden" name="fundService" id="fundService" value="apply" />
+				{{ govukButton({
+					text: "Start journey"
+				}) }}
+			</form>
+
+		{% endset -%}
+
+		{% set serviceAssessHtml %}
+			<!-- Assess service -->
+			<h2 class="govuk-heading-m">Assess applications for funding</h2>
+			<p class="govuk-body">Assess funding applications journey flow.</p>
+			<form method="post" action="/assess/" >
+				<input type="hidden" name="fundService" id="fundService" value="assess" />
+				{{ govukButton({
+					text: "Start journey"
+				}) }}
+			</form>
+		{% endset -%}
+
+
+		{{ govukTabs({
+			items: [
+				{ label: "Apply for funding", id: "service-apply", panel: { html: serviceApplyHtml } },
+				{ label: "Assess funding applications", id: "service-assess", panel: { html: serviceAssessHtml } }
+			]
+		}) }}
+
+	</div>
+	<div class="govuk-grid-column-two-thirds">
+
 
 		<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">User research</h2>
+		<p class="govuk-body-s">{{ "today" | govukDate }}</p>
         <p class="govuk-body">There is no research currently taking place. </p>
 
   </div>

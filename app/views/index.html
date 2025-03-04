@@ -16,7 +16,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-3">
+	<div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-5">
 
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
@@ -67,10 +67,10 @@
 		{% endset -%}
 
 
-		{{ govukTabs({
+		{{ govukTabs({			
 			items: [
 				{ label: "Apply for funding", id: "service-apply", panel: { html: serviceApplyHtml } },
-				{ label: "Assess funding applications", id: "service-assess", panel: { html: serviceAssessHtml } }
+				{ label: "Assess applications for funding", id: "service-assess", panel: { html: serviceAssessHtml } }
 			]
 		}) }}
 

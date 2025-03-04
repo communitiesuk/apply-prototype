@@ -177,3 +177,7 @@ a:link.summaryLinkOveride, .govuk-link:link.summaryLinkOveride {
     margin-right: 1px;
     margin-left: 5px
 }
+
+.govuk-tabs__panel.override {
+    border: none;
+}

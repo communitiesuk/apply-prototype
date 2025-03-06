@@ -1,8 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% set serviceName %}
-  Funding Service Prototypes
-{% endset %}
 
 {% set showGuidance = false %}
 
@@ -24,7 +21,7 @@
     	<br>GOV.UK Prototype Kit: {{releaseVersion}}</p>
 
     	<p class="govuk-body">This is a prototype to show the various stages of the Funding Service process.</p>
-		<p>The Funding Service is a team at the Ministry of Housing, Communities and Local Government (MHCLG) that aims to improve how funding is given to local authorities, charities, and community groups. </p>
+		<p class="govuk-body">The Funding Service is a team at the Ministry of Housing, Communities and Local Government (MHCLG) that aims to improve how funding is given to local authorities, charities, and community groups. </p>
 
 	</div>
 
@@ -33,12 +30,13 @@
 		{% set serviceApplyHtml %}
 
 			<!-- Apply service -->
-			<h2 class="govuk-heading-m">Apply for funding</h2>
-			<p class="govuk-body">Apply for funding journey flow.</p>
+			<!-- <h2 class="govuk-heading-m">Apply for funding</h2> -->
+			<p class="govuk-body">Apply for funding has been designed to allow local authorities, charities, and community groups to apply for different types of funding from Ministry of Housing, Communities and Local Government (MHCLG).</p>
+			<p class="govuk-body"></p>
 			<form method="post" action="/preload" >
 				<input type="hidden" name="fundService" id="fundService" value="apply" />
 				{{ govukButton({
-					text: "Start journey"
+					text: "Start user journey"
 				}) }}
 			</form>
 
@@ -46,11 +44,11 @@
 
 		{% set serviceAssessHtml %}
 			<!-- Assess service -->
-			<h2 class="govuk-heading-m">Assess applications for funding</h2>
+			<!-- <h2 class="govuk-heading-m">Assess applications for funding</h2> -->
 
 			<p class="govuk-body">The Funding Service assessment tool has been designed to help evaluate fund applications, to facilitate fund decision-making.</p>
 			<p class="govuk-body">Here you can:</p>
-			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+			<ul class="govuk-list govuk-list--bullet">
 				<li>assess applications end to end</li>
 				<li>comment on specific applicant responses</li>
 				<li>monitor the assessment progress of a fund</li>
@@ -67,12 +65,14 @@
 		{% endset -%}
 
 
-		{{ govukTabs({			
+		{{ govukTabs({
 			items: [
 				{ label: "Apply for funding", id: "service-apply", panel: { html: serviceApplyHtml } },
 				{ label: "Assess applications for funding", id: "service-assess", panel: { html: serviceAssessHtml } }
 			]
 		}) }}
+
+
 
 
 		<div class="govuk-grid-row govuk-!-margin-top-9">

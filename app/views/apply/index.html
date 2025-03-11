@@ -1,8 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set serviceName %}
-  Report a smokey vehicle
-{% endset%}
+{% set serviceName %} Report a smokey vehicle {% endset%}
 
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -24,7 +22,7 @@
         {% set pageHeading = "Start or continue an application for funding to begin your digital planning improvement journey" %}
         {% set pageSection = 'Digital Planning Improvement Fund ' + data.fundRound  + ' ' %}
     {% endif %}
-    
+
 {% else %}
     {% set pageHeading = 'Start or continue an application for ' + data.fundName  + ' ' %}
     {% set pageSection = "Fund name and round information" %}
@@ -63,7 +61,7 @@
         {% else %}
             <p class="govuk-!-margin-top-9"><a class="govuk-body-s govuk-footer__link" href="/apply/?version=suggested" >Suggested changes</a></p>
         {% endif %}
-    
+
     </div>
 </div>
 

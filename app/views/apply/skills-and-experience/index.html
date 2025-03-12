@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "What we need to know" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "What we need to know" %}
     {% set pageSection = "Your skills and experience" %}
 {% else %}
-    {% set pageHeading = "Your skills and experience" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Your skills and experience" %}
     {% set pageSection = "" %}
 {% endif %}
 
@@ -15,7 +17,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         {% if data['version'] == "suggested" %}
 

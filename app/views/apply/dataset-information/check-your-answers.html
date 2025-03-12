@@ -4,10 +4,12 @@
 {% set showBackApplicationsLink = false %}
 
 {% if data['version'] == "suggested" %}
-	{% set pageHeading = "Check your answers" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Check your answers" %}
 	{% set pageSection = "Dataset information" %}
 {% else %}
-	{% set pageHeading = "Check your answers" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Check your answers" %}
 	{% set pageSection = "" %}
 {% endif %}
 
@@ -18,7 +20,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		{% if data['version'] == "suggested" %}
 

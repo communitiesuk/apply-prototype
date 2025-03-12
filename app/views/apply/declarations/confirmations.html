@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "Confirmations" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Confirmations" %}
     {% set pageSection = "Declarations" %}
 {% else %}
-	{% set pageHeading = "Agree to the final confirmations" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Agree to the final confirmations" %}
 	{% set pageSection = "" %}
 {% endif %}
 
@@ -16,7 +18,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 
 		{% if data['version'] == "suggested" %}
@@ -34,7 +36,7 @@
 		<form method="post" action="/apply/declarations/check-your-answers?linkStatus=" >
 		{% else %}
 		<form method="post" action="/apply/declarations/check-your-answers" >
-		{% endif %}			
+		{% endif %}
 
             {{ govukButton({
                 text: "Confirm and continue"

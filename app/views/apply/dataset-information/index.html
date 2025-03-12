@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "What we need to know" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "What we need to know" %}
     {% set pageSection = "Dataset information" %}
 {% else %}
-    {% set pageHeading = "Dataset information" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Dataset information" %}
     {% set pageSection = "" %}
 {% endif %}
 
@@ -16,14 +18,14 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 
         {% if data['version'] == "suggested" %}
 
         <p class="govuk-body">In this section, you may need to tell us:</p>
         <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-            <li>if you collect datasets, which ones and in what format</li>                        
+            <li>if you collect datasets, which ones and in what format</li>
             <li>how long you think it will take you to publish all 4 datasets</li>
             <li>what known issues and challenges you have with data quality and publication</li>
         </ul>
@@ -51,16 +53,16 @@
                 text: "Continue"
             }) }}
         </form>
-        
+
         {% endif %}
 
 		{% if data['version'] == "suggested" %}
             {{ macroCurrent.pageCurrent(url) }}
         {% else %}
             {{ macroSuggested.pageSuggested(url) }}
-        {% endif %}	 
-        
-        
+        {% endif %}
+
+
     </div>
 </div>
 

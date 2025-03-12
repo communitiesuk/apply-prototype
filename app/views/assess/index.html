@@ -1,8 +1,9 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/mainAssess.html" %}
 
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
+{% set pageSize = "xl" %}
 {% set pageHeading = "Assessment tool" %}
 {% set pageSection = "" %}
 
@@ -13,10 +14,9 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         <p>The Funding Service assessment tool has been designed to help evaluate fund applications, to facilitate fund decision-making.</p>
-
         <p>Here you can:</p>
         <ul class="govuk-list govuk-list govuk-list--bullet">
             <li>assess applications end to end</li>
@@ -25,12 +25,10 @@
         </ul>
 
         <form method="post" action="/assess/dashboard?loggedIn=yes" >
-
             {{ govukButton({
                 text: "Sign in",
                 isStartButton: true
             }) }}
-
         </form>
 
         <h2 class="govuk-heading-l">Get help</h2>

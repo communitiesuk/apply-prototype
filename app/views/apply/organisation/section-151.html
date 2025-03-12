@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "Who is your  Section 151 officer?" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Who is your  Section 151 officer?" %}
     {% set pageSection = "Organisation information" %}
 {% else %}
-    {% set pageHeading = "Section 151 officer details" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Section 151 officer details" %}
     {% set pageSection = "" %}
 {% endif %}
 
@@ -16,7 +18,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         {% if data['linkStatus'] == "change" %}
             <form method="post" action="/apply/organisation/check-your-answers?linkStatus=" >

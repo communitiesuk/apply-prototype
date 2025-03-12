@@ -4,10 +4,12 @@
 {% set showBackApplicationsLink = false %}
 
 {% if data['version'] == "suggested" %}
-	{% set pageHeading = "Application for funding submitted" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Application for funding submitted" %}
 	{% set pageSection = "" %}
 {% else %}
-	{% set pageHeading = "Application complete" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Application complete" %}
 	{% set pageSection = "" %}
 {% endif %}
 

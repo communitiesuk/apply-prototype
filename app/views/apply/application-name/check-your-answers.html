@@ -3,6 +3,7 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
+{% set pageSize = "xl" %}
 {% set pageHeading = "Check your answers" %}
 {% set pageSection = "Name your application" %}
 
@@ -17,7 +18,7 @@
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-two-thirds">
 
-				{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+				{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 
 
@@ -62,7 +63,7 @@
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-full">
 
-				{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+				{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 
         <h2 class="govuk-heading-m">Name your application</h2>

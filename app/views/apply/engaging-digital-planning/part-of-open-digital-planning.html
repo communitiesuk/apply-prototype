@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "Why do you want to be a part of the ODP community?" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Why do you want to be a part of the ODP community?" %}
     {% set pageSection = "Engaging the Open Digital Planning community" %}
-{% else %}	
-	{% set pageHeading = "Why do you want to be a part of the ODP (Open Digital Planning) community?" %}
+{% else %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Why do you want to be a part of the ODP (Open Digital Planning) community?" %}
 	{% set pageSection = "" %}
 {% endif %}
 
@@ -16,7 +18,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		{% if data['version'] == "suggested" %}
 
@@ -98,7 +100,7 @@
             {{ macroCurrent.pageCurrent(url) }}
         {% else %}
             {{ macroSuggested.pageSuggested(url) }}
-        {% endif %}	 
+        {% endif %}
 
     </div>
 </div>

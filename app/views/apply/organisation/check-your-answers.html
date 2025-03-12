@@ -4,10 +4,12 @@
 {% set showBackApplicationsLink = false %}
 
 {% if data['version'] == "suggested" %}
-	{% set pageHeading = "Check your answers" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Check your answers" %}
 	{% set pageSection = "Organisation information" %}
 {% else %}
-	{% set pageHeading = "Check your answers" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Check your answers" %}
 	{% set pageSection = "" %}
 {% endif %}
 
@@ -22,7 +24,7 @@
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-two-thirds">
 
-				{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+				{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Organisation</h2>
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -152,7 +154,7 @@
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-full">
 
-				{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+				{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 
         <h2 class="govuk-heading-m">Organisation information</h2>

@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "What we need to know" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "What we need to know" %}
     {% set pageSection = "Future work" %}
 {% else %}
-    {% set pageHeading = "Future work" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Future work" %}
     {% set pageSection = "" %}
 {% endif %}
 
@@ -16,12 +18,12 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         {% if data['version'] == "suggested" %}
 
         <p class="govuk-body govuk-!-margin-bottom-7">In this section, we’ll ask about which software improvements you are interested in working on in the future.</p>
-        
+
 
 
         <form method="post" action="/apply/future-work/software-improvements" >

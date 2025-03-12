@@ -1,5 +1,6 @@
 {% extends "layouts/main.html" %}
 
+{% set pageSize = "xl" %}
 {% set pageHeading = "How will you make sure you have a team in place ready to deliver the project?" %}
 {% set pageSection = "" %}
 
@@ -10,7 +11,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		<p class="govuk-body govuk-hint">Tell us about how you plan to recruit any new roles if they are needed</p>
 

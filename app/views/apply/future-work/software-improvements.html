@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-	{% set pageHeading = "Which software improvements are you interested in working on in the future?" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Which software improvements are you interested in working on in the future?" %}
 	{% set pageSection = "Future work" %}
 {% else %}
-	{% set pageHeading = "Which software improvements are you interested in working on in the future?" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Which software improvements are you interested in working on in the future?" %}
 	{% set pageSection = "" %}
 {% endif %}
 
@@ -16,12 +18,12 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		{% if data['version'] == "suggested" %}
 
 		<p class="govuk-body">You may be invited to apply for additional funding to improve the planning software in your organisation, if your application is successful.</p>
-		
+
 
 		{% if data['linkStatus'] == "change" %}
 			<form method="post" action="/apply/future-work/check-your-answers?linkStatus=" >
@@ -108,7 +110,7 @@
             {{ macroCurrent.pageCurrent(url) }}
         {% else %}
             {{ macroSuggested.pageSuggested(url) }}
-        {% endif %}			
+        {% endif %}
 
 
     </div>

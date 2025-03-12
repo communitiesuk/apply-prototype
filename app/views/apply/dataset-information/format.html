@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-	{% set pageHeading = 'What format is your ' + data.4_3_datasets + ' dataset?' %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = 'What format is your ' + data.4_3_datasets + ' dataset?' %}
 	{% set pageSection = "Dataset information" %}
 {% else %}
-	{% set pageHeading = 'Which format is your dataset in for ' + data.4_3_datasets + '?' %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = 'Which format is your dataset in for ' + data.4_3_datasets + '?' %}
 	{% set pageSection = "" %}
 {% endif %}
 
@@ -15,7 +17,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		{% if data['linkStatus'] == "change" %}
 		<form method="post" action="/apply/dataset-information/how-long-to-publish" >
@@ -53,7 +55,7 @@
             {{ macroCurrent.pageCurrent(url) }}
         {% else %}
             {{ macroSuggested.pageSuggested(url) }}
-        {% endif %}	
+        {% endif %}
 
     </div>
 </div>

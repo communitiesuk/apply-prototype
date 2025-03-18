@@ -29,13 +29,15 @@
 			classes: "govuk-!-margin-bottom-7"
           }) }}
 
-		  <p class="govuk-body">We have sent you a confirmation email.</p>
+		  <p class="govuk-body">We have sent a confirmation email to <span class="govuk-!-font-weight-bold">{{ data.magicLinkEmail or "test.email@communities.gov.uk" }}</span>.</p>
         <!-- <p class="govuk-body">We have sent a confirmation email and a copy of your answers to <span class="govuk-!-font-weight-bold">{{ data.magicLinkEmail or "test.email@communities.gov.uk" }}</span> and the lead contact.</p> -->
 
         <h2 class="govuk-heading-m">What happens next</h2>
 		<p class="govuk-body">You do not need to do anything else at this time. </p>
         <!-- <p class="govuk-body">Your application to the {{ data.fundName }} Fund has been submitted.</p> -->
-        <p class="govuk-body">We’ll email you if we need any additional information, or to let you know if you have been successful.</p>
+        <p class="govuk-body">We’ll email you if we need any additional information, to support your application for {{ data.fundName }} Fund.</p>
+        <!-- <p class="govuk-body">We’ll email you if we need any additional information., or to let you know within X days/weeks if you have been successful with your application for the {{ data.fundName }} Fund.</p> -->
+        <p>We expect to contact you within X days/weeks to let you know if you have been successful.</p>
 
 
 

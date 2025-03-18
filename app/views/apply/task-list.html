@@ -6,22 +6,27 @@
 
 
 {% if data['fundName'] == "High Street Rental Auctions" %}
-    {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
     {% set pageSection = "High Street Rental Auctions fund Refurbishment project" %}
 {% elif data['fundName'] == "Community Ownership Fund" %}
-    {% set pageHeading = "Application for funding to save an asset in your community" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Application for funding to save an asset in your community" %}
     {% set pageSection = 'Community Ownership Fund ' + data.fundRound + '' %}
 {% elif data['fundName'] == "Digital Planning Improvement" %}
 
 	{% if data['version'] == "suggested" %}
-    	{% set pageHeading = "Application for funding" %}
+    	{% set pageSize = "xl" %}
+{% set pageHeading = "Application for funding" %}
     	{% set pageSection = 'Digital Planning Improvement Fund ' + data.fundRound + '' %}
 	{% else %}
-		{% set pageHeading = "Application for funding to begin your digital planning improvement journey" %}
+		{% set pageSize = "xl" %}
+{% set pageHeading = "Application for funding to begin your digital planning improvement journey" %}
 		{% set pageSection = 'Digital Planning Improvement Fund ' + data.fundRound + '' %}
 	{% endif %}
 {% else %}
-    {% set pageHeading = "Start or continue an application for {fund details}" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Start or continue an application for {fund details}" %}
     {% set pageSection = "Fund name and round information" %}
 {% endif %}
 
@@ -31,22 +36,22 @@
 
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">	
-		
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    
-		{% if data['version'] == "suggested" %}			
+	<div class="govuk-grid-column-two-thirds">
+
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+		{% if data['version'] == "suggested" %}
 
 			<!-- Fund date and reference -->
-			<div class="govuk-inset-text govuk-!-margin-bottom-6"> 
+			<div class="govuk-inset-text govuk-!-margin-bottom-6">
 				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Submission deadline</p>
-				<p class="govuk-obody">{{ data.fundDeadlineDate | govukDateTime }}</p>       
+				<p class="govuk-obody">{{ data.fundDeadlineDate | govukDateTime }}</p>
 				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Application reference</p>
 				<p class="govuk-obody">DPIF-R3-IQPIJK</p>
 			</div>
 			<p class="govuk-body govuk-!-margin-bottom-7">Find out <a href="/apply/footer/guidance?version=" target="_blank" class="govuk-link govuk-link--no-visited-state">how to apply for a grant using this service (opens in new tab)</a>.</p>
 
-			
+
 
 			<!-- Various task lists dependent on fund and its requirements -->
 			{% if data['fundName'] == "High Street Rental Auctions" %}
@@ -72,7 +77,7 @@
 				( data['section5_1'] == "yes") and
 				( data['section6_1'] == "yes")) %}
 
-					
+
 				<h2 class="govuk-heading-m govuk-!-margin-top-7">You can now submit your application</h2>
 				<!-- <p class="govuk-body">You can submit your application when you are ready.</p> -->
 				<p class="govuk-body">Once your application has been submitted, you cannot change your answers.</p>
@@ -85,14 +90,14 @@
 					}) }}
 
 				</form>
-					
+
 
 			{% endif %}
 			<!-- // -->
 
 		{% else %}
 
-		
+
 
 
 				<!-- Help with application -->

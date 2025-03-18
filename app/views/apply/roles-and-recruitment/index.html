@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "What we need to know" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "What we need to know" %}
     {% set pageSection = "Roles and recruitment" %}
 {% else %}
-    {% set pageHeading = "Roles and recruitment" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Roles and recruitment" %}
     {% set pageSection = "" %}
 {% endif %}
 
@@ -15,7 +17,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         {% if data['version'] == "suggested" %}
 
@@ -24,8 +26,8 @@
             <li>your team, or how you plan to have a team in place to deliver the project</li>
             <!-- <li>how you will make sure you have a team in place ready to deliver the project (if applicable)</li> -->
             <li>who’s involved in the team and how it will be structured</li>
-            <li>if you need to backfill any roles and the estimated cost of this</li>            
-            <li>who the project lead will be if you know</li>            
+            <li>if you need to backfill any roles and the estimated cost of this</li>
+            <li>who the project lead will be if you know</li>
         </ul>
 
         <form method="post" action="/apply/roles-and-recruitment/team?linkStatus=" >

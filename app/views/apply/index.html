@@ -7,24 +7,29 @@
 
 <!-- Title dependent on the FUND NAME -->
 {% if data['fundName'] == "High Street Rental Auctions" %}
-    {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
     {% set pageSection = "High Street Rental Auctions fund Refurbishment project" %}
 {% elif data['fundName'] == "Community Ownership Fund" %}
-    {% set pageHeading = "Start or continue an application for funding to save an asset in your community" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Start or continue an application for funding to save an asset in your community" %}
     {% set pageSection = 'Community Ownership ' + data.fundRound  + ' ' %}
 {% elif data['fundName'] == "Digital Planning Improvement" %}
 
     <!-- Suggested -->
     {% if data['version'] == "suggested" %}
-        {% set pageHeading = "Start or continue an application for funding" %}
+        {% set pageSize = "xl" %}
+{% set pageHeading = "Start or continue an application for funding" %}
         {% set pageSection = '' %}
     {% else %}
-        {% set pageHeading = "Start or continue an application for funding to begin your digital planning improvement journey" %}
+        {% set pageSize = "xl" %}
+{% set pageHeading = "Start or continue an application for funding to begin your digital planning improvement journey" %}
         {% set pageSection = 'Digital Planning Improvement Fund ' + data.fundRound  + ' ' %}
     {% endif %}
 
 {% else %}
-    {% set pageHeading = 'Start or continue an application for ' + data.fundName  + ' ' %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = 'Start or continue an application for ' + data.fundName  + ' ' %}
     {% set pageSection = "Fund name and round information" %}
 {% endif %}
 <!-- // -->
@@ -36,7 +41,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         <!-- Dynamic content dependent on which FUND you are applying for -->
         {% if data['fundName'] == "High Street Rental Auctions" %}

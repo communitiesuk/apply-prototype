@@ -4,9 +4,11 @@
 {% set showBackApplicationsLink = false %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "Enter your email addresss" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Enter your email addresss" %}
 {% else %}
-    {% set pageHeading = "Email address" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Email address" %}
 {% endif %}
 
 {% set pageSection = "" %}
@@ -22,7 +24,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         {% if data['version'] == "suggested" %}
 
@@ -32,7 +34,7 @@
             <div class="govuk-inset-text">
                 <p class="govuk-body">The link will work once and stop working after 24 hours.</p>
             </div>
-            
+
 
             <form method="post" action="/apply/email-sent?version=" >
 

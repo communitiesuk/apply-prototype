@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-	{% set pageHeading = "Does your organisation collect any of these datasets?" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Does your organisation collect any of these datasets?" %}
 	{% set pageSection = "Dataset information" %}
 {% else %}
-	{% set pageHeading = "Does your organisation collect at least one of the datasets?" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "Does your organisation collect at least one of the datasets?" %}
 	{% set pageSection = "" %}
 {% endif %}
 
@@ -15,14 +17,14 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		{% if data['version'] == "suggested" %}
 
 		<p class="govuk-body">The datasets are:</p>
-		<ul class="govuk-list govuk-list--bullet">			
+		<ul class="govuk-list govuk-list--bullet">
 			<li>Article 4 direction</li>
-			<li>Conservation areas</li>			
+			<li>Conservation areas</li>
 			<li>Listed buildings</li>
 			<li>Tree preservation orders</li>
 		</ul>
@@ -109,7 +111,7 @@
             {{ macroCurrent.pageCurrent(url) }}
         {% else %}
             {{ macroSuggested.pageSuggested(url) }}
-        {% endif %}	 
+        {% endif %}
 
     </div>
 </div>

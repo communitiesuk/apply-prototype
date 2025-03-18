@@ -6,6 +6,7 @@
 {% set showBackApplicationsLink = false %}
 {% set showBackApplicationsOverview = false %}
 
+{% set pageSize = "xl" %}
 {% set pageHeading = "The Funding Service" %}
 {% set pageSection = "Prototype" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -15,7 +16,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-5">
 
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		<p class="govuk-body-s">Last updated on {{ "today" | govukDate }}
     	<br>GOV.UK Prototype Kit: {{releaseVersion}}</p>

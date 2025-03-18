@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "What’s the estimated cost of backfilling these roles, in pounds?" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "What’s the estimated cost of backfilling these roles, in pounds?" %}
     {% set pageSection = "Roles and recruitment" %}
 {% else %}
-    {% set pageHeading = "What is the estimated cost of backfilling roles?" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "What is the estimated cost of backfilling roles?" %}
     {% set pageSection = "" %}
 {% endif %}
 
@@ -16,7 +18,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 
         {% if data['linkStatus'] == "change" %}
@@ -51,8 +53,8 @@
 		{% else %}
 			{{ macroSuggested.pageSuggested(url) }}
 		{% endif %}
-        
-        
+
+
     </div>
 </div>
 

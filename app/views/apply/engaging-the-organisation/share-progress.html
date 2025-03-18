@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-	{% set pageHeading = "How will you share the progress of the work across your organisation?" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "How will you share the progress of the work across your organisation?" %}
 	{% set pageSection = "Engaging the organisation" %}
 {% else %}
-	{% set pageHeading = "How will you share the progress of the work across your organisation?" %}
+	{% set pageSize = "xl" %}
+{% set pageHeading = "How will you share the progress of the work across your organisation?" %}
 	{% set pageSection = "" %}
 {% endif %}
 
@@ -15,7 +17,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		{% if data['linkStatus'] == "change" %}
 		<form method="post" action="/apply/engaging-the-organisation/check-your-answers" >
@@ -45,7 +47,7 @@
             {{ macroCurrent.pageCurrent(url) }}
         {% else %}
             {{ macroSuggested.pageSuggested(url) }}
-        {% endif %}	 	
+        {% endif %}
 
     </div>
 </div>

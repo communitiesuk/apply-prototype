@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% if data['version'] == "suggested" %}
-    {% set pageHeading = "What we need to know" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "What we need to know" %}
     {% set pageSection = "Engaging the Open Digital Planning community" %}
 {% else %}
-    {% set pageHeading = "Engaging the ODP (Open Digital Planning) community" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Engaging the ODP (Open Digital Planning) community" %}
     {% set pageSection = "" %}
 {% endif %}
 
@@ -15,13 +17,13 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         {% if data['version'] == "suggested" %}
 
         <p class="govuk-body govuk-!-margin-bottom-7">In this section, you need to tell us why you want to be a part of the ODP (Open Digital Planning) community.</p>
-        
-            
+
+
 
         <form method="post" action="/apply/engaging-digital-planning/part-of-open-digital-planning?linkStatus=" >
             {{ govukButton({
@@ -41,14 +43,14 @@
                 text: "Continue"
             }) }}
         </form>
-        
+
         {% endif %}
 
 		{% if data['version'] == "suggested" %}
             {{ macroCurrent.pageCurrent(url) }}
         {% else %}
             {{ macroSuggested.pageSuggested(url) }}
-        {% endif %}	           
+        {% endif %}
 
     </div>
 </div>

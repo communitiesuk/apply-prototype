@@ -3,22 +3,27 @@
 {% set showBackApplicationsLink = false %}
 
 {% if data['fundName'] == "High Street Rental Auctions" %}
-    {% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Start or continue an application for funding to cover the cost of delivering a High Street Rental Auction" %}
     {% set pageSection = "High Street Rental Auctions fund Refurbishment project" %}
 {% elif data['fundName'] == "Community Ownership Fund" %}
-    {% set pageHeading = "Start or continue an application for funding to save an asset in your community" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Start or continue an application for funding to save an asset in your community" %}
     {% set pageSection = "Community Ownership Fund Round 4 Window 1" %}
 {% elif data['fundName'] == "Digital Planning Improvement" %}
 
     {% if data['version'] == "suggested" %}
-        {% set pageHeading = "Digital Planning Improvement Fund" %}
+        {% set pageSize = "xl" %}
+{% set pageHeading = "Digital Planning Improvement Fund" %}
         {% set pageSection = 'Apply for funding' %}
     {% else %}
-        {% set pageHeading = "Apply for funding to begin your digital planning improvement journey" %}
+        {% set pageSize = "xl" %}
+{% set pageHeading = "Apply for funding to begin your digital planning improvement journey" %}
         {% set pageSection = 'Digital Planning Improvement Fund ' + data.fundRound  + ' ' %}
     {% endif %}
 {% else %}
-    {% set pageHeading = "Start or continue an application for {fund details}" %}
+    {% set pageSize = "xl" %}
+{% set pageHeading = "Start or continue an application for {fund details}" %}
     {% set pageSection = "Fund name and round information" %}
 {% endif %}
 
@@ -29,7 +34,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         {% if data['fundName'] == "High Street Rental Auctions" %}
             <!-- Start page content -->

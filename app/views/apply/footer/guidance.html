@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "Apply for funding" %}
 
+{% set pageSize = "xl" %}
 {% set pageHeading = "How to use this service" %}
 {% set pageSection = "" %}
 
@@ -17,10 +18,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
     <p class="govuk-body">Find out how to apply for a grant using this service. You’ll need to use the grant prospectus to help you answer the questions in the application.</p>
-<!-- 
+<!--
     <ul class="govuk-list">
         <li><a class="govuk-link" href="#">Completing and submitting your application</a></li>
         <li><a class="govuk-link" href="#">Uploading a document</a></li>

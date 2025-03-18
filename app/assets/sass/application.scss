@@ -30,6 +30,15 @@
     margin-bottom: 10px;
 }
 
+.overSizeWhite {
+    max-width: 500px;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 
 
 .govuk-summary-card__title-wrapper.summaryBackground {
@@ -187,7 +196,3 @@ a:link.summaryLinkOveride, .govuk-link:link.summaryLinkOveride {
     margin-left: 5px
 }
 
-.govuk-frontend-supported .govuk-tabs__panel {
-    border: none;
-    padding-bottom: 0px;
-}

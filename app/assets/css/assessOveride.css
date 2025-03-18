@@ -66,3 +66,10 @@ nav {
 .govuk-tag--white {
     background-color: white;
 }
+
+
+.template-answer {
+    border: 3px #b1b4b6 solid;
+    /* padding: 25px 25px 4px; */
+    /* background-color: #fff; */
+}

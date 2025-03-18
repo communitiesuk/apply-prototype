@@ -47,49 +47,75 @@
 	<main class="govuk-main-wrapper" id="main-content" role="main">
 
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-quarter">
+            <div class="govuk-grid-column-one-third">
 
-                <h2 class="govuk-heading-l">Your skills and experience</h2>
+                <h2 class="govuk-heading-l">Score your skills and experience</h2>
                 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible section_break_blue">            
                 <ul class="govuk-list">
                     <li>Your skills and experience</li>
                 </ul>
                 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">            
                 <ul class="govuk-list">
-                    <li><a href="/assess/fund/application/skills-and-experience/score">Score the subcriteria</a></li>
+                    <li><a href="#">Score the subcriteria</a></li>
                 </ul>
             </div>
 
-            <div class="govuk-grid-column-three-quarters">
+            <div class="govuk-grid-column-two-thirds">
     
                 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-                <div class="govuk-summary-card template-answer">
-                    <div class="govuk-summary-card__title-wrapper">
-                        <h2 class="govuk-summary-card__title">
-                          Applicant's response
-                        </h2>
-                      </div>
-                    <div class="govuk-summary-card__content">
-                        <dl class="govuk-summary-list">
-                          <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">Has your organisation delivered projects like this before?</dt>
-                            <dd class="govuk-summary-list__value">Yes</dd>
-                            <dd class="govuk-summary-list__actions"></dd>
-                        </div>
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">Tell us about how your organisation has worked on similar previous projects</dt>
-                            <dd class="govuk-summary-list__value">We made it all up</dd>
-                            <dd class="govuk-summary-list__actions"></dd>
-                        </div>
-                        </dl>
-                    </div>
-                </div>
+                
 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Comments</h2>
-                <p><a href="#" class="govuk-link govuk-!-font-size-16">Add a comment</a></p>
-                <p>Summarise any thoughts you have on the assessment.</p>
 
-                <p>No comments have been left yet.</p>
+                <p>Score this sub criteria against the <a href="#">assessment criteria</a>.</p>
+                <p>You can use the comments about this subcriteria from other assessors to inform your score.</p>                
+
+                <form method="post" action="" >
+
+                {{ govukRadios({
+                  name: "whereDoYouLive",
+                  fieldset: {
+                    legend: {
+                      text: "You can rescore at any point.",
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend"
+                    }
+                  },
+                  items: [
+                    { value: "5", html: '<span class="govuk-!-font-weight-bold">5</span> Strong' },
+                    { value: "4", html: '<span class="govuk-!-font-weight-bold">4</span> Good' },
+                    { value: "3", html: '<span class="govuk-!-font-weight-bold">3</span> Satisfactory' },
+                    { value: "2", html: '<span class="govuk-!-font-weight-bold">2</span> Partial' },
+                    { value: "1", html: '<span class="govuk-!-font-weight-bold">1</span> Poor' }                    
+                  ]
+                }) }}
+
+				{{ govukTextarea({
+					name: "moreDetail",
+					id: "more-detail",
+					label: {
+					  text: "Add rationale for this score",
+					  classes: "govuk-label--m",
+					  isPageHeading: true
+					},
+					hint: {
+					  html: 'Explain why you think this score is justified based on the <a href="#">assessment criteria</a>.'
+					}
+				  }) }}
+
+				  {{ govukButton({
+					text: "Save score"
+				  }) }}
+
+                </form>
+
+                <h2 class="govuk-heading-l govuk-!-margin-top-7"">Comments about this subcriteria</h2>            
+                <p>Read comments from others who reviewed this section</p>
+
+				<h3 class="govuk-heading-m">Your skills and experience</h3>
+                <p>There are currently no comments for this section.</p>
+
+
+
 
                 {{ govukPagination({       
                   previous: {

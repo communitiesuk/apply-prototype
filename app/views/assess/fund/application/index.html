@@ -12,26 +12,14 @@
 {% block main %}
 
 <div class="govuk-width-container">
-
-
 	{{ govukBackLink({
 		text: "Back to assessment landing",
 		href: "javascript:history.go(-1)"
 	}) }}
 
-
-<!--
-	{{ govukServiceNavigation({
-		navigation: [
-			{ href: "/assess/help", text: "Get help" },
-			{ href: "#", text: "Log out", active: true }
-		]
-	}) }} -->
-
-
-
-
-
+	<div class="govuk-!-display-inline-block float-right govuk-!-margin-top-3 nag">
+		<a href="/assess/help">Get help</a>  <a href="#">Log out</a>
+	</div>
 </div>
 
 <div class="x-govuk-masthead">

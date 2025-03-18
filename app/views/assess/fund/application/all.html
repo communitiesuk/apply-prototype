@@ -12,26 +12,14 @@
 {% block main %}
 
 <div class="govuk-width-container">
-
-
 	{{ govukBackLink({
 		text: "Back to assessment landing",
 		href: "javascript:history.go(-1)"
 	}) }}
 
-
-<!--
-	{{ govukServiceNavigation({
-		navigation: [
-			{ href: "/assess/help", text: "Get help" },
-			{ href: "#", text: "Log out", active: true }
-		]
-	}) }} -->
-
-
-
-
-
+	<div class="govuk-!-display-inline-block float-right govuk-!-margin-top-3 nag">
+		<a href="/assess/help">Get help</a>  <a href="#">Log out</a>
+	</div>
 </div>
 
 <div class="x-govuk-masthead">
@@ -45,11 +33,11 @@
           		<p class="x-govuk-masthead__description"><span class="govuk-!-font-weight-bold">Project name:</span> Sneaker Politics
 				<br>
 
-                {% if data[''] == "" %}
+                <!-- {% if data[''] == "" %}
                 <strong class="govuk-tag govuk-tag-white overSizeWhite">NOT STARTED</strong>
                 {% else %}
                 <span class="govuk-!-font-weight-bold">Total funding requested:</span> £0.00</p>
-                {% endif %}
+                {% endif %} -->
         	</div>
       	</div>
     </div>
@@ -82,6 +70,7 @@
                 <h2 class="govuk-heading-m">Organisation information - Future work</h2>
                 <div class="govuk-summary-card template-answer">
                     <div class="govuk-summary-card__content">
+                        <h4 class="govuk-heading-s">Which software improvements are you interested in working on in the future?</h4>
                         <dl class="govuk-summary-list">
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Which software improvements are you interested in working on in the future?</dt>
@@ -104,6 +93,7 @@
                 <h2 class="govuk-heading-m">Declarations - Declarations</h2>
                 <div class="govuk-summary-card template-answer">
                     <div class="govuk-summary-card__content">
+                        <h4 class="govuk-heading-s">Confirmation you have signed the Local Digital Declaration and agree to follow the 5 principles</h4>
                         <dl class="govuk-summary-list">
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Confirmation you have signed the Local Digital Declaration and agree to follow the 5 principles</dt>
@@ -165,14 +155,14 @@
                             </div>
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Lead contact email address</dt>
-                                  <dd class="govuk-summary-list__value">{{ data['2_1_contactEmail'] }}</dd>
+                                  <dd class="govuk-summary-list__value"><a href="#">{{ data['2_1_contactEmail'] }}</a></dd>
                                   <dd class="govuk-summary-list__actions">
 
                                   </dd>
                             </div>
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Lead contact telephone number</dt>
-                                  <dd class="govuk-summary-list__value">{{ data['2_1_contactPhone'] }}</dd>
+                                  <dd class="govuk-summary-list__value"><a href="#">{{ data['2_1_contactPhone'] }}</a></dd>
                                   <dd class="govuk-summary-list__actions">
 
                                   </dd>
@@ -203,14 +193,14 @@
                             </div>
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Project sponsor email address</dt>
-                                  <dd class="govuk-summary-list__value">{{ data['2_1_sponsorEmail'] }}</dd>
+                                  <dd class="govuk-summary-list__value"><a href="#">{{ data['2_1_sponsorEmail'] }}</a></dd>
                                   <dd class="govuk-summary-list__actions">
 
                                   </dd>
                             </div>
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Project sponsor telephone number</dt>
-                                  <dd class="govuk-summary-list__value">{{ data['2_1_sponsorPhone'] }}</dd>
+                                  <dd class="govuk-summary-list__value"><a href="#">{{ data['2_1_sponsorPhone'] }}</a></dd>
                                   <dd class="govuk-summary-list__actions">
 
                                   </dd>
@@ -240,14 +230,14 @@
                             </div>
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Section 151 officer email address</dt>
-                                  <dd class="govuk-summary-list__value">{{ data['2_1_section151Email'] }}</dd>
+                                  <dd class="govuk-summary-list__value"><a href="#">{{ data['2_1_section151Email'] }}</a></dd>
                                   <dd class="govuk-summary-list__actions">
 
                                   </dd>
                             </div>
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Section 151 officer telephone number</dt>
-                                  <dd class="govuk-summary-list__value">{{ data['2_1_section151Phone'] }}</dd>
+                                  <dd class="govuk-summary-list__value"><a href="#">{{ data['2_1_section151Phone'] }}</a></dd>
                                   <dd class="govuk-summary-list__actions">
 
                                   </dd>
@@ -264,13 +254,13 @@
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Has your organisation delivered projects like this before?</dt>
                                 <dd class="govuk-summary-list__value">Yes</dd>
-                                <!-- <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a></dd> -->
-
+                                <dd class="govuk-summary-list__actions"></dd>
+                            </div>
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Tell us about how your organisation has worked on similar previous projects</dt>
                                 <dd class="govuk-summary-list__value">We made it all up</dd>
-                                <!-- <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a></dd> -->
-
+                                <dd class="govuk-summary-list__actions"></dd>
+                            </div>
                         </dl>
                     </div>
                 </div>
@@ -283,25 +273,19 @@
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Do you have a team in place ready to deliver the project?</dt>
                                   <dd class="govuk-summary-list__value">{{ data['3_2_team'] | capitalize }}</dd>
-                                  <dd class="govuk-summary-list__actions">
-
-                                  </dd>
+                                  <dd class="govuk-summary-list__actions"></dd>
                             </div>
                             {% if data['3_2_team'] == "no" %}
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">How will you make sure you have a team in place ready to deliver the project?</dt>
                                   <dd class="govuk-summary-list__value">{{ data['3_2_teamHow'] }}</dd>
-                                  <dd class="govuk-summary-list__actions">
-
-                                  </dd>
+                                  <dd class="govuk-summary-list__actions"></dd>
                             </div>
                             {% elif data['3_2_team'] == "yes" %}
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Tell us about the shape of the project team</dt>
                                   <dd class="govuk-summary-list__value">{{ data['3_2_teamShape'] }}</dd>
-                                  <dd class="govuk-summary-list__actions">
-
-                                  </dd>
+                                  <dd class="govuk-summary-list__actions"></dd>
                             </div>
                             {% endif %}
                             <!-- // -->
@@ -309,40 +293,32 @@
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Will you need to backfill any roles in your organisation?</dt>
                                   <dd class="govuk-summary-list__value">{{ data['3_2_teamBackfill'] | capitalize }}</dd>
-                                  <dd class="govuk-summary-list__actions">
-
-                                  </dd>
+                                  <dd class="govuk-summary-list__actions"></dd>
                             </div>
                             {% if data['3_2_teamBackfill'] == "yes" %}
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">What is the estimated cost of backfilling roles?</dt>
                                   <dd class="govuk-summary-list__value">{{ data['3_2_estimatedCost'] | currency(trailingZeros=false) }}</dd>
                                   <dd class="govuk-summary-list__actions"></dd>
-
+                            </div>
                             {% endif %}
                             <!-- // -->
                             <!-- Group -->
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Do you know who the project lead will be?</dt>
                                   <dd class="govuk-summary-list__value">{{ data['3_2_projectLead'] | capitalize }}</dd>
-                                  <dd class="govuk-summary-list__actions">
-
-                                  </dd>
+                                  <dd class="govuk-summary-list__actions"></dd>
                             </div>
                             {% if data['3_2_projectLead'] == "yes" %}
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Project lead first name</dt>
                                   <dd class="govuk-summary-list__value">{{ data['3_2_projectLeadFirstName'] }}</dd>
-                                  <dd class="govuk-summary-list__actions">
-
-                                  </dd>
+                                  <dd class="govuk-summary-list__actions"></dd>
                             </div>
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">Project lead last name</dt>
                                   <dd class="govuk-summary-list__value">{{ data['3_2_projectLeadLastName'] }}</dd>
-                                  <dd class="govuk-summary-list__actions">
-
-                                  </dd>
+                                  <dd class="govuk-summary-list__actions"></dd>
                             </div>
                             {% endif %}
                         </dl>

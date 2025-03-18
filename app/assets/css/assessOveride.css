@@ -36,12 +36,18 @@
     font-size: 16px;
 }
 
-nav {
-    float: right;
+
+
+.nag a {
+    margin-left: 14px;    
 }
 
 .govuk-service-navigation__container {
 
+    float: right;
+}
+
+.float-right {
     float: right;
 }
 

@@ -1,6 +1,19 @@
 .govuk-width-container {
     max-width: 1600px;
 }
+    @media (min-width: 1020px) {
+        .govuk-width-container {
+            margin-right: max(30px, calc(15px + env(safe-area-inset-right)));
+            margin-left: max(30px, calc(15px + env(safe-area-inset-right)));
+        }
+    }
+    @media (min-width: 1600px) {
+        .govuk-width-container {
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
 
 .search-button {
     margin-bottom: 0;

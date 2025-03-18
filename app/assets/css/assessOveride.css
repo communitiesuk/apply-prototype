@@ -12,8 +12,6 @@
     /* width: 16em; */
 }
 
-
-
 .govuk-service-navigation {
     border-bottom: none;
     background-color: #fff;
@@ -58,4 +56,20 @@ nav {
 
 .fright {
     float: right;
+}
+
+.section_break_blue {
+    border-bottom: 4px solid #1d70b8;
+    margin: 20px 0;
+}
+
+.govuk-tag--white {
+    background-color: white;
+}
+
+
+.template-answer {
+    border: 3px #b1b4b6 solid;
+    /* padding: 25px 25px 4px; */
+    /* background-color: #fff; */
 }

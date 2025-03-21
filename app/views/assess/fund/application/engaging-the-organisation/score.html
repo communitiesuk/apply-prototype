@@ -1,4 +1,8 @@
-{% extends "layouts/mainAssess.html" %}
+{% if data['version'] == "suggested" %}
+    {% extends "layouts/assess-new.html" %}
+{% else %}
+    {% extends "layouts/mainAssess.html" %}
+{% endif %}
 
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -50,24 +54,24 @@
             <div class="govuk-grid-column-one-third">
 
                 <h2 class="govuk-heading-l">Score engaing the organisation</h2>
-                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible section_break_blue">            
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible section_break_blue">
                 <ul class="govuk-list">
                     <li>Engaging the organisation</li>
                 </ul>
-                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">            
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
                 <ul class="govuk-list">
                   <li><a href="/assess/fund/application/engaging-the-organisation/score">Score the subcriteria</a></li>
                 </ul>
             </div>
 
             <div class="govuk-grid-column-two-thirds">
-    
+
                 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-                
+
 
 
                 <p>Score this sub criteria against the <a href="#">assessment criteria</a>.</p>
-                <p>You can use the comments about this subcriteria from other assessors to inform your score.</p>                
+                <p>You can use the comments about this subcriteria from other assessors to inform your score.</p>
 
                 <form method="post" action="" >
 
@@ -85,7 +89,7 @@
                     { value: "4", html: '<span class="govuk-!-font-weight-bold">4</span> Good' },
                     { value: "3", html: '<span class="govuk-!-font-weight-bold">3</span> Satisfactory' },
                     { value: "2", html: '<span class="govuk-!-font-weight-bold">2</span> Partial' },
-                    { value: "1", html: '<span class="govuk-!-font-weight-bold">1</span> Poor' }                    
+                    { value: "1", html: '<span class="govuk-!-font-weight-bold">1</span> Poor' }
                   ]
                 }) }}
 
@@ -108,7 +112,7 @@
 
                 </form>
 
-                <h2 class="govuk-heading-l govuk-!-margin-top-7"">Comments about this subcriteria</h2>            
+                <h2 class="govuk-heading-l govuk-!-margin-top-7"">Comments about this subcriteria</h2>
                 <p>Read comments from others who reviewed this section</p>
 
 				<h3 class="govuk-heading-m">Engaging the organisation</h3>
@@ -117,11 +121,11 @@
 
 
 
-                {{ govukPagination({       
+                {{ govukPagination({
                   previous: {
                       labelText: "Engaging the ODP community",
                       href: "/assess/fund/application/engaing-digital-planning/"
-                    },             
+                    },
                   next: {
                     labelText: "Dataset information",
                     href: "/assess/fund/application/dataset-information/"
@@ -135,7 +139,8 @@
 
 
 
-
+<!-- Switcher between current and suggested changes -->
+{% include "/assess/includes/version-switch.html" %}
 
     </div>
 </div>

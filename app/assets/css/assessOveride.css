@@ -39,7 +39,7 @@
 
 
 .nag a {
-    margin-left: 14px;    
+    margin-left: 14px;
 }
 
 .govuk-service-navigation__container {
@@ -80,6 +80,16 @@
 .section_break_blue {
     border-bottom: 4px solid #1d70b8;
     margin: 20px 0;
+}
+
+.theme-blue {
+    border-top: 4px solid #1d70b8;
+    padding-top: 20px;
+}
+
+.theme-grey {
+    border-top: 4px solid #b1b4b6;
+    padding-top: 20px
 }
 
 .govuk-tag--white {

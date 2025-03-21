@@ -7,6 +7,9 @@
 {% set pageHeading = "Fund:" %}
 {% set pageSection = "" %}
 
+{% set pageNextlabel = "Declarations" %}
+{% set pageNextlink = "/assess/fund/application/declarations/" %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block main %}
@@ -116,12 +119,7 @@
 
                 <p>No comments have been left yet.</p>
 
-                {{ govukPagination({
-                    next: {
-                      labelText: "Declarations",
-                      href: "/assess/fund/application/declarations/"
-                    }
-                  }) }}
+                {{ macroPagePagination.pagePagination( pagePreviouslabel, pagePreviouslink, pageNextlabel, pageNextlink) }}
 
             </div>
 

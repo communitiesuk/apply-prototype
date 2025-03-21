@@ -7,6 +7,14 @@
 {% set pageHeading = "Fund:" %}
 {% set pageSection = "" %}
 
+
+{% set pagePreviouslabel = "Roles and recruitment" %}
+{% set pagePreviouslink = "/assess/fund/application/roles-and-recruitment/" %}
+{% set pageNextlabel = "Engaging the organisation" %}
+{% set pageNextlink = "/assess/fund/application/engaging-the-organisation/" %}
+
+
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block main %}
@@ -88,7 +96,14 @@
 
                 <p>No comments have been left yet.</p>
 
-                {{ govukPagination({
+
+                {{ macroPagePagination.pagePagination( pagePreviouslabel, pagePreviouslink, pageNextlabel, pageNextlink) }}
+
+
+
+
+
+                <!-- {{ govukPagination({
                   previous: {
                       labelText: "Roles and recruitment",
                       href: "/assess/fund/application/roles-and-recruitment/"
@@ -97,7 +112,7 @@
                     labelText: "Engaging the organisation",
                     href: "/assess/fund/application/engaging-the-organisation/"
                   }
-                }) }}
+                }) }} -->
 
             </div>
 

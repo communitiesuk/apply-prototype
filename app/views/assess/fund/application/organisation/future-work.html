@@ -7,6 +7,10 @@
 {% set pageHeading = "Fund:" %}
 {% set pageSection = "" %}
 
+{% set pageNextlabel = "Declarations" %}
+{% set pageNextlink = "/assess/fund/application/declarations/" %}
+
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block main %}
@@ -50,7 +54,14 @@
             <div class="govuk-grid-column-one-third">
 
                 <h2 class="govuk-heading-l">Organisation information</h2>
-                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible section_break_blue">
+
+            </div>
+
+        </div>
+
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third theme-blue">
                 <ul class="govuk-list">
                     <li><a class="govuk-link govuk-link--no-visited-state" href="/assess/fund/application/organisation/">Organisation name</a></li>
                     <li><a class="govuk-link govuk-link--no-visited-state" href="/assess/fund/application/organisation/lead-contact">Lead contact details</a></li>
@@ -60,9 +71,9 @@
                 </ul>
             </div>
 
-            <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-grid-column-two-thirds theme-grey">
 
-                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
 
 
                 <div class="govuk-summary-card template-answer">
@@ -97,12 +108,7 @@
 
                 <p>No comments have been left yet.</p>
 
-                {{ govukPagination({
-                    next: {
-                      labelText: "Declarations",
-                      href: "/assess/fund/application/declarations/"
-                    }
-                  }) }}
+                {{ macroPagePagination.pagePagination( pagePreviouslabel, pagePreviouslink, pageNextlabel, pageNextlink) }}
 
             </div>
 

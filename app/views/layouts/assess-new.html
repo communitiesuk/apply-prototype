@@ -23,7 +23,22 @@
 
     {{ govukServiceNavigation({
         serviceName: "Assess grant applications",
-        serviceUrl: "#"
+        serviceUrl: "#",
+        navigation: [
+    {
+      href: "#",
+      text: "Navigation item 1"
+    },
+    {
+      href: "#",
+      text: "Navigation item 2",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Navigation item 3"
+    }
+]
     }) }}
 
 {% endblock %}

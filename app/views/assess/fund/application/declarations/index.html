@@ -19,10 +19,11 @@
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block content %}
+{% block main %}
 
 
 	{% if data['version'] == "suggested" %}
+
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
@@ -32,7 +33,7 @@
 
         <div class="govuk-grid-column-two-thirds">
 
-            <div class="govuk-inset-text">Review against legal and policy requirements.</div>
+            <div class="govuk-inset-text govuk-!-margin-top-0">Review against legal and policy requirements.</div>
             <div class="govuk-summary-card govuk-!-margin-bottom-9">
                     <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">

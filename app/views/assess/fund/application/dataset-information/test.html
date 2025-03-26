@@ -1,0 +1,48 @@
+
+    {% extends "layouts/assess-newNew.html" %}
+
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Fund:" %}
+{% set pageSection = "" %}
+
+{% set pagePreviouslabel = "Engaging the organisation" %}
+{% set pagePreviouslink = "/assess/fund/application/engaging-the-organisation/" %}
+{% set pageNextlabel = "Back to assessment task list" %}
+{% set pageNextlink = "/assess/fund/application/" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+{% if data['version'] == "suggested" %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+		<p>Sausages are shown as suggested</p>
+
+	</div>
+</div>
+	
+
+{% else %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+	<p>Bacon is needed as the main</p>
+
+	</div>
+</div>
+
+{% endif %}
+
+{% endblock %}
+		
+
+

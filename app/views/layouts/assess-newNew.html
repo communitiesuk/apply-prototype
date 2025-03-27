@@ -20,7 +20,7 @@
 {% endblock %}
 
 {% block header %}
-    
+
     {% if data['version'] == "suggested" %}
         <!-- Header -->
         {{ govukHeader({
@@ -38,9 +38,9 @@
             ]
         }) }}
         <!-- /// -->
-        
+
     {% else %}
-    
+
         <!-- Check if user is logged in or not -->
         {% if data['loggedIn'] == "yes" %}
 
@@ -48,7 +48,7 @@
                 classes: "govuk-header--full-width-border",
                 homepageUrl: "/?loggedIn=no",
                 serviceName: "Assess grant applications",
-                serviceUrl: "/?loggedIn=no"                
+                serviceUrl: "/?loggedIn=no"
             }) }}
 
         {% elif data['loggedIn'] == "no" %}
@@ -67,7 +67,7 @@
 
 
 
-{% block beforeContent %}   
+{% block beforeContent %}
     <!-- Phasebanner -->
     {{ govukPhaseBanner({
         tag: { text: "Prototype" },
@@ -83,27 +83,12 @@
     {% endif %}
     <!-- /// -->
 
-    {% if data['version'] == "suggested" %}
-        {{ super() }}
-    {% else %}
-        {{ super() }}        
-        {{ xGovukMasthead({        
-            title: {
-              text: "Design your service using GOV.UK styles, components and patterns"
-            },
-            description: {
-              text: "Use this design system to make your service consistent with GOV.UK. Learn from the research and experience of other service teams and avoid repeating work that’s already been done."
-            },
-            startButton: {
-              href: "#"
-            }
-          }) }}
-    {% endif %}
+
 
 {% endblock %}
-    
+
 {% block content %}
-        
+
 {% endblock %}
 
 
@@ -245,10 +230,10 @@
         {
           href: "/manage-prototype",
           text: "Manage prototype"
-        }        
+        }
       ],
       html: 'Built by the <a href="#" class="govuk-footer__link">Ministry of Housing, Communites & Local Government Funding Service</a>'
     }
   }) }}
-    
+
 {% endblock %}

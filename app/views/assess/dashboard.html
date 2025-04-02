@@ -1,11 +1,21 @@
-{% extends "layouts/mainAssess.html" %}
+{% if data['version'] == "suggested" %}
+    {% extends "layouts/assess-new.html" %}
+{% else %}
+    {% extends "layouts/mainAssess.html" %}
+{% endif %}
 
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-{% set pageSize = "xl" %}
-{% set pageHeading = "Funding service dashboard" %}
-{% set pageSection = "" %}
+{% if data['version'] == "suggested" %}
+    {% set pageSize = "xl" %}
+    {% set pageHeading = "Dashboard" %}
+    {% set pageSection = "" %}
+{% else %}
+    {% set pageSize = "xl" %}
+    {% set pageHeading = "Funding service dashboard" %}
+    {% set pageSection = "" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -84,6 +94,11 @@
 
         <p class="govuk-body">Information last updated: [12 March 2025 at 11:59]
         <br>Refresh page for most up-to-date information.</p>
+
+
+        <!-- Switcher between current and suggested changes -->
+        {% include "/assess/includes/version-switch.html" %}
+
 
     </div>
 </div>

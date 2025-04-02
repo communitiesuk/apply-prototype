@@ -1,4 +1,8 @@
-{% extends "layouts/mainAssess.html" %}
+{% if data['version'] == "suggested" %}
+    {% extends "layouts/assess-new.html" %}
+{% else %}
+    {% extends "layouts/mainAssess.html" %}
+{% endif %}
 
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -128,7 +132,8 @@
 
 
 
-
+        <!-- Switcher between current and suggested changes -->
+        {% include "/assess/includes/version-switch.html" %}
 
     </div>
 </div>

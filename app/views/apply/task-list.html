@@ -80,7 +80,9 @@
 
 				<h2 class="govuk-heading-m govuk-!-margin-top-7">You can now submit your application</h2>
 				<!-- <p class="govuk-body">You can submit your application when you are ready.</p> -->
+				<p>You can still edit any of the completed sections before submitting your application.</p>
 				<p class="govuk-body">Once your application has been submitted, you cannot change your answers.</p>
+				
 				<form method="post" action="/apply/submit-application?applicationStatus=submitted" >
 
 					<input type="hidden" id="applicationStatus" name="applicationStatus" value="submitted" />
@@ -119,10 +121,12 @@
 					( data['section5_1'] == "yes") and
 					( data['section6_1'] == "yes")) %}
 
-						<div class="govuk-inset-text blue govuk-!-padding-bottom-7 govuk-!-margin-bottom-8">
-							<h2 class="govuk-heading-l">All sections complete</h2>
-							<p class="govuk-body">You can submit your application when you are ready.</p>
+						<div class="govuk-inset-text govuk-!-padding-bottom-7 govuk-!-margin-bottom-8">
+							<h2 class="govuk-heading-m">You can now submit your application</h2>
+							
+							<p>You can still edit any of the completed sections before submitting your application.</p>
 							<p class="govuk-body">Once your application has been submitted, you cannot change your answers.</p>
+							
 							<form method="post" action="/apply/submit-application?applicationStatus=submitted" >
 
 								<input type="hidden" id="applicationStatus" name="applicationStatus" value="submitted" />

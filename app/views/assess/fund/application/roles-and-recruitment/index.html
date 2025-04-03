@@ -1,5 +1,5 @@
 {% if data['version'] == "suggested" %}
-    {% extends "layouts/assess-new.html" %}
+    {% extends "layouts/assess-newNew.html" %}
 {% else %}
     {% extends "layouts/mainAssess.html" %}
 {% endif %}
@@ -18,7 +18,12 @@
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block main %}
+{% block content %}
+
+	{% if data['version'] == "suggested" %}
+
+
+    {% else %}
 
 <div class="govuk-width-container">
 	{{ govukBackLink({
@@ -150,12 +155,13 @@
         </div>
 
 
-
-
-<!-- Switcher between current and suggested changes -->
-{% include "/assess/includes/version-switch.html" %}
+    <!-- Switcher between current and suggested changes -->
+    {% include "/assess/includes/version-switch.html" %}
 
     </div>
 </div>
 
+
+
+{% endif %}
 {% endblock %}

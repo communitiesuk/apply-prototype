@@ -1,5 +1,5 @@
 {% if data['version'] == "suggested" %}
-    {% extends "layouts/assess-new.html" %}
+    {% extends "layouts/assess-newNew.html" %}
 {% else %}
     {% extends "layouts/mainAssess.html" %}
 {% endif %}
@@ -11,6 +11,7 @@
 {% set pageHeading = "Fund:" %}
 {% set pageSection = "" %}
 
+
 {% set pagePreviouslabel = "Declarations" %}
 {% set pagePreviouslink = "/assess/fund/application/declarations/" %}
 {% set pageNextlabel = "Roles and recruitment" %}
@@ -20,7 +21,14 @@
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block main %}
+{% block content %}
+
+	{% if data['version'] == "suggested" %}
+
+
+    {% else %}
+
+
 
 <div class="govuk-width-container">
 	{{ govukBackLink({
@@ -111,10 +119,13 @@
 
 
 
-        <!-- Switcher between current and suggested changes -->
-        {% include "/assess/includes/version-switch.html" %}
+    <!-- Switcher between current and suggested changes -->
+    {% include "/assess/includes/version-switch.html" %}
 
     </div>
 </div>
 
+
+
+{% endif %}
 {% endblock %}

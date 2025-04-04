@@ -42,6 +42,26 @@
 				]
 			}) }}
 
+
+			{{ govukCheckboxes({
+				name: "applicationComplete",
+				fieldset: {
+					legend: {
+						text: "Set application as complete",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--m"
+					}
+				},
+				hint: {
+					text: "This will mark an applications tasks as all complete"
+				},
+				items: [
+					{ value: "Yes", text: "Yes", checked: checked("fundName", "Yes")  }					
+				]
+			}) }}
+
+
+
 			{{ govukButton({
                 text: "Preload choices and continue"
             }) }}

@@ -1,0 +1,182 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+{% import "macros/suggested-page.njk" as macroSuggested %}
+{% import "macros/current-page.njk" as macroCurrent %}
+{% import "macros/page-pagination.njk" as macroPagePagination %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+<!-- Overides the max width only in assess -->
+{% block stylesheets %}
+	{{ super() }}
+  	<link href="/public/css/assessOveride-new.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block header %}
+
+
+        <!-- Header -->
+        {{ govukHeader({
+            classes: "govuk-header--full-width-border"
+        }) }}
+        <!-- /// -->
+        <!-- Service Name and Navigation -->
+        {{ govukServiceNavigation({
+            serviceName: "Grant management",
+            serviceUrl: "#"
+
+        }) }}
+        <!-- /// -->
+
+{% endblock %}
+
+{% block beforeContent %}
+    <!-- Phasebanner -->
+    {{ govukPhaseBanner({
+        tag: { text: "Prototype" },
+        html: 'This is a prototype. It is not a real service.'
+    }) }}
+    <!-- /// -->
+    <!-- Back link -->
+    {% if showBackLink != false %}
+        {{ govukBackLink({
+            href: "#",
+            text: "Back"
+        }) }}
+    {% endif %}
+    <!-- /// -->
+
+
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+
+{% block footer %}
+
+{{ govukFooter({
+    navigation: [
+      {
+        title: "Services and information",
+        width: "two-thirds",
+        columns: 2,
+        items: [
+          {
+            href: "#",
+            text: "Benefits"
+          },
+          {
+            href: "#",
+            text: "Births, deaths, marriages and care"
+          },
+          {
+            href: "#",
+            text: "Business and self-employed"
+          },
+          {
+            href: "#",
+            text: "Childcare and parenting"
+          },
+          {
+            href: "#",
+            text: "Citizenship and living in the UK"
+          },
+          {
+            href: "#",
+            text: "Crime, justice and the law"
+          },
+          {
+            href: "#",
+            text: "Disabled people"
+          },
+          {
+            href: "#",
+            text: "Driving and transport"
+          },
+          {
+            href: "#",
+            text: "Education and learning"
+          },
+          {
+            href: "#",
+            text: "Employing people"
+          },
+          {
+            href: "#",
+            text: "Environment and countryside"
+          },
+          {
+            href: "#",
+            text: "Housing and local services"
+          },
+          {
+            href: "#",
+            text: "Money and tax"
+          },
+          {
+            href: "#",
+            text: "Passports, travel and living abroad"
+          },
+          {
+            href: "#",
+            text: "Visas and immigration"
+          },
+          {
+            href: "#",
+            text: "Working, jobs and pensions"
+          }
+        ]
+      },
+      {
+        title: "Departments and policy",
+        width: "one-third",
+        items: [
+          {
+            href: "#",
+            text: "How government works"
+          },
+          {
+            href: "#",
+            text: "Departments"
+          },
+          {
+            href: "#",
+            text: "Worldwide"
+          },
+          {
+            href: "#",
+            text: "Policies"
+          },
+          {
+            href: "#",
+            text: "Publications"
+          },
+          {
+            href: "#",
+            text: "Announcements"
+          }
+        ]
+      }
+    ],
+    meta: {
+      items: [
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+          href: "/manage-prototype",
+          text: "Manage prototype"
+        }
+      ],
+      html: 'Built by the <a href="#" class="govuk-footer__link">Ministry of Housing, Communites & Local Government Funding Service</a>'
+    }
+  }) }}
+
+{% endblock %}

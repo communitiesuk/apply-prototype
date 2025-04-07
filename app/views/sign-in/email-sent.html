@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Check your email" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+			<p class="govuk-body">We have sent an email to <span class="govuk-!-font-weight-bold">{{ data['gMmagicLinkEmail'] or "test@gm.communities.gov.uk"  }}</span></p>
+			<div class="govuk-inset-text">
+                <p class="govuk-body">The link will work once and stop working after 24 hours.</p>
+            </div>
+
+			<h2 class="govuk-heading-s govuk-!-margin-bottom-1">If you do not receive the email</h2>
+			<p class="govuk-body">The email may take a few minutes to arrive.</p>
+			<p class="govuk-body">Check your spam or junk folders – if it still has not arrived, you can <a href="/sign-in/email-address" class="govuk-link govuk-link--no-visited-state">request a new link</a>.</p>
+
+		  	<p class="govuk-body-s govuk-footer__link "><a href="/sign-in/email">Continue to sent email</a></p>
+
+    </div>
+</div>
+
+{% endblock %}

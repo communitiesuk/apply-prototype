@@ -22,6 +22,7 @@
 
 		<form method="post" action="/apply/email-address" >
 
+			{% if data['version'] == "suggested" %}
 
 			{{ govukFileUpload({
 				id: "file-upload-1",
@@ -33,7 +34,6 @@
 					text: "Format must be pdf, jpg, png, docx, csv, odf or xlsx. The selected file must be smaller than 10MB."
 				}
 			  }) }}
-
 
 			  {{ govukFileUpload({
 				id: "file-upload-1",
@@ -47,12 +47,32 @@
 				javascript: true
 			  }) }}
 
+			{% else %}
+
+			{{ govukFileUpload({
+				id: "file-upload-1",
+				name: "fileUpload1",
+				label: {
+				  text: "Upload file",
+				  classes: "govuk-visually-hidden"
+				}
+
+			  }) }}
+
+			{% endif %}
+
 
 			{{ govukButton({
                 text: "Save and continue"
             }) }}
 		</form>
 
+
+		{% if data['version'] == "suggested" %}
+		{{ macroCurrent.pageCurrent(url) }}
+	{% else %}
+		{{ macroSuggested.pageSuggested(url) }}
+	{% endif %}
   </div>
 </div>
 

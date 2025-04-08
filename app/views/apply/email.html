@@ -8,7 +8,7 @@
 {% set serviceName = "" %}
 
 
-{% set title = 'Review needed: funding progress report for ' +  data.organisationName  + '' %}
+{% set title = 'Access Funding: Access your application for the ' +  data.fundName  + '' %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -48,32 +48,76 @@
       	</table>
       	<div class="email-message-body">
 
-          <p>You requested a link to start or continue an application:</p>
 
-          <p><a href="/apply/start?loggedIn=yes&version=">https://authenticator.uat.access-funding.test.levellingup.gov.uk/service/magic-links/landing/UJvozpId?fund=DPIF&round=R3</a></p>
-
-          <p>The link will work once and stop working after 24 hours.</p>
-
-          <h2 class="govuk-heading-m">If your link expires</h2>
-          <p>You can request a new email:</p>
-		  <p><a href="/apply/email-address?version=">https://authenticator.uat.access-funding.test.levellingup.gov.uk/service/magic-links/new?fund=DPIF&round=R3</a>.</p>
-
-          <p>Regards,
-          <br>Digital Planning Improvement Fund</p>
-
-		  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-          <p>Gofynnoch i ni am ddolen i’ch cais:</p>
-
-          <p><a href="#">https://authenticator.uat.access-funding.test.levellingup.gov.uk/service/magic-links/landing/JyMRaXDB?fund=DPIF&round=R3</a></p>
-
-          <p>Bydd y ddolen yn gweithio am 24 awr.</p>
-
-          <p>This is an automated message. Do not reply to this email. If you need help, contact us: digitalplanningteam@communities.gov.uk.</p>
+		{% if data['version'] == "suggested" %}
 
 
+		<img src="/public/images/MHCLG_TEAL_MASTER_AW.png" width="150" alt="MHCLG logo">
+
+			<p class="govuk-!-margin-top-7">You requested a link to start or continue an application for { Fund Name}.</p>
+
+			<p><a href="/apply/start?loggedIn=yes&version=">Start or continue your application</a></p>
+
+			<div class="govuk-inset-text">
+				<p>This link will work once and stop working after 24 hours.</p>
+			</div>
+
+			<h2 class="govuk-heading-s govuk-!-margin-bottom-1">If your link expires</h2>
+			<p>If the link has expired, you can <a href="/apply/email-address?version=">request a new link</a>.</p>
 
 
+			<p>Kind regards,
+			<br>Digital Planning Improvement Fund
+			<br>Ministry of Housing, Communites & Local Government</p>
+
+			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+			<p>Gofynnoch i ni am ddolen i’ch cais.</p>
+
+			<p><a href="#">Dechreuwch neu parhewch â'ch cais</a></p>
+
+			<div class="govuk-inset-text">
+				<p>Bydd y ddolen yn gweithio am 24 awr.</p>
+			</div>
+
+			<h2 class="govuk-heading-s govuk-!-margin-bottom-1">If you need help</h2>
+			<p>This is an automated message. Do not reply to this email.</p>
+			<p>Email us: digitalplanningteam@communities.gov.uk</p>
+
+		{% else %}
+
+			<p>You requested a link to start or continue an application:</p>
+
+			<p><a href="/apply/start?loggedIn=yes&version=">https://authenticator.uat.access-funding.test.levellingup.gov.uk/service/magic-links/landing/UJvozpId?fund=DPIF&round=R3</a></p>
+
+			<p>The link will work once and stop working after 24 hours.</p>
+
+			<h2 class="govuk-heading-m">If your link expires</h2>
+			<p>You can request a new email:</p>
+			<p><a href="/apply/email-address?version=">https://authenticator.uat.access-funding.test.levellingup.gov.uk/service/magic-links/new?fund=DPIF&round=R3</a>.</p>
+
+			<p>Regards,
+			<br>Digital Planning Improvement Fund</p>
+
+			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+			<p>Gofynnoch i ni am ddolen i’ch cais:</p>
+
+			<p><a href="#">https://authenticator.uat.access-funding.test.levellingup.gov.uk/service/magic-links/landing/JyMRaXDB?fund=DPIF&round=R3</a></p>
+
+			<p>Bydd y ddolen yn gweithio am 24 awr.</p>
+
+			<p>This is an automated message. Do not reply to this email. If you need help, contact us: digitalplanningteam@communities.gov.uk.</p>
+
+
+		{% endif %}
+
+
+		{% if data['version'] == "suggested" %}
+            {{ macroCurrent.pageCurrent(url) }}
+      	{% else %}
+        	{{ macroSuggested.pageSuggested(url) }}
+      	{% endif %}
 
 
 

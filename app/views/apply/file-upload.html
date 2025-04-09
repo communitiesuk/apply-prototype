@@ -24,22 +24,24 @@
 
 			{% if data['version'] == "suggested" %}
 
-			{{ govukFileUpload({
+			<!-- {{ govukFileUpload({
 				id: "file-upload-1",
 				name: "fileUpload1",
 				label: {
-				  text: "Upload file"
+				  text: "Upload file",
+				  classes: "govuk-label--s"
 				},
 				hint: {
 					text: "Format must be pdf, jpg, png, docx, csv, odf or xlsx. The selected file must be smaller than 10MB."
 				}
-			  }) }}
+			  }) }} -->
 
 			  {{ govukFileUpload({
 				id: "file-upload-1",
 				name: "fileUpload1",
 				label: {
-				  text: "Upload file"
+				  text: "Upload file",
+				  classes: "govuk-label--s"
 				},
 				hint: {
 					text: "Format must be pdf, jpg, png, docx, csv, odf or xlsx. The selected file must be smaller than 10MB."

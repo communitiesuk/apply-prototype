@@ -38,7 +38,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}		
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		{% if data['version'] == "suggested" %}
 
@@ -72,7 +72,8 @@
 				<!-- <p class="govuk-body">You can submit your application when you are ready.</p> -->
 				<p>You can still edit any of the completed sections before submitting your application.</p>
 				<p class="govuk-body">Once your application has been submitted, you cannot change your answers.</p>
-				
+				<p>If the assessor needs additional information or has any questions about your application we will email you.</p>
+
 				<form method="post" action="/apply/submit-application?applicationStatus=submitted" >
 
 					<input type="hidden" id="applicationStatus" name="applicationStatus" value="submitted" />
@@ -82,6 +83,7 @@
 					}) }}
 
 				</form>
+
 
 
 			{% else %}
@@ -103,7 +105,7 @@
 					<!-- <p class="govuk-body">You can submit your application when you are ready.</p> -->
 					<p>You can still edit any of the completed sections before submitting your application.</p>
 					<p class="govuk-body">Once your application has been submitted, you cannot change your answers.</p>
-					
+
 					<form method="post" action="/apply/submit-application?applicationStatus=submitted" >
 
 						<input type="hidden" id="applicationStatus" name="applicationStatus" value="submitted" />
@@ -130,16 +132,17 @@
 				<!-- Fund date and reference -->
 				<p class="govuk-body govuk-!-margin-bottom-2"><strong>Submission deadline:</strong> {{ data.fundDeadlineDate | govukDateTime }}</p>
 				<p class="govuk-body govuk-!-margin-bottom-2"><span><strong>Reference:</strong> DPIF-R3-IQPIJK</span></p>
-				
+
 
 				{% if data['applicationComplete'] == "Yes" %}
 
 				<div class="govuk-inset-text blue govuk-!-margin-bottom-8">
 					<h2 class="govuk-heading-m">You can now submit your application</h2>
-					
+
 					<p>You can still edit any of the completed sections before submitting your application.</p>
 					<p class="govuk-body">Once your application has been submitted, you cannot change your answers.</p>
-					
+					<p>If the assessor needs additional information or has any questions about your application we will email you.</p>
+
 					<form method="post" action="/apply/submit-application?applicationStatus=submitted" >
 
 						<input type="hidden" id="applicationStatus" name="applicationStatus" value="submitted" />
@@ -151,8 +154,11 @@
 					</form>
 				</div>
 
+
+
+
 				{% else %}
-				
+
 					<!-- Application status -->
 					{% if (
 						(data['section1_1'] == "yes") and
@@ -167,10 +173,10 @@
 
 							<div class="govuk-inset-text govuk-!-padding-bottom-7 govuk-!-margin-bottom-8">
 								<h2 class="govuk-heading-m">You can now submit your application</h2>
-								
+
 								<p>You can still edit any of the completed sections before submitting your application.</p>
 								<p class="govuk-body">Once your application has been submitted, you cannot change your answers.</p>
-								
+
 								<form method="post" action="/apply/submit-application?applicationStatus=submitted" >
 
 									<input type="hidden" id="applicationStatus" name="applicationStatus" value="submitted" />

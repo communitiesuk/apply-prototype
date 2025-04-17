@@ -31,13 +31,14 @@
 		{% set serviceApplyHtml %}
 
 			<!-- Apply service -->
-			<!-- <h2 class="govuk-heading-m">Apply for funding</h2> -->
+			<h2 class="govuk-heading-m">Apply for funding</h2>
 			<p class="govuk-body">Apply for funding has been designed to allow local authorities, charities, and community groups to apply for different types of funding from Ministry of Housing, Communities and Local Government (MHCLG).</p>
 			<p class="govuk-body">You will be able to select which funding as part of the user flow.</p>
 			<form method="post" action="/preload" >
 				<input type="hidden" name="fundService" id="fundService" value="apply" />
 				{{ govukButton({
-					text: "Start user journey"
+					text: "Start user journey",
+					classes: "govuk-!-margin-top-3"
 				}) }}
 			</form>
 
@@ -72,7 +73,7 @@
 
 		{% set serviceAssessHtml %}
 			<!-- Assess service -->
-			<!-- <h2 class="govuk-heading-m">Assess applications for funding</h2> -->
+			<h2 class="govuk-heading-m">Assess applications for funding</h2>
 
 			<p class="govuk-body">The Funding Service assessment tool has been designed to help evaluate fund applications, to facilitate fund decision-making.</p>
 			<p class="govuk-body">Here you can:</p>
@@ -87,7 +88,39 @@
 			<form method="post" action="/assess/" >
 				<input type="hidden" name="fundService" id="fundService" value="assess" />
 				{{ govukButton({
-					text: "Start user journey"
+					text: "Start user journey",
+					classes: "govuk-!-margin-top-3"
+				}) }}
+			</form>
+		{% endset -%}
+
+		{% set serviceFundingHtml %}
+			<!-- Assess service -->
+			<h2 class="govuk-heading-m">Funding as a Service</h2>
+
+			<p class="govuk-body">Grants have a shared user base with similar needs and digital requirements. The aim is to create a connected and consistent set of funding services including FAB, pre-award and post-award tools into a single platform enabling funding as a service.</p>
+			<p>A service that meet everyone’s needs by providing reusable, user-focused tools and standards, with data provided by recipients only once.</p>
+
+			
+
+
+			<p class="govuk-body">This could include:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>grant set-up/management</li>
+				<li>pre-engagement, business case, grant/funding design </li>
+				<li>apply/assess (pre-award)</li>
+				<li>funding decisions (after award or allocation) </li>
+				<li>payments integrations (with SAP) </li>
+				<li>monitoring/reporting </li>
+			</ul>
+
+
+
+			<form method="post" action="/sign-in/" >
+				<input type="hidden" name="fundService" id="fundService" value="funding" />
+				{{ govukButton({
+					text: "Start user journey",
+					classes: "govuk-!-margin-top-3"
 				}) }}
 			</form>
 		{% endset -%}
@@ -96,7 +129,8 @@
 		{{ govukTabs({
 			items: [
 				{ label: "Apply for funding", id: "service-apply", panel: { html: serviceApplyHtml } },
-				{ label: "Assess applications for funding", id: "service-assess", panel: { html: serviceAssessHtml } }
+				{ label: "Assess applications for funding", id: "service-assess", panel: { html: serviceAssessHtml } },
+				{ label: "Funding as a Service", id: "service-funding", panel: { html: serviceFundingHtml } }
 			]
 		}) }}
 

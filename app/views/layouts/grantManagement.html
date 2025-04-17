@@ -62,30 +62,35 @@
 			  	</div>
 
 
+				{% if data['gmSignedIn'] == "yes" %}
 
 				<nav class="mhclg-header__nav">
 					<ul class="mhclg-header__nav__list">
 			  			<li class="mhclg-header__nav__list-item">
-							<a class="mhclg-header__nav__link" href="/signed-out/">Sign out</a>
+							<a class="mhclg-header__nav__link" href="/signed-out/?gmSignedIn=no">Sign out</a>
 			  			</li>
 					</ul>
 		  		</nav>
-				  {% if data['gmSignedIn'] == "yes" %}
+				  
 				{% endif %}
 
 			</div>
 		</div>
 	</header>
 
-	<!-- Service Name and Navigation -->
-	{{ govukServiceNavigation({
-		serviceName: "Grant management",
-		serviceUrl: "#",
-		navigation: [
-			{ href: "#", text: "Grants" }
-		]
+	{% if data['gmSignedIn'] == "yes" %}
 
-	}) }}
+		<!-- Service Name and Navigation -->
+		{{ govukServiceNavigation({
+			serviceName: "Funding as a Service",
+			serviceUrl: "#",
+			navigation: [
+				{ href: "/funding/grant-management/", text: "Grant management" }
+			]
+
+		}) }}
+
+	{% endif %}
 
 {% endblock %}
 

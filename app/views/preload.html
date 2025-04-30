@@ -22,6 +22,34 @@
 
     	<p class="govuk-body govuk-!-margin-bottom-7">As the prototype uses dynamic content and screens depending on various types of fund you can choose to preload the prototype with various options.</p>
 
+		{% if data['fundService'] == "funding" %}
+
+		<form method="post" action="/sign-in/" >
+
+			{{ govukRadios({
+				name: "authType",
+				fieldset: {
+					legend: {
+						text: "Which type of user authentication?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--m"
+					}
+				},
+				items: [
+					{ value: "SSO", text: "Single sign on (SSO)", checked: checked("authType", "SSO")  },
+					{ value: "Magic link", text: "Magic link", checked: checked("authType", "Magic link")  }
+				]
+			}) }}
+
+			{{ govukButton({
+                text: "Preload choices and continue"
+            }) }}
+
+		</form>
+
+
+
+		{% else %}
 		<form method="post" action="/apply/" >
 
 			<input type="hidden" name="fundService" id="fundService" value="apply" />
@@ -56,7 +84,7 @@
 					text: "This will mark an applications tasks as all complete"
 				},
 				items: [
-					{ value: "Yes", text: "Yes", checked: checked("fundName", "Yes")  }					
+					{ value: "Yes", text: "Yes", checked: checked("fundName", "Yes")  }
 				]
 			}) }}
 
@@ -66,6 +94,7 @@
                 text: "Preload choices and continue"
             }) }}
 		</form>
+		{% endif %}
 
   </div>
 </div>

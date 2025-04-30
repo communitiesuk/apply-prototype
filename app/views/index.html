@@ -97,13 +97,8 @@
 		{% set serviceFundingHtml %}
 			<!-- Assess service -->
 			<h2 class="govuk-heading-m">Funding as a Service</h2>
-
 			<p class="govuk-body">Grants have a shared user base with similar needs and digital requirements. The aim is to create a connected and consistent set of funding services including FAB, pre-award and post-award tools into a single platform enabling funding as a service.</p>
 			<p>A service that meet everyone’s needs by providing reusable, user-focused tools and standards, with data provided by recipients only once.</p>
-
-			
-
-
 			<p class="govuk-body">This could include:</p>
 			<ul class="govuk-list govuk-list--bullet">
 				<li>grant set-up/management</li>
@@ -114,9 +109,7 @@
 				<li>monitoring/reporting </li>
 			</ul>
 
-
-
-			<form method="post" action="/sign-in/" >
+			<form method="post" action="/preload" >
 				<input type="hidden" name="fundService" id="fundService" value="funding" />
 				{{ govukButton({
 					text: "Start user journey",

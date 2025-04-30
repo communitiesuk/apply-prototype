@@ -5,7 +5,12 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Request a link to sign in" %}
+
+{% if data['authType'] == "SSO" %}
+    {% set pageHeading = "Sign in" %}
+{% else %}
+    {% set pageHeading = "Request a link to sign in" %}
+{% endif %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -17,6 +22,50 @@
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+
+
+        {% if data['authType'] == "SSO" %}
+
+            <form method="post" action="/sign-in/one-time-code" >
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address",
+                        classes: "govuk-label",
+                        isPageHeading: false
+                    },
+                    hint: {
+                        text: "We will send a one-time authentication code to this email address."
+                    },
+                    classes: "govuk-!-width-two-thirds",
+                    id: "ssoEmail",
+                    name: "ssoEmail",
+                    type: "email"
+                }) }}
+
+                {{ govukCheckboxes({
+                    name: "waste",
+                    fieldset: {
+                      legend: {
+                        text: "Remember me",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend govuk-visually-hidden"
+                      }
+                    },
+                    items: [
+                      { value: "yes", text: "Remember me" }
+                    ]
+                  }) }}
+
+                {{ govukButton({
+                    text: "Sign in"
+                }) }}
+
+            </form>
+
+
+        {% else %}
 
             <p class="govuk-body">Enter your email address and we’ll send you a link to sign in.</p>
 
@@ -45,6 +94,8 @@
                 }) }}
 
             </form>
+
+        {% endif %}
 
     </div>
 </div>

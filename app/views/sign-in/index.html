@@ -7,7 +7,7 @@
 {% set pageSize = "xl" %}
 
 {% if data['authType'] == "SSO" %}
-    {% set pageHeading = "Sign in" %}
+    {% set pageHeading = "Funding as a service" %}
 {% else %}
     {% set pageHeading = "Request a link to sign in" %}
 {% endif %}
@@ -27,39 +27,24 @@
 
         {% if data['authType'] == "SSO" %}
 
-            <form method="post" action="/sign-in/one-time-code" >
+            <p>Connected and consistent set of funding services including FAB, pre-award and post-award tools into a single platform enabling funding as a service.</p>
+            <p>To include:</p>
+            <ul class="govuk-list govuk-list--bullet">
+				<li>grant set-up and management</li>
+				<li>pre-engagement, business case, grant and funding design </li>
+				<!-- <li>apply/assess (pre-award)</li> -->
+				<!-- <li>funding decisions</li> -->
+				<!-- <li>payments integrations (with SAP) </li> -->
+				<li>monitoring and reporting </li>
+			</ul>
 
-                {{ govukInput({
-                    label: {
-                        text: "Email address",
-                        classes: "govuk-label",
-                        isPageHeading: false
-                    },
-                    hint: {
-                        text: "We will send a one-time authentication code to this email address."
-                    },
-                    classes: "govuk-!-width-two-thirds",
-                    id: "ssoEmail",
-                    name: "ssoEmail",
-                    type: "email"
-                }) }}
+            <form method="post" action="/sign-in/authentication" >
 
-                {{ govukCheckboxes({
-                    name: "waste",
-                    fieldset: {
-                      legend: {
-                        text: "Remember me",
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend govuk-visually-hidden"
-                      }
-                    },
-                    items: [
-                      { value: "yes", text: "Remember me" }
-                    ]
-                  }) }}
+
 
                 {{ govukButton({
-                    text: "Sign in"
+                    text: "Sign in",
+                    isStartButton: true
                 }) }}
 
             </form>

@@ -45,7 +45,7 @@
 		<div class="mhclg-header" data-one-login-header-nav>
 			<div class="mhclg-header__container govuk-width-container">
 				<div class="govuk-header__logo">
-					<a href="#" class="govuk-header__link govuk-header__link--homepage mhclg-header__link--homepage">
+					<a href="/" class="govuk-header__link govuk-header__link--homepage mhclg-header__link--homepage">
 						<svg
 							focusable="false"
 							role="img"
@@ -71,7 +71,7 @@
 			  			</li>
 					</ul>
 		  		</nav>
-				  
+
 				{% endif %}
 
 			</div>
@@ -80,9 +80,11 @@
 
 	{% if data['gmSignedIn'] == "yes" %}
 
+		{% if data['authType'] == "SSO"  %}
+
 		<!-- Service Name and Navigation -->
 		{{ govukServiceNavigation({
-			serviceName: "Funding as a Service",
+			serviceName: "Deliver grant funding",
 			serviceUrl: "#",
 			navigation: [
 				{ href: "/funding/grant-management/", text: "Grant management", active: true }
@@ -90,13 +92,39 @@
 
 		}) }}
 
+		{% else %}
+
+		{{ govukServiceNavigation({
+			serviceName: "Access grant funding",
+			serviceUrl: "#",
+			navigation: [
+				{ href: "/funding/grant-management/", text: "Grant management", active: true }
+			]
+
+		}) }}
+
+
+		{% endif %}
+
 	{% else %}
+
+		{% if data['authType'] == "SSO"  %}
 
 		<!-- Service Name and Navigation -->
 		{{ govukServiceNavigation({
-			serviceName: "Funding as a Service",
-			serviceUrl: "#"			
+			serviceName: "Deliver grant funding",
+			serviceUrl: "#"
 		}) }}
+
+		{% else %}
+
+		<!-- Service Name and Navigation -->
+		{{ govukServiceNavigation({
+			serviceName: "Access grant funding",
+			serviceUrl: "#"
+		}) }}
+
+		{% endif %}
 
 	{% endif %}
 

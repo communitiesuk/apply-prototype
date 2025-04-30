@@ -24,7 +24,7 @@
 
 		{% if data['fundService'] == "funding" %}
 
-		<form method="post" action="/sign-in/" >
+		<form method="post" action="/sign-in/?gmSignedIn=no" >
 
 			{{ govukRadios({
 				name: "authType",

@@ -69,7 +69,7 @@
 
 
 
-		{% endset -%}
+		{% endset %}
 
 		{% set serviceAssessHtml %}
 			<!-- Assess service -->
@@ -92,21 +92,53 @@
 					classes: "govuk-!-margin-top-3"
 				}) }}
 			</form>
-		{% endset -%}
+		{% endset %}
 
-		{% set serviceFundingHtml %}
-			<!-- Assess service -->
-			<h2 class="govuk-heading-m">Funding as a Service</h2>
-			<p class="govuk-body">Grants have a shared user base with similar needs and digital requirements. The aim is to create a connected and consistent set of funding services including FAB, pre-award and post-award tools into a single platform enabling funding as a service.</p>
-			<p>A service that meet everyone’s needs by providing reusable, user-focused tools and standards, with data provided by recipients only once.</p>
-			<p class="govuk-body">This could include:</p>
+		{% set serviceDeliverFundingHtml %}
+			<!-- Assess service -->			
+			
+			
+			<h2 class="govuk-heading-m">Deliver grant funding </h2>
+
+			<p>A service for grant teams that helps them deliver and manage grant funding. This could include: </p>
 			<ul class="govuk-list govuk-list--bullet">
-				<li>grant set-up/management</li>
-				<li>pre-engagement, business case, grant/funding design </li>
-				<li>apply/assess (pre-award)</li>
-				<li>funding decisions (after award or allocation) </li>
-				<li>payments integrations (with SAP) </li>
-				<li>monitoring/reporting </li>
+
+<li>setting up the grant and adding information, such as grant name and type </li>
+<li>designing and publishing prospectuses </li>
+<li>creating forms to collect information pre-award (business case, application) </li>
+<li>creating forms to collect information post-award (monitoring funding progress) </li>
+<li>assessing grant applications </li>
+<li>viewing monitoring data  </li>
+<li>payment integration with SAP </li>
+</ul>
+
+ 
+			
+			
+			
+			
+			
+			
+
+			<form method="post" action="/preload" >
+				<input type="hidden" name="fundService" id="fundService" value="funding" />
+				{{ govukButton({
+					text: "Start user journey",
+					classes: "govuk-!-margin-top-3"
+				}) }}
+			</form>
+		{% endset %}
+
+
+		{% set serviceAccessFundingHtml %}
+			<!-- Assess service -->			
+			
+			
+			<h2 class="govuk-heading-m">Access grant funding  </h2>
+			<p>A service for current and potential grant recipients to access grant funding. This could include: </p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>adding information pre-award, such as an application form, benchmarking data or a business case </li>
+				<li>reporting on the progress of their funded programmes and projects </li>
 			</ul>
 
 			<form method="post" action="/preload" >
@@ -116,14 +148,17 @@
 					classes: "govuk-!-margin-top-3"
 				}) }}
 			</form>
-		{% endset -%}
+		{% endset %}
+
+
 
 
 		{{ govukTabs({
 			items: [
 				{ label: "Apply for funding", id: "service-apply", panel: { html: serviceApplyHtml } },
 				{ label: "Assess applications for funding", id: "service-assess", panel: { html: serviceAssessHtml } },
-				{ label: "Funding as a Service", id: "service-funding", panel: { html: serviceFundingHtml } }
+				{ label: "Deliver grant funding", id: "service-deliver-funding", panel: { html: serviceDeliverFundingHtml } },
+				{ label: "Access grant funding", id: "service-access-funding", panel: { html: serviceAccessFundingHtml } }
 			]
 		}) }}
 

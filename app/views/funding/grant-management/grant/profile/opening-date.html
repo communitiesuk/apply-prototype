@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Opening date" %}
+{% set pageHeading = "What date can you apply for this grant?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -19,8 +19,25 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         <form method="post" action="/funding/grant-management/grant/profile/closing-date">
+
+            {{ govukDateInput({
+                id: "grantProfile-openingDate",
+                namePrefix: "grantProfile-openingDate",
+                fieldset: {
+                    legend: {
+                        text: pageHeading,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend govuk-visually-hidden"
+                    }
+                },
+                hint: {
+                  text: "For example, 27 7 2025"
+                }
+            }) }}
+
+
             {{ govukButton({
-                text: "Save and continue"
+                text: "Continue"
             }) }}
         </form>
     </div>

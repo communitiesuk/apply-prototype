@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Grant summary" %}
+{% set pageHeading = "Check your answers" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,9 +18,16 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
+        {{ govukSummaryList({
+            rows: [
+                
+                { key: { text: "Name" }, value: { text: data['grantProfile-name'] }, actions: { items: [ { href: "/funding/grant-management/grant/profile/name", text: "Change", visuallyHiddenText: "name of the grant" }] } }
+            ]
+        }) }}
+
         <form method="post" action="/funding/grant-management/grant/profile/confirmation">
             {{ govukButton({
-                text: "Save and continue"
+                text: "Confirm and submit"
             }) }}
         </form>
     </div>

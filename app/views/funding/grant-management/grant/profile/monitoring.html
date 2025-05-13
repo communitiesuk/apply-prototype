@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Monitoring required" %}
+{% set pageHeading = "Does the grant require monitoring?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -19,8 +19,26 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         <form method="post" action="/funding/grant-management/grant/profile/primary-contact-details">
+
+            {{ govukRadios({
+                classes: "govuk-radios--inline",
+                name: "grantProfile-monitoring",
+                fieldset: {
+                    legend: {
+                        text: pageHeading,
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend govuk-visually-hidden"
+                    }
+                },
+                items: [
+                    { value: "england", text: "Yes" },
+                    { value: "scotland", text: "No" }
+                ]
+            }) }}
+
+
             {{ govukButton({
-                text: "Save and continue"
+                text: "Continue"
             }) }}
         </form>
 

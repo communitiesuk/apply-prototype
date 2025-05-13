@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Which services" %}
+{% set pageHeading = "Which services does the grant need?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -19,9 +19,30 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         <form method="post" action="/funding/grant-management/grant/profile/opening-date">
-            {{ govukButton({
-                text: "Save and continue"
+
+            {{ govukCheckboxes({
+                name: "grantProfile-monitoring",
+                fieldset: {
+                    legend: {
+                        text: pageHeading,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend govuk-visually-hidden"
+                    }
+                },
+                hint: {
+                    text: "Select all that apply"
+                },
+                items: [
+                    { value: "carcasses", text: "Assessment" },
+                    { value: "mines", text: "Payments" },
+                    { value: "farm", text: "Reporting" }
+                ]
             }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+            
         </form>
 
     </div>

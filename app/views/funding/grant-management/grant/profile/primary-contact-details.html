@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Primary contact details" %}
+{% set pageHeading = "Tell us the main contact details" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -19,8 +19,32 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         <form method="post" action="/funding/grant-management/grant/profile/services">
+
+            {{ govukInput({
+                label: {
+                    text: "Name",
+                    classes: "govuk-label",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "grantProfile-primaryContactName",
+                name: "grantProfile-primaryContactName"                
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "grantProfile-primaryContactEmail",
+                name: "grantProfile-primaryContactEmail"                
+            }) }}
+
+
             {{ govukButton({
-                text: "Save and continue"
+                text: "Continue"
             }) }}
         </form>
 

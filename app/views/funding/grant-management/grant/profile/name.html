@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Name of grant" %}
+{% set pageHeading = "What’s the name of the grant?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -19,8 +19,22 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         <form method="post" action="/funding/grant-management/grant/profile/type">
+
+            {{ govukInput({
+                label: {
+                    text: "Grant name",
+                    classes: "govuk-label govuk-visually-hidden",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "grantProfile-name",
+                name: "grantProfile-name"                
+            }) }}
+
+
+
             {{ govukButton({
-                text: "Save and continue"
+                text: "Continue"
             }) }}
         </form>
 

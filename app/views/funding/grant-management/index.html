@@ -5,8 +5,8 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Grant management" %}
-{% set pageSection = "" %}
+{% set pageHeading = "{Name of Grant}" %}
+{% set pageSection = "Grant management" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,11 +14,37 @@
 
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+        <div class="govuk-grid-row">
+	        <div class="govuk-grid-column-two-thirds">        
 
-            
+                {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+            </div>
+        </div>
+
+        {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            classes: "govuk-!-margin-bottom-7",
+            items: [
+                { text: "Grant details", href: "#", current: true}, 
+                { text: "Forms", href: "#" }, 
+                { text: "Assess applications", href: "#" },
+                { text: "Recipients", href: "#" },
+                { text: "Payments", href: "#" },
+                { text: "Reports", href: "#" }
+            ]
+        }) }}
+
+
+        <div class="govuk-grid-row">
+	        <div class="govuk-grid-column-two-thirds"> 
+                <p>To follow.</p>
+            </div>  
+        </div>
+
+
     </div>
 </div>
 

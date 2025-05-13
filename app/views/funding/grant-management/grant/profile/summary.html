@@ -1,0 +1,29 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Grant summary" %}
+{% set pageSection = "Add a grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+        <form method="post" action="/funding/grant-management/grant/profile/confirmation">
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Grant added" %}
+{% set pageSection = "" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+        {{ govukPanel({
+            titleText: pageHeading,
+            classes: "govuk-!-margin-bottom-7",
+            html: "Your reference number<br><strong>HDJ2123F</strong>"
+        }) }}        
+
+
+        <p class="govuk-body">We have sent you a confirmation email.</p>
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+
+        <h2 class="govuk-heading-m">What you can do next</h2>
+
+        <ul class="govuk-list">
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant-management/grant/profile/name">Add another grant</a></li>          
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant-management/">Manage this grant</a></li>            
+        </ul>
+        
+    </div>
+</div>
+
+{% endblock %}

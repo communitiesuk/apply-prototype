@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Header" %}
+{% set pageHeading = "Dashboard" %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -14,11 +14,24 @@
 
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+        <div class="govuk-grid-row">
+	        <div class="govuk-grid-column-two-thirds">        
 
-            
+                {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+            </div>
+        </div>
+       
+
+        <form method="post" action="/funding/grant-management/grant/profile/name">
+            {{ govukButton({
+                text: "Add a grant"
+            }) }}
+        </form>
+
+
     </div>
 </div>
 

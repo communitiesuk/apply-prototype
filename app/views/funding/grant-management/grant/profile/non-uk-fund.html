@@ -21,30 +21,38 @@
         <p>The grant is provided to foundations, organisations or institutions outside of the United Kingdom.</p>
       
       	{% if data['status'] == "change" %}
-          <form method="post" action="/funding/grant-management/grant/profile/summary">
+        	<form method="post" action="/funding/grant-management/grant/profile/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          <form method="post" action="/funding/grant-management/grant/profile/summary">
+          	<form method="post" action="/funding/grant-management/grant/profile/summary">
         {% endif %}
 
-        {{ govukRadios({          
-          classes: "govuk-radios--inline",
-          name: "grantInternational",
-          id: "grantInternational",
-          fieldset: {
-            legend: {
-            text: "Select an option to update your RIBA reporting stage",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend govuk-visually-hidden"
-            }
-          },
-          items: [
-            { value: "Yes", text: "Yes", checked: checked("grantInternational", "Yes") },
-            { value: "No", text: "No", checked: checked("grantInternational", "No") }            
-          ]
-        }) }}
+        		{{ govukRadios({          
+          			classes: "govuk-radios--inline",
+          			name: "grantProfile-nonUK",
+          			id: "grantProfile-nonUK",
+          			fieldset: {
+            			legend: {
+            				text: pageHeading,
+            				isPageHeading: false,
+            				classes: "govuk-fieldset__legend govuk-visually-hidden"
+            			}
+          			},
+          			items: [
+            			{ value: "Yes", text: "Yes", checked: checked("grantProfile-nonUK", "Yes") },
+            			{ value: "No", text: "No", checked: checked("grantProfile-nonUK", "No") }            
+          			]
+        		}) }}
+
+
+				{{ govukButton({
+                	text: "Continue"
+            	}) }}
+
+			</form>
 
     </div>
 </div>
 
 {% endblock %}
+<!-- *bc* -->

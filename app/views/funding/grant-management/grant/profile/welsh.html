@@ -20,49 +20,39 @@
 
         <p>For example, your prospectus and application form.</p>
 
+        {% if data['status'] == "change" %}
+            <form method="post" action="/funding/grant-management/grant/profile/summary">
+                <input type="hidden" name="status" id="status" value="" />
+        {% else %}
+            <form method="post" action="/funding/grant-management/grant/profile/non-uk-fund">
+        {% endif %}
+      
+            	{{ govukRadios({         
+                	classes: "govuk-radios--inline", 
+                	name: "grantProfile-welsh",
+                	id: "grantProfile-welsh",
+                	fieldset: {
+                  		legend: {
+                  			text: "Select an option to update your RIBA reporting stage",
+                  			isPageHeading: true,
+                  			classes: "govuk-fieldset__legend govuk-visually-hidden"
+                  		}
+                	},
+                	items: [
+                  		{ value: "Yes", text: "Yes", checked: checked("grantProfile-welsh", "Yes") },
+                  		{ value: "No", text: "No", checked: checked("grantProfile-welsh", "No") }            
+                	]
+              	}) }}
+      
 
-        
-
+            	{{ govukButton({
+                	text: "Continue"
+            	}) }}
             
-      
-
-            {% if data['status'] == "change" %}
-                <form method="post" action="/funding/grant-management/grant/profile/summary">
-                      <input type="hidden" name="status" id="status" value="" />
-                {% else %}
-                <form method="post" action="/funding/grant-management/grant/profile/non-uk-fund">
-              {% endif %}
-      
-      
-      
-      
-      
-      
-              {{ govukRadios({         
-                classes: "govuk-radios--inline", 
-                name: "grantWelsh",
-                id: "grantWelsh",
-                fieldset: {
-                  legend: {
-                  text: "Select an option to update your RIBA reporting stage",
-                  isPageHeading: true,
-                  classes: "govuk-fieldset__legend govuk-visually-hidden"
-                  }
-                },
-                items: [
-                  { value: "Yes", text: "Yes", checked: checked("grantWelsh", "Yes") },
-                  { value: "No", text: "No", checked: checked("grantWelsh", "No") }            
-                ]
-              }) }}
-      
-
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-            
-        </form>
+        	</form>
 
     </div>
 </div>
 
 {% endblock %}
+<!-- *bc* -->

@@ -1,17 +1,23 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/grantManagement.html" %}
 
-{% set showBackLink = true %}
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
 
+
+{% set pageSize = "xl" %}
 {% set pageHeading = "Check your answers" %}
-{% set pageSection = "Create a grant profile" %}
+{% set pageSection = "Set up a grant" %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
+
+
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}   
 
       	
 

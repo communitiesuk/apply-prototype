@@ -1,15 +1,22 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/grantManagement.html" %}
 
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
 {% set pageHeading = "What’s the full name of the finance business partner?" %}
-{% set pageSection = "" %}
+{% set pageSection = "Set up a grant" %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
       
 
       <p>This the person responsible for this grant.</p>

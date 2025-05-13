@@ -20,25 +20,30 @@
 
         <form method="post" action="/funding/grant-management/grant/profile/welsh">
 
-            {{ govukTextarea({
-                name: "grantProfile-description",
-                id: "grantProfile-description",
-                label: {
-                  text: "Grant description?",
-                  classes: "govuk-label govuk-visually-hidden",
-                  isPageHeading: false
-                },
-                hint: {
-                  text: "Do not include personal information"
-                }
-              }) }}
 
+        	{{ govukCharacterCount({
+            	name: "grantProfile-description",
+            	id: "grantProfile-description",
+            	value: data.grantProfile-description,
+            	maxwords: 200,
+            	rows: 6,
+            	hint: {
+              		text: "Do not include personal information"
+            	},
+            	label: {
+              		text: pageHeading,
+              		classes: "govuk-label govuk-visually-hidden",
+              		isPageHeading: false
+            	}					
+          	}) }}
 
             {{ govukButton({
                 text: "Continue"
             }) }}
+
         </form>
     </div>
 </div>
 
 {% endblock %}
+<!-- *bc* -->

@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/grantManagement.html" %}
 
 {% set pageHeading = "Which directorate group is the grant in?" %}
 {% set pageSection = "Create a grant profile" %}
@@ -9,7 +9,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+    {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
       
       <p>These are the directorate groups for Ministry of Housing, Communities and Local Government (MHCLG).</p>      
       
@@ -41,7 +41,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Save and continue"
+        	text: "Save and continue"
         }) }}
 
       </form>

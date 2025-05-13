@@ -18,41 +18,44 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <form method="post" action="/funding/grant-management/grant/profile/ggis-number">
+        
 
-            {% if data['status'] == "change" %}
+        {% if data['status'] == "change" %}
             <form method="post" action="/funding/grant-management/grant/profile/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          <form method="post" action="/funding/grant-management/grant/profile/ggis-number">
-      {% endif %}
+		  	<form method="post" action="/funding/grant-management/grant/profile/ggis-number">
+      	{% endif %}
 
-        {{ govukRadios({                   
-          name: "grantFundingType",
-          id: "grantFundingType",
-          fieldset: {
-            legend: {
-            text: "Select an option to update your RIBA reporting stage",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend govuk-visually-hidden"
-            }
-          },
-          items: [
-            { value: "Allocative~/grant/profile/non-uk-fund", text: "Allocative", checked: checked("grantFundingType", "Allocative") },
-            { value: "Competed", text: "Competed", checked: checked("grantFundingType", "Competed") },
-            { value: "Formula based", text: "Formula based", checked: checked("grantFundingType", "Formula based") },
-            { value: "Criteria based", text: "Criteria based", checked: checked("grantFundingType", "Criteria based") },
-            { value: "Mixed expression of interest", text: "Mixed expression of interest", checked: checked("grantFundingType", "Mixed expression of interest") }            
-          ]
-        }) }}
+			{{ govukRadios({                   
+				name: "grantProfile-name",
+				id: "grantProfile-name",
+				fieldset: {
+					legend: {
+						text: pageHeading,
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend govuk-visually-hidden"
+					}
+				},
+				items: [
+					{ value: "Allocative~/grant/profile/non-uk-fund", text: "Allocative", checked: checked("grantProfile-name", "Allocative") },
+					{ value: "Competed", text: "Competed", checked: checked("grantProfile-name", "Competed") },
+					{ value: "Formula based", text: "Formula based", checked: checked("grantProfile-name", "Formula based") },
+					{ value: "Criteria based", text: "Criteria based", checked: checked("grantProfile-name", "Criteria based") },
+					{ value: "Mixed expression of interest", text: "Mixed expression of interest", checked: checked("grantProfile-name", "Mixed expression of interest") }            
+				]
+			}) }}
 
 
             {{ govukButton({
                 text: "Continue"
             }) }}
+
         </form>
 
     </div>
 </div>
 
 {% endblock %}
+
+<!-- *bc* -->

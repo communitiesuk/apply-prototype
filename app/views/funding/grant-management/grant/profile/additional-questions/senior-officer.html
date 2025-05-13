@@ -1,8 +1,6 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/grantManagement.html" %}
 
-{% set showBackLink = true %}
-
-{% set pageHeading = "What’s the name of the grant?" %}
+{% set pageHeading = "What’s the full name of the Senior Officer Responsible (SOR)?" %}
 {% set pageSection = "Create a grant profile" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,25 +9,28 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
-         
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
+      
+
+      <p>All government grants require a named senior officer responsible (SOR) who is responsible and accountable for the succesful delivery of the grant.</p>
+   
       {% if data['status'] == "change" %}
       		<form class="form" action="/grant/profile/check-your-answers" method="post">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-      <form class="form" action="/grant/profile/directorate" method="post">
+      <form class="form" action="/grant/profile/senior-officer-email" method="post">
         {% endif %}
 
         {{ govukInput({
           label: {
-            text: "Name of the grant",
+            text: pageHeading,
               classes: "govuk-label govuk-visually-hidden",
               isPageHeading: false
           },          
           classes: "govuk-!-width-two-thirds",
-          id: "grantName",
-          name: "grantName",
-          value: data.grantName,
+          id: "grantSORName",
+          name: "grantSORName",
+          value: data.grantSORName,
           type: "text"
         }) }}
 

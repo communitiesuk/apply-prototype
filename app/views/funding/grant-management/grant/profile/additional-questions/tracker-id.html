@@ -1,32 +1,39 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/grantManagement.html" %}
 
-{% set pageHeading = "Do you know the grants ID number?" %}
-{% set pageSection = "" %}
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Do you know the grants tracker id?" %}
+{% set pageSection = "Set up a grant" %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
       
-
+      <p>This is the Ministry of Housing, Communities and Local Government (MHCLG) tracker id.</p>
       <p>[Insert question content here - see the for examples]</p>
       
-      <form class="form" action="/grant/profile/tracker-id" method="post">
+      <form class="form" action="/grant/profile/ggid-reference" method="post">
 
 
         {% set emailHtml %}
 {{ govukInput({
-  id: "grantID",
-  name: "grantID",
+  id: "grantTrackerId",
+  name: "grantTrackerId",
   type: "number",
   autocomplete: "number",
   spellcheck: false,
   classes: "govuk-!-width-two-thirds",
   label: {
-    text: "Grant ID number"
+    text: "MHCLG tracker ID"
   }
 }) }}
 {% endset -%}
@@ -34,8 +41,8 @@
 
 
         {{ govukRadios({          
-          name: "grantIDKnown",
-          id: "grantIDKnown",
+          name: "grantTrackerKnown",
+          id: "grantTrackerKnown",
           fieldset: {
             legend: {
             text: "Select an option to update your RIBA reporting stage",
@@ -44,8 +51,8 @@
             }
           },
           items: [
-            { value: "Yes", text: "Yes", conditional: { html: emailHtml }, checked: checked("grantIDKnown", "Yes") },
-            { value: "No", text: "No", checked: checked("grantIDKnown", "No") }            
+            { value: "Yes", text: "Yes", conditional: { html: emailHtml }, checked: checked("grantTrackerKnown", "Yes") },
+            { value: "No", text: "No", checked: checked("grantTrackerKnown", "No") }            
           ]
         }) }}
 

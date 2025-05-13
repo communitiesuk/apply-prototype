@@ -19,56 +19,56 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         
-
-            {% if data['status'] == "change" %}
+        {% if data['status'] == "change" %}
             <form method="post" action="/funding/grant-management/grant/profile/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          <form method="post" action="/funding/grant-management/grant/profile/monitoring"><form class="form" action="/grant/profile/senior-officer" method="post">
+          	<form method="post" action="/funding/grant-management/grant/profile/monitoring"><form class="form" action="/grant/profile/senior-officer" method="post">
         {% endif %}
 
-        {% set emailHtml %}
-{{ govukInput({
-  id: "grantGGISreference",
-  name: "grantGGISreference",
-  type: "number",
-  value: data.grantGGISreference,
-  autocomplete: "number",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "GGIS reference number"
-  }
-}) }}
-{% endset -%}
+				{% set emailHtml %}
+
+					{{ govukInput({
+						id: "grantProfile-ggisNumber",
+						name: "grantProfile-ggisNumber",
+						type: "number",
+						value: data.grantProfile-ggisNumber,
+						autocomplete: "number",
+						spellcheck: false,
+						classes: "govuk-!-width-two-thirds",
+						label: {
+							text: "GGIS reference number"
+						}
+					}) }}
+				
+				{% endset -%}
 
 
 
-        {{ govukRadios({          
-          name: "grantTrackerKnown",
-          id: "grantTrackerKnown",
-          fieldset: {
-            legend: {
-            text: "Select an option to update your RIBA reporting stage",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend govuk-visually-hidden"
-            }
-          },
-          items: [
-            { value: "Yes", text: "Yes", conditional: { html: emailHtml }, checked: checked("grantTrackerKnown", "Yes") },
-            { value: "No", text: "No", checked: checked("grantTrackerKnown", "No") }            
-          ]
-        }) }}
+				{{ govukRadios({          
+					name: "grantProfile-ggis",
+					id: "grantProfile-ggis",
+					fieldset: {
+						legend: {
+							text: pageHeading,
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend govuk-visually-hidden"
+						}
+					},
+					items: [
+						{ value: "Yes", text: "Yes", conditional: { html: emailHtml }, checked: checked("grantProfile-ggis", "Yes") },
+						{ value: "No", text: "No", checked: checked("grantProfile-ggis", "No") }            
+					]
+				}) }}
 
-
-
-
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-        </form>
+            	{{ govukButton({
+                	text: "Continue"
+            	}) }}
+        	</form>
 
     </div>
 </div>
 
 {% endblock %}
+
+<!-- *bc* -->

@@ -1,33 +1,38 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/grantManagement.html" %}
 
 {% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
 
-{% set pageHeading = "What’s the reference number for the grant?" %}
-{% set pageSection = "" %}
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "What’s the finance business partner’s email address?" %}
+{% set pageSection = "Set up a grant" %}
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
       
 
-      <p>[Insert content - what this is and where to find it.]</p>
+      <p>This is the email address...</p>
       
-      <form class="form" action="/grant/ggis/funder" method="post">
+      <form class="form" action="/grant/profile/welsh" method="post">
 
 
         {{ govukInput({
           label: {
-            text: "Name of the grant",
+            text: pageHeading,
               classes: "govuk-label govuk-visually-hidden",
               isPageHeading: false
           },          
           classes: "govuk-!-width-two-thirds",
-          id: "grantName",
-          name: "grantName",
+          id: "grantFBPEmail",
+          name: "grantFBPEmail",
           type: "text"
         }) }}
 

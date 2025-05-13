@@ -1,8 +1,6 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/grantManagement.html" %}
 
-{% set showBackLink = false %}
-
-{% set pageHeading = "What’s the name of the grant?" %}
+{% set pageHeading = "What’s the full name of the delivery lead?" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -11,12 +9,13 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
       
 
-      <p>[We should already have this.]</p>
+      <p>This the person responsible for this grant.</p>
+   
       
-      <form class="form" action="/grant/ggis/grant-id" method="post">
+      <form class="form" action="/grant/profile/welsh" method="post">
 
 
         {{ govukInput({
@@ -26,8 +25,8 @@
               isPageHeading: false
           },          
           classes: "govuk-!-width-two-thirds",
-          id: "grantName",
-          name: "grantName",
+          id: "grantDL",
+          name: "grantDL",
           type: "text"
         }) }}
 

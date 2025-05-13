@@ -1,0 +1,48 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set pageHeading = "What’s the SOR’s email address?" %}
+{% set pageSection = "Create a grant profile" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
+      
+
+      {% if data['status'] == "change" %}
+      		<form class="form" action="/grant/profile/check-your-answers" method="post">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+      
+      <form class="form" action="/grant/profile/allocation-method" method="post">
+        {% endif %}
+
+        {{ govukInput({
+          label: {
+            text: pageHeading,
+              classes: "govuk-label govuk-visually-hidden",
+              isPageHeading: false
+          },          
+          classes: "govuk-!-width-two-thirds",
+          id: "grantSOREmail",
+          name: "grantSOREmail",
+          value: data.grantSOREmail,
+          type: "email"
+        }) }}
+
+
+        
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

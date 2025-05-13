@@ -1,0 +1,51 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "What’s the finance business partner’s email address?" %}
+{% set pageSection = "Set up a grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
+      
+
+      <p>This is the email address...</p>
+      
+      <form class="form" action="/grant/profile/welsh" method="post">
+
+
+        {{ govukInput({
+          label: {
+            text: pageHeading,
+              classes: "govuk-label govuk-visually-hidden",
+              isPageHeading: false
+          },          
+          classes: "govuk-!-width-two-thirds",
+          id: "grantFBPEmail",
+          name: "grantFBPEmail",
+          type: "text"
+        }) }}
+
+
+        
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set pageHeading = "Which directorate group is the grant in?" %}
+{% set pageSection = "Create a grant profile" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
+      
+      <p>These are the directorate groups for Ministry of Housing, Communities and Local Government (MHCLG).</p>      
+      
+	  {% if data['status'] == "change" %}
+      		<form class="form" action="/grant/profile/check-your-answers" method="post">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+      <form class="form" action="/grant/profile/description" method="post">
+		{% endif %}
+
+        {{ govukRadios({                   
+        	name: "grantDirectorate",
+          	id: "grantDirectorate",
+          	fieldset: {
+            	legend: {
+            		text: "Select an option to update your RIBA reporting stage",
+            		isPageHeading: true,
+            		classes: "govuk-fieldset__legend govuk-visually-hidden"
+            	}
+          	},
+          	items: [
+            	{ value: "Corporate", text: "Corporate", checked: checked("grantDirectorate", "Corporate") },
+            	{ value: "Levelling Up", text: "Levelling Up", checked: checked("grantDirectorate", "Levelling Up") },
+            	{ value: "Local Government and Resilience", text: "Local Government and Resilience", checked: checked("grantDirectorate", "Local Government and Resilience") },
+            	{ value: "Regeneration", text: "Regeneration", checked: checked("grantDirectorate", "Regeneration") },            
+            	{ value: "Safer and Greener Buildings", text: "Safer and Greener Buildings", checked: checked("grantDirectorate", "Safer and Greener Buildings") },
+            	{ value: "Union and Elections", text: "Union and Elections", checked: checked("grantDirectorate", "Union and Elections") }            
+          	]
+        }) }}
+
+        {{ govukButton({
+        	text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "{Name of Grant}" %}
-{% set pageSection = "Grant management" %}
+{% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -29,11 +29,12 @@
             classes: "govuk-!-margin-bottom-7",
             items: [
                 { text: "Grant details", href: "#", current: true}, 
-                { text: "Forms", href: "#" }, 
+                { text: "Forms", href: "#" },
+                { text: "Team", href: "#" },
                 { text: "Assess applications", href: "#" },
-                { text: "Recipients", href: "#" },
-                { text: "Payments", href: "#" },
-                { text: "Reports", href: "#" }
+                { text: "Reports", href: "#" },
+                { text: "Payments", href: "#" }
+                
             ]
         }) }}
 
@@ -49,3 +50,10 @@
 </div>
 
 {% endblock %}
+
+
+<!-- 
+{ text: "Assess applications", href: "#" },
+                { text: "Recipients", href: "#" },
+                { text: "Payments", href: "#" },
+                { text: "Reports", href: "#" } -->

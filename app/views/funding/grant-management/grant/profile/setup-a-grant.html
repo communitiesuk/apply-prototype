@@ -1,0 +1,43 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Tell us about your grant" %}
+{% set pageSection = "Set up a grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  	
+
+		<p>We need to collect some basic information about your grant including:</p>
+		
+		<ul class="govuk-list govuk-list--bullet">
+			<li>grant name</li>
+			<li>directorate group</li>
+			<li>grant objectives</li>
+		</ul> 
+
+      	<form method="post" action="/funding/grant-management/grant/profile/name" >		
+        	
+			{{ govukButton({
+        		text: "Continue",        	        	
+				classes: "govuk-!-margin-top-5"
+      		}) }}
+      	
+		</form>
+
+		
+
+  	</div>
+</div>
+
+{% endblock %}

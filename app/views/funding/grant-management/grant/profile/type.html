@@ -5,8 +5,8 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Grant type" %}
-{% set pageSection = "Add a grant" %}
+{% set pageHeading = "What’s the funding type for this grant?" %}
+{% set pageSection = "Set up a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,30 +18,44 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <form method="post" action="/funding/grant-management/grant/profile/ggis-number">
+        
 
-            {{ govukRadios({                
-                name: "grantProfile-type",
-                fieldset: {
-                    legend: {
-                        text: pageHeading,
-                        isPageHeading: false,
-                        classes: "govuk-fieldset__legend govuk-visually-hidden"
-                    }
-                },
-                items: [
-                    { value: "option1", text: "Option 1" },
-                    { value: "option2", text: "Option 2" }
-                ]
-            }) }}
+        {% if data['status'] == "change" %}
+            <form method="post" action="/funding/grant-management/grant/profile/summary">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+		  	<form method="post" action="/funding/grant-management/grant/profile/ggis-number">
+      	{% endif %}
+
+			{{ govukRadios({                   
+				name: "grantProfile-name",
+				id: "grantProfile-name",
+				fieldset: {
+					legend: {
+						text: pageHeading,
+						isPageHeading: true,
+						classes: "govuk-fieldset__legend govuk-visually-hidden"
+					}
+				},
+				items: [
+					{ value: "Allocative~/grant/profile/non-uk-fund", text: "Allocative", checked: checked("grantProfile-name", "Allocative") },
+					{ value: "Competed", text: "Competed", checked: checked("grantProfile-name", "Competed") },
+					{ value: "Formula based", text: "Formula based", checked: checked("grantProfile-name", "Formula based") },
+					{ value: "Criteria based", text: "Criteria based", checked: checked("grantProfile-name", "Criteria based") },
+					{ value: "Mixed expression of interest", text: "Mixed expression of interest", checked: checked("grantProfile-name", "Mixed expression of interest") }            
+				]
+			}) }}
 
 
             {{ govukButton({
                 text: "Continue"
             }) }}
+
         </form>
 
     </div>
 </div>
 
 {% endblock %}
+
+<!-- *bc* -->

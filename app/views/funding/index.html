@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Dashboard" %}
+{% set pageHeading = "Grants" %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -21,11 +21,15 @@
 
                 {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
+                <p>Needs new heading</p>
+                <p>This page will show a list of all the grants currently in the system.</p>
+                <p>Or the signed in user can add a grant.</p>
+
             </div>
         </div>
        
 
-        <form method="post" action="/funding/grant-management/grant/profile/name">
+        <form method="post" action="/funding/grant-management/grant/profile/setup-a-grant">
             {{ govukButton({
                 text: "Add a grant"
             }) }}
@@ -36,3 +40,4 @@
 </div>
 
 {% endblock %}
+<!-- *bc* -->

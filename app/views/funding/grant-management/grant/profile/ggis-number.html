@@ -5,8 +5,8 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What is the grant’s GGIS number?" %}
-{% set pageSection = "Add a grant" %}
+{% set pageHeading = "Do you have a Government Grants Information System (GGIS) reference number?" %}
+{% set pageSection = "Set up a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,26 +18,57 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <form method="post" action="/funding/grant-management/grant/profile/monitoring">
+        
+        {% if data['status'] == "change" %}
+            <form method="post" action="/funding/grant-management/grant/profile/summary">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+          	<form method="post" action="/funding/grant-management/grant/profile/monitoring"><form class="form" action="/grant/profile/senior-officer" method="post">
+        {% endif %}
 
-            {{ govukInput({
-                label: {
-                    text: "Grant GGIS number",
-                    classes: "govuk-label govuk-visually-hidden",
-                    isPageHeading: false
-                },
-                classes: "govuk-!-width-two-thirds",
-                id: "grantProfile-ggisNumber",
-                name: "grantProfile-ggisNumber"                
-            }) }}
+				{% set emailHtml %}
+
+					{{ govukInput({
+						id: "grantProfile-ggisNumber",
+						name: "grantProfile-ggisNumber",
+						type: "number",
+						value: data.grantProfile-ggisNumber,
+						autocomplete: "number",
+						spellcheck: false,
+						classes: "govuk-!-width-two-thirds",
+						label: {
+							text: "GGIS reference number"
+						}
+					}) }}
+				
+				{% endset -%}
 
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-        </form>
+
+				{{ govukRadios({          
+					name: "grantProfile-ggis",
+					id: "grantProfile-ggis",
+					fieldset: {
+						legend: {
+							text: pageHeading,
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend govuk-visually-hidden"
+						}
+					},
+					items: [
+						{ value: "Yes", text: "Yes", conditional: { html: emailHtml }, checked: checked("grantProfile-ggis", "Yes") },
+						{ value: "No", text: "No", checked: checked("grantProfile-ggis", "No") }            
+					]
+				}) }}
+
+            	{{ govukButton({
+                	text: "Continue"
+            	}) }}
+        	</form>
 
     </div>
 </div>
 
 {% endblock %}
+
+<!-- *bc* -->

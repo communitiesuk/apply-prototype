@@ -1,0 +1,58 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Do you need information about your grant to be translated into Welsh?" %}
+{% set pageSection = "Set up a grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+        <p>For example, your prospectus and application form.</p>
+
+        {% if data['status'] == "change" %}
+            <form method="post" action="/funding/grant-management/grant/profile/summary">
+                <input type="hidden" name="status" id="status" value="" />
+        {% else %}
+            <form method="post" action="/funding/grant-management/grant/profile/non-uk-fund">
+        {% endif %}
+      
+            	{{ govukRadios({         
+                	classes: "govuk-radios--inline", 
+                	name: "grantProfile-welsh",
+                	id: "grantProfile-welsh",
+                	fieldset: {
+                  		legend: {
+                  			text: "Select an option to update your RIBA reporting stage",
+                  			isPageHeading: true,
+                  			classes: "govuk-fieldset__legend govuk-visually-hidden"
+                  		}
+                	},
+                	items: [
+                  		{ value: "Yes", text: "Yes", checked: checked("grantProfile-welsh", "Yes") },
+                  		{ value: "No", text: "No", checked: checked("grantProfile-welsh", "No") }            
+                	]
+              	}) }}
+      
+
+            	{{ govukButton({
+                	text: "Continue"
+            	}) }}
+            
+        	</form>
+
+    </div>
+</div>
+
+{% endblock %}
+<!-- *bc* -->

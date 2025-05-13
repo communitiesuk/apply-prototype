@@ -1,0 +1,58 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Is this an international (non-UK) grant?" %}
+{% set pageSection = "Set up a grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+        <p>The grant is provided to foundations, organisations or institutions outside of the United Kingdom.</p>
+      
+      	{% if data['status'] == "change" %}
+        	<form method="post" action="/funding/grant-management/grant/profile/summary">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+          	<form method="post" action="/funding/grant-management/grant/profile/summary">
+        {% endif %}
+
+        		{{ govukRadios({          
+          			classes: "govuk-radios--inline",
+          			name: "grantProfile-nonUK",
+          			id: "grantProfile-nonUK",
+          			fieldset: {
+            			legend: {
+            				text: pageHeading,
+            				isPageHeading: false,
+            				classes: "govuk-fieldset__legend govuk-visually-hidden"
+            			}
+          			},
+          			items: [
+            			{ value: "Yes", text: "Yes", checked: checked("grantProfile-nonUK", "Yes") },
+            			{ value: "No", text: "No", checked: checked("grantProfile-nonUK", "No") }            
+          			]
+        		}) }}
+
+
+				{{ govukButton({
+                	text: "Continue"
+            	}) }}
+
+			</form>
+
+    </div>
+</div>
+
+{% endblock %}
+<!-- *bc* -->

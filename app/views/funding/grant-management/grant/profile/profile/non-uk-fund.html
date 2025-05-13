@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Is this an international (non-UK) grant?" %}
+{% set pageSection = "Create a grant profile" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+      
+      	<p>The grant is provided to foundations, organisations or institutions outside of the United Kingdom.</p>
+      
+      	{% if data['status'] == "change" %}
+      		<form class="form" action="/grant/profile/check-your-answers" method="post">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+      		<form class="form" action="/grant/profile/welsh" method="post">
+        {% endif %}
+
+        {{ govukRadios({          
+          classes: "govuk-radios--inline",
+          name: "grantInternational",
+          id: "grantInternational",
+          fieldset: {
+            legend: {
+            text: "Select an option to update your RIBA reporting stage",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend govuk-visually-hidden"
+            }
+          },
+          items: [
+            { value: "Yes", text: "Yes", checked: checked("grantInternational", "Yes") },
+            { value: "No", text: "No", checked: checked("grantInternational", "No") }            
+          ]
+        }) }}
+
+
+        
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

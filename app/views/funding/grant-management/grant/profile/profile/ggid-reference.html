@@ -1,30 +1,23 @@
-{% extends "layouts/grantManagement.html" %}
+{% extends "layouts/main.html" %}
 
-{% set showBackLink = false %}
-{% set showBackApplicationsLink = false %}
-
-
-{% set pageSize = "xl" %}
 {% set pageHeading = "Do you have a Government Grants Information System (GGIS) reference number?" %}
-{% set pageSection = "Set up a grant" %}
-
+{% set pageSection = "Create a grant profile" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
-
-        
-
-            {% if data['status'] == "change" %}
-            <form method="post" action="/funding/grant-management/grant/profile/summary">
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+      
+      
+      
+      {% if data['status'] == "change" %}
+      		<form class="form" action="/grant/profile/check-your-answers" method="post">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          <form method="post" action="/funding/grant-management/grant/profile/monitoring"><form class="form" action="/grant/profile/senior-officer" method="post">
+      <form class="form" action="/grant/profile/senior-officer" method="post">
         {% endif %}
 
         {% set emailHtml %}
@@ -61,14 +54,15 @@
         }) }}
 
 
+        
 
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-        </form>
+      </form>
 
     </div>
-</div>
+  </div>
 
 {% endblock %}

@@ -1,30 +1,21 @@
-{% extends "layouts/grantManagement.html" %}
+{% extends "layouts/main.html" %}
 
-{% set showBackLink = false %}
-{% set showBackApplicationsLink = false %}
-
-
-{% set pageSize = "xl" %}
 {% set pageHeading = "What’s the funding type for this grant?" %}
-{% set pageSection = "Set up a grant" %}
-
+{% set pageSection = "Create a grant profile" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
-
-        <form method="post" action="/funding/grant-management/grant/profile/ggis-number">
-
-            {% if data['status'] == "change" %}
-            <form method="post" action="/funding/grant-management/grant/profile/summary">
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+          
+      {% if data['status'] == "change" %}
+      		<form class="form" action="/grant/profile/check-your-answers" method="post">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          <form method="post" action="/funding/grant-management/grant/profile/ggis-number">
+      <form class="form" action="/grant/profile/date-open" method="post">
       {% endif %}
 
         {{ govukRadios({                   
@@ -47,12 +38,15 @@
         }) }}
 
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-        </form>
+        
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
 
     </div>
-</div>
+  </div>
 
 {% endblock %}

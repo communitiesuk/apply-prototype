@@ -5,8 +5,8 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Tell us what the grant is for" %}
-{% set pageSection = "Add a grant" %}
+{% set pageHeading = "What are the main objectives of this grant?" %}
+{% set pageSection = "Set up a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <form method="post" action="/funding/grant-management/grant/profile/summary">
+        <form method="post" action="/funding/grant-management/grant/profile/welsh">
 
             {{ govukTextarea({
                 name: "grantProfile-description",

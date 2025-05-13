@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "What date will grant applications open?" %}
+{% set pageSection = "Create a grant profile" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+      
+
+      <p>If the grant has already opened, please enter a date from the past.</p>
+   
+      {% if data['status'] == "change" %}
+      		<form class="form" action="/grant/profile/check-your-answers" method="post">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+      <form class="form" action="/grant/profile/date-closed" method="post">
+        {% endif %}
+
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="grantDateOpen-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              
+            </legend>
+            <div id="grantDateOpen-hint" class="govuk-hint">
+              For example, 3 2025
+            </div>
+            <div class="govuk-date-input" id="grantDateOpen">
+              <!-- <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="grantDateOpen-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="grantDateOpen-day" name="grantDateOpen-day" type="text" inputmode="numeric">
+                </div>
+              </div> -->
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="grantDateOpen-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="grantDateOpen-month" name="grantDateOpen-month" type="text" inputmode="numeric" value="{{ data['grantDateOpen-month']}}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="grantDateOpen-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="grantDateOpen-year" name="grantDateOpen-year" type="text" inputmode="numeric" value="{{ data['grantDateOpen-year']}}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        
+        <!-- {{ govukDateInput({
+          id: "grantDateOpen",
+          namePrefix: "grantDateOpen",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend govuk-visually-hidden"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2025"
+          }
+        }) }} -->
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

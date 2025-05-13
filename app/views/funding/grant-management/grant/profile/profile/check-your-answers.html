@@ -1,24 +1,42 @@
-{% extends "layouts/grantManagement.html" %}
+{% extends "layouts/main.html" %}
 
-{% set showBackLink = false %}
-{% set showBackApplicationsLink = false %}
+{% set showBackLink = true %}
 
-
-{% set pageSize = "xl" %}
 {% set pageHeading = "Check your answers" %}
-{% set pageSection = "Set up a grant" %}
-
+{% set pageSection = "Create a grant profile" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      	
+
+		  <!-- {{ govukSummaryList({
+			classes: "govuk-!-margin-bottom-9",
+			rows: [
+				{ key: { text: "Grant name" }, value: { text: data.grantName }, actions: { items: [ { href: "/grant/profile/name",  text: "Change", visuallyHiddenText: "name" } ] } },
+				{ key: { text: "Directorate group" }, value: { text: data.grantDirectorate }, actions: { items: [  { href: "/grant/profile/directorate", text: "Change", visuallyHiddenText: "name" } ] } },
+				{ key: { text: "Main objectives" }, value: { text: data.grantDescription }, actions: { items: [  { href: "/grant/profile/description", text: "Change", visuallyHiddenText: "name" } ] } },
+				{ key: { text: "GGIS reference number" }, value: { text: data.grantGGISreference }, actions: { items: [  { href: "/grant/profile/ggid-reference", text: "Change", visuallyHiddenText: "name" } ] } },
+				{ key: { text: "Senior Officer Responsible (SOR)" }, value: { text: data.grantSORName }, actions: { items: [  { href: "/grant/profile/senior-officer", text: "Change", visuallyHiddenText: "name" } ] } },
+				{ key: { text: "SOR’s email address" }, value: { text: data.grantSOREmail }, actions: { items: [  { href: "/grant/profile/senior-officer-email", text: "Change", visuallyHiddenText: "name" } ] } },
+				{ key: { text: "Funding type" }, value: { text: data.grantFundingType }, actions: { items: [  { href: "/grant/profile/allocation-method", text: "Change", visuallyHiddenText: "name" } ] } },
+				{ key: { text: "International (non-UK) grant" }, value: { text: data.grantInternational }, actions: { items: [  { href: "/grant/profile/non-uk-fund", text: "Change", visuallyHiddenText: "name" } ] } },
+				{ key: { text: "Welsh translation" }, value: { text: data.grantWelsh }, actions: { items: [  { href: "/grant/profile/welsh", text: "Change", visuallyHiddenText: "name" } ] } }
+			]
+		}) }} -->
+
+
+      <!-- <div class="govuk-inset-text">
+			<p class="govuk-!-font-size-24"><span >Report due by {{ data.fundDate}}</span></p>
+		</div> -->
+		
+			
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Grant name</dt>
 				<dd class="govuk-summary-list__value">{{ data.grantName }}</dd>
@@ -105,21 +123,31 @@
 				<dd class="govuk-summary-list__value">{{ data.grantWelsh }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/welsh?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
-		</dl>		      
+		</dl>		
+
+	
+
+ 
+
+
+
+      <!-- <h2 class="govuk-heading-m">
+        Now send your grant profile
+      </h2> -->
 
       <p>
         Save and submit your grant details to let us know you have completed them. You can edit and update your grant details at any time by going to 'Grant profile' in your account.
       </p>
 
-     
+      <form action="/grant/profile/confirmation" method="post" novalidate>
+        <input type="hidden" name="reportStatus" id="reportStatus" value="Sent" />
 
-        <form method="post" action="/funding/grant-management/grant/profile/confirmation">
-            <input type="hidden" name="reportStatus" id="reportStatus" value="Sent" />
-            {{ govukButton({
-                text: "Save and submit grant details"
-            }) }}
-        </form>
+        {{ govukButton({
+          text: "Save and submit grant details"
+        }) }}
+
+      </form>
+
     </div>
-</div>
-
+  </div>
 {% endblock %}

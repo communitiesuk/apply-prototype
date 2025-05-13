@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = true %}
+
+{% set pageHeading = "What’s the name of the grant?" %}
+{% set pageSection = "Create a grant profile" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+         
+      {% if data['status'] == "change" %}
+      		<form class="form" action="/grant/profile/check-your-answers" method="post">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+      <form class="form" action="/grant/profile/directorate" method="post">
+        {% endif %}
+
+        {{ govukInput({
+          label: {
+            text: "Name of the grant",
+              classes: "govuk-label govuk-visually-hidden",
+              isPageHeading: false
+          },          
+          classes: "govuk-!-width-two-thirds",
+          id: "grantName",
+          name: "grantName",
+          value: data.grantName,
+          type: "text"
+        }) }}
+
+
+        
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

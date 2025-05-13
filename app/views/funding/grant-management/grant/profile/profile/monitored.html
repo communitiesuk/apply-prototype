@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Is the grant monitored?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+      
+
+      <p>[Insert question content here - see the for examples]</p>
+      
+      <form class="form" action="/grant/profile/check-your-answers" method="post">
+
+        <!-- {% set yesHtml %}
+        {{ govukRadios({                   
+          name: "ggisNewGrantType",
+          id: "ggisNewGrantType",
+          fieldset: {
+            legend: {
+            text: "What type of grant?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend "
+            }
+          },
+          items: [
+            { value: "Brand new", text: "Brand new", checked: checked("ggisNewGrantType", "Brand new") },
+            { value: "Similar objectives to an existing grant", text: "Similar objectives to an existing grant", checked: checked("ggisNewGrantType", "Similar objectives to an existing grant") }            
+          ]
+        }) }}
+        {% endset -%}
+
+        {% set noHtml %}
+        {{ govukRadios({                   
+          name: "ggisRolloverGrantType",
+          id: "ggisRolloverGrantType",
+          fieldset: {
+            legend: {
+            text: "What type of grant?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend-s "
+            }
+          },
+          items: [            
+            { value: "Continuation of a multi-year grant", text: "Continuation of a multi-year grant", checked: checked("ggisRolloverGrantType", "Continuation of a multi-year grant") },
+            { value: "Extension to existing grant", text: "Extension to existing grant", checked: checked("ggisRolloverGrantType", "Extension to existing grant") }
+            
+          ]
+        }) }}
+
+        {% endset -%}
+
+        {{ govukRadios({                   
+          name: "ggisNewGrant",
+          id: "ggisNewGrant",
+          fieldset: {
+            legend: {
+            text: "Select an option to update your RIBA reporting stage",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend govuk-visually-hidden"
+            }
+          },
+          items: [
+            { value: "New", text: "New", conditional: { html: yesHtml }, checked: checked("ggisNewGrant", "New") },
+            { value: "Rollover", text: "Rollover", conditional: { html: noHtml }, checked: checked("ggisNewGrant", "Rollover") }                        
+          ]
+        }) }} -->
+
+
+
+         {{ govukRadios({               
+          classes: "govuk-radios--inline",    
+          name: "ggisMonitoredGrant",
+          id: "ggisMonitoredGrant",
+          fieldset: {
+            legend: {
+            text: "Select an option to update your RIBA reporting stage",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend govuk-visually-hidden"
+            }
+          },
+          items: [
+            { value: "Yes", text: "Yes", checked: checked("ggisMonitoredGrant", "Yes") },            
+            { value: "No", text: "No", checked: checked("ggisMonitoredGrant", "No") }
+            
+            
+          ]
+        }) }} 
+
+
+        
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

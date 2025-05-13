@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% set pageHeading = "Who is funding this grant?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+      
+      
+      <p>[Insert question content here]</p>
+          
+
+
+      <form class="form" action="/grant/ggis/senior-officer" method="post">
+
+        {{ govukRadios({                   
+          name: "grantFundingEntity",
+          id: "grantFundingEntity",
+          fieldset: {
+            legend: {
+            text: "Select an option to update your RIBA reporting stage",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend govuk-visually-hidden"
+            }
+          },
+          items: [
+            { value: "tbc", text: "tbc", checked: checked("grantFundingEntity", "tbc") },
+            { value: "tbc", text: "tbc", checked: checked("grantFundingEntity", "tbc") }            
+          ]
+        }) }}
+
+
+        
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

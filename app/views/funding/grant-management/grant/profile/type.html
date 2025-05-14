@@ -18,16 +18,16 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        
+
 
         {% if data['status'] == "change" %}
             <form method="post" action="/funding/grant-management/grant/profile/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-		  	<form method="post" action="/funding/grant-management/grant/profile/ggis-number">
+		  	<form method="post" action="/funding/grant-management/grant/profile/monitoring">
       	{% endif %}
 
-			{{ govukRadios({                   
+			{{ govukRadios({
 				name: "grantProfile-name",
 				id: "grantProfile-name",
 				fieldset: {
@@ -42,7 +42,7 @@
 					{ value: "Competed", text: "Competed", checked: checked("grantProfile-name", "Competed") },
 					{ value: "Formula based", text: "Formula based", checked: checked("grantProfile-name", "Formula based") },
 					{ value: "Criteria based", text: "Criteria based", checked: checked("grantProfile-name", "Criteria based") },
-					{ value: "Mixed expression of interest", text: "Mixed expression of interest", checked: checked("grantProfile-name", "Mixed expression of interest") }            
+					{ value: "Mixed expression of interest", text: "Mixed expression of interest", checked: checked("grantProfile-name", "Mixed expression of interest") }
 				]
 			}) }}
 

@@ -16,26 +16,26 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  	
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
 		<p>We need to collect some basic information about the grant including:</p>
-		
+
 		<ul class="govuk-list govuk-list--bullet">
+			<li>Government Grants Information System (GGIS) number</li>
 			<li>grant name</li>
 			<li>main contact for the grant</li>
-			<li>Government Grants Information System (GGIS) number</li>
-		</ul> 
+		</ul>
 
-      	<form method="post" action="/funding/grant-management/grant/profile/name" >		
-        	
+      	<form method="post" action="/funding/grant-management/grant/profile/ggis-number" >
+
 			{{ govukButton({
-        		text: "Continue",        	        	
+        		text: "Continue",
 				classes: "govuk-!-margin-top-5"
       		}) }}
-      	
+
 		</form>
 
-		
+
 
   	</div>
 </div>

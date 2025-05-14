@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <form method="post" action="/funding/grant-management/grant/profile/welsh">
+        <form method="post" action="/funding/grant-management/grant/profile/non-uk-fund">
 
 
         	{{ govukCharacterCount({
@@ -34,7 +34,7 @@
               		text: pageHeading,
               		classes: "govuk-label govuk-visually-hidden",
               		isPageHeading: false
-            	}					
+            	}
           	}) }}
 
             {{ govukButton({

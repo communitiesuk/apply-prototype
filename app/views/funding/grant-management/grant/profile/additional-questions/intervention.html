@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "What’s the grant’s intervention theme?" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,14 +15,14 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
-      
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
 
     <p>Provisional purpose the grant has been created for.</p>
-      
+
       <form class="form" action="/grant/profile/check-your-answers" method="post">
 
-        {{ govukRadios({                   
+        {{ govukRadios({
           name: "grantIntervention",
           id: "grantIntervention",
           fieldset: {
@@ -35,12 +35,12 @@
           items: [
             { value: "tbc", text: "tbc", checked: checked("grantIntervention", "tbc") },
             { value: "tbc 2", text: "tbc 2", checked: checked("grantIntervention", "tbc 2") }
-            
+
           ]
         }) }}
 
 
-        
+
 
         {{ govukButton({
           text: "Save and continue"

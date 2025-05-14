@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Check your answers" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -37,19 +37,19 @@
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/description?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 
-			
+
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">GGIS reference number</dt>				
+				<dt class="govuk-summary-list__key">GGIS reference number</dt>
 				<dd class="govuk-summary-list__value">
 					{% if data['grantTrackerKnown'] == "Yes" %}
-						{{ data.grantGGISreference }}				
+						{{ data.grantGGISreference }}
 					{% else %}
 						Not known
 					{% endif %}
 				</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/ggid-reference?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
-			
+
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Senior Officer Responsible (SOR)</dt>
@@ -76,7 +76,7 @@
 				<dt class="govuk-summary-list__key">Opening date for applications</dt>
 				<dd class="govuk-summary-list__value">
 					{{ data['grantDateOpen-month'] | toMonth }} {{ data['grantDateOpen-year'] }}
-					
+
 
 
 				</dd>
@@ -87,7 +87,7 @@
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Closing date for applications</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantDateClose-month'] | toMonth }} {{ data['grantDateClose-year'] }}</dd>
-					<!-- <dd class="govuk-summary-list__value">{{ data.grantDateClose-month | toMonth }}{{ data.grantDateClose-year }} -->				
+					<!-- <dd class="govuk-summary-list__value">{{ data.grantDateClose-month | toMonth }}{{ data.grantDateClose-year }} -->
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/date-closed?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 			{% endif %}
@@ -105,13 +105,13 @@
 				<dd class="govuk-summary-list__value">{{ data.grantWelsh }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/welsh?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
-		</dl>		      
+		</dl>
 
       <p>
         Save the grant details to let us know you have completed them. You can edit and update your grant details at any time by going to 'Grant profile' in your account.
       </p>
 
-     
+
 
         <form method="post" action="/funding/grant-management/grant/profile/confirmation">
             <input type="hidden" name="reportStatus" id="reportStatus" value="Sent" />

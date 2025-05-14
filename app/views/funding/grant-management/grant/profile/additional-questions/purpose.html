@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "What’s the grant’s purppose?" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,14 +15,14 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
-      
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
 
     <p>Provisional purpose the grant has been created for.</p>
-      
+
       <form class="form" action="/grant/profile/check-your-answers" method="post">
 
-        {{ govukRadios({                   
+        {{ govukRadios({
           name: "grantPurpose",
           id: "grantPurpose",
           fieldset: {
@@ -37,12 +37,12 @@
             { value: "Covid-19", text: "Covid-19", checked: checked("grantPurpose", "Covid-19") },
             { value: "EU Readiness", text: "EU Readiness", checked: checked("grantPurpose", "EU Readiness") },
             { value: "EU Successor", text: "EU Successor", checked: checked("grantPurpose", "EU Successor") },
-            { value: "Manifesto commitement", text: "Manifesto commitement", checked: checked("grantPurpose", "Manifesto commitement") }            
+            { value: "Manifesto commitement", text: "Manifesto commitement", checked: checked("grantPurpose", "Manifesto commitement") }
           ]
         }) }}
 
 
-        
+
 
         {{ govukButton({
           text: "Save and continue"

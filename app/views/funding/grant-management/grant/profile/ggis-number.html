@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Do you have a Government Grants Information System (GGIS) reference number?" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        
+
         {% if data['status'] == "change" %}
             <form method="post" action="/funding/grant-management/grant/profile/summary">
 				<input type="hidden" name="status" id="status" value="" />
@@ -40,12 +40,12 @@
 							text: "GGIS reference number"
 						}
 					}) }}
-				
+
 				{% endset -%}
 
 
 
-				{{ govukRadios({          
+				{{ govukRadios({
 					name: "grantProfile-ggis",
 					id: "grantProfile-ggis",
 					fieldset: {
@@ -57,7 +57,7 @@
 					},
 					items: [
 						{ value: "Yes", text: "Yes", conditional: { html: emailHtml }, checked: checked("grantProfile-ggis", "Yes") },
-						{ value: "No", text: "No", checked: checked("grantProfile-ggis", "No") }            
+						{ value: "No", text: "No", checked: checked("grantProfile-ggis", "No") }
 					]
 				}) }}
 

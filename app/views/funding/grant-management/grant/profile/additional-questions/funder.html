@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Who is funding this grant?" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,16 +15,16 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
-      
-      
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+
       <p>[Insert question content here]</p>
-          
+
 
 
       <form class="form" action="/grant/ggis/senior-officer" method="post">
 
-        {{ govukRadios({                   
+        {{ govukRadios({
           name: "grantFundingEntity",
           id: "grantFundingEntity",
           fieldset: {
@@ -36,12 +36,12 @@
           },
           items: [
             { value: "tbc", text: "tbc", checked: checked("grantFundingEntity", "tbc") },
-            { value: "tbc", text: "tbc", checked: checked("grantFundingEntity", "tbc") }            
+            { value: "tbc", text: "tbc", checked: checked("grantFundingEntity", "tbc") }
           ]
         }) }}
 
 
-        
+
 
         {{ govukButton({
           text: "Save and continue"

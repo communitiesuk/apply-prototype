@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Does the grant have an EU fund name?" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,10 +18,10 @@
 	<div class="govuk-grid-column-two-thirds">
 
     {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
-      
+
 
       <p>This is the indirect EU fund that the funding comes from.</p>
-      
+
       <form class="form" action="/grant/profile/tracker-id" method="post">
 
 
@@ -41,7 +41,7 @@
 
 
 
-        {{ govukRadios({          
+        {{ govukRadios({
           name: "grantEUFund",
           id: "grantEUFund",
           fieldset: {
@@ -53,12 +53,12 @@
           },
           items: [
             { value: "Yes", text: "Yes", conditional: { html: emailHtml }, checked: checked("grantEUFund", "Yes") },
-            { value: "No", text: "No", checked: checked("grantEUFund", "No") }            
+            { value: "No", text: "No", checked: checked("grantEUFund", "No") }
           ]
         }) }}
 
 
-        
+
 
         {{ govukButton({
           text: "Save and continue"

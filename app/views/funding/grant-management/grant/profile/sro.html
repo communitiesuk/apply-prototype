@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Who is the main contact for the grant?" %}
+{% set pageHeading = "What’s the full name and email address of the Senior Officer Responsible (SOR)?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,17 +18,21 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <form method="post" action="/funding/grant-management/grant/profile/sro">
+        <p>All government grants require a named senior officer responsible (SOR) who is responsible and accountable for the succesful delivery of the grant.</p>
+
+        <form method="post" action="/funding/grant-management/grant/profile/services">
+
 
             {{ govukInput({
                 label: {
-                    text: "Name",
+                    text: "Full name",
                     classes: "govuk-label",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "grantProfile-primaryContactName",
-                name: "grantProfile-primaryContactName"
+                id: "grantProfile-sroName",
+                name: "grantProfile-sroName",
+                type: "text"
             }) }}
 
             {{ govukInput({
@@ -38,9 +42,12 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "grantProfile-primaryContactEmail",
-                name: "grantProfile-primaryContactEmail"
+                id: "grantProfile-sroEmail",
+                name: "grantProfile-sroEmail",
+                type: "text"
             }) }}
+
+
 
 
             {{ govukButton({

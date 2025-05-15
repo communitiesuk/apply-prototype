@@ -31,12 +31,9 @@
             <p>The service includes:</p>
             <ul class="govuk-list govuk-list--bullet">
 				<li>grant set-up and management</li>
-				<li>forms for pre-award and post-award data collection </li>
-				<!-- <li>apply/assess (pre-award)</li> -->
-				<!-- <li>funding decisions</li> -->
-				<!-- <li>payments integrations (with SAP) </li> -->
-				<li>assessment of pre-award data</li>
-                <li>accessing monitoring reports</li>
+				<li>forms for pre-award and post-award data collection </li>				
+				<!-- <li>assessment of pre-award data</li> -->
+                <!-- <li>accessing monitoring reports</li> -->
 			</ul>
 
             <form method="post" action="/sign-in/authentication" >
@@ -45,7 +42,8 @@
 
                 {{ govukButton({
                     text: "Sign in",
-                    isStartButton: true
+                    isStartButton: true,
+                    classes: "govuk-!-margin-top-5"
                 }) }}
 
             </form>

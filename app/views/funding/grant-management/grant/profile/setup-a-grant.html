@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Tell us about your grant" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,26 +16,26 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  	
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-		<p>We need to collect some basic information about your grant including:</p>
-		
+		<p>We need to collect some information about the grant including:</p>
+
 		<ul class="govuk-list govuk-list--bullet">
+			<li>Government Grants Information System (GGIS) number</li>
 			<li>grant name</li>
-			<li>directorate group</li>
-			<li>grant objectives</li>
-		</ul> 
+			<li>main contact for the grant</li>
+		</ul>
 
-      	<form method="post" action="/funding/grant-management/grant/profile/name" >		
-        	
+      	<form method="post" action="/funding/grant-management/grant/profile/ggis-number" >
+
 			{{ govukButton({
-        		text: "Continue",        	        	
+        		text: "Continue",
 				classes: "govuk-!-margin-top-5"
       		}) }}
-      	
+
 		</form>
 
-		
+
 
   	</div>
 </div>

@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "What are the main objectives of this grant?" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <form method="post" action="/funding/grant-management/grant/profile/welsh">
+        <form method="post" action="/funding/grant-management/grant/profile/uk-wide">
 
 
         	{{ govukCharacterCount({
@@ -34,7 +34,7 @@
               		text: pageHeading,
               		classes: "govuk-label govuk-visually-hidden",
               		isPageHeading: false
-            	}					
+            	}
           	}) }}
 
             {{ govukButton({

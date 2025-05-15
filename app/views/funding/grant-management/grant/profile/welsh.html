@@ -5,8 +5,8 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Do you need information about your grant to be translated into Welsh?" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageHeading = "Does your application need to be translated into Welsh?" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -24,11 +24,11 @@
             <form method="post" action="/funding/grant-management/grant/profile/summary">
                 <input type="hidden" name="status" id="status" value="" />
         {% else %}
-            <form method="post" action="/funding/grant-management/grant/profile/non-uk-fund">
+            <form method="post" action="/funding/grant-management/grant/profile/summary">
         {% endif %}
-      
-            	{{ govukRadios({         
-                	classes: "govuk-radios--inline", 
+
+            	{{ govukRadios({
+                	classes: "govuk-radios--inline",
                 	name: "grantProfile-welsh",
                 	id: "grantProfile-welsh",
                 	fieldset: {
@@ -40,15 +40,15 @@
                 	},
                 	items: [
                   		{ value: "Yes", text: "Yes", checked: checked("grantProfile-welsh", "Yes") },
-                  		{ value: "No", text: "No", checked: checked("grantProfile-welsh", "No") }            
+                  		{ value: "No", text: "No", checked: checked("grantProfile-welsh", "No") }
                 	]
               	}) }}
-      
+
 
             	{{ govukButton({
                 	text: "Continue"
             	}) }}
-            
+
         	</form>
 
     </div>

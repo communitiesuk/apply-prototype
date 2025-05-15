@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Is this an international (non-UK) grant?" %}
+{% set pageHeading = "Is this an uk wide grant?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,19 +18,19 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p>The grant is provided to foundations, organisations or institutions outside of the United Kingdom.</p>
+        <p>The grant is provided to foundations, organisations or institutions in the United Kingdom.</p>
 
       	{% if data['status'] == "change" %}
         	<form method="post" action="/funding/grant-management/grant/profile/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          	<form method="post" action="/funding/grant-management/grant/profile/summary">
+          	<form method="post" action="/funding/grant-management/grant/profile/welsh">
         {% endif %}
 
         		{{ govukRadios({
           			classes: "govuk-radios--inline",
-          			name: "grantProfile-nonUK",
-          			id: "grantProfile-nonUK",
+          			name: "grantProfile-ukWide",
+          			id: "grantProfile-ukWide",
           			fieldset: {
             			legend: {
             				text: pageHeading,
@@ -39,8 +39,8 @@
             			}
           			},
           			items: [
-            			{ value: "Yes", text: "Yes", checked: checked("grantProfile-nonUK", "Yes") },
-            			{ value: "No", text: "No", checked: checked("grantProfile-nonUK", "No") }
+            			{ value: "Yes", text: "Yes", checked: checked("grantProfile-ukWide", "Yes") },
+            			{ value: "No~/funding/grant-management/grant/profile/summary", text: "No", checked: checked("grantProfile-ukWide", "No") }
           			]
         		}) }}
 

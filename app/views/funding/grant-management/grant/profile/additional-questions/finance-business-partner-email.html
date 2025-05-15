@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "What’s the finance business partner’s email address?" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,11 +16,11 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}  
-      
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
 
       <p>This is the email address...</p>
-      
+
       <form class="form" action="/grant/profile/welsh" method="post">
 
 
@@ -29,7 +29,7 @@
             text: pageHeading,
               classes: "govuk-label govuk-visually-hidden",
               isPageHeading: false
-          },          
+          },
           classes: "govuk-!-width-two-thirds",
           id: "grantFBPEmail",
           name: "grantFBPEmail",
@@ -37,7 +37,7 @@
         }) }}
 
 
-        
+
 
         {{ govukButton({
           text: "Save and continue"

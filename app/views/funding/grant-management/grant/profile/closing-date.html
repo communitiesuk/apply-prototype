@@ -5,8 +5,8 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What date will grant applications open?" %}
-{% set pageSection = "Set up a grant" %}
+{% set pageHeading = "What date will grant applications close?" %}
+{% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <form method="post" action="/funding/grant-management/grant/profile/description">
+        <form method="post" action="/funding/grant-management/grant/profile/welsh">
 
             {{ govukDateInput({
                 id: "grantProfile-closingDate",

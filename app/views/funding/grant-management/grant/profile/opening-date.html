@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What date will grant applications open?" %}
+{% set pageHeading = "What date will applications open?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p class="govuk-body">If the grant has already opened, please enter a date from the past.</p>
+        <p class="govuk-body">If applications have already opened, enter the date for reference.</p>
 
         <form method="post" action="/funding/grant-management/grant/profile/closing-date">
 

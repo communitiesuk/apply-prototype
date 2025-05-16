@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Grant profile created" %}
+{% set pageHeading = "Grant created" %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -22,14 +22,14 @@
             classes: "govuk-!-margin-bottom-7"            
         }) }}        
 
-        <p class="govuk-body">We have sent you a confirmation email..</p>	
+        <p class="govuk-body">We have sent you an email to confirm that ((grant_name)) has been added.</p>	
 		
 		<h2 class="govuk-heading-m">What happens next</h2>	
-        <p>Our team will be in touch within 3 working days to let you know what you need to do next.</p>
-        <p>If you have any questions in the meantime, contact us at ((email_address)).</p>
+        <p>You can add more information about the grant by going to 'Grant details' in your account.</p>
+        <p>If you have any questions, contact us at ((email_address)).</p>
 		
         <ul class="govuk-list">            
-            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant-management/">Go to grant profile</a></li>            
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant-management/">Go to grant homepage</a></li>            
             <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant-management/grant/profile/name">Add another grant</a></li>
         </ul>
         

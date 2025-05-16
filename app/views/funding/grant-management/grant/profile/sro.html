@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What’s the full name and email address of the Senior Officer Responsible (SOR)?" %}
+{% set pageHeading = "Who is the Senior Officer Responsible (SOR) for this grant?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p>All government grants require a named senior officer responsible (SOR) who is responsible and accountable for the succesful delivery of the grant.</p>
+        <p>All government grants require a named Senior Officer Responsible (SOR) who is responsible and accountable for the succesful delivery of the grant.</p>
 
         <form method="post" action="/funding/grant-management/grant/profile/services">
 

@@ -28,8 +28,8 @@
       	{% endif %}
 
 			{{ govukRadios({
-				name: "grantProfile-name",
-				id: "grantProfile-name",
+				name: "grantProfile-type",
+				id: "grantProfile-type",
 				fieldset: {
 					legend: {
 						text: pageHeading,
@@ -38,11 +38,11 @@
 					}
 				},
 				items: [
-					{ value: "Allocative", text: "Allocative", checked: checked("grantProfile-name", "Allocative") },
-					{ value: "Competed", text: "Competed", checked: checked("grantProfile-name", "Competed") },
-					{ value: "Formula based", text: "Formula based", checked: checked("grantProfile-name", "Formula based") },
-					{ value: "Criteria based", text: "Criteria based", checked: checked("grantProfile-name", "Criteria based") },
-					{ value: "Mixed expression of interest", text: "Mixed expression of interest", checked: checked("grantProfile-name", "Mixed expression of interest") }
+					{ value: "Allocative", text: "Allocative", checked: checked("grantProfile-type", "Allocative") },
+					{ value: "Competed", text: "Competed", checked: checked("grantProfile-type", "Competed") },
+					{ value: "Formula based", text: "Formula based", checked: checked("grantProfile-type", "Formula based") },
+					{ value: "Criteria based", text: "Criteria based", checked: checked("grantProfile-type", "Criteria based") },
+					{ value: "Mixed expression of interest", text: "Mixed expression of interest", checked: checked("grantProfile-type", "Mixed expression of interest") }
 				]
 			}) }}
 

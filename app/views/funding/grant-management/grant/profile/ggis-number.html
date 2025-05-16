@@ -18,12 +18,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
+		<p>Some content to inform that the GGIS number will need to be provided before a certain event/action.{Kate}</p>
 
         {% if data['status'] == "change" %}
             <form method="post" action="/funding/grant-management/grant/profile/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          	<form method="post" action="/funding/grant-management/grant/profile/monitoring"><form class="form" action="/grant/profile/senior-officer" method="post">
+          	<form method="post" action="/funding/grant-management/grant/profile/name">
         {% endif %}
 
 				{% set emailHtml %}
@@ -31,13 +32,15 @@
 					{{ govukInput({
 						id: "grantProfile-ggisNumber",
 						name: "grantProfile-ggisNumber",
-						type: "number",
-						value: data.grantProfile-ggisNumber,
+						value: data['grantProfile-ggisNumber'],
 						autocomplete: "number",
 						spellcheck: false,
 						classes: "govuk-!-width-two-thirds",
 						label: {
 							text: "GGIS reference number"
+						},
+						hint: {
+							text: "For example, 12345-GC-2023 or GGIS-SCHEME-007."
 						}
 					}) }}
 

@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Who is the primary contact for this grant?" %}
+{% set pageHeading = "Who is the main contact for this grant?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p>This is the person that we will contact should we need further information about the grant. {Kate}</p>
+        <p>This is the person that teams at MHCLG can contact if they have any questions about the grant.</p>
 
         <form method="post" action="/funding/grant-management/grant/profile/sor">
 

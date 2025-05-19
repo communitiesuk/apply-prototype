@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Do you need to collect any information pre-award?" %}
+{% set pageHeading = "Do you need an application form?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -22,29 +22,13 @@
 
         <form method="post" action="/funding/grant-management/grant/profile/opening-date">
 
-            {% set yesPreAwardHtml %}
-
-
-                {{ govukCheckboxes({
-                    name: "grantProfile-preAwardInformation",
-                    fieldset: {
-                        legend: { text: "What information do you need to collect?", isPageHeading: false, classes: "govuk-fieldset__legend" }
-                    },
-                    hint: {
-                        text: "Select all that apply"
-                    },
-                    items: [
-                        { value: "Business case", text: "Business case", checked: checked("grantProfile-preAwardInformation", "Business case") },
-                        { value: "Application form", text: "Application form", checked: checked("grantProfile-preAwardInformation", "Application form") }  
-                    ]
-                }) }}					
-
-			{% endset -%}
+            
 
 
 
 
-             {{ govukRadios({                
+             {{ govukRadios({        
+                classes: "govuk-radios--inline",        
                 name: "grantProfile-preAward",
                 fieldset: {
                     legend: {
@@ -54,7 +38,7 @@
                     }
                 },
                 items: [
-                    { value: "yes", conditional: { html: yesPreAwardHtml }, text: "Yes" },
+                    { value: "yes", text: "Yes" },
                     { value: "no~/funding/grant-management/grant/profile/description", text: "No" }
                 ]
             }) }}

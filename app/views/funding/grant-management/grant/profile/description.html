@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What are the main objectives of this grant?" %}
+{% set pageHeading = "What is the main purpose of this grant?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -17,6 +17,8 @@
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+		<p>Provide a brief description of the main purpose of the grant. This information will be seen by potential grant recipients.</p>
 
         <form method="post" action="/funding/grant-management/grant/profile/uk-wide">
 

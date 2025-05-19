@@ -27,7 +27,7 @@
           	<form method="post" action="/funding/grant-management/grant/profile/name">
         {% endif %}
 
-				{% set emailHtml %}
+				{% set yesGGISHtml %}
 
 					{{ govukInput({
 						id: "grantProfile-ggisNumber",
@@ -47,6 +47,13 @@
 				{% endset -%}
 
 
+				{% set noGGISHtml %}
+
+					<p>This could have content to explain.</p>
+
+				{% endset -%}
+
+
 
 				{{ govukRadios({
 					name: "grantProfile-ggis",
@@ -59,8 +66,8 @@
 						}
 					},
 					items: [
-						{ value: "Yes", text: "Yes", conditional: { html: emailHtml }, checked: checked("grantProfile-ggis", "Yes") },
-						{ value: "No", text: "No", checked: checked("grantProfile-ggis", "No") }
+						{ value: "Yes", text: "Yes", conditional: { html: yesGGISHtml }, checked: checked("grantProfile-ggis", "Yes") },
+						{ value: "No~/funding/grant-management/grant/profile/cannot-continue", text: "No", checked: checked("grantProfile-ggis", "No") }
 					]
 				}) }}
 

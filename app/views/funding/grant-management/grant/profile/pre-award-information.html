@@ -1,0 +1,73 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Do you need to collect any information pre-award?" %}
+{% set pageSection = "Add a grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+        <p>For example business case, application form.</p>
+
+        <form method="post" action="/funding/grant-management/grant/profile/opening-date">
+
+            {% set yesPreAwardHtml %}
+
+
+                {{ govukCheckboxes({
+                    name: "grantProfile-preAwardInformation",
+                    fieldset: {
+                        legend: { text: "What information do you need to collect?", isPageHeading: false, classes: "govuk-fieldset__legend" }
+                    },
+                    hint: {
+                        text: "Select all that apply"
+                    },
+                    items: [
+                        { value: "Business case", text: "Business case", checked: checked("grantProfile-preAwardInformation", "Business case") },
+                        { value: "Application form", text: "Application form", checked: checked("grantProfile-preAwardInformation", "Application form") }  
+                    ]
+                }) }}					
+
+			{% endset -%}
+
+
+
+
+             {{ govukRadios({                
+                name: "grantProfile-preAward",
+                fieldset: {
+                    legend: {
+                        text: pageHeading,
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend govuk-visually-hidden"
+                    }
+                },
+                items: [
+                    { value: "yes", conditional: { html: yesPreAwardHtml }, text: "Yes" },
+                    { value: "no~/funding/grant-management/grant/profile/description", text: "No" }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- *bc* -->

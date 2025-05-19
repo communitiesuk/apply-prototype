@@ -19,30 +19,12 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Grant name</dt>
-				<dd class="govuk-summary-list__value">{{ data.grantName }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/name?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Directorate group</dt>
-				<dd class="govuk-summary-list__value">{{ data.grantDirectorate }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/directorate?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Main objectives</dt>
-				<dd class="govuk-summary-list__value">{{ data.grantDescription }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/description?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">GGIS reference number</dt>
 				<dd class="govuk-summary-list__value">
-					{% if data['grantTrackerKnown'] == "Yes" %}
-						{{ data.grantGGISreference }}
+					{% if data['grantProfile-ggis'] == "Yes" %}
+						{{ data['grantProfile-ggisNumber'] }}
 					{% else %}
 						Not known
 					{% endif %}
@@ -52,30 +34,49 @@
 
 
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Senior Officer Responsible (SOR)</dt>
-				<dd class="govuk-summary-list__value">{{ data.grantSORName }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/senior-officer?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">SOR’s email address</dt>
-				<dd class="govuk-summary-list__value">{{ data.grantSOREmail }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/senior-officer-email?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+				<dt class="govuk-summary-list__key">Grant name</dt>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-name'] }}</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/name?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Funding type</dt>
-				<dd class="govuk-summary-list__value">{{ data.grantFundingType }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/allocation-method?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-type'] }}</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/directorate?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Monitoring</dt>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-monitoring'] }}</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/directorate?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+			</div>
 
-			{% if data['grantFundingType'] != "Allocative" %}
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Main contact</dt>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-primaryContactName'] }}
+					<br>{{ data['grantProfile-primaryContactEmail'] }}
+				</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/senior-officer?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+			</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Senior Officer Responsible (SOR)</dt>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-sroName'] }}<br>{{ data['grantProfile-sroEmail'] }}</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/senior-officer-email?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+			</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Application form</dt>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-application'] }}</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/description?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+			</div>
+
+			{% if data['grantProfile-application'] == "yes" %}			
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Opening date for applications</dt>
 				<dd class="govuk-summary-list__value">
-					{{ data['grantDateOpen-month'] | toMonth }} {{ data['grantDateOpen-year'] }}
+					{{ data['grantProfile-openingDate-month'] | toMonth }} {{ data['grantProfile-openingDate-year'] }}
 
 
 
@@ -86,25 +87,31 @@
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Closing date for applications</dt>
-				<dd class="govuk-summary-list__value">{{ data['grantDateClose-month'] | toMonth }} {{ data['grantDateClose-year'] }}</dd>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-closingDate-month'] | toMonth }} {{ data['grantProfile-closingDate-year'] }}</dd>
 					<!-- <dd class="govuk-summary-list__value">{{ data.grantDateClose-month | toMonth }}{{ data.grantDateClose-year }} -->
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/date-closed?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 			{% endif %}
 
-
+						<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Main objectives</dt>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-name'] }}</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/description?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+			</div>
 
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">International (non-UK) grant</dt>
-				<dd class="govuk-summary-list__value">{{ data.grantInternational }}</dd>
+				<dt class="govuk-summary-list__key">UK wide grant</dt>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-ukWide'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/non-uk-fund?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 
+			{% if data['grantProfile-ukWide'] == "yes" %}			
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Welsh translation</dt>
-				<dd class="govuk-summary-list__value">{{ data.grantWelsh }}</dd>
+				<dd class="govuk-summary-list__value">{{ data['grantProfile-name'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/welsh?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
+			{% endif %}
 		</dl>
 
       <p>

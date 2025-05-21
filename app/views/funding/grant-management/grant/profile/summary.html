@@ -65,33 +65,28 @@
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/senior-officer-email?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 
-			<div class="govuk-summary-list__row">
+			<!-- <div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Application form</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantProfile-application'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/description?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 
-			{% if data['grantProfile-application'] == "yes" %}			
+			{% if data['grantProfile-application'] == "yes" %}
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Opening date for applications</dt>
 				<dd class="govuk-summary-list__value">
 					{{ data['grantProfile-openingDate-month'] | toMonth }} {{ data['grantProfile-openingDate-year'] }}
-
-
-
 				</dd>
-				<!-- <dd class="govuk-summary-list__value">{{ data.grantDateOpen-month | toMonth }} {{ data.grantDateOpen-year }}</dd> -->
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/date-open?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Closing date for applications</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantProfile-closingDate-month'] | toMonth }} {{ data['grantProfile-closingDate-year'] }}</dd>
-					<!-- <dd class="govuk-summary-list__value">{{ data.grantDateClose-month | toMonth }}{{ data.grantDateClose-year }} -->
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/date-closed?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
-			{% endif %}
+			{% endif %} -->
 
 						<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Main objectives</dt>
@@ -99,19 +94,19 @@
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/description?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 
-			<div class="govuk-summary-list__row">
+			<!-- <div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">UK wide grant</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantProfile-ukWide'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/non-uk-fund?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 
-			{% if data['grantProfile-ukWide'] == "yes" %}			
+			{% if data['grantProfile-ukWide'] == "yes" %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Welsh translation</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantProfile-name'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/grant/profile/welsh?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
-			{% endif %}
+			{% endif %} -->
 		</dl>
 
       <p>

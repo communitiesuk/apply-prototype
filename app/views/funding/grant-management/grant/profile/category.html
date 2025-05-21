@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Category" %}
+{% set pageHeading = "What tier does this grant belong to?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-		<p>New content.</p>
+		<p>Select which tier this grant falls into, according to the Cabinet Office categorisation framework.</p>
 
         {% if data['status'] == "change" %}
             <form method="post" action="/funding/grant-management/grant/profile/summary">

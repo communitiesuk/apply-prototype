@@ -1,0 +1,57 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Category" %}
+{% set pageSection = "Add a grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+		<p>New content.</p>
+
+        {% if data['status'] == "change" %}
+            <form method="post" action="/funding/grant-management/grant/profile/summary">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+          	<form method="post" action="/funding/grant-management/grant/profile/name">
+        {% endif %}
+
+				{{ govukRadios({
+					name: "grantProfile-category",
+					id: "grantProfile-category",
+					fieldset: {
+						legend: {
+							text: pageHeading,
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend govuk-visually-hidden"
+						}
+					},
+					items: [
+						{ value: "Bronze", text: "Bronze", checked: checked("grantProfile-category", "Bronze") },
+						{ value: "Silver", text: "Silver", checked: checked("grantProfile-category", "Silver") },
+						{ value: "Gold", text: "Gold", checked: checked("grantProfile-category", "Gold") }
+					]
+				}) }}
+
+            	{{ govukButton({
+                	text: "Continue"
+            	}) }}
+        	</form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- *bc* -->

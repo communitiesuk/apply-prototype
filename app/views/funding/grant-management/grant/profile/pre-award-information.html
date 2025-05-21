@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Will organisations need to apply for this grant?" %}
+{% set pageHeading = "Do you need an application form?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,11 +18,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
+        <p>This is for competed grants where organisations will need to apply for funding.</p>
+
         <form method="post" action="/funding/grant-management/grant/profile/opening-date">
 
-             {{ govukRadios({
-                classes: "govuk-radios--inline",
-                name: "grantProfile-application",
+             {{ govukRadios({        
+                classes: "govuk-radios--inline",        
+                name: "grantProfile-preAward",
                 fieldset: {
                     legend: {
                         text: pageHeading,
@@ -31,8 +33,8 @@
                     }
                 },
                 items: [
-                    { value: "yes", text: "Yes" },
-                    { value: "no~/funding/grant-management/grant/profile/description", text: "No" }
+                    { value: "Yes", text: "Yes" },
+                    { value: "No~/funding/grant-management/grant/profile/description", text: "No" }
                 ]
             }) }}
 

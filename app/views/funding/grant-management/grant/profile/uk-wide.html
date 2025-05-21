@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Is this an uk wide grant?" %}
+{% set pageHeading = "Is this a UK-wide grant?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p>The grant is provided to foundations, organisations or institutions in the United Kingdom.</p>
+        <p>The grant is provided to organisations throughout the whole of the United Kingdom.</p>
 
       	{% if data['status'] == "change" %}
         	<form method="post" action="/funding/grant-management/grant/profile/summary">

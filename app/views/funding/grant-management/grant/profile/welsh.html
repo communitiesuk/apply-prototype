@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Does your application need to be translated into Welsh?" %}
+{% set pageHeading = "Will you need any application information to be translated into Welsh?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p>For example, your prospectus and application form.</p>
+        <p>For example, your grant prospectus or application form.</p>
 
         {% if data['status'] == "change" %}
             <form method="post" action="/funding/grant-management/grant/profile/summary">

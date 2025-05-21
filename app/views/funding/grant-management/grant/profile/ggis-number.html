@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-		<p>Some content to inform that the GGIS number will need to be provided before a certain event/action.{Kate}</p>
+		<p>You'll need to provide your GGIS number before you can create forms or assess grant applications.</p>
 
         {% if data['status'] == "change" %}
             <form method="post" action="/funding/grant-management/grant/profile/summary">
@@ -27,7 +27,7 @@
           	<form method="post" action="/funding/grant-management/grant/profile/name">
         {% endif %}
 
-				{% set emailHtml %}
+				{% set yesGGISHtml %}
 
 					{{ govukInput({
 						id: "grantProfile-ggisNumber",
@@ -37,12 +37,19 @@
 						spellcheck: false,
 						classes: "govuk-!-width-two-thirds",
 						label: {
-							text: "GGIS reference number"
+							text: "Enter your GGIS reference number"
 						},
 						hint: {
-							text: "For example, 12345-GC-2023 or GGIS-SCHEME-007."
+							text: "For example, G2-SCH-2025-05-12346."
 						}
 					}) }}
+
+				{% endset -%}
+
+
+				{% set noGGISHtml %}
+
+					<p>You can still add this grant, but will need to add a GGIS number before creating forms.</p>
 
 				{% endset -%}
 
@@ -59,8 +66,8 @@
 						}
 					},
 					items: [
-						{ value: "Yes", text: "Yes", conditional: { html: emailHtml }, checked: checked("grantProfile-ggis", "Yes") },
-						{ value: "No", text: "No", checked: checked("grantProfile-ggis", "No") }
+						{ value: "Yes", text: "Yes", conditional: { html: yesGGISHtml }, checked: checked("grantProfile-ggis", "Yes") },
+						{ value: "No~/funding/grant-management/grant/profile/cannot-continue", text: "No", checked: checked("grantProfile-ggis", "No") }
 					]
 				}) }}
 

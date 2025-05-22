@@ -14,7 +14,7 @@
 
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-full">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
@@ -45,7 +45,7 @@
 			</div>
 
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Director general group</dt>
+				<dt class="govuk-summary-list__key">Director General group</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantProfile-dgGroup'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant-management/grant/profile/director-general-group?status=change">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
@@ -121,18 +121,22 @@
 			{% endif %} -->
 		</dl>
 
+		<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
       <p>
-        You can edit, update and add more information about this grant at any time by going to 'Grant details' in your account.
+        You can edit, update and add more information about this grant at any time.
       </p>
 
 
 
-        <form method="post" action="/funding/grant-management/funding/grant-management/grant/profile/confirmation">
+        <form method="post" action="/funding/grant-management/grant/profile/confirmation">
             <input type="hidden" name="reportStatus" id="reportStatus" value="Sent" />
             {{ govukButton({
-                text: "Save and add grant"
+                text: "Add grant"
             }) }}
         </form>
+	</div>
+	</div>
     </div>
 </div>
 

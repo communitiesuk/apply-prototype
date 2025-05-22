@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What is the funding type?" %}
+{% set pageHeading = "What is the director general group?" %}
 {% set pageSection = "Add a grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -24,12 +24,12 @@
             <form method="post" action="/funding/grant-management/grant/profile/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-		  	<form method="post" action="/funding/grant-management/grant/profile/monitoring">
+		  	<form method="post" action="/funding/grant-management/grant/profile/type">
       	{% endif %}
 
 			{{ govukRadios({
-				name: "grantProfile-type",
-				id: "grantProfile-type",
+				name: "grantProfile-dgGroup",
+				id: "grantProfile-dgGroup",
 				fieldset: {
 					legend: {
 						text: pageHeading,
@@ -38,12 +38,10 @@
 					}
 				},
 				items: [
-					{ value: "Competed", text: "Competed", checked: checked("grantProfile-type", "Competed") },
-					{ value: "Un-competed", text: "Un-competed", checked: checked("grantProfile-type", "Un-competed") },
-					{ value: "Formula based", text: "Formula based", checked: checked("grantProfile-type", "Formula based") },
-					{ value: "Criteria based", text: "Criteria based", checked: checked("grantProfile-type", "Criteria based") },
-					{ value: "Mixed", text: "Mixed", checked: checked("grantProfile-type", "Mixed") },
-					{ value: "Expression of interest", text: "Expression of interest", checked: checked("grantProfile-type", "Expression of interest") }
+					{ value: "Local Government and Public Service", text: "Local Government and Public Service", checked: checked("grantProfile-dgGroup", "Local Government and Public Service") },
+					{ value: "Local Growth, Communities and Devolution", text: "Local Growth, Communities and Devolution", checked: checked("grantProfile-dgGroup", "Local Growth, Communities and Devolution") },
+					{ value: "Safer and Greener Buildings", text: "Safer and Greener Buildings", checked: checked("grantProfile-dgGroup", "Safer and Greener Buildings") },
+					{ value: "Regeneration, Housing and Planning", text: "Regeneration, Housing and Planning", checked: checked("grantProfile-dgGroup", "Regeneration, Housing and Planning") }
 				]
 			}) }}
 

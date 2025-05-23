@@ -49,77 +49,11 @@
 						<img src="/public/images/MHCLG_WHITE_LANDSCP_AW.png" height="30px">
 
 					</a>
-			  	</div>
-
-
-				{% if data['gmSignedIn'] == "yes" %}
-
-				<nav class="mhclg-header__nav">
-					<ul class="mhclg-header__nav__list">
-			  			<li class="mhclg-header__nav__list-item">
-							<a class="mhclg-header__nav__link" href="/signed-out/?gmSignedIn=no">Sign out</a>
-			  			</li>
-					</ul>
-		  		</nav>
-
-				{% endif %}
+			  	</div>			
 
 			</div>
 		</div>
-	</header>
-
-
-
-	{% if data['gmSignedIn'] == "yes" %}
-
-		{% if data['authType'] == "SSO"  %}
-
-		<!-- Service Name and Navigation -->
-		{{ govukServiceNavigation({
-			serviceName: "Deliver grant funding",
-			serviceUrl: "#",
-			navigation: [
-				{ href: "/funding/", text: "Grants", active: true }
-			]
-
-		}) }}
-
-		{% else %}
-
-		{{ govukServiceNavigation({
-			serviceName: "Access grant funding",
-			serviceUrl: "#",
-			navigation: [
-				{ href: "/funding/", text: "Grants", active: true }
-				
-			]
-
-		}) }}
-
-
-		{% endif %}
-
-	{% else %}
-
-		{% if data['authType'] == "SSO"  %}
-
-		<!-- Service Name and Navigation -->
-		{{ govukServiceNavigation({
-			serviceName: "Deliver grant funding",
-			serviceUrl: "#"
-		}) }}
-
-		{% else %}
-
-		<!-- Service Name and Navigation -->
-		{{ govukServiceNavigation({
-			serviceName: "Access grant funding",
-			serviceUrl: "#"
-		}) }}
-
-		{% endif %}
-
-	{% endif %}
+	</header>	
 
 {% endblock %}
 

@@ -30,3 +30,9 @@ router.use('/', (req, res, next) => {
   console.log('previous page is: ' + res.locals.prevURL + " and current page is " + req.url + " " + res.locals.currentURL );
     next();
   });
+
+// Below 3 lines added by the Data Upload Design Kit plugin.
+// If you uninstall the plugin, remove the 3 lines below.
+const importer = require("@register-dynamics/importer");
+const cfg = require("govuk-prototype-kit/lib/config");
+importer.Initialise(cfg.getConfig(), router, govukPrototypeKit);

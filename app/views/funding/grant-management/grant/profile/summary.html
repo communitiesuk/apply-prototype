@@ -128,6 +128,16 @@
       </p>
 
 
+	  	{% if data['status'] == "view" %}
+		
+		<form method="post" action="/funding/grant-management/">
+            <input type="hidden" name="status" id="status" value="" />
+	  		{{ govukButton({
+                text: "Return to grant"
+            }) }}
+		</form>
+
+		{% else %}
 
         <form method="post" action="/funding/grant-management/grant/profile/confirmation">
             <input type="hidden" name="reportStatus" id="reportStatus" value="Sent" />
@@ -135,6 +145,10 @@
                 text: "Add grant"
             }) }}
         </form>
+
+		{% endif %}
+
+
 	</div>
 	</div>
     </div>

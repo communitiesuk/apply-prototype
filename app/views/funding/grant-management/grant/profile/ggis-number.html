@@ -24,7 +24,7 @@
             <form method="post" action="/funding/grant-management/grant/profile/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          	<form method="post" action="/funding/grant-management/grant/profile/category">
+          	<form method="post" action="/funding/grant-management/grant/profile/name">
         {% endif %}
 
 				{% set yesGGISHtml %}
@@ -67,7 +67,7 @@
 					},
 					items: [
 						{ value: "Yes", text: "Yes", conditional: { html: yesGGISHtml }, checked: checked("grantProfile-ggis", "Yes") },
-						{ value: "No~/funding/grant-management/grant/profile/cannot-continue", text: "No", checked: checked("grantProfile-ggis", "No") }
+						{ value: "No", text: "No", checked: checked("grantProfile-ggis", "No") }
 					]
 				}) }}
 

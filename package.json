@@ -6,7 +6,8 @@
   },
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "2.0.1",
-    "@x-govuk/govuk-prototype-components": "3.1.0",
+    "@register-dynamics/importer": "https://gitpkg.vercel.app/register-dynamics/data-import/lib/importer?main",
+    "@x-govuk/govuk-prototype-components": "4.0.0",
     "@x-govuk/govuk-prototype-filters": "2.0.0",
     "govuk-frontend": "5.9.0",
     "govuk-notifications": "^1.0.10",

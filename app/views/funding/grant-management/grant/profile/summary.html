@@ -6,7 +6,11 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Check your answers" %}
-{% set pageSection = "Set up a grant" %}
+{% if data['status'] == "view" %}
+	{% set pageSection = "Grant set up" %}
+{% else %}
+	{% set pageSection = "Set up a grant" %}
+{% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

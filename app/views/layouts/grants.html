@@ -72,36 +72,11 @@
 
 	{% if data['gmSignedIn'] == "yes" %}
 
-		{% if data['authType'] == "SSO"  %}
 
-		<!-- Service Name and Navigation -->
 		{{ govukServiceNavigation({
 			serviceName: "Deliver grant funding",
-			serviceUrl: "#",
-			navigation: [
-				{ href: "/funding/", text: "Home", active: true },	
-				{ href: "/funding/", text: "Grant details" },
-				{ href: "/funding/", text: "Applications" },
-				{ href: "/funding/", text: "Reports" },
-				{ href: "/funding/", text: "Users" }				
-			]
+			serviceUrl: "#"			
 		}) }}
-
-
-		{% else %}
-
-		{{ govukServiceNavigation({
-			serviceName: "Access grant funding",
-			serviceUrl: "#",
-			navigation: [
-				{ href: "/funding/", text: "Grants", active: true }
-				
-			]
-
-		}) }}
-
-
-		{% endif %}
 
 	{% else %}
 

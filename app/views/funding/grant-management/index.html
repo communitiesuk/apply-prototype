@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = '' + data['grantProfile-name'] + '' %}
-{% set pageSection = "" %}
+{% set pageSection = "Grant details" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -24,19 +24,19 @@
             </div>
         </div>
 
-        {{ xGovukSecondaryNavigation({
+        <!-- {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
             classes: "govuk-!-margin-bottom-7",
             items: [
                 { text: "Grant details", href: "#", current: true}, 
-                { text: "Applications", href: "#" },
+                { text: "Applicationsgit ", href: "#" },
                 { text: "Reports", href: "#" },
                 { text: "Users", href: "#" }
                 
                 
                 
             ]
-        }) }}
+        }) }} -->
 
 
         <div class="govuk-grid-row">

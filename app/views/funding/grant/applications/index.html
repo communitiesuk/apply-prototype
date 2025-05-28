@@ -6,8 +6,8 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = '' + data['grantProfile-name'] + '' %}
-{% set pageHeading = "Grant name" %}
-{% set pageSection = "Grant details" %}
+{% set pageHeading = "Applications" %}
+{% set pageSection = "Grant name" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -33,77 +33,7 @@
 	        <div class="govuk-grid-column-two-thirds"> 
                 
 				
-				<h2 class="govuk-heading-m">[ Heading for first set of tasks ]</h2>
-
-      {% set completedStatus = {
-        text: "Completed"
-      } %}
-
-      {% set incompleteStatus = {
-        tag: {
-          text: "Incomplete",
-          classes: "govuk-tag--blue"
-        }
-      } %}
-
-      {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
-
-      {{ govukTaskList({
-        idPrefix: "first-section",
-        items: [
-          {
-            title: {
-              text: "Set up the grant"
-            },
-            href: "/funding/grant-management/grant/profile/summary?status=view",
-            status: completedStatus
-          },
-          {
-            title: {
-              text: "Name of second task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },        
-          {
-            title: {
-              text: "Name of third task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of fifth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of sixth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of seventh task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of eighth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          }
-        ]
-      }) }}
-
-
+				
 	  
 
 

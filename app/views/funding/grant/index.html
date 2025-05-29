@@ -4,8 +4,8 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Grant name" %}
-{% set pageSection = "Home" %}
+{% set pageHeading = "Home" %}
+{% set pageSection = '' + data['grantProfile-name'] + '' %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

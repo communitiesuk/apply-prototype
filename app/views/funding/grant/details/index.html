@@ -3,11 +3,9 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-
 {% set pageSize = "xl" %}
-{% set pageHeading = '' + data['grantProfile-name'] + '' %}
 {% set pageHeading = "Grant details" %}
-{% set pageSection = "Grant name" %}
+{% set pageSection = '' + data['grantProfile-name'] + '' %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

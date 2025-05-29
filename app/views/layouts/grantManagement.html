@@ -1,5 +1,7 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
+
+
 {% import "macros/page-title.njk" as macroPageTitle %}
 {% import "macros/page-header.njk" as macroPageHeader %}
 {% import "macros/suggested-page.njk" as macroSuggested %}
@@ -8,6 +10,12 @@
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{% set navigationEnd %}
+  <li class="govuk-service-navigation__item" style="margin-left: auto;">
+    <a class="govuk-service-navigation__link" href="/funding/grants">See all grants</a>
+  </li>
+{% endset %}
 
 <!-- Overides the max width only in assess -->
 {% block stylesheets %}
@@ -79,12 +87,14 @@
 			serviceName: "Deliver grant funding",
 			serviceUrl: "#",
 			navigation: [
-				{ href: "/funding/grant/", text: "Home", active: true },	
+				{ href: "/funding/grant/", text: "Home", active: true },
 				{ href: "/funding/grant/details/", text: "Grant details" },
 				{ href: "/funding/grant/applications/", text: "Applications" },
 				{ href: "/funding/grant/reports/", text: "Reports" },
-				{ href: "/funding/grant/users/", text: "Users" }				
-			]
+				{ href: "/funding/grant/users/", text: "Users" }
+
+			],
+			slots: { navigationEnd: navigationEnd }
 		}) }}
 
 
@@ -95,7 +105,7 @@
 			serviceUrl: "#",
 			navigation: [
 				{ href: "/funding/", text: "Grants", active: true }
-				
+
 			]
 
 		}) }}

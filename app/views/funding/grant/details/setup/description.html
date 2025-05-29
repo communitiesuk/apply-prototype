@@ -1,0 +1,51 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = true %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "What is the main purpose of this grant?" %}
+{% set pageSection = "Set up the grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+		<p>Provide a brief description of the main purpose of the grant. This information will be seen by potential grant recipients.</p>
+
+        <form method="post" action="/funding/grant/details/setup/summary">
+
+
+        	{{ govukCharacterCount({
+            	name: "grantProfile-description",
+            	id: "grantProfile-description",
+            	value: data['grantProfile-description'],
+            	maxwords: 200,
+            	rows: 6,
+            	hint: {
+              		text: "Do not include personal information"
+            	},
+            	label: {
+              		text: pageHeading,
+              		classes: "govuk-label govuk-visually-hidden",
+              		isPageHeading: false
+            	}
+          	}) }}
+
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+<!-- *bc* -->

@@ -20,12 +20,9 @@
 
 		<p>You'll need to provide your GGIS number before you can create forms or assess grant applications.</p>
 
-        {% if data['status'] == "change" %}
-            <form method="post" action="/funding/grant-management/grant/profile/summary">
-				<input type="hidden" name="status" id="status" value="" />
-      	{% else %}
-          	<form method="post" action="/funding/grant-management/grant/profile/name">
-        {% endif %}
+        <form method="post" action="/funding/grant/details/setup/summary">
+			<input type="hidden" name="status" id="status" value="" />
+
 
 				{% set yesGGISHtml %}
 

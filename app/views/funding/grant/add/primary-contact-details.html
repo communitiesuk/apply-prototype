@@ -1,0 +1,65 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = true %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Who is the main contact for this grant?" %}
+{% set pageSection = "Set up the grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+        <p>This is the person that teams at MHCLG can contact if they have any questions about the grant.</p>
+
+        <form method="post" action="/funding/grant/add/summary">
+
+            {{ govukInput({
+                label: {
+                    text: "Full name",
+                    classes: "govuk-label",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                type: "text",
+                id: "grantProfile-primaryContactName",
+                name: "grantProfile-primaryContactName",
+                value: data['grantProfile-primaryContactName']
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Email address",
+                    classes: "govuk-label",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                type: "Email",
+                hint: {
+                    text: "Use the shared email address for the grant team."
+                },
+                id: "grantProfile-primaryContactEmail",
+                name: "grantProfile-primaryContactEmail",
+                value: data['grantProfile-primaryContactEmail']
+            }) }}
+
+
+            {{ govukButton({
+                text: "Save and continue"
+            }) }}
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- *bc* -->

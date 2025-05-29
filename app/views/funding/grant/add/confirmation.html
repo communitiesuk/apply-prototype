@@ -20,32 +20,32 @@
 
         <!-- {{ govukPanel({
             titleText: pageHeading,
-            classes: "govuk-!-margin-bottom-7"            
+            classes: "govuk-!-margin-bottom-7"
         }) }}         -->
 
-        
+
         <p>You can now:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>update or add more information about the grant</li>
             <li>create forms</li>
         </ul>
         <!-- <p class="govuk-body">We have sent you an email to confirm that ((grant_name)) has been added.</p>	 -->
-		
+
 		<!-- <h2 class="govuk-heading-m">What happens next</h2>	 -->
-        <!-- <p>You can add more information about the grant by going to 'Grant details' in your account.</p> -->        
-		
-        <!-- <ul class="govuk-list">            
-            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant-management/">Go to grant homepage</a></li>            
-            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant-management/grant/profile/name">Add another grant</a></li>
+        <!-- <p>You can add more information about the grant by going to 'Grant details' in your account.</p> -->
+
+        <!-- <ul class="govuk-list">
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant-management/">Go to grant homepage</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/name">Add another grant</a></li>
         </ul> -->
 
-        <form method="post" action="/funding/grant-management/">            
+        <form method="post" action="/funding/grant/">
             {{ govukButton({
                 text: "Continue to grant home",
                 classes: "govuk-!-margin-top-5"
             }) }}
         </form>
-        
+
     </div>
 </div>
 

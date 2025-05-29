@@ -1,0 +1,84 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set showBackLink = true %}
+{% set showBackApplicationsLink = false %}
+
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Do you have a Government Grants Information System (GGIS) reference number?" %}
+{% set pageSection = "Set up the grant" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+		<p>You'll need to provide your GGIS number before you can create forms or assess grant applications.</p>
+
+        {% if data['status'] == "change" %}
+            <form method="post" action="/funding/grant/add/summary">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+          	<form method="post" action="/funding/grant/add/name">
+        {% endif %}
+
+				{% set yesGGISHtml %}
+
+					{{ govukInput({
+						id: "grantProfile-ggisNumber",
+						name: "grantProfile-ggisNumber",
+						value: data['grantProfile-ggisNumber'],
+						autocomplete: "number",
+						spellcheck: false,
+						classes: "govuk-!-width-two-thirds",
+						label: {
+							text: "Enter your GGIS reference number"
+						},
+						hint: {
+							text: "For example, G2-SCH-2025-05-12346."
+						}
+					}) }}
+
+				{% endset -%}
+
+
+				{% set noGGISHtml %}
+
+					<p>You can still add this grant, but will need to add a GGIS number before creating forms.</p>
+
+				{% endset -%}
+
+
+
+				{{ govukRadios({
+					name: "grantProfile-ggis",
+					id: "grantProfile-ggis",
+					fieldset: {
+						legend: {
+							text: pageHeading,
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend govuk-visually-hidden"
+						}
+					},
+					items: [
+						{ value: "Yes", text: "Yes", conditional: { html: yesGGISHtml }, checked: checked("grantProfile-ggis", "Yes") },
+						{ value: "No", text: "No", checked: checked("grantProfile-ggis", "No") }
+					]
+				}) }}
+
+            	{{ govukButton({
+                	text: "Save and continue"
+            	}) }}
+        	</form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- *bc* -->

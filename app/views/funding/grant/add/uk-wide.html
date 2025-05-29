@@ -21,10 +21,10 @@
         <p>The grant is provided to organisations throughout the whole of the United Kingdom.</p>
 
       	{% if data['status'] == "change" %}
-        	<form method="post" action="/funding/grant-management/grant/profile/summary">
+        	<form method="post" action="/funding/grant/add/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          	<form method="post" action="/funding/grant-management/grant/profile/welsh">
+          	<form method="post" action="/funding/grant/add/welsh">
         {% endif %}
 
         		{{ govukRadios({
@@ -40,7 +40,7 @@
           			},
           			items: [
             			{ value: "Yes", text: "Yes", checked: checked("grantProfile-ukWide", "Yes") },
-            			{ value: "No~/funding/grant-management/grant/profile/summary", text: "No", checked: checked("grantProfile-ukWide", "No") }
+            			{ value: "No~/funding/grant/add/summary", text: "No", checked: checked("grantProfile-ukWide", "No") }
           			]
         		}) }}
 

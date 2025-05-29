@@ -20,10 +20,10 @@
 
         <p>This is for competed grants where organisations will need to apply for funding.</p>
 
-        <form method="post" action="/funding/grant-management/grant/profile/opening-date">
+        <form method="post" action="/funding/grant/add/opening-date">
 
-             {{ govukRadios({        
-                classes: "govuk-radios--inline",        
+             {{ govukRadios({
+                classes: "govuk-radios--inline",
                 name: "grantProfile-preAward",
                 fieldset: {
                     legend: {
@@ -34,7 +34,7 @@
                 },
                 items: [
                     { value: "Yes", text: "Yes" },
-                    { value: "No~/funding/grant-management/grant/profile/description", text: "No" }
+                    { value: "No~/funding/grant/add/description", text: "No" }
                 ]
             }) }}
 

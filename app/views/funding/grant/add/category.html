@@ -21,10 +21,10 @@
 		<p>Select which tier this grant falls into, according to the Cabinet Office categorisation framework.</p>
 
         {% if data['status'] == "change" %}
-            <form method="post" action="/funding/grant-management/grant/profile/summary">
+            <form method="post" action="/funding/grant/add/summary">
 				<input type="hidden" name="status" id="status" value="" />
       	{% else %}
-          	<form method="post" action="/funding/grant-management/grant/profile/name">
+          	<form method="post" action="/funding/grant/add/name">
         {% endif %}
 
 				{{ govukRadios({

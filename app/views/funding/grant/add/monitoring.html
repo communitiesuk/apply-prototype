@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What date will applications open?" %}
+{% set pageHeading = "Will you need to collect monitoring data?" %}
 {% set pageSection = "Set up the grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,24 +18,27 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p class="govuk-body">If applications have already opened, enter the date for reference.</p>
+        {% if data['status'] == "change" %}
+            <form method="post" action="/funding/grant/add/summary">
+				<input type="hidden" name="status" id="status" value="" />
+      	{% else %}
+            <form method="post" action="/funding/grant/add/primary-contact-details">
+        {% endif %}
 
-        <form method="post" action="/funding/grant-management/grant/profile/closing-date">
-
-            {{ govukDateInput({
-                id: "grantProfile-openingDate",
-                namePrefix: "grantProfile-openingDate",
+            {{ govukRadios({
+                classes: "govuk-radios--inline",
+                name: "grantProfile-monitoring",
                 fieldset: {
                     legend: {
                         text: pageHeading,
-                        isPageHeading: true,
+                        isPageHeading: false,
                         classes: "govuk-fieldset__legend govuk-visually-hidden"
                     }
                 },
-                hint: {
-                  text: "For example, 27 7 2025"
-                },
-                value: data['grantProfile-openingDate']
+                items: [
+                    { value: "Yes", text: "Yes" },
+                    { value: "No", text: "No" }
+                ]
             }) }}
 
 
@@ -43,6 +46,7 @@
                 text: "Save and continue"
             }) }}
         </form>
+
     </div>
 </div>
 

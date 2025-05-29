@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What date will applications close?" %}
+{% set pageHeading = "What is the name of this grant?" %}
 {% set pageSection = "Set up the grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,22 +18,23 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <form method="post" action="/funding/grant-management/grant/profile/description">
+        <p>This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p>
 
-            {{ govukDateInput({
-                id: "grantProfile-closingDate",
-                namePrefix: "grantProfile-closingDate",
-                fieldset: {
-                    legend: {
-                        text: pageHeading,
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend govuk-visually-hidden"
-                    }
+        <form method="post" action="/funding/grant/add/description">
+
+            {{ govukInput({
+                label: {
+                    text: "Grant name",
+                    classes: "govuk-label govuk-visually-hidden",
+                    isPageHeading: false
                 },
-                hint: {
-                  text: "For example, 27 7 2025"
-                }
+                classes: "govuk-!-width-two-thirds",
+                id: "grantProfile-name",
+                name: "grantProfile-name",
+                value: data['grantProfile-name']
             }) }}
+
+
 
             {{ govukButton({
                 text: "Save and continue"

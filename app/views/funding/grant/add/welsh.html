@@ -21,10 +21,10 @@
         <p>For example, your grant prospectus or application form.</p>
 
         {% if data['status'] == "change" %}
-            <form method="post" action="/funding/grant-management/grant/profile/summary">
+            <form method="post" action="/funding/grant/add/summary">
                 <input type="hidden" name="status" id="status" value="" />
         {% else %}
-            <form method="post" action="/funding/grant-management/grant/profile/summary">
+            <form method="post" action="/funding/grant/add/summary">
         {% endif %}
 
             	{{ govukRadios({

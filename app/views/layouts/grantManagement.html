@@ -87,11 +87,11 @@
 			serviceName: "Deliver grant funding",
 			serviceUrl: "#",
 			navigation: [
-				{ href: "/funding/grant/", text: "Home", active: true },
-				{ href: "/funding/grant/details/", text: "Grant details" },
-				{ href: "/funding/grant/applications/", text: "Applications" },
-				{ href: "/funding/grant/reports/", text: "Reports" },
-				{ href: "/funding/grant/users/", text: "Users" }
+				{ href: "/funding/grant/", text: "Home", active: navID == "grantHome"  },
+				{ href: "/funding/grant/details/", text: "Grant details", active: navID == "grantDetails" },
+				{ href: "/funding/grant/applications/", text: "Applications", active: navID == "grantApplications" },
+				{ href: "/funding/grant/reports/", text: "Reports", active: navID == "grantReports" },
+				{ href: "/funding/grant/users/", text: "Users", active: navID == "grantUsers" }
 
 			],
 			slots: { navigationEnd: navigationEnd }

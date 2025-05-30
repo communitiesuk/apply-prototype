@@ -1,5 +1,6 @@
 {% extends "layouts/grantManagement.html" %}
 
+{% set navID = 'grantUsers' %}
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
@@ -18,87 +19,81 @@
         <div class="govuk-grid-row">
 	        <div class="govuk-grid-column-two-thirds">
 
+				{% if data.notification == "userAdded" %}
+
+					{% set html %}
+						<h3 class="govuk-notification-banner__heading">{{ data['addUser-Name'] }} has been added as a {{ data['addUser-role'] }} to {{ data['grantProfile-name']}}</h3>
+						<p>We have sent them a confirmation email.</p>
+					{% endset %}
+
+					{{ govukNotificationBanner({
+						html: html,
+						type: "success"
+					}) }}
+
+				{% endif %}
+
                 {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-            </div>
-            <div class="govuk-grid-column-one-third">
-                {% include "/funding/includes/switch_grants.html" %}
-              </div>
-        </div>
+			</div>
+		</div>
+
+                <form method="post" action="/funding/grant/users/add/" >
+					{{ govukButton({
+						text: "Add user"
+					}) }}
+				</form>
 
 
-        <div class="govuk-grid-row">
-	        <div class="govuk-grid-column-two-thirds">
+    			<h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-5">Contributors</h2>
+
+					{{ govukTable({
+						captionClasses: "govuk-table__caption--m",
+						head: [
+							{ text: "Name", classes: "govuk-!-width-one-quarter" },
+							{ text: "Email" },
+							{ text: "Permissions", classes: "govuk-!-width-one-quarter", format: "numeric" }
+						],
+						rows: [
+							[
+								{ html: '<a href="/funding/grant/users/edit">Gemma Currie</a>' },
+								{ text: "gemma.currie@localgov.co.uk" },
+								{ text: "Edit, Review", format: "numeric" }
+							],
+							[
+								{ html: '<a href="/funding/grant/users/edit">Sam Williams</a>' },
+								{ text: "sam.williams@localgov.co.uk" },
+								{ html: "Edit, Review", format: "numeric" }
+							],
+							[
+								{ html: '<a href="/funding/grant/users/edit">Gideon Goldberg</a>' },
+								{ text: "gideon.goldberg@localgov.co.uk" },
+								{ html: "Edit, Review", format: "numeric" }
+							]
+						]
+					}) }}
 
 
-                <form method="post" action="/users/add/" >
-    {{ govukButton({
-      text: "Add a new user"
-    }) }}
-	</form>
-
-
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-5">Reporters</h2>
-
-		{{ govukTable({
-      		captionClasses: "govuk-table__caption--m",
-      		head: [
-        		{ text: "Name", classes: "govuk-!-width-one-quarter" },
-        		{ text: "Email" },
-        		{ text: "Permissions", classes: "govuk-!-width-one-quarter", format: "numeric" }
-      		],
-      		rows: [
-        		[
-          			{ html: '<a href="/users/edit">Gemma Currie</a>' },
-          			{ text: "gemma.currie@localgov.co.uk" },
-          			{ text: "Edit, Review", format: "numeric" }
-        		],
-        		[
-          			{ html: '<a href="/users/edit">Sam Williams</a>' },
-          			{ text: "sam.williams@localgov.co.uk" },
-          			{ html: "Edit, Review", format: "numeric" }
-        		],
-        		[
-          			{ html: '<a href="/users/edit">Gideon Goldberg</a>' },
-          			{ text: "gideon.goldberg@localgov.co.uk" },
-          			{ html: "Edit, Review", format: "numeric" }
-        		]
-      		]
-    	}) }}
-
-
-    	<h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-9">Sign-off</h2>
-    	{{ govukTable({
-      		captionClasses: "govuk-table__caption--m",
-      		head: [
-        		{ text: "Name", classes: "govuk-!-width-one-quarter" },
-        		{ text: "Email" },
-        		{ text: "Permissions", classes: "govuk-!-width-one-quarter", format: "numeric"  }
-      		],
-      		rows: [
-        		[
-          			{ html: '<a href="/users/edit">Kate Harries</a>' },
-          			{ text: "kate.harries@localgov.co.uk" },
-          			{ html: "Sign-off", format: "numeric" }
-        		]
-      		]
-    	}) }}
+					<h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-9">Sign-off</h2>
+					{{ govukTable({
+						captionClasses: "govuk-table__caption--m",
+						head: [
+							{ text: "Name", classes: "govuk-!-width-one-quarter" },
+							{ text: "Email" },
+							{ text: "Permissions", classes: "govuk-!-width-one-quarter", format: "numeric"  }
+						],
+						rows: [
+							[
+								{ html: '<a href="/funding/grant/users/edit">Kate Harries</a>' },
+								{ text: "kate.harries@localgov.co.uk" },
+								{ html: "Sign-off", format: "numeric" }
+							]
+						]
+					}) }}
 
 
 
-
-            </div>
-        </div>
-
-
-    </div>
+	</div>
 </div>
 
 {% endblock %}
-
-
-<!--
-{ text: "Assess applications", href: "#" },
-                { text: "Recipients", href: "#" },
-                { text: "Payments", href: "#" },
-                { text: "Reports", href: "#" } -->

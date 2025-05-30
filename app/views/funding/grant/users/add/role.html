@@ -1,27 +1,30 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/grantManagement.html" %}
 
+{% set navID = 'grantUsers' %}
 {% set showBackLink = true %}
-{% set showBread = false %}
-{% set showNav = true %}
+{% set showBackApplicationsLink = false %}
 
+{% set pageSize = "xl" %}
 {% set pageHeading = "What role will they have?" %}
 {% set pageSection = "Add new user" %}
-{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      
-  
-    
-            
-            <form method="post" action="/users/add/check-your-answers" >
-            
+<div class="govuk-grid-row">
+
+	    <div class="govuk-grid-column-two-thirds">
+
+                {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+
+            <form method="post" action="/funding/grant/users/add/check-your-answers" >
+
                 {{ govukRadios({
-                    name: "whereDoYouLive",
+                    name: "addUser-role",
+                    id: "addUser-role",
                     fieldset: {
                       legend: {
                         text: "What role will they have?",
@@ -30,14 +33,15 @@
                       }
                     },
                     items: [
-                      { value: "reporter", text: "Reporter" },
-                      { value: "sign-off", text: "Sign-off" },
-                      { value: "viewer", text: "Viewer" }                      
+                      { value: "reporter", text: "Reporter", checked: checked("addUser-role", "reporter") },
+                      { value: "sign-off", text: "Sign-off", checked: checked("addUser-role", "sign-off") },
+                      { value: "viewer", text: "Viewer", checked: checked("addUser-role", "viewer") }
                     ]
+
                   }) }}
-                
-                
-                
+
+
+
 
                 {{ govukButton({
                     text: "Continue"
@@ -46,8 +50,8 @@
             </form>
 
 
-      
-  </div>  
+
+  </div>
 </div>
 
 

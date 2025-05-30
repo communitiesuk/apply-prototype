@@ -1,37 +1,43 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/grantManagement.html" %}
 
+{% set navID = 'grantUsers' %}
 {% set showBackLink = true %}
-{% set showBread = false %}
-{% set showNav = true %}
+{% set showBackApplicationsLink = false %}
 
+{% set pageSize = "xl" %}
 {% set pageHeading = "What’s their email address?" %}
 {% set pageSection = "Add new user" %}
-{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}      
-  
-    
-            
-            <form method="post" action="/users/add/position" >
-            
-        
+<div class="govuk-grid-row">
+
+	    <div class="govuk-grid-column-two-thirds">
+
+                {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+
+            <form method="post" action="/funding/grant/users/add/position" >
+
+
                 {{ govukInput({
                     label: {
                         text: pageHeading,
                         classes: "govuk-visually-hidden",
                         isPageHeading: false
                     },
-                    classes: "govuk-!-width-two-thirds"
+                    classes: "govuk-!-width-two-thirds",
+                    id: "addUser-Email",
+                    name: "addUser-Email",
+                    value: data['addUser-Email'],
+                    type: "Email"
                 }) }}
 
-                
-                
+
+
 
                 {{ govukButton({
                     text: "Continue"
@@ -40,8 +46,8 @@
             </form>
 
 
-      
-  </div>  
+
+  </div>
 </div>
 
 

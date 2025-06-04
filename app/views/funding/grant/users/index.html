@@ -24,7 +24,7 @@
 					{% set html %}
 						<h3 class="govuk-notification-banner__heading">Grant team member added</h3>
 						<!-- <p>We’ve sent you a confirmation email and sent the team member a link to sign in.</p>                         -->
-                        <p>We’ve sent the team member a link to sign in.</p>                        
+                        <p>We’ve sent you a confirmation email and sent the team member a sign-in link.</p>                        
 					{% endset %}
 
 					{{ govukNotificationBanner({
@@ -39,65 +39,79 @@
 			</div>
 		</div>
 
-                <form method="post" action="/funding/grant/users/add/email" >
+                <form method="post" action="/funding/grant/users/add/email" class="govuk-!-margin-bottom-5" >
 					{{ govukButton({
 						text: "Add grant team member"
 					}) }}
 				</form>
 
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-9">Not yet signed in </h2>
+                <p>Grant team members who have been added but not signed in yet.</p>
+                {{ govukTable({
+                    captionClasses: "govuk-table__caption--m",
+                    classes: "govuk-!-margin-bottom-9",
+                    head: [                        
+                        { text: "Email" },
+                        { text: "Role", classes: "govuk-!-width-one-quarter" }
+                    ],
+                    rows: [
+                    [                           
+                            { text: data['addUser-Email'] },
+                            { text: "Grant team member"}
+                        ]
+                    ]
+                }) }}
 
-    			<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-5">Contributors</h2> -->
 
-					{{ govukTable({
-						captionClasses: "govuk-table__caption--m",
-						head: [
-							{ text: "Name", classes: "govuk-!-width-one-quarter" },
-							{ text: "Email" },
-							{ text: "Role", classes: "govuk-!-width-one-quarter" }
-						],
-						rows: [
+                {{ govukTable({
+                    captionClasses: "govuk-table__caption--m",
+                    head: [
+                        { text: "Name", classes: "govuk-!-width-one-quarter" },
+                        { text: "Email" },
+                        { text: "Role", classes: "govuk-!-width-one-quarter" }
+                    ],
+                    rows: [
+                    
                         [
-								{ html: '' },
-								{ text: data['addUser-Email'] },
-								{ text: "Grant team member"}
-							],
-							[
-								{ html: 'Gemma Currie' },
-								{ text: "gemma.currie@localgov.co.uk" },
-								{ text: "Grant team member"}
-							],
-							[
-								{ html: 'Sam Williams' },
-								{ text: "sam.williams@localgov.co.uk" },
-								{ html: "Grant team member"}
-							],
-							[
-								{ html: 'Gideon Goldberg' },
-								{ text: "gideon.goldberg@localgov.co.uk" },
-								{ html: "Grant team member"}
-							]
-						]
-					}) }}
+                            { html: 'Gemma Currie' },
+                            { text: "gemma.currie@communities.gov.uk" },
+                            { text: "Grant team member"}
+                        ],
+                        [
+                            { html: 'Sam Williams' },
+                            { text: "sam.williams@communities.gov.uk" },
+                            { html: "Grant team member"}
+                        ],
+                        [
+                            { html: 'Gideon Goldberg' },
+                            { text: "gideon.goldberg@communities.gov.uk" },
+                            { html: "Grant team member"}
+                        ]
+                    ]
+                }) }}
 
+<!-- [
+                            { html: '' },
+                            { text: data['addUser-Email'] },
+                            { text: "Grant team member"}
+                        ] -->
 
-					<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-9">Sign-off</h2>
-					{{ govukTable({
-						captionClasses: "govuk-table__caption--m",
-						head: [
-							{ text: "Name", classes: "govuk-!-width-one-quarter" },
-							{ text: "Email" },
-							{ text: "Permissions", classes: "govuk-!-width-one-quarter", format: "numeric"  }
-						],
-						rows: [
-							[
-								{ html: '<a href="/funding/grant/users/edit">Kate Harries</a>' },
-								{ text: "kate.harries@localgov.co.uk" },
-								{ html: "Sign-off", format: "numeric" }
-							]
-						]
-					}) }} -->
-
-
+                <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-9">Sign-off</h2>
+                {{ govukTable({
+                    captionClasses: "govuk-table__caption--m",
+                    head: [
+                        { text: "Name", classes: "govuk-!-width-one-quarter" },
+                        { text: "Email" },
+                        { text: "Permissions", classes: "govuk-!-width-one-quarter", format: "numeric"  }
+                    ],
+                    rows: [
+                        [
+                            { html: '<a href="/funding/grant/users/edit">Kate Harries</a>' },
+                            { text: "kate.harries@localgov.co.uk" },
+                            { html: "Sign-off", format: "numeric" }
+                        ]
+                    ]
+                }) }} -->
 
 	</div>
 </div>

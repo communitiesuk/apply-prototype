@@ -5,7 +5,7 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Users" %}
+{% set pageHeading = "Grant team" %}
 {% set pageSection = '' + data['grantProfile-name'] + '' %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -22,8 +22,9 @@
 				{% if data.notification == "userAdded" %}
 
 					{% set html %}
-						<h3 class="govuk-notification-banner__heading">{{ data['addUser-Name'] }} has been added as a {{ data['addUser-role'] }} to {{ data['grantProfile-name']}}</h3>
-						<p>We have sent them a confirmation email.</p>
+						<h3 class="govuk-notification-banner__heading">Grant team member added</h3>
+						<!-- <p>We’ve sent you a confirmation email and sent the team member a link to sign in.</p>                         -->
+                        <p>We’ve sent the team member a link to sign in.</p>                        
 					{% endset %}
 
 					{{ govukNotificationBanner({
@@ -38,43 +39,48 @@
 			</div>
 		</div>
 
-                <form method="post" action="/funding/grant/users/add/" >
+                <form method="post" action="/funding/grant/users/add/email" >
 					{{ govukButton({
-						text: "Add user"
+						text: "Add grant team member"
 					}) }}
 				</form>
 
 
-    			<h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-5">Contributors</h2>
+    			<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-5">Contributors</h2> -->
 
 					{{ govukTable({
 						captionClasses: "govuk-table__caption--m",
 						head: [
 							{ text: "Name", classes: "govuk-!-width-one-quarter" },
 							{ text: "Email" },
-							{ text: "Permissions", classes: "govuk-!-width-one-quarter", format: "numeric" }
+							{ text: "Role", classes: "govuk-!-width-one-quarter" }
 						],
 						rows: [
+                        [
+								{ html: '' },
+								{ text: data['addUser-Email'] },
+								{ text: "Grant team member"}
+							],
 							[
-								{ html: '<a href="/funding/grant/users/edit">Gemma Currie</a>' },
+								{ html: 'Gemma Currie' },
 								{ text: "gemma.currie@localgov.co.uk" },
-								{ text: "Edit, Review", format: "numeric" }
+								{ text: "Grant team member"}
 							],
 							[
-								{ html: '<a href="/funding/grant/users/edit">Sam Williams</a>' },
+								{ html: 'Sam Williams' },
 								{ text: "sam.williams@localgov.co.uk" },
-								{ html: "Edit, Review", format: "numeric" }
+								{ html: "Grant team member"}
 							],
 							[
-								{ html: '<a href="/funding/grant/users/edit">Gideon Goldberg</a>' },
+								{ html: 'Gideon Goldberg' },
 								{ text: "gideon.goldberg@localgov.co.uk" },
-								{ html: "Edit, Review", format: "numeric" }
+								{ html: "Grant team member"}
 							]
 						]
 					}) }}
 
 
-					<h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-9">Sign-off</h2>
+					<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-9">Sign-off</h2>
 					{{ govukTable({
 						captionClasses: "govuk-table__caption--m",
 						head: [
@@ -89,7 +95,7 @@
 								{ html: "Sign-off", format: "numeric" }
 							]
 						]
-					}) }}
+					}) }} -->
 
 
 

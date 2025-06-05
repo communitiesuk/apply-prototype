@@ -19,7 +19,12 @@
             </thead>
             <tbody class="govuk-table__body">
 
-                
+                 {% for key, item in data %}
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">{{ key }}</th>
+                        <td class="govuk-table__cell">{{ item }}</td>
+                    </tr>
+                {% endfor %}
 
             </tbody>
         </table>

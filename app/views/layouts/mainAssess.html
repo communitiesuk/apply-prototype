@@ -15,20 +15,20 @@
 
 {% block header %}
 
-	{% if data['loggedIn'] == "yes" %}
+	{% if data['signedIn'] == "yes" %}
 
     	{{ govukHeader({
-        	homepageUrl: "/?loggedIn=no",
+        	homepageUrl: "/?signedIn=no",
             serviceName: "Assess grant applications",
-          	serviceUrl: "/?loggedIn=no"
+          	serviceUrl: "/?signedIn=no"
         }) }}
 
-    {% elif data['loggedIn'] == "no" %}
+    {% elif data['signedIn'] == "no" %}
 
       	{{ govukHeader({
-        	homepageUrl: "/?loggedIn=no",
+        	homepageUrl: "/?signedIn=no",
         	serviceName: "Assess grant applications",
-        	serviceUrl: "/?loggedIn=no"
+        	serviceUrl: "/?signedIn=no"
       	}) }}
 
     {% endif %}
@@ -58,7 +58,7 @@
 	{% endif %}
 		</div>
 		<div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    {% if data['loggedIn'] == "yes" %}
+    {% if data['signedIn'] == "yes" %}
 		{{ govukServiceNavigation({
 			navigation: [
 				{ href: "/assess/help", text: "Get help" },

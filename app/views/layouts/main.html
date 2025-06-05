@@ -23,24 +23,24 @@
 
 {% block header %}
 
-	{% if data['loggedIn'] == "yes" %}
+	{% if data['signedIn'] == "yes" %}
 
     	{{ govukHeader({
-        	homepageUrl: "/?loggedIn=no",
+        	homepageUrl: "/?signedIn=no",
           	serviceName: serviceName,
-          	serviceUrl: "/?loggedIn=no",
+          	serviceUrl: "/?signedIn=no",
           	navigation: [
             	{ href: "/apply/applications/all", text: "View all applications" },
-            	{ href: "/apply/signed-out?loggedIn=no", text: "Sign out" }
+            	{ href: "/apply/signed-out?signedIn=no", text: "Sign out" }
           	]
         }) }}
 
-    {% elif data['loggedIn'] == "no" %}
+    {% elif data['signedIn'] == "no" %}
 
     	{{ govukHeader({
-        	homepageUrl: "/?loggedIn=no",
+        	homepageUrl: "/?signedIn=no",
         	serviceName: brian,
-        	serviceUrl: "/?loggedIn=no"
+        	serviceUrl: "/?signedIn=no"
       	}) }}
 
     {% endif %}

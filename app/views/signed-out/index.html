@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-		<p class="govuk-body">If you need to sign in again, you can <a href="/sign-in/?gmSignedIn=no" class="govuk-link govuk-link--no-visited-state">
+		<p class="govuk-body">If you need to sign in again, you can <a href="/sign-in/?signedIn=no" class="govuk-link govuk-link--no-visited-state">
             {% if data['authentication'] == "SSO" %}
                 request a new code
             {% else %}

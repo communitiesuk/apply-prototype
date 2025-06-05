@@ -24,7 +24,7 @@
 					{% set html %}
 						<h3 class="govuk-notification-banner__heading">Grant team member added</h3>
 						<!-- <p>We’ve sent you a confirmation email and sent the team member a link to sign in.</p>                         -->
-                        <p>We’ve sent you a confirmation email and sent the team member a sign-in link.</p>                        
+                        <p>We’ve sent you confirmation and emailed the team member a link to sign in.</p>
 					{% endset %}
 
 					{{ govukNotificationBanner({
@@ -56,12 +56,12 @@
                 {{ govukTable({
                     captionClasses: "govuk-table__caption--m",
                     classes: "govuk-!-margin-bottom-9",
-                    head: [                        
+                    head: [
                         { text: "Email" },
                         { text: "Role", classes: "govuk-!-width-one-quarter" }
                     ],
                     rows: [
-                    [                           
+                    [
                             { text: data['addUser-Email'] },
                             { text: "Grant team member"}
                         ]
@@ -70,7 +70,7 @@
 
 
                 <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-9">Grant team members</h2>
-                
+
                 {{ govukTable({
                     captionClasses: "govuk-table__caption--m",
                     head: [
@@ -79,7 +79,7 @@
                         { text: "Role", classes: "govuk-!-width-one-quarter" }
                     ],
                     rows: [
-                    
+
                         [
                             { html: 'Gemma Currie' },
                             { text: "gemma.currie@communities.gov.uk" },

@@ -46,8 +46,8 @@
 			</ul>
 
 			<form method="post" action="/sign-in/?gmSignedIn=no" >
-				<input type="hidden" name="fundService" id="fundService" value="funding" />
-				<input type="hidden" name="authType" id="authType" value="SSO" />
+				<input type="hidden" name="fundingService" id="fundingService" value="funding" />
+				<input type="hidden" name="authentication" id="authentication" value="SSO" />
 				{{ govukButton({
 					text: "Continue",
 					classes: "govuk-!-margin-top-3"
@@ -68,8 +68,8 @@
 			</ul>
 
 			<form method="post" action="/sign-in/?gmSignedIn=no" >
-				<input type="hidden" name="fundService" id="fundService" value="funding" />
-				<input type="hidden" name="authType" id="authType" value="Magic link" />
+				<input type="hidden" name="fundingService" id="fundingService" value="funding" />
+				<input type="hidden" name="authentication" id="authentication" value="Magic link" />
 
 
 				{{ govukButton({
@@ -87,7 +87,7 @@
 			<p class="govuk-body">Apply for funding has been designed to allow local authorities, charities, and community groups to apply for different types of funding from Ministry of Housing, Communities and Local Government (MHCLG).</p>
 			<p class="govuk-body">You will be able to select which funding as part of the user flow.</p>
 			<form method="post" action="/preload" >
-				<input type="hidden" name="fundService" id="fundService" value="apply" />
+				<input type="hidden" name="fundingService" id="fundingService" value="apply" />
 				{{ govukButton({
 					text: "Continue",
 					classes: "govuk-!-margin-top-3"
@@ -95,7 +95,7 @@
 			</form>
 
 			<!-- <form method="post" action="/preload" >
-				<input type="hidden" name="fundService" id="fundService" value="apply" />
+				<input type="hidden" name="fundingService" id="fundingService" value="apply" />
 
 
 				<input type="hidden" name="section1_1" id="section1_1" value="yes" />
@@ -138,7 +138,7 @@
 
 
 			<form method="post" action="/assess/" >
-				<input type="hidden" name="fundService" id="fundService" value="assess" />
+				<input type="hidden" name="fundingService" id="fundingService" value="assess" />
 				{{ govukButton({
 					text: "Continue",
 					classes: "govuk-!-margin-top-3"

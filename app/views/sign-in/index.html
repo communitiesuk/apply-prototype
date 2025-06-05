@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 
-{% if data['authType'] == "SSO" %}
+{% if data['authentication'] == "SSO" %}
     {% set pageHeading = "Deliver grant funding" %}
 {% else %}
     {% set pageHeading = "Access grant funding" %}
@@ -25,7 +25,7 @@
 
 
 
-        {% if data['authType'] == "SSO" %}
+        {% if data['authentication'] == "SSO" %}
 
             <p>A connected and consistent digital service for users within Funding Service, and grant teams.</p>
             <p>The service includes:</p>

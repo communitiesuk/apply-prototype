@@ -22,12 +22,12 @@
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
     	<p class="govuk-body govuk-!-margin-bottom-7">MHCLG users should select single sign on (SSO).</p>
 
-		{% if data['fundService'] == "funding" %}
+		{% if data['fundingService'] == "funding" %}
 
 			<form method="post" action="/sign-in/?gmSignedIn=no" >
 
 			{{ govukRadios({
-				name: "authType",
+				name: "authentication",
 				fieldset: {
 					legend: {
 						text: "Which type of user authentication?",
@@ -36,8 +36,8 @@
 					}
 				},
 				items: [
-					{ value: "SSO", text: "Single sign on (SSO)", checked: checked("authType", "SSO")  },
-					{ value: "Magic link", text: "Magic link", checked: checked("authType", "Magic link")  }
+					{ value: "SSO", text: "Single sign on (SSO)", checked: checked("authentication", "SSO")  },
+					{ value: "Magic link", text: "Magic link", checked: checked("authentication", "Magic link")  }
 				]
 			}) }}
 
@@ -50,7 +50,7 @@
 		{% else %}
 
 			<form method="post" action="/apply/" >
-				<input type="hidden" name="fundService" id="fundService" value="apply" />
+				<input type="hidden" name="fundingService" id="fundingService" value="apply" />
 
 				{{ govukRadios({
 					name: "fundName",

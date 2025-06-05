@@ -84,7 +84,7 @@
 
 	{% if data['gmSignedIn'] == "yes" %}
 
-		{% if data['authType'] == "SSO"  %}
+		{% if data['authentication'] == "SSO"  %}
 
 			{% if data['navID'] == "addGrant" %} 
 
@@ -139,7 +139,7 @@
 
 	{% else %}
 
-		{% if data['authType'] == "SSO"  %}
+		{% if data['authentication'] == "SSO"  %}
 
 		<!-- Service Name and Navigation -->
 		{{ govukServiceNavigation({

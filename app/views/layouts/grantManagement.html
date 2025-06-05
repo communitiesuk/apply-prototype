@@ -70,7 +70,7 @@
 						<li class="mhclg-header__nav__list-item">
 							<a class="mhclg-header__nav__link" href="/signed-out/?gmSignedIn=no">Sign out</a>
 			  			</li>
-						
+
 					</ul>
 		  		</nav>
 
@@ -104,11 +104,25 @@
 
 		{% else %}
 
-		{{ govukServiceNavigation({
+		<!-- {{ govukServiceNavigation({
 			serviceName: "Access grant funding",
 			serviceUrl: "#",
 			navigation: [
 				{ href: "/funding/", text: "Grants", active: true }
+
+			]
+
+		}) }} -->
+
+		{{ govukServiceNavigation({
+			serviceName: "Access grant funding",
+			serviceUrl: "/funding/grants?gmSignedIn=yes",
+			navigation: [
+				{ href: "/funding/grant/", text: "Home", active: navID == "grantHome"  },
+				{ href: "/funding/grant/details/", text: "Grant details", active: navID == "grantDetails" },
+				{ href: "/funding/grant/applications/", text: "Applications", active: navID == "grantApplications" },
+				{ href: "/funding/grant/reports/", text: "Reports", active: navID == "grantReports" },
+				{ href: "/funding/grant/users/?notification=", text: "Grant team", active: navID == "grantUsers" }
 
 			]
 

@@ -21,7 +21,7 @@
 		<p class="govuk-body-s">Last updated on {{ "today" | govukDate }}
     	<br>GOV.UK Prototype Kit: {{releaseVersion}}</p>
 
-    	
+
 		<p class="govuk-body">The Funding Service is a team at the Ministry of Housing, Communities and Local Government (MHCLG) that aims to improve how funding is given to local authorities, charities, and community groups. </p>
 
 	</div>
@@ -29,9 +29,9 @@
 	<div class="govuk-grid-column-full">
 
 		{% set serviceDeliverFundingHtml %}
-			<!-- Assess service -->			
-			
-			
+			<!-- Assess service -->
+
+
 			<h2 class="govuk-heading-m">Deliver grant funding </h2>
 
 			<p>A service for grant teams that helps them deliver and manage grant funding. This could include: </p>
@@ -45,8 +45,9 @@
 				<li>payment integration with SAP </li>
 			</ul>
 
-			<form method="post" action="/preload" >
+			<form method="post" action="/sign-in/?gmSignedIn=no" >
 				<input type="hidden" name="fundService" id="fundService" value="funding" />
+				<input type="hidden" name="authType" id="authType" value="SSO" />
 				{{ govukButton({
 					text: "Continue",
 					classes: "govuk-!-margin-top-3"
@@ -56,9 +57,9 @@
 
 
 		{% set serviceAccessFundingHtml %}
-			<!-- Assess service -->			
-			
-			
+			<!-- Assess service -->
+
+
 			<h2 class="govuk-heading-m">Access grant funding  </h2>
 			<p>A service for current and potential grant recipients to access grant funding. This could include: </p>
 			<ul class="govuk-list govuk-list--bullet">
@@ -66,8 +67,11 @@
 				<li>reporting on the progress of their funded programmes and projects </li>
 			</ul>
 
-			<form method="post" action="/preload" >
+			<form method="post" action="/sign-in/?gmSignedIn=no" >
 				<input type="hidden" name="fundService" id="fundService" value="funding" />
+				<input type="hidden" name="authType" id="authType" value="Magic link" />
+
+
 				{{ govukButton({
 					text: "Continue",
 					classes: "govuk-!-margin-top-3"
@@ -142,7 +146,7 @@
 			</form>
 		{% endset %}
 
-		
+
 
 
 
@@ -153,7 +157,7 @@
 				{ label: "Access grant funding", id: "service-access-funding", panel: { html: serviceAccessFundingHtml } },
 				{ label: "Apply for funding", id: "service-apply", panel: { html: serviceApplyHtml } },
 				{ label: "Assess applications for funding", id: "service-assess", panel: { html: serviceAssessHtml } }
-				
+
 			]
 		}) }}
 

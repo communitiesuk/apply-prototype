@@ -86,21 +86,27 @@
 
 		{% if data['authType'] == "SSO"  %}
 
-		<!-- Service Name and Navigation -->
-		{{ govukServiceNavigation({
-			serviceName: "Deliver grant funding",
-			serviceUrl: "/funding/grants?gmSignedIn=yes",
-			navigation: [
-				{ href: "/funding/grant/", text: "Home", active: navID == "grantHome"  },
-				{ href: "/funding/grant/details/", text: "Grant details", active: navID == "grantDetails" },
-				{ href: "/funding/grant/applications/", text: "Applications", active: navID == "grantApplications" },
-				{ href: "/funding/grant/reports/", text: "Reports", active: navID == "grantReports" },
-				{ href: "/funding/grant/users/?notification=", text: "Grant team", active: navID == "grantUsers" }
+			{% if data['navID'] == "addGrant" %} 
 
-			],
-			slots: { navigationEnd: navigationEnd }
-		}) }}
 
+			{% else %}						
+
+				<!-- Service Name and Navigation -->
+				{{ govukServiceNavigation({
+					serviceName: "Deliver grant funding",
+					serviceUrl: "/funding/grants?gmSignedIn=yes",
+					navigation: [
+						{ href: "/funding/grant/", text: "Home", active: navID == "grantHome"  },
+						{ href: "/funding/grant/details/", text: "Grant details", active: navID == "grantDetails" },
+						{ href: "/funding/grant/applications/", text: "Applications", active: navID == "grantApplications" },
+						{ href: "/funding/grant/reports/", text: "Reports", active: navID == "grantReports" },
+						{ href: "/funding/grant/users/?notification=", text: "Grant team", active: navID == "grantUsers" }
+
+					],
+					slots: { navigationEnd: navigationEnd }
+				}) }}
+
+			{% endif %}
 
 		{% else %}
 

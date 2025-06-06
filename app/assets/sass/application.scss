@@ -328,3 +328,11 @@ $govuk-new-typography-scale: true;
 .govuk-service-navigation__wrapper{
         flex-grow: 1;
     }
+
+.preview {
+border-color: govuk-colour("mid-grey");
+    background-color: govuk-colour("pink");
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}

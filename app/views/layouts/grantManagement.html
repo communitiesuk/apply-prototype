@@ -96,10 +96,10 @@
 					serviceName: "Deliver grant funding",
 					serviceUrl: "/funding/grants?signedIn=yes",
 					navigation: [
-						{ href: "/funding/grant/", text: "Home", active: navID == "grantHome"  },
-						{ href: "/funding/grant/details/", text: "Grant details", active: navID == "grantDetails" },
-						{ href: "/funding/grant/applications/", text: "Applications", active: navID == "grantApplications" },
-						{ href: "/funding/grant/reports/", text: "Reports", active: navID == "grantReports" },
+						{ href: "/funding/grant/?notification=", text: "Home", active: navID == "grantHome"  },
+						{ href: "/funding/grant/details/?notification=", text: "Grant details", active: navID == "grantDetails" },
+						{ href: "/funding/grant/applications/?notification=", text: "Applications", active: navID == "grantApplications" },
+						{ href: "/funding/grant/reports/?notification=", text: "Reports", active: navID == "grantReports" },
 						{ href: "/funding/grant/users/?notification=", text: "Grant team", active: navID == "grantUsers" }
 
 					],
@@ -124,10 +124,10 @@
 			serviceName: "Access grant funding",
 			serviceUrl: "/funding/grants?signedIn=yes",
 			navigation: [
-				{ href: "/funding/grant/", text: "Home", active: navID == "grantHome"  },
-				{ href: "/funding/grant/details/", text: "Grant details", active: navID == "grantDetails" },
-				{ href: "/funding/grant/applications/", text: "Applications", active: navID == "grantApplications" },
-				{ href: "/funding/grant/reports/", text: "Reports", active: navID == "grantReports" },
+				{ href: "/funding/grant/?notification=", text: "Home", active: navID == "grantHome"  },
+				{ href: "/funding/grant/details/?notification=", text: "Grant details", active: navID == "grantDetails" },
+				{ href: "/funding/grant/applications/?notification=", text: "Applications", active: navID == "grantApplications" },
+				{ href: "/funding/grant/reports/?notification=", text: "Reports", active: navID == "grantReports" },
 				{ href: "/funding/grant/users/?notification=", text: "Grant team", active: navID == "grantUsers" }
 
 			]
@@ -170,10 +170,10 @@
 
     <!-- Back link -->
     {% if showBackLink != false %}
-        {{ govukBackLink({
-            href: "#",
-            text: "Back"
-        }) }}
+		{{ govukBackLink({
+    		text: "Back",
+    		href: "javascript:history.go(-1)"
+		}) }}
     {% endif %}
 
 {% endblock %}

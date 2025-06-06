@@ -27,9 +27,9 @@
 				{% set yesGGISHtml %}
 
 					{{ govukInput({
-						id: "grantProfile-ggisNumber",
-						name: "grantProfile-ggisNumber",
-						value: data['grantProfile-ggisNumber'],
+						id: "grant-ggisNumber",
+						name: "grant-ggisNumber",
+						value: data['grant-ggisNumber'],
 						autocomplete: "number",
 						spellcheck: false,
 						classes: "govuk-!-width-two-thirds",
@@ -53,8 +53,8 @@
 
 
 				{{ govukRadios({
-					name: "grantProfile-ggis",
-					id: "grantProfile-ggis",
+					name: "grant-ggis",
+					id: "grant-ggis",
 					fieldset: {
 						legend: {
 							text: pageHeading,
@@ -63,8 +63,8 @@
 						}
 					},
 					items: [
-						{ value: "Yes", text: "Yes", conditional: { html: yesGGISHtml }, checked: checked("grantProfile-ggis", "Yes") },
-						{ value: "No", text: "No", checked: checked("grantProfile-ggis", "No") }
+						{ value: "Yes", text: "Yes", conditional: { html: yesGGISHtml }, checked: checked("grant-ggis", "Yes") },
+						{ value: "No", text: "No", checked: checked("grant-ggis", "No") }
 					]
 				}) }}
 

@@ -2,39 +2,34 @@
 
 {% set navID = 'grantHome' %}
 {% set showBackLink = false %}
-{% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Home" %}
-{% set pageSection = '' + data['grantProfile-name'] + '' %}
+{% set pageSection = '' + data['grantName'] + '' %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
+        
+        {% if data.notification == "grantAdded" %}
 
-        <div class="govuk-grid-row">
-	        <div class="govuk-grid-column-two-thirds">
+		    {% set html %}
+                <h3 class="govuk-notification-banner__heading">{{ data['grantName'] }} has been set up</h3>
+            {% endset %}
 
-                {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+            {{ govukNotificationBanner({
+                html: html,
+                type: "success"
+            }) }}
 
-                <p>Content to be confirmed, but will include overview of grant main information amongst other things.</p>
+		{% endif %}
 
-            </div>
-        </div>
-
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}                
 
     </div>
 </div>
 
 {% endblock %}
-
-
-<!--
-{ text: "Assess applications", href: "#" },
-                { text: "Recipients", href: "#" },
-                { text: "Payments", href: "#" },
-                { text: "Reports", href: "#" } -->

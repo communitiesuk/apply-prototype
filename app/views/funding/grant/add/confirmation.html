@@ -3,26 +3,18 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-
 {% set pageSize = "xl" %}
-{% set pageHeading = '' + data['grantProfile-name'] + ' added' %}
+{% set pageHeading = '' + data['grantName'] + ' added' %}
 {% set pageSection = "Set up the grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
-
-        <!-- {{ govukPanel({
-            titleText: pageHeading,
-            classes: "govuk-!-margin-bottom-7"
-        }) }}         -->
-
 
         <p>You can now:</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -30,15 +22,7 @@
             <li>create forms</li>
         </ul>
         <!-- <p class="govuk-body">We have sent you an email to confirm that ((grant_name)) has been added.</p>	 -->
-
-		<!-- <h2 class="govuk-heading-m">What happens next</h2>	 -->
-        <!-- <p>You can add more information about the grant by going to 'Grant details' in your account.</p> -->
-
-        <!-- <ul class="govuk-list">
-            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant-management/">Go to grant homepage</a></li>
-            <li><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/name">Add another grant</a></li>
-        </ul> -->
-
+		
         <form method="post" action="/funding/grant/">
             {{ govukButton({
                 text: "Continue to grant home",

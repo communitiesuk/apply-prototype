@@ -20,17 +20,17 @@
 
         <p>The grant is provided to foundations, organisations or institutions outside of the United Kingdom.</p>
 
-      	{% if data['status'] == "change" %}
+      	{% if data['change'] == "yes" %}
         	<form method="post" action="/funding/grant/add/summary">
-				<input type="hidden" name="status" id="status" value="" />
+				<input type="hidden" name="change" id="change" value="" />
       	{% else %}
           	<form method="post" action="/funding/grant/add/summary">
         {% endif %}
 
         		{{ govukRadios({
           			classes: "govuk-radios--inline",
-          			name: "grantProfile-nonUK",
-          			id: "grantProfile-nonUK",
+          			name: "grant-nonUK",
+          			id: "grant-nonUK",
           			fieldset: {
             			legend: {
             				text: pageHeading,
@@ -39,8 +39,8 @@
             			}
           			},
           			items: [
-            			{ value: "Yes", text: "Yes", checked: checked("grantProfile-nonUK", "Yes") },
-            			{ value: "No", text: "No", checked: checked("grantProfile-nonUK", "No") }
+            			{ value: "Yes", text: "Yes", checked: checked("grant-nonUK", "Yes") },
+            			{ value: "No", text: "No", checked: checked("grant-nonUK", "No") }
           			]
         		}) }}
 

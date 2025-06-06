@@ -18,16 +18,16 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        {% if data['status'] == "change" %}
+        {% if data['change'] == "yes" %}
             <form method="post" action="/funding/grant/add/summary">
-				<input type="hidden" name="status" id="status" value="" />
+				<input type="hidden" name="change" id="change" value="" />
       	{% else %}
             <form method="post" action="/funding/grant/add/primary-contact-details">
         {% endif %}
 
             {{ govukRadios({
                 classes: "govuk-radios--inline",
-                name: "grantProfile-monitoring",
+                name: "grant-monitoring",
                 fieldset: {
                     legend: {
                         text: pageHeading,

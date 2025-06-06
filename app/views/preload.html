@@ -22,7 +22,7 @@
 		{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
     	<p class="govuk-body govuk-!-margin-bottom-7">MHCLG users should select single sign on (SSO).</p>
 
-		{% if data['fundingService'] == "funding" %}
+		{% if data['fundingService'] == "deliver" %}
 
 			<form method="post" action="/sign-in/?signedIn=no" >
 

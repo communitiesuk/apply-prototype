@@ -23,8 +23,8 @@
         <form method="post" action="/funding/grant/add/closing-date">
 
             {{ govukDateInput({
-                id: "grantProfile-openingDate",
-                namePrefix: "grantProfile-openingDate",
+                id: "grant-openingDate",
+                namePrefix: "grant-openingDate",
                 fieldset: {
                     legend: {
                         text: pageHeading,
@@ -35,7 +35,7 @@
                 hint: {
                   text: "For example, 27 7 2025"
                 },
-                value: data['grantProfile-openingDate']
+                value: data['grant-openingDate']
             }) }}
 
 

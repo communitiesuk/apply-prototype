@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Grant team" %}
-{% set pageSection = '' + data['grantProfile-name'] + '' %}
+{% set pageSection = '' + data['grantName'] + '' %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -35,16 +35,18 @@
 				{% endif %}
 
                 {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+
+                
                     
 			</div>
 		</div>
 
         <!-- <p>No grant team members have been added to this grant yet.</p> -->
-                <!-- <form method="post" action="/funding/grant/users/add/email" class="govuk-!-margin-bottom-5" >
+                <form method="post" action="/funding/grant/users/add/email" class="govuk-!-margin-bottom-5" >
 					{{ govukButton({
 						text: "Add grant team member"
 					}) }}
-				</form> -->
+				</form> 
 
 
                 

@@ -3,7 +3,6 @@
 {% set showBackLink = true %}
 {% set showBackApplicationsLink = false %}
 
-
 {% set pageSize = "xl" %}
 {% set pageHeading = "Who is the main contact for this grant?" %}
 {% set pageSection = "Set up the grant" %}
@@ -12,15 +11,20 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p>This is the person that teams at MHCLG can contact if they have any questions about the grant.</p>
+        <p class="govuk-body">This is the person that teams at MHCLG can contact if they have any questions about the grant.</p>
 
+        {% if data['change'] == "yes" %}
         <form method="post" action="/funding/grant/add/summary">
+			<input type="hidden" name="change" id="change" value="" />
+      	{% else %}
+        <form method="post" action="/funding/grant/add/summary">
+        {% endif %}
+        
 
             {{ govukInput({
                 label: {
@@ -30,9 +34,9 @@
                 },
                 classes: "govuk-!-width-two-thirds",
                 type: "text",
-                id: "grantProfile-primaryContactName",
-                name: "grantProfile-primaryContactName",
-                value: data['grantProfile-primaryContactName']
+                id: "grant-primaryContactName",
+                name: "grant-primaryContactName",
+                value: data['grant-primaryContactName']
             }) }}
 
             {{ govukInput({
@@ -46,11 +50,10 @@
                 hint: {
                     text: "Use the shared email address for the grant team."
                 },
-                id: "grantProfile-primaryContactEmail",
-                name: "grantProfile-primaryContactEmail",
-                value: data['grantProfile-primaryContactEmail']
+                id: "grant-primaryContactEmail",
+                name: "grant-primaryContactEmail",
+                value: data['grant-primaryContactEmail']
             }) }}
-
 
             {{ govukButton({
                 text: "Save and continue"
@@ -61,5 +64,3 @@
 </div>
 
 {% endblock %}
-
-<!-- *bc* -->

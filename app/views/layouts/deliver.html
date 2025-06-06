@@ -89,11 +89,11 @@
     }) }}
 
     <!-- Back link -->
-    {% if showBackLink != false %}
-        {{ govukBackLink({
-            href: "#",
-            text: "Back"
-        }) }}
+    {% if showBackLink != false %}        
+		{{ govukBackLink({
+    		text: "Back",
+    		href: "javascript:history.go(-1)"
+		}) }}
     {% endif %}
 
 {% endblock %}

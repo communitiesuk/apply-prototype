@@ -20,16 +20,16 @@
 
 
 
-        {% if data['status'] == "change" %}
+        {% if data['change'] == "yes" %}
             <form method="post" action="/funding/grant/add/summary">
-				<input type="hidden" name="status" id="status" value="" />
+				<input type="hidden" name="change" id="change" value="" />
       	{% else %}
 		  	<form method="post" action="/funding/grant/add/monitoring">
       	{% endif %}
 
 			{{ govukRadios({
-				name: "grantProfile-type",
-				id: "grantProfile-type",
+				name: "grant-type",
+				id: "grant-type",
 				fieldset: {
 					legend: {
 						text: pageHeading,
@@ -38,12 +38,12 @@
 					}
 				},
 				items: [
-					{ value: "Competed", text: "Competed", checked: checked("grantProfile-type", "Competed") },
-					{ value: "Un-competed", text: "Un-competed", checked: checked("grantProfile-type", "Un-competed") },
-					{ value: "Formula based", text: "Formula based", checked: checked("grantProfile-type", "Formula based") },
-					{ value: "Criteria based", text: "Criteria based", checked: checked("grantProfile-type", "Criteria based") },
-					{ value: "Mixed", text: "Mixed", checked: checked("grantProfile-type", "Mixed") },
-					{ value: "Expression of interest", text: "Expression of interest", checked: checked("grantProfile-type", "Expression of interest") }
+					{ value: "Competed", text: "Competed", checked: checked("grant-type", "Competed") },
+					{ value: "Un-competed", text: "Un-competed", checked: checked("grant-type", "Un-competed") },
+					{ value: "Formula based", text: "Formula based", checked: checked("grant-type", "Formula based") },
+					{ value: "Criteria based", text: "Criteria based", checked: checked("grant-type", "Criteria based") },
+					{ value: "Mixed", text: "Mixed", checked: checked("grant-type", "Mixed") },
+					{ value: "Expression of interest", text: "Expression of interest", checked: checked("grant-type", "Expression of interest") }
 				]
 			}) }}
 

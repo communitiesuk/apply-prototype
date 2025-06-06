@@ -3,7 +3,6 @@
 {% set showBackLink = true %}
 {% set showBackApplicationsLink = false %}
 
-
 {% set pageSize = "xl" %}
 {% set pageHeading = "What is the name of this grant?" %}
 {% set pageSection = "Set up the grant" %}
@@ -12,16 +11,20 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p>This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p>
+        <p class="govuk-body">This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p>
 
+        {% if data['change'] == "yes" %}
+        <form method="post" action="/funding/grant/add/summary">
+			<input type="hidden" name="change" id="change" value="" />
+      	{% else %}
         <form method="post" action="/funding/grant/add/description">
-
+        {% endif %}
+        
             {{ govukInput({
                 label: {
                     text: "Grant name",
@@ -29,12 +32,10 @@
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "grantProfile-name",
-                name: "grantProfile-name",
-                value: data['grantProfile-name']
+                id: "grantName",
+                name: "grantName",
+                value: data['grantName']
             }) }}
-
-
 
             {{ govukButton({
                 text: "Save and continue"
@@ -45,5 +46,3 @@
 </div>
 
 {% endblock %}
-
-<!-- *bc* -->

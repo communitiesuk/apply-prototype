@@ -1,8 +1,8 @@
+
 {% extends "layouts/deliver.html" %}
 
 {% set showBackLink = true %}
 {% set showBackApplicationsLink = false %}
-
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "What is the main purpose of this grant?" %}
@@ -12,25 +12,29 @@
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-		<p>Provide a brief description of the main purpose of the grant. This information will be seen by potential grant recipients.</p>
+		<p class="govuk-body">Provide a brief description of the main purpose of the grant. This information will be seen by potential grant recipients.</p>
 
+		{% if data['change'] == "yes" %}
+        <form method="post" action="/funding/grant/add/summary">
+			<input type="hidden" name="change" id="change" value="" />
+      	{% else %}
         <form method="post" action="/funding/grant/add/primary-contact-details">
+        {% endif %}
 
-
+        
         	{{ govukCharacterCount({
-            	name: "grantProfile-description",
-            	id: "grantProfile-description",
-            	value: data['grantProfile-description'],
+            	name: "grant-description",
+            	id: "grant-description",
+            	value: data['grant-description'],
             	maxwords: 200,
             	rows: 6,
             	hint: {
-              		text: "Do not include personal information"
+              		text: "Do not include personal information."
             	},
             	label: {
               		text: pageHeading,
@@ -42,10 +46,9 @@
             {{ govukButton({
                 text: "Save and continue"
             }) }}
-
         </form>
+
     </div>
 </div>
 
 {% endblock %}
-<!-- *bc* -->

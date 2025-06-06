@@ -20,17 +20,17 @@
 
         <p>For example, your grant prospectus or application form.</p>
 
-        {% if data['status'] == "change" %}
+        {% if data['change'] == "yes" %}
             <form method="post" action="/funding/grant/add/summary">
-                <input type="hidden" name="status" id="status" value="" />
+                <input type="hidden" name="change" id="change" value="" />
         {% else %}
             <form method="post" action="/funding/grant/add/summary">
         {% endif %}
 
             	{{ govukRadios({
                 	classes: "govuk-radios--inline",
-                	name: "grantProfile-welsh",
-                	id: "grantProfile-welsh",
+                	name: "grant-welsh",
+                	id: "grant-welsh",
                 	fieldset: {
                   		legend: {
                   			text: "Select an option to update your RIBA reporting stage",
@@ -39,8 +39,8 @@
                   		}
                 	},
                 	items: [
-                  		{ value: "Yes", text: "Yes", checked: checked("grantProfile-welsh", "Yes") },
-                  		{ value: "No", text: "No", checked: checked("grantProfile-welsh", "No") }
+                  		{ value: "Yes", text: "Yes", checked: checked("grant-welsh", "Yes") },
+                  		{ value: "No", text: "No", checked: checked("grant-welsh", "No") }
                 	]
               	}) }}
 

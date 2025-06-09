@@ -36,9 +36,20 @@
 
 
 
+             {% if data['change'] == "yes" %}
+
+            {{ govukButton({
+                text: "Update"
+            }) }}
+
+
+            {% else %}
+
             {{ govukButton({
                 text: "Save and continue"
             }) }}
+
+            {% endif %}
         </form>
 
     </div>

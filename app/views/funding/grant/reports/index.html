@@ -21,6 +21,73 @@
 
                 {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
+                {% if not data['formSetup'] %} 
+                <p class="govuk-body">There are no forms setup to collect reporting data for {{ data.grantName or "NAME of GRANT" }}.  </p>
+                {% else %}
+                <p class="govuk-body">This shows all the reporting forms setup for {{ data.grantName or "NAME of GRANT" }}. </p>
+                {% endif %}
+
+            
+
+
+
+        {% if data['formSetup'] == "yes" %}                
+
+        <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-7">Forms</h2> -->
+
+
+            {{ govukSummaryList({
+                
+                card: { 
+                    title: { text: data['addReport-Name'] },
+                    classes: "govuk-!-margin-top-7",
+                    actions: {
+                        items: [
+                            { href: "#", text: "Change", visuallyHiddenText: "the name of this form" },
+                            { href: "#", text: "Delete", visuallyHiddenText: "this form" }
+                        ]
+                    } 
+                },
+                rows: [
+                    {
+                        key: { text: "Created" },
+                        value: { text: "3 June 2025" }                        
+                    },
+                    {
+                        key: { text: "Created by" },
+                        value: { text: "brian.coult@communities.gov.uk" }
+                    },
+                    {
+                        key: { text: "Sections" },
+                        value: { html: '<a href="/funding/grant/reports/add/section" class="govuk-link">Add first section</a>' }                        
+                    }
+                ]
+            }) }}
+
+
+            </div>
+        </div>
+
+
+
+        <!-- {{ govukTable({
+            captionClasses: "govuk-table__caption--m",
+            head: [ { text: "Name", classes: "govuk-!-width-one-quarter" }, { text: "Created by" }, { text: "Date", classes: "govuk-!-width-one-quarter" } ],
+            rows: [
+                [ { html: data['addReport-Name'] }, { text: "brian.coult@communities.gov.uk" }, { text: "3 June 2025"} ]                
+
+            ]
+        }) }} -->
+                {% endif %}
+
+
+                 <form method="post" action="/funding/grant/reports/add/" >
+					{{ govukButton({
+						text: "Add a new reporting form",
+                        classes: "govuk-button--secondary"
+					}) }}
+				</form>
+
             </div>
         </div>
 

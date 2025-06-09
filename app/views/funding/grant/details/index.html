@@ -22,80 +22,37 @@
 
                 {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
+				{% set completedStatus = { text: "Completed" } %}
+      			{% set incompleteStatus = {
+        			tag: { text: "Incomplete", classes: "govuk-tag--blue" }
+      			} %}
+
+				<!-- To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" -->
 
 				<h2 class="govuk-heading-m">[ Heading for first set of tasks ]</h2>
+      			{{ govukTaskList({
+        			idPrefix: "first-section",
+        			items: [
+          				{ title: { text: "Set up the grant" }, href: "/funding/grant/details/setup/summary", status: completedStatus },
+          				{ title: { text: "Name of second task" }, href: "#", status: incompleteStatus },
+          				{ title: { text: "Name of third task" }, href: "#", status: incompleteStatus },
+          				{ title: { text: "Name of fifth task" }, href: "#", status: incompleteStatus },
+          				{ title: { text: "Name of sixth task" }, href: "#", status: incompleteStatus },
+          				{ title: { text: "Name of seventh task" }, href: "#", status: incompleteStatus },
+          				{ title: { text: "Name of eighth task" }, href: "#", status: incompleteStatus }
+        			]
+      			}) }}
 
-      {% set completedStatus = {
-        text: "Completed"
-      } %}
+				<h2 class="govuk-heading-m">[ Heading for second set of tasks ]</h2>
+      			{{ govukTaskList({
+        			idPrefix: "first-section",
+        			items: [
+          				{ title: { text: "Name of first task" }, href: "#", status: incompleteStatus },
+						{ title: { text: "Name of second task" }, href: "#", status: incompleteStatus },
+          				{ title: { text: "Name of third task" }, href: "#", status: incompleteStatus }
 
-      {% set incompleteStatus = {
-        tag: {
-          text: "Incomplete",
-          classes: "govuk-tag--blue"
-        }
-      } %}
-
-      {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
-
-      {{ govukTaskList({
-        idPrefix: "first-section",
-        items: [
-          {
-            title: {
-              text: "Set up the grant"
-            },
-            href: "/funding/grant/details/setup/summary",
-            status: completedStatus
-          },
-          {
-            title: {
-              text: "Name of second task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of third task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of fifth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of sixth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of seventh task"
-            },
-            href: "#",
-            status: incompleteStatus
-          },
-          {
-            title: {
-              text: "Name of eighth task"
-            },
-            href: "#",
-            status: incompleteStatus
-          }
-        ]
-      }) }}
-
-
-
-
+        			]
+      			}) }}
 
             </div>
         </div>
@@ -105,10 +62,3 @@
 </div>
 
 {% endblock %}
-
-
-<!--
-{ text: "Assess applications", href: "#" },
-                { text: "Recipients", href: "#" },
-                { text: "Payments", href: "#" },
-                { text: "Reports", href: "#" } -->

@@ -70,12 +70,12 @@
 				<dt class="govuk-summary-list__key">Monitoring</dt>
 				<dd class="govuk-summary-list__value">{{ data['grant-monitoring'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/add/monitoring?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div> 
+			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Senior Officer Responsible (SOR)</dt>
 				<dd class="govuk-summary-list__value">{{ data['grant-sroName'] }}<br>{{ data['grant-sroEmail'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/add/senior-officer-email?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div> 
+			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Application form</dt>
 				<dd class="govuk-summary-list__value">{{ data['grant-application'] }}</dd>
@@ -94,7 +94,7 @@
 				<dd class="govuk-summary-list__value">{{ data['grant-closingDate-month'] | toMonth }} {{ data['grant-closingDate-year'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/add/date-closed?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
-			{% endif %} 
+			{% endif %}
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">UK wide grant</dt>
 				<dd class="govuk-summary-list__value">{{ data['grant-ukWide'] }}</dd>
@@ -108,9 +108,9 @@
 			</div>
 			{% endif %} -->
 
-		
+
 		<div class="govuk-grid-row">
-			<div class="govuk-grid-column-two-thirds">      			
+			<div class="govuk-grid-column-two-thirds">
 
 	  			{% if data['status'] == "view" %}
 				<form method="post" action="/funding/grant-management/">
@@ -120,7 +120,7 @@
             		}) }}
 				</form>
 				{% else %}
-        		<form method="post" action="/funding/grant/">            		
+        		<form method="post" action="/funding/grant/">
             		{{ govukButton({
                 		text: "Confirm and set up grant"
             		}) }}
@@ -128,7 +128,7 @@
 				{% endif %}
 			</div>
 		</div>
-    
+
 	</div>
 </div>
 

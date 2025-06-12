@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-		<p>Select which tier this grant falls into, according to the Cabinet Office categorisation framework.</p>
+		<p class="govuk-body">Select which tier this grant falls into, according to the Cabinet Office categorisation framework.</p>
 
         {% if data['change'] == "yes" %}
             <form method="post" action="/funding/grant/add/summary">

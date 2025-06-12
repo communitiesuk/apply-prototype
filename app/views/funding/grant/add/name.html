@@ -39,19 +39,11 @@
 
 
             {% if data['change'] == "yes" %}
-
-            {{ govukButton({
-                text: "Save and continue"
-            }) }}
-
-
+                {% include "/includes/buttonUpdate.html" %}
             {% else %}
-
-            {{ govukButton({
-                text: "Save and continue"
-            }) }}
-
+                {% include "/includes/buttonSaveContinue.html" %}
             {% endif %}
+            
         </form>
 
     </div>

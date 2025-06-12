@@ -43,9 +43,12 @@
             	}
           	}) }}
 
-            {{ govukButton({
-                text: "Save and continue"
-            }) }}
+            {% if data['change'] == "yes" %}
+                {% include "/includes/buttonUpdate.html" %}
+            {% else %}
+                {% include "/includes/buttonSaveContinue.html" %}
+            {% endif %}
+						
         </form>
 
     </div>

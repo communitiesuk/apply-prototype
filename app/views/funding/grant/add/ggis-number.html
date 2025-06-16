@@ -4,7 +4,7 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Do you have a Government Grants Information System (GGIS) reference number?" %}
+{% set pageHeading = "Government Grants Information System (GGIS)" %}
 {% set pageSection = "Set up the grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -37,7 +37,7 @@
 							text: "Enter your GGIS reference number"
 						},
 						hint: {
-							text: "For example, G2-SCH-2025-05-12346."
+							text: "For example, G2-SCH-2025-05-12346"
 						}
 					}) }}
 
@@ -57,9 +57,9 @@
 					id: "grant-ggis",
 					fieldset: {
 						legend: {
-							text: "Select if you have a Government Grants Information System (GGIS) reference number",
+							text: "Do you have a GGIS number?",
 							isPageHeading: false,
-							classes: "govuk-fieldset__legend govuk-visually-hidden"
+							classes: "govuk-fieldset__legend govuk-fieldset__legend--s"
 						}
 					},
 					items: [

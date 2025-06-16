@@ -5,7 +5,7 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What is the main purpose of this grant?" %}
+{% set pageHeading = "Purpose of this grant" %}
 {% set pageSection = "Set up the grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -32,13 +32,10 @@
             	id: "grant-description",
             	value: data['grant-description'],
             	maxwords: 200,
-            	rows: 6,
-            	hint: {
-              		text: "Do not include personal information."
-            	},
+            	rows: 6,            	
             	label: {
-              		text: "Enter the main purpose of this grant",
-              		classes: "govuk-label govuk-visually-hidden",
+              		text: "What is the main purpose of this grant?",
+              		classes: "govuk-label govuk-label--s",
               		isPageHeading: false
             	}
           	}) }}

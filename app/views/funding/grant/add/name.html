@@ -16,7 +16,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
 
-        <p class="govuk-body">This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p>
+        <!-- <p class="govuk-body">This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p> -->
 
         {% if data['change'] == "yes" %}
         <form method="post" action="/funding/grant/add/summary">
@@ -30,6 +30,9 @@
                     text: "Enter the grant name",
                     classes: "govuk-label govuk-visually-hidden",
                     isPageHeading: false
+                },
+                hint: {
+                    text: "Use the full and official name of the grant - no abbreviations or acronyms"
                 },
                 classes: "govuk-!-width-two-thirds",
                 id: "grantName",

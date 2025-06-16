@@ -6,6 +6,8 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "Tell us about the grant" %}
 {% set pageSection = "Set up the grant" %}
+{% set pageHidden = "" %}
+
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,7 +16,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection,pageHidden,pageSize) }}
 
 		<p class="govuk-body">You’ll need to enter information including:</p>
 		<ul class="govuk-list govuk-list--bullet">

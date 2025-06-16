@@ -6,6 +6,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "Government Grants Information System (GGIS)" %}
 {% set pageSection = "Set up the grant" %}
+{% set pageHidden = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,7 +15,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageHidden,pageSize) }}
 
 		<p class="govuk-body">You’ll need to provide your GGIS number before you can create forms or assess grant applications.</p>
 
@@ -25,62 +26,51 @@
         <form method="post" action="/funding/grant/add/name">
         {% endif %}
 
-				{% set yesGGISHtml %}
-
-					{{ govukInput({
-						id: "grant-ggisNumber",
-						name: "grant-ggisNumber",
-						value: data['grant-ggisNumber'],
-						spellcheck: false,
-						classes: "govuk-!-width-two-thirds",
-						label: {
-							text: "Enter your GGIS reference number"
-						},
-						hint: {
-							text: "For example, G2-SCH-2025-05-12346"
-						}
-					}) }}
-
-				{% endset -%}
-
-
-				{% set noGGISHtml %}
-
-					<p class="govuk-body">You can still add this grant, but will need to add a GGIS number before creating forms.</p>
-
-				{% endset -%}
-
-
-
-				{{ govukRadios({
-					name: "grant-ggis",
-					id: "grant-ggis",
-					fieldset: {
-						legend: {
-							text: "Do you have a GGIS number?",
-							isPageHeading: false,
-							classes: "govuk-fieldset__legend govuk-fieldset__legend--s"
-						}
+			{% set yesGGISHtml %}
+				{{ govukInput({
+					id: "grant-ggisNumber",
+					name: "grant-ggisNumber",
+					value: data['grant-ggisNumber'],
+					spellcheck: false,
+					classes: "govuk-!-width-two-thirds",
+					label: {
+						text: "Enter your GGIS reference number"
 					},
-					items: [
-						{ value: "Yes", text: "Yes", conditional: { html: yesGGISHtml }, checked: checked("grant-ggis", "Yes") },
-						{ value: "No~/funding/grant/add/cannot-continue", text: "No", checked: checked("grant-ggis", "No") }
-					]
+					hint: {
+						text: "For example, G2-SCH-2025-05-12346"
+					}
 				}) }}
+			{% endset -%}
 
+			{% set noGGISHtml %}
+				<p class="govuk-body">You can still add this grant, but will need to add a GGIS number before creating forms.</p>
+			{% endset -%}
+
+			{{ govukRadios({
+				name: "grant-ggis",
+				id: "grant-ggis",
+				fieldset: {
+					legend: {
+						text: "Do you have a GGIS number?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend govuk-fieldset__legend--s"
+					}
+				},
+				items: [
+					{ value: "Yes", text: "Yes", conditional: { html: yesGGISHtml }, checked: checked("grant-ggis", "Yes") },
+					{ value: "No~/funding/grant/add/cannot-continue", text: "No", checked: checked("grant-ggis", "No") }
+				]
+			}) }}
 
             {% if data['change'] == "yes" %}
                 {% include "/includes/buttonUpdate.html" %}
             {% else %}
                 {% include "/includes/buttonSaveContinue.html" %}
-            {% endif %}
+            {% endif %}			
 			
-			
-        	</form>
+        </form>
 
     </div>
 </div>
 
 {% endblock %}
-
-<!-- *bc* -->

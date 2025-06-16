@@ -7,6 +7,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "Who is the main contact for this grant?" %}
 {% set pageSection = "Set up the grant" %}
+{% set pageHidden = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,16 +17,16 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
         <p>This is the person that teams at MHCLG can contact if they have any questions about the grant.</p>
 
         <form method="post" action="/funding/grant/details/setup/summary">
 
-            {{ govukInput({
+             {{ govukInput({
                 label: {
                     text: "Full name",
-                    classes: "govuk-label",
+                    classes: "govuk-label govuk-label--s",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
@@ -38,13 +39,13 @@
             {{ govukInput({
                 label: {
                     text: "Email address",
-                    classes: "govuk-label",
+                    classes: "govuk-label govuk-label--s",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
                 type: "Email",
                 hint: {
-                    text: "Use the shared email address for the grant team."
+                    text: "Use the shared email address for the grant team"
                 },
                 id: "grant-primaryContactEmail",
                 name: "grant-primaryContactEmail",
@@ -53,7 +54,7 @@
 
 
             {{ govukButton({
-                text: "Save and continue"
+                text: "Update"
             }) }}
         </form>
 

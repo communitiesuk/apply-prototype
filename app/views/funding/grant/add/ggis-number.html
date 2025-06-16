@@ -7,6 +7,7 @@
 {% set pageHeading = "Government Grants Information System (GGIS)" %}
 {% set pageSection = "Set up the grant" %}
 {% set pageHidden = "yes" %}
+{% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,7 +16,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
 		<p class="govuk-body">You’ll need to provide your GGIS number before you can create forms or assess grant applications.</p>
 

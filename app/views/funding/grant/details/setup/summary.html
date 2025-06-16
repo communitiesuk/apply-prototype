@@ -7,17 +7,16 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "Check your answers" %}
 {% set pageSection = "Set up the grant" %}
-
+{% set pageHidden = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -29,91 +28,20 @@
 					{% else %}
 						Not known
 					{% endif %}
-				</dd>
-				<!-- <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/ggis-number?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd> -->
-			</div>
-
-			<!-- <div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Tier</dt>
-				<dd class="govuk-summary-list__value">{{ data['grant-category'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/category?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div> -->
+				</dd>				
+			</div>			
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Name</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantName'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/name?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-
-			<!-- <div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Director General group</dt>
-				<dd class="govuk-summary-list__value">{{ data['grant-dgGroup'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/director-general-group?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div> -->
-
-
-			<!-- <div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Funding type</dt>
-				<dd class="govuk-summary-list__value">{{ data['grant-type'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/type?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
+			</div>			
 
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Monitoring</dt>
-				<dd class="govuk-summary-list__value">{{ data['grant-monitoring'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/monitoring?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div> -->
-
-
-
-			<!-- <div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Senior Officer Responsible (SOR)</dt>
-				<dd class="govuk-summary-list__value">{{ data['grant-sroName'] }}<br>{{ data['grant-sroEmail'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/senior-officer-email?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div> -->
-
-			<!-- <div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Application form</dt>
-				<dd class="govuk-summary-list__value">{{ data['grant-application'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/description?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-
-			{% if data['grant-application'] == "yes" %}
-
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Opening date for applications</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data['grant-openingDate-month'] | toMonth }} {{ data['grant-openingDate-year'] }}
-				</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/date-open?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Closing date for applications</dt>
-				<dd class="govuk-summary-list__value">{{ data['grant-closingDate-month'] | toMonth }} {{ data['grant-closingDate-year'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/date-closed?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-			{% endif %} -->
-
-						<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Main purpose</dt>
 				<dd class="govuk-summary-list__value">{{ data['grant-description'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/description?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
-
-			<!-- <div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">UK wide grant</dt>
-				<dd class="govuk-summary-list__value">{{ data['grant-ukWide'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/non-uk-fund?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-
-			{% if data['grant-ukWide'] == "yes" %}
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Welsh translation</dt>
-				<dd class="govuk-summary-list__value">{{ data['grantName'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/welsh?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
-			</div>
-			{% endif %} -->
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Main contact</dt>
@@ -125,23 +53,35 @@
 		</dl>
 
 		<div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
+			<div class="govuk-grid-column-two-thirds">
+
+				{{ govukRadios({
+				name: "section5_1",
+				fieldset: {
+					legend: {
+						text: "Have you completed this section?",
+						isPageHeading: false,
+						classes: "govuk-fieldset__legend--m"
+					}
+				},
+				items: [
+					{ value: "yes", text: "Yes, I’ve completed this section"  },
+					{ value: "no", text: "No, I’ll come back to it later" }
+				]
+			}) }}
 
 
 
+				<form method="post" action="/funding/grant/details/">
+            		<input type="hidden" name="status" id="status" value="" />
+	  				{{ govukButton({
+                		text: "Save and return to grant details"
+            		}) }}
+				</form>
 
+			</div>
+		</div>
 
-		<form method="post" action="/funding/grant/details/">
-            <input type="hidden" name="status" id="status" value="" />
-	  		{{ govukButton({
-                text: "Save and return to grant details"
-            }) }}
-		</form>
-
-
-
-	</div>
-	</div>
     </div>
 </div>
 

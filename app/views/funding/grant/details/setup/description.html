@@ -5,8 +5,9 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What is the main purpose of this grant?" %}
+{% set pageHeading = "Purpose of this grant" %}
 {% set pageSection = "Set up the grant" %}
+{% set pageHidden = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,7 +17,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
 		<p>Provide a brief description of the main purpose of the grant. This information will be seen by potential grant recipients.</p>
 
@@ -28,19 +29,16 @@
             	id: "grant-description",
             	value: data['grant-description'],
             	maxwords: 200,
-            	rows: 6,
-            	hint: {
-              		text: "Do not include personal information"
-            	},
+            	rows: 6,            	
             	label: {
-              		text: pageHeading,
-              		classes: "govuk-label govuk-visually-hidden",
+              		text: "What is the main purpose of this grant?",
+              		classes: "govuk-label govuk-label--s",
               		isPageHeading: false
             	}
           	}) }}
 
             {{ govukButton({
-                text: "Save and continue"
+                text: "Update"
             }) }}
 
         </form>

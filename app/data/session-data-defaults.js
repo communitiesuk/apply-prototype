@@ -6,6 +6,7 @@ module.exports = {
 // fundDeadlineDate: "2025-03-31T23:59:00",
 // applicationsStarted: "0",
 signedIn: "no",
+notification: "",
 // tlistSections: "9"
 
 

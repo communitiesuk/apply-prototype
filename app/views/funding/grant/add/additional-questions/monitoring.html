@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Do you need an application form?" %}
+{% set pageHeading = "Will you need to collect monitoring data?" %}
 {% set pageSection = "Set up the grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -16,15 +16,18 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
-        <p>This is for competed grants where organisations will need to apply for funding.</p>
+        {% if data['change'] == "yes" %}
+            <form method="post" action="/funding/grant/add/summary">
+				<input type="hidden" name="change" id="change" value="" />
+      	{% else %}
+            <form method="post" action="/funding/grant/add/primary-contact-details">
+        {% endif %}
 
-        <form method="post" action="/funding/grant/add/opening-date">
-
-             {{ govukRadios({
+            {{ govukRadios({
                 classes: "govuk-radios--inline",
-                name: "grant-preAward",
+                name: "grant-monitoring",
                 fieldset: {
                     legend: {
                         text: pageHeading,
@@ -34,14 +37,14 @@
                 },
                 items: [
                     { value: "Yes", text: "Yes" },
-                    { value: "No~/funding/grant/add/description", text: "No" }
+                    { value: "No", text: "No" }
                 ]
             }) }}
+
 
             {{ govukButton({
                 text: "Save and continue"
             }) }}
-
         </form>
 
     </div>

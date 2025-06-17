@@ -3,9 +3,12 @@
 {% set showBackLink = true %}
 {% set showBackApplicationsLink = false %}
 
+<!-- These are options for the header macro -->
 {% set pageSize = "xl" %}
 {% set pageHeading = "What is the name of this grant?" %}
 {% set pageSection = "Set up the grant" %}
+{% set pageHidden = "yes" %}
+{% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -14,9 +17,9 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
-        <p class="govuk-body">This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p>
+        <!-- <p class="govuk-body">This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p> -->
 
         {% if data['change'] == "yes" %}
         <form method="post" action="/funding/grant/add/summary">
@@ -27,9 +30,12 @@
 
             {{ govukInput({
                 label: {
-                    text: "Grant name",
+                    text: "Enter the grant name",
                     classes: "govuk-label govuk-visually-hidden",
                     isPageHeading: false
+                },
+                hint: {
+                    text: "Use the full and official name of the grant - no abbreviations or acronyms"
                 },
                 classes: "govuk-!-width-two-thirds",
                 id: "grantName",
@@ -38,19 +44,13 @@
             }) }}
             
 
+
             {% if data['change'] == "yes" %}
-            
-            {{ govukButton({
-                text: "Save and continue"
-            }) }}
-
+                {% include "/includes/buttonUpdate.html" %}
             {% else %}
-
-            {{ govukButton({
-                text: "Update"
-            }) }}
-            
+                {% include "/includes/buttonSaveContinue.html" %}
             {% endif %}
+
         </form>
 
     </div>

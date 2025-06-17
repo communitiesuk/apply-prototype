@@ -16,9 +16,9 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
-		<p>Select which tier this grant falls into, according to the Cabinet Office categorisation framework.</p>
+		<p class="govuk-body">Select which tier this grant falls into, according to the Cabinet Office categorisation framework.</p>
 
         {% if data['change'] == "yes" %}
             <form method="post" action="/funding/grant/add/summary">

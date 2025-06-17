@@ -16,9 +16,9 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
-        <p>The grant is provided to organisations throughout the whole of the United Kingdom.</p>
+        <p class="govuk-body">The grant is provided to organisations throughout the whole of the United Kingdom.</p>
 
       	{% if data['change'] == "yes" %}
         	<form method="post" action="/funding/grant/add/summary">

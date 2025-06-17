@@ -5,7 +5,7 @@
 
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What date will applications open?" %}
+{% set pageHeading = "Do you need an application form?" %}
 {% set pageSection = "Set up the grant" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -16,33 +16,34 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
-        <p class="govuk-body">If applications have already opened, enter the date for reference.</p>
+        <p class="govuk-body">This is for competed grants where organisations will need to apply for funding.</p>
 
-        <form method="post" action="/funding/grant/add/closing-date">
+        <form method="post" action="/funding/grant/add/opening-date">
 
-            {{ govukDateInput({
-                id: "grant-openingDate",
-                namePrefix: "grant-openingDate",
+             {{ govukRadios({
+                classes: "govuk-radios--inline",
+                name: "grant-preAward",
                 fieldset: {
                     legend: {
                         text: pageHeading,
-                        isPageHeading: true,
+                        isPageHeading: false,
                         classes: "govuk-fieldset__legend govuk-visually-hidden"
                     }
                 },
-                hint: {
-                  text: "For example, 27 7 2025"
-                },
-                value: data['grant-openingDate']
+                items: [
+                    { value: "Yes", text: "Yes" },
+                    { value: "No~/funding/grant/add/description", text: "No" }
+                ]
             }) }}
-
 
             {{ govukButton({
                 text: "Save and continue"
             }) }}
+
         </form>
+
     </div>
 </div>
 

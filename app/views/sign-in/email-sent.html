@@ -16,7 +16,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
 			<p class="govuk-body">We have sent an email to {{ data['gMmagicLinkEmail'] or "test@gm.communities.gov.uk"  }}</p>
 			<div class="govuk-inset-text">

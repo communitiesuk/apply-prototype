@@ -168,6 +168,15 @@
         html: 'This is a prototype. It is not a real service.'
     }) }}
 
+	{{ govukBreadcrumbs({
+  		items: [    		
+    		{ text: data.reportName, href: "/funding/grant/reports/" },			
+    		{ text: "Sections", href: "/funding/grant/reports/sections" },
+			{ text: "Tasks", href: "/funding/grant/reports/tasks" }
+  		]
+	}) }}
+
+
     <!-- Back link -->
     {% if showBackLink != false %}
 		{{ govukBackLink({

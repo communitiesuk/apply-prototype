@@ -1,0 +1,71 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set navID = 'grantReports' %}
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Tasks" %}
+<!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
+ {% set pageSection = 'Data Information' %}
+{% set pageHidden = "yes" %}
+{% set pageNested = "yes" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+		
+
+    	{{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+
+        {% if not data['taskSetup'] %} 
+        <p class="govuk-body">Select a section title to start adding tasks and questions. You can also reorder and add more sections.  </p>
+        {% else %}
+        <p class="govuk-body">Select a task name to start adding questions. You can also reorder and add more tasks. </p>
+        {% endif %}
+
+
+		{% if data['taskSetup'] == "yes" %}    
+    
+        	{{ govukSummaryList({
+				rows: [
+					{ key: { html: '<a href="/funding/grant/reports/questions"> Risk category </a>', classes: "govuk-!-font-weight-regular" },      
+					actions: {
+						classes: "govuk-!-width-two-thirds",
+						items: [          
+							{ href: "#", text: "Move up", visuallyHiddenText: "name" },
+							{ href: "#", text: "Move down", visuallyHiddenText: "name" },
+							{ href: "#", text: "Delete", visuallyHiddenText: "name" }
+						] }      
+					}
+				]
+			}) }}
+
+    	{% endif %}
+
+
+        <form method="post" action="/funding/grant/reports/add/task/" >
+  			{% if data['taskSetup'] == "yes" %}
+                {{ govukButton({
+                    text: "Add another task",
+                    classes: "govuk-button--secondar govuk-!-margin-top-5"
+                }) }}
+            {% else %}
+                {{ govukButton({
+                    text: "Add a task",
+                    classes: "govuk-!-margin-top-5"
+                }) }}
+            {% endif %}
+		</form>
+
+
+    </div>
+</div>
+
+{% endblock %}

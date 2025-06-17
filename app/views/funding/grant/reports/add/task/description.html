@@ -5,9 +5,10 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What do you want to name this monitoring report?" %}
-{% set pageSection = '' + data['grantName'] + '' %}
-{% set pageHidden = "yes" %}
+{% set pageHeading = "Give a description for this task?" %}
+<!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
+ {% set pageSection = 'Data Information' %}
+ {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -17,28 +18,27 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}                
 
-        <form method="post" action="/funding/grant/reports/?formSetup=yes" >            
+        <form method="post" action="/funding/grant/reports/tasks?taskSetup=yes" >        
 
-            {{ govukInput({
+            {{ govukTextarea({
                 label: {
                     text: pageHeading,
                     classes: "govuk-visually-hidden",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
-                id: "reportName",
-                name: "reportName",
-                value: data['reportName']
+                id: "taskDescription",
+                name: "taskDescription",
+                value: data['taskDescription']
             }) }}
 
             {{ govukButton({
-                text: "Continue and set up report"
+                text: "Continue and add task"
             }) }}
 
-    </form>
-
+        </form>
 
     </div>
 </div>

@@ -1,0 +1,71 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set navID = 'grantReports' %}
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "Questions" %}
+<!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
+ {% set pageSection = 'Company details' %}
+{% set pageHidden = "yes" %}
+{% set pageNested = "yes" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+		
+
+    	{{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+
+        {% if not data['questionSetup'] %} 
+        <p class="govuk-body">There are no questions setup in this task to collect reporting data for {{ data.grantName or "NAME of GRANT" }} .  </p>
+        {% else %}
+        <p class="govuk-body">You can reorder and add more questions. </p>
+        {% endif %}
+
+
+		{% if data['questionSetup'] == "yes" %}    
+    
+        	{{ govukSummaryList({
+				rows: [
+					{ key: { html: '<a href="#"> What is the category for this risk </a>', classes: "govuk-!-font-weight-regular" },      
+					actions: {
+						classes: "govuk-!-width-two-thirds",
+						items: [          
+							{ href: "#", text: "Move up", visuallyHiddenText: "name" },
+							{ href: "#", text: "Move down", visuallyHiddenText: "name" },
+							{ href: "#", text: "Delete", visuallyHiddenText: "name" }
+						] }      
+					}
+				]
+			}) }}
+
+    	{% endif %}
+
+
+        <form method="post" action="/funding/grant/reports/add/question/" >
+  			{% if data['questionSetup'] == "yes" %}
+                {{ govukButton({
+                    text: "Add another question",
+                    classes: "govuk-button--secondar govuk-!-margin-top-5"
+                }) }}
+            {% else %}
+                {{ govukButton({
+                    text: "Add a question",
+                    classes: "govuk-!-margin-top-5"
+                }) }}
+            {% endif %}
+		</form>
+
+
+    </div>
+</div>
+
+{% endblock %}

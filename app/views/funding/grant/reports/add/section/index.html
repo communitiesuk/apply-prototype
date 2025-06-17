@@ -5,8 +5,8 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What do you want to name this monitoring report?" %}
-{% set pageSection = '' + data['grantName'] + '' %}
+{% set pageHeading = "What is the title of this section?" %}
+{% set pageSection = '' + data['reportName'] + '' %}
 {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
 
@@ -18,8 +18,10 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
-
-        <form method="post" action="/funding/grant/reports/?formSetup=yes" >            
+        
+        <p class="govuk-body" >You’ll be able to add tasks and questions to this section.</p>
+        <p>For example, an 'Organisation details' task may have the 'What is the organisation name?' question.</p>
+        <form method="post" action="/funding/grant/reports/add/section/another" >        
 
             {{ govukInput({
                 label: {
@@ -27,20 +29,26 @@
                     classes: "govuk-visually-hidden",
                     isPageHeading: false
                 },
+                
                 classes: "govuk-!-width-two-thirds",
-                id: "reportName",
-                name: "reportName",
-                value: data['reportName']
+                id: "sectionName",
+                name: "sectionName",
+                value: data['sectionName']
             }) }}
 
             {{ govukButton({
-                text: "Continue and set up report"
+                text: "Continue"
             }) }}
 
-    </form>
-
+        </form>
 
     </div>
 </div>
 
 {% endblock %}
+
+
+
+<!-- hint: {
+                    text: "For example, 'Organisational details' or 'Risk'"
+                }, -->

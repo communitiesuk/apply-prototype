@@ -15,21 +15,65 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
         {% if not data['formReport'] %} 
         <p class="govuk-body">There are no monitoring reports for {{ data.grantName or "NAME of GRANT" }}. Add a monitoring report to get started. </p>        
         {% endif %}
+        
+        <!-- Have we set up a form, so we know to show the list -->
+        {% if data['formReport'] == "yes" %}       
+        
+        
 
-    
-        {% if data['formReport'] == "yes" %}                
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">{{ data['reportName'] or "Name of form" }}</h2>
+                <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="#">Preview<span class="govuk-visually-hidden"> this monitoring report</span></a>
+                    </li>
+                    <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the name of this monitoring report</span></a>
+                    </li>
+                    <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> this monitoring report</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Created by</dt>
+                        <dd class="govuk-summary-list__value">3 June 2025 | <a href="#">brian.coult@communities.gov.uk</a></dd>
+                        <dd class="govuk-summary-list__actions">
+                            <!-- <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a> -->
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Last updated</dt>
+                        <dd class="govuk-summary-list__value">{{ "today" | govukDate }} | <a href="#">kate.harries@communities.gov.uk</a></dd>
+                        <dd class="govuk-summary-list__actions">
+                            <!-- <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> nationality (Lead tenant)</span></a> -->
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Sections</dt>
+                        <dd class="govuk-summary-list__value"><a href="/funding/grant/reports/add/section/" class="govuk-link govuk-link--no-visited-state">Add sections</a> to start creating your report</dd>
+                        <dd class="govuk-summary-list__actions">
+                            <!-- <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Lead tenant)</span></a> -->
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
 
-            {{ govukSummaryList({
+            <!-- {{ govukSummaryList({
                 
                 card: { 
-                    title: { text: data['reportName'] },
+                    title: { text: data['reportName'] or "Name of form"  },
                     classes: "govuk-!-margin-top-3 govuk-!-margin-bottom-7",
                     actions: {
                         items: [
@@ -40,11 +84,11 @@
                     } 
                 },
                 rows: [
-                    { key: { text: "Created" }, value: { text: "3 June 2025" } },
-                    { key: { text: "Created by" }, value: { text: "brian.coult@communities.gov.uk" } },
+                    { key: { text: "Created by" }, value: { html: '3 June 2025 | <a href="#">brian.coult@communities.gov.uk</a> ' } },
+                    { key: { text: "Last updated" }, value: { html: '18 June 2025 | <a href="#">kate.harries@communities.gov.uk</a> ' } },                                        
                     { key: { text: "Sections" }, value: { html: '<a href="/funding/grant/reports/add/section/" class="govuk-link govuk-link--no-visited-state">Add sections</a> to start creating your report' } }
                 ]
-            }) }}
+            }) }} -->
             
             <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-1">Live reports</h2>         
             <p class="govuk-body">This shows all the monitoring reports for {{ data.grantName or "NAME of GRANT" }}. </p>   

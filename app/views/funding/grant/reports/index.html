@@ -20,7 +20,7 @@
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
         {% if not data['formSetup'] %} 
-        <p class="govuk-body">There are no forms setup to collect reporting data for {{ data.grantName or "NAME of GRANT" }}.  </p>
+        <p class="govuk-body">There are no monitoring reports for {{ data.grantName or "NAME of GRANT" }}. Add a monitoring report to get started. </p>
         {% else %}
         <!-- <p class="govuk-body">This shows all the monitoring reports for {{ data.grantName or "NAME of GRANT" }}. </p> -->
         {% endif %}
@@ -44,7 +44,7 @@
                 rows: [
                     { key: { text: "Created" }, value: { text: "3 June 2025" } },
                     { key: { text: "Created by" }, value: { text: "brian.coult@communities.gov.uk" } },
-                    { key: { text: "Sections" }, value: { html: '<a href="/funding/grant/reports/add/section/" class="govuk-link govuk-link--no-visited-state">Add sections</a> to start creating your form' } }
+                    { key: { text: "Sections" }, value: { html: '<a href="/funding/grant/reports/add/section/" class="govuk-link govuk-link--no-visited-state">Add sections</a> to start creating your report' } }
                 ]
             }) }}
             

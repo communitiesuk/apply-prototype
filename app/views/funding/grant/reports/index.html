@@ -1,4 +1,4 @@
-{% extends "layouts/grantManagement.html" %}
+{% extends "layouts/reports.html" %}
 
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
@@ -19,14 +19,12 @@
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
-        {% if not data['formSetup'] %} 
-        <p class="govuk-body">There are no monitoring reports for {{ data.grantName or "NAME of GRANT" }}. Add a monitoring report to get started. </p>
-        {% else %}
-        <!-- <p class="govuk-body">This shows all the monitoring reports for {{ data.grantName or "NAME of GRANT" }}. </p> -->
+        {% if not data['formReport'] %} 
+        <p class="govuk-body">There are no monitoring reports for {{ data.grantName or "NAME of GRANT" }}. Add a monitoring report to get started. </p>        
         {% endif %}
 
     
-        {% if data['formSetup'] == "yes" %}                
+        {% if data['formReport'] == "yes" %}                
 
             {{ govukSummaryList({
                 
@@ -93,7 +91,7 @@
 
 
         <form method="post" action="/funding/grant/reports/add/" >
-            {% if data['formSetup'] == "yes" %}
+            {% if data['formReport'] == "yes" %}
                 {{ govukButton({
                     text: "Add a monitoring report",
                     classes: "govuk-!-margin-top-5"

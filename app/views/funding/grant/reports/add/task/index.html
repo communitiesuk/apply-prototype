@@ -7,7 +7,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "What is the name of this task?" %}
 <!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
- {% set pageSection = 'Data Information' %}
+ {% set pageSection = 'Issues and risks' %}
  {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
 
@@ -19,13 +19,11 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}                
-<!--         
-        <p class="govuk-body" >You’ll be able to add questions to this task.</p>
-        <p>For example, an 'Organisation details' task may have the 'What is the organisation name?' question.</p> -->
 
-        <p>The task name will show in the section Risk. You'll be able to add questions to this task.</p>
-        <!-- <p>For example, an 'Organisation details' task may have the 'What is the organisation name?' question.</p> -->
-        <form method="post" action="/funding/grant/reports/add/task/description" >        
+        <p class="govuk-body">This is the name of a group of questions. Next, you'll be able to add 1 or more questions to this task. </p>
+        <p class="govuk-body">For example, the task might be 'Risks' and a question might be 'What is the risk status?'.</p>
+        
+        <form method="post" action="/funding/grant/reports/tasks?taskSetup=yes" >        
 
             {{ govukInput({
                 label: {

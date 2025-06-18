@@ -15,19 +15,29 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+         <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+            {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
         
-        <p class="govuk-body">Select a section title to start adding tasks and questions. You can also reorder and add more sections.</p>
-        
+            
+
+        </div>
+        </div>
+
 
         {{ govukSummaryList({
             rows: [
-                { key: { html: '<a href="/funding/grant/reports/tasks"> Risk</a>', classes: "govuk-!-font-weight-regular" },      
+                { key: { html: 'Issues and risks', classes: "govuk-!-font-weight-regular" },  
+                
+      value: {
+        html: '<a href="/funding/grant/reports/add/task/" class="govuk-link govuk-link--no-visited-state ">Add tasks</a> to this section'
+      },
                 actions: {
-                    classes: "govuk-!-width-two-thirds",
+                    classes: "govuk-!-width-one-third",
                     items: [          
                         { href: "#", text: "Move up", visuallyHiddenText: "name" },
                         { href: "#", text: "Move down", visuallyHiddenText: "name" },

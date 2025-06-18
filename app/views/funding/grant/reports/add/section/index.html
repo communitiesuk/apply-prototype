@@ -5,7 +5,7 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "What is the heading for this section?" %}
+{% set pageHeading = "What is the name of this section?" %}
 {% set pageSection = '' + data['reportName'] + '' %}
 {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
@@ -19,8 +19,14 @@
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
         
-        <p class="govuk-body" >You’ll be able to add tasks and questions to this section.</p>
-        <p>For example, an 'Organisation details' task may have the 'What is the organisation name?' question.</p>
+
+        <!-- <p>The section name will be used as the heading. You'll be able to add tasks and questions to this section.</p>
+ 
+        <p>The section name will be used as the heading. You'll be able to group questions into tasks in a list.
+ </p> -->
+ <p>The name will be used as the heading for a group of tasks. Next, you'll be able to add tasks that contain questions and order the tasks in this section.</p>
+        <!-- <p class="govuk-body" >You’ll be able to add tasks and questions to this section.</p>  -->
+        <p>For example, the section heading might be 'Issues and risks' and the task might be 'Risks'.</p>
         <form method="post" action="/funding/grant/reports/add/section/another" >        
 
             {{ govukInput({

@@ -7,7 +7,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "Tasks" %}
 <!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
- {% set pageSection = 'Data Information' %}
+ {% set pageSection = 'Issues and risks' %}
 {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
 
@@ -24,10 +24,13 @@
 
     	{{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
+
+
+
         {% if not data['taskSetup'] %} 
-        <p class="govuk-body">Select a section title to start adding tasks and questions. You can also reorder and add more sections.  </p>
+        
         {% else %}
-        <p class="govuk-body">Select a task name to start adding questions. You can also reorder and add more tasks. </p>
+        <p class="govuk-body">Select a task name to start adding questions. </p>
         {% endif %}
 
 

@@ -5,8 +5,8 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Question details" %}
-{% set pageSection = 'Company details' %}
+{% set pageHeading = "Question options" %}
+{% set pageSection = 'Risks' %}
 {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
 
@@ -19,6 +19,10 @@
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
         
+
+        <p>This will give the user all the options to complete the format of the question.</p>
+        <p>Design to follow.</p>
+
         <form method="post" action="/funding/grant/reports/add/question/another" >           
 
             

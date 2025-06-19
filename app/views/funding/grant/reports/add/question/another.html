@@ -5,8 +5,8 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Do you want to add another question?" %}
-{% set pageSection = 'Company details' %}
+{% set pageHeading = "Do you want to add another question to this task?" %}
+{% set pageSection = 'Risk' %}
 {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
 
@@ -18,8 +18,9 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
-        
-        <form method="post" action="/funding/grant/reports/questions?questionSetup=yes" >           
+
+
+        <form method="post" action="/funding/grant/reports/tasks?questionSetup=yes" >           
 
             
             {{ govukRadios({

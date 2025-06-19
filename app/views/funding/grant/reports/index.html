@@ -68,7 +68,13 @@
                     </div> -->
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">Sections</dt>
-                        <dd class="govuk-summary-list__value"><a href="/funding/grant/reports/add/section/" class="govuk-link govuk-link--no-visited-state">Add sections</a> to start creating your report</dd>
+                        <dd class="govuk-summary-list__value">
+                            {% if data['formReport'] == "yes" %}
+                                <a href="/funding/grant/reports/overview" class="govuk-link govuk-link--no-visited-state">10 sections</a>
+                            {% else %}                            
+                                <a href="/funding/grant/reports/add/section/" class="govuk-link govuk-link--no-visited-state">Add sections</a> to start creating your report
+                            {% endif %}
+                        </dd>
                         <dd class="govuk-summary-list__actions">
                             <!-- <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Lead tenant)</span></a> -->
                         </dd>
@@ -97,7 +103,7 @@
                 ]
             }) }} -->
             
-            <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-1">Live reports</h2>         
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-1">Live reports</h2>         
             <p class="govuk-body">This shows all the monitoring reports for {{ data.grantName or "NAME of GRANT" }}. </p>   
             {{ govukSummaryList({
                 
@@ -136,7 +142,7 @@
                     { key: { text: "Created by" }, value: { text: "brian.coult@communities.gov.uk" } },
                     { key: { text: "Sections" }, value: { html: '<a href="/funding/grant/reports/sections" class="govuk-link govuk-link--no-visited-state">View sections</a>' } }
                 ]
-            }) }} -->
+            }) }} 
 
         {% endif %}
 

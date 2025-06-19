@@ -7,7 +7,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "Questions" %}
 <!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
- {% set pageSection = 'Company details' %}
+ {% set pageSection = 'Risks' %}
 {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
 
@@ -18,18 +18,20 @@
 
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-full">
+
+
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
 
 		
 
     	{{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
-        {% if not data['questionSetup'] %} 
-        <p class="govuk-body">There are no questions setup in this task to collect reporting data for {{ data.grantName or "NAME of GRANT" }} .  </p>
-        {% else %}
-        <p class="govuk-body">You can reorder and add more questions. </p>
-        {% endif %}
+        
 
+		</div>
+		</div>
 
 		{% if data['questionSetup'] == "yes" %}    
     

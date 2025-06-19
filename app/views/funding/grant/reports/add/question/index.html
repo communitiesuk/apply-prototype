@@ -1,5 +1,9 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import radioField %}
+<!-- // -->
+
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -19,32 +23,18 @@
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
         
-        <form method="post" action="/funding/grant/reports/add/question/options" >        
+        <form method="post" action="/funding/grant/reports/add/question/options" >
+            {{ radioField("questionType", 
+                [ 
+                    { value: "input", text: "Single input field", hint: { text: "Content to explain"}  }, 
+                    { value: "teatarea", text: "Text area", hint: { text: "Content to explain"}  }, 
+                    { value: "radio", text: "Radio buttons", hint: { text: "Content to explain"}  }, 
+                    { value: "checkbox", text: "Checkboxes", hint: { text: "Content to explain"}  }
+                ], 
+                pageHeading,  { hint: { text: "" }, inline: false, classes: "" }) 
+            }}      
 
-            {{ govukRadios({
-                name: "questionType",
-                fieldset: {
-                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-fieldset__legend govuk-visually-hidden" }
-                },
-                items: [
-                    { value: "Single input field", text: "Single input field", hint: {
-        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
-      } },
-                    { value: "Text area", text: "Text area", hint: {
-        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
-      } },
-                    { value: "Radio buttons", text: "Radio buttons", hint: {
-        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
-      } },
-                    { value: "Checkboxes", text: "Checkboxes", hint: {
-        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
-      } }
-                ]
-            }) }}     
-
-            {{ govukButton({
-                text: "Continue"
-            }) }}
+            {{ govukButton({ text: "Continue" }) }}
 
         </form>
 

@@ -3,7 +3,7 @@
 {% set showBackLink = true %}
 {% set showBackApplicationsLink = false %}
 
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "Tell us about the grant" %}
 {% set pageSection = "Set up the grant" %}
 {% set pageHidden = "yes" %}
@@ -26,10 +26,7 @@
 		</ul>
 
       	<form method="post" action="/funding/grant/add/ggis-number" >
-			{{ govukButton({
-        		text: "Continue",
-				classes: "govuk-!-margin-top-5"
-      		}) }}
+			{{ govukButton({ text: "Continue", classes: "govuk-!-margin-top-5" }) }}
 		</form>
 
   	</div>

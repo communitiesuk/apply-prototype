@@ -1,9 +1,8 @@
 {% extends "layouts/deliver.html" %}
 
 {% set showBackLink = true %}
-{% set showBackApplicationsLink = false %}
 
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "Who is the main contact for this grant?" %}
 {% set pageSection = "Set up the grant" %}
 {% set pageHidden = "yes" %}
@@ -26,7 +25,6 @@
       	{% else %}
         <form method="post" action="/funding/grant/add/summary">
         {% endif %}
-
 
             {{ govukInput({
                 label: {

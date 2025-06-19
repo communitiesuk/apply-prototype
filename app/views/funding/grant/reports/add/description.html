@@ -1,5 +1,9 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import singleInputField %}
+<!-- // -->
+
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -50,9 +54,7 @@
 
 
 
-                {{ govukButton({
-                    text: "Confirm and set up report"
-                }) }}
+               {{ govukButton({ text: "Continue" }) }}
 
             </form>
 

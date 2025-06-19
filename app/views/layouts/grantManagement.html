@@ -1,6 +1,7 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
-
+{% import "macros/prototype-footer.njk" as protoFooter %}
+{% import "macros/prototype-header.njk" as protoHeader %}
 
 {% import "macros/page-title.njk" as macroPageTitle %}
 {% import "macros/page-header.njk" as macroPageHeader %}
@@ -26,32 +27,8 @@
 {% block header %}
 
     <!-- Header -->
-	<header class="govuk-header" data-module="govuk-header">
-		<div class="mhclg-header" data-one-login-header-nav>
-			<div class="mhclg-header__container govuk-width-container">
-				<div class="govuk-header__logo">
-					<a href="/" class="govuk-header__link govuk-header__link--homepage mhclg-header__link--homepage">
-						<img src="/public/images/MHCLG_WHITE_LANDSCP_AW.png" height="30px">
-
-					</a>
-			  	</div>
-				{% if data['signedIn'] == "yes" %}
-				<nav class="mhclg-header__nav">
-					<ul class="mhclg-header__nav__list">
-			  			<!-- <li class="mhclg-header__nav__list-item">
-							<a class="mhclg-header__nav__link" href="/signed-out/?signedIn=no">Developer</a>
-			  			</li> -->
-						<li class="mhclg-header__nav__list-item">
-							<a class="mhclg-header__nav__link" href="/signed-out/?signedIn=no">Sign out</a>
-			  			</li>
-
-					</ul>
-		  		</nav>
-				{% endif %}
-			</div>
-		</div>
-	</header>
-
+	 {{ protoHeader.prototypeHeader() }}
+	
 	<!-- Looks to see if signed in -->
 	{% if data['signedIn'] == "yes" %}
 		<!-- Looks to see if its FSD ADmin -->
@@ -113,10 +90,7 @@
 
 {% block beforeContent %}
     <!-- Phasebanner -->
-    {{ govukPhaseBanner({
-        tag: { text: "Prototype" },
-        html: 'This is a prototype. It is not a real service.'
-    }) }}
+    {{ govukPhaseBanner({ tag: { text: "Prototype" }, html: "This is a prototype. It is not a real service." }) }}
 
 	<!-- Breadcrumb for report -->
 	{{ govukBreadcrumbs({
@@ -129,12 +103,12 @@
 	<!-- // breadcrumb report -->
 
     <!-- Back link -->
-    {% if showBackLink != false %}
-		{{ govukBackLink({
-    		text: "Back",
-    		href: "javascript:history.go(-1)"
-		}) }}
-    {% endif %}
+    {% if showBackLink %}
+    	{{ govukBackLink({
+      		href: overrideBackLinkHref or backLinkHref or "javascript:history.back()",
+      		text: overrideBackLinkText or backLinkText or "Back"
+    	}) }}
+  	{% endif %}
 	<!-- // backlink -->
 
 {% endblock %}
@@ -146,16 +120,5 @@
 
 
 {% block footer %}
-
-	{{ govukFooter({
-		meta: {
-			items: [
-				{ href: "/manage-prototype/clear-data", text: "Clear data" },
-				{ href: "/manage-prototype", text: "Manage prototype" },
-				{ href: "#", text: "Toggle hidden text", attributes: {"data-module": "prototype-reveal-hidden"} }
-			],
-			html: 'Built by the <a href="#" class="govuk-footer__link">Ministry of Housing, Communites & Local Government Funding Service</a>'
-		}
-	}) }}
-
+	{{ protoFooter.prototypeFooter() }}
 {% endblock %}

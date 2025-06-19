@@ -1,9 +1,10 @@
 {% extends "layouts/deliver.html" %}
 
-{% set showBackLink = false %}
-{% set showBackApplicationsLink = false %}
+{% set showBackLink = true %}
+{% set backLinkHref     = "/funding/grants" %}
+{% set backLinkText     = "Back to grants" %}
 
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "You need to have a GGIS reference number before you can add this grant" %}
 {% set pageSection = "Set up the grant" %}
 {% set pageHidden = "yes" %}

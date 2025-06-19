@@ -1,12 +1,15 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import singleInputField %}
+<!-- // -->
+
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "What is the name of this task?" %}
-<!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
  {% set pageSection = 'Issues and risks' %}
  {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
@@ -25,21 +28,9 @@
         
         <form method="post" action="/funding/grant/reports/tasks?taskSetup=yes" >        
 
-            {{ govukInput({
-                label: {
-                    text: pageHeading,
-                    classes: "govuk-visually-hidden",
-                    isPageHeading: false
-                },
-                classes: "govuk-!-width-two-thirds",
-                id: "taskName",
-                name: "taskName",
-                value: data['taskName']
-            }) }}
+            {{ singleInputField("taskName", "taskName", data['taskName'], pageHeading, { hint: { text: "" } }) }}
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
+            {{ govukButton({ text: "Continue" }) }}
 
         </form>
 
@@ -49,10 +40,3 @@
 </div>
 
 {% endblock %}
-
-
-<!--
-{ text: "Assess applications", href: "#" },
-                { text: "Recipients", href: "#" },
-                { text: "Payments", href: "#" },
-                { text: "Reports", href: "#" } -->

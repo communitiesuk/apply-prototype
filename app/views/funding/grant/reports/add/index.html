@@ -1,5 +1,9 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import singleInputField %}
+<!-- // -->
+
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -10,37 +14,24 @@
 {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
 
-{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+{% block pageTitle %}
+  {{ macroPageTitle.pageTitle(pageHeading) }}
+{% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+    	{{ macroPageHeader.pageHeader(pageNested, pageHeading, pageSection, pageHidden, pageSize) }}
 
-        <form method="post" action="/funding/grant/reports/?formReport=yes" >            
+    	<form method="post" action="/funding/grant/reports/?formReport=yes">
 
-            {{ govukInput({
-                label: {
-                    text: pageHeading,
-                    classes: "govuk-visually-hidden",
-                    isPageHeading: false
-                },
-                classes: "govuk-!-width-two-thirds",
-                id: "reportName",
-                name: "reportName",
-                value: data['reportName']
-            }) }}
+        	{{ singleInputField("reportName", "reportName", data['reportName'], pageHeading, { hint: { text: "" } }) }}
 
-            {{ govukButton({
-                text: "Continue and set up report"
-            }) }}
+        	{{ govukButton({ text: "Continue and set up report" }) }}
 
-    </form>
+    	</form>
 
-
-    </div>
+  	</div>
 </div>
-
 {% endblock %}

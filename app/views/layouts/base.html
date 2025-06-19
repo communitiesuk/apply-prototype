@@ -1,0 +1,44 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% import "macros/prototype-footer.njk" as protoFooter %}
+{% import "macros/prototype-header.njk" as protoHeader %}
+
+{% import "macros/page-title.njk"       as macroPageTitle %}
+{% import "macros/page-header.njk"      as macroPageHeader %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+
+{% block stylesheets %}
+	{{ super() }}
+	<link href="/public/css/assessOverride-new.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block header %}
+	 {{ protoHeader.prototypeHeader() }}	 
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukPhaseBanner({ tag: { text: "Prototype" }, html: "This is a prototype. It is not a real service." }) }}
+
+	{% if showBackLink %}
+    	{{ govukBackLink({
+      		href: overrideBackLinkHref or backLinkHref or "#",
+      		text: overrideBackLinkText or backLinkText or "Back"
+    	}) }}
+  	{% endif %}
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block footer %}
+	{{ protoFooter.prototypeFooter() }}
+{% endblock %}
+
+
+
+
+
+
+
+

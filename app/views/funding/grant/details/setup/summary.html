@@ -1,10 +1,12 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import singleInputField %}
+<!-- // -->
+
 {% set showBackLink = false %}
-{% set showBackApplicationsLink = false %}
 
-
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "Check your answers" %}
 {% set pageSection = "Set up the grant" %}
 {% set pageHidden = "" %}

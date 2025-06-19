@@ -1,5 +1,9 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import radioField %}
+<!-- // -->
+
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -21,22 +25,9 @@
         
         <form method="post" action="/funding/grant/reports/sections?sectionSetup=yes" >           
 
-            
-            {{ govukRadios({
-                name: "anotherSection",
-                classes: "govuk-radios--inline",
-                fieldset: {
-                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-fieldset__legend govuk-visually-hidden" }
-                },
-                items: [
-                    { value: "yes~/funding/grant/reports/add/section/", text: "Yes" },
-                    { value: "no", text: "No" }                    
-                ]
-            }) }}   
+            {{ radioField("anotherSection", [ { value: "yes~/funding/grant/reports/add/section/", text: "Yes" }, { value: "no", text: "No" } ], pageHeading,  { hint: { text: "" }, inline: true, classes: "" }) }}
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
+            {{ govukButton({ text: "Continue" }) }}
 
         </form>
 
@@ -44,3 +35,6 @@
 </div>
 
 {% endblock %}
+
+
+

@@ -1,10 +1,8 @@
 {% extends "layouts/deliver.html" %}
 
 {% set showBackLink = true %}
-{% set showBackApplicationsLink = false %}
 
-<!-- These are options for the header macro -->
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "What is the name of this grant?" %}
 {% set pageSection = "Set up the grant" %}
 {% set pageHidden = "yes" %}
@@ -17,9 +15,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
-
-        <!-- <p class="govuk-body">This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p> -->
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}        
 
         {% if data['change'] == "yes" %}
         <form method="post" action="/funding/grant/add/summary">

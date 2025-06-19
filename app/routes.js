@@ -10,6 +10,7 @@ router.use(radioButtonRedirect)
 
 // Add your routes here
 
+
 // Logging session data 
  
 router.use((req, res, next) => { 
@@ -30,3 +31,6 @@ router.use('/', (req, res, next) => {
   console.log('previous page is: ' + res.locals.prevURL + " and current page is " + req.url + " " + res.locals.currentURL );
     next();
   });
+
+
+

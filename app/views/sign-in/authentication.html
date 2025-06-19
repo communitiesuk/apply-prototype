@@ -8,6 +8,15 @@
 {% set pageSection = "" %}
 {% set pageHidden = "" %}
 
+{% import "macros/prototype-header.njk" as protoHeader %}
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+{% block header %}
+      {{ protoHeader.prototypeHeader({ signedIn: false }) }}
+{% endblock %}
+
+
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}

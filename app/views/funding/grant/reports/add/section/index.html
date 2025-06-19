@@ -1,5 +1,9 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import singleInputField %}
+<!-- // -->
+
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -17,34 +21,20 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
-        
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}    
 
         <!-- <p>The section name will be used as the heading. You'll be able to add tasks and questions to this section.</p>
  
         <p>The section name will be used as the heading. You'll be able to group questions into tasks in a list.
  </p> -->
- <p>The name will be used as the heading for a group of tasks. Next, you'll be able to add tasks that contain questions and order the tasks in this section.</p>
+        <p>The name will be used as the heading for a group of tasks. Next, you'll be able to add tasks that contain questions and order the tasks in this section.</p>
         <!-- <p class="govuk-body" >You’ll be able to add tasks and questions to this section.</p>  -->
         <p>For example, the section heading might be 'Issues and risks' and the task might be 'Risks'.</p>
         <form method="post" action="/funding/grant/reports/add/section/another" >        
 
-            {{ govukInput({
-                label: {
-                    text: pageHeading,
-                    classes: "govuk-visually-hidden",
-                    isPageHeading: false
-                },
-                
-                classes: "govuk-!-width-two-thirds",
-                id: "sectionName",
-                name: "sectionName",
-                value: data['sectionName']
-            }) }}
-
-            {{ govukButton({
-                text: "Continue"
-            }) }}
+            {{ singleInputField("sectionName", "sectionName", data['sectionName'], pageHeading, { hint: { text: "" } }) }}
+            
+            {{ govukButton({ text: "Continue" }) }}
 
         </form>
 
@@ -52,9 +42,3 @@
 </div>
 
 {% endblock %}
-
-
-
-<!-- hint: {
-                    text: "For example, 'Organisational details' or 'Risk'"
-                }, -->

@@ -1,5 +1,9 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import singleInputField %}
+<!-- // -->
+
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -72,15 +76,9 @@
 
         <form method="post" action="/funding/grant/reports/add/task/" >
   			{% if data['taskSetup'] == "yes" %}
-                {{ govukButton({
-                    text: "Add another task",
-                    classes: "govuk-button--secondar govuk-!-margin-top-5"
-                }) }}
+                {{ govukButton({ text: "Add another task", classes: "govuk-button--secondar govuk-!-margin-top-5" }) }}
             {% else %}
-                {{ govukButton({
-                    text: "Add a task",
-                    classes: "govuk-!-margin-top-5"
-                }) }}
+                {{ govukButton({ text: "Add a task", classes: "govuk-!-margin-top-5" }) }}
             {% endif %}
 		</form>
 

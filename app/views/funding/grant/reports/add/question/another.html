@@ -1,5 +1,9 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import radioField %}
+<!-- // -->
+
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
@@ -19,25 +23,19 @@
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
-
         <form method="post" action="/funding/grant/reports/tasks?questionSetup=yes" >           
 
-            
-            {{ govukRadios({
-                name: "questionType",
-                classes: "govuk-radios--inline",
-                fieldset: {
-                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-fieldset__legend govuk-visually-hidden" }
-                },
-                items: [
-                    { value: "yes~/funding/grant/reports/add/question/", text: "Yes" },
-                    { value: "no", text: "No" }                    
-                ]
-            }) }}   
+            {{ radioField("anotherQuestion", 
+                [ 
+                { value: "yes~/funding/grant/reports/add/question/", text: "Yes", checked: anotherQuestion and anotherQuestion.split('~')[0] == "yes" }, 
+                { value: "no", text: "No", checked: anotherQuestion == "no" } ], 
+                pageHeading,  
+                { hint: { text: "" }, 
+                inline: true, 
+                classes: "" 
+            }) }}  
 
-            {{ govukButton({
-                text: "Continue"
-            }) }}
+           {{ govukButton({ text: "Continue" }) }}
 
         </form>
 

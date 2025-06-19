@@ -1,10 +1,14 @@
 {% extends "layouts/grantManagement.html" %}
 
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import singleInputField %}
+<!-- // -->
+
 {% set navID = 'grantUsers' %}
 {% set showBackLink = true %}
 {% set showBackApplicationsLink = false %}
 
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "What role will they have?" %}
 {% set pageSection = "Add grant team member" %}
 
@@ -43,9 +47,7 @@
 
 
 
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
+                {{ govukButton({ text: "Continue" }) }}
 
             </form>
 

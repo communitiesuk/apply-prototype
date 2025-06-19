@@ -1,0 +1,123 @@
+{# macros/forms.njk #}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{# Single Input Field #}
+{% macro singleInputField(id, name, value, labelText, options = {}) %}
+    {{ govukInput({
+        label: {
+            text: labelText,
+            classes: options.labelClasses or "govuk-visually-hidden",
+            isPageHeading: false
+        },
+        id: id,
+        name: name,
+        value: value,
+        classes: options.classes or "govuk-!-width-two-thirds",
+        hint: options.hint or undefined,       
+        type: options.type or "text"
+    }) }}
+{% endmacro %}
+
+{# Radio Buttons Field #}
+{% macro radioField(name, items, labelText, options = {}) %}
+  {# Build the container classes string #}
+  {% set containerClasses = "" %}
+  {% if options.inline %}
+    {% set containerClasses = containerClasses + " govuk-radios--inline" %}
+  {% endif %}
+  {% if options.classes %}
+    {% set containerClasses = containerClasses + " " + options.classes %}
+  {% endif %}
+
+  {# Legend (label) configuration #}
+  {% set legendClasses       = options.labelClasses       or "govuk-visually-hidden" %}
+  {% set legendIsPageHeading = options.labelIsPageHeading or false %}
+  {% set legendAttributes    = options.labelAttributes    or {} %}
+
+  {{ govukRadios({
+     idPrefix:       options.idPrefix,
+     name:           name,
+     classes:        containerClasses | trim,
+     fieldset: {
+       legend: {
+         text:          labelText,
+         classes:       legendClasses,
+         isPageHeading: legendIsPageHeading,
+         attributes:    legendAttributes
+       }
+     },
+     hint:         options.hint,
+     errorMessage: options.errorMessage,
+     items:        items
+  }) }}
+{% endmacro %}
+
+
+{# Textarea Field #}
+{% macro textareaField(id, name, value, labelText, options = {}) %}
+  {{ govukTextarea({
+    label: {
+      text: labelText,
+      classes: "govuk-visually-hidden"
+    },
+    id: id,
+    name: name,
+    value: value,
+    classes: options.classes or "govuk-!-width-two-thirds",
+    hint: options.hint,
+    errorMessage: options.errorMessage
+  }) }}
+{% endmacro %}
+
+
+
+{# Checkbox Field #}
+{% macro checkboxField(name, items, labelText, options = {}) %}
+  {{ govukCheckboxes({
+    name: name,
+    fieldset: {
+      legend: {
+        text: labelText,
+        classes: "govuk-visually-hidden"
+      }
+    },
+    items: items,
+    hint: options.hint,
+    errorMessage: options.errorMessage
+  }) }}
+{% endmacro %}
+
+{# Date Input Field #}
+{% macro dateInputField(id, namePrefix, values, labelText, options = {}) %}
+  {{ govukDateInput({
+    id: id,
+    namePrefix: namePrefix,
+    fieldset: {
+      legend: {
+        text: labelText,
+        classes: "govuk-visually-hidden"
+      }
+    },
+    hint: options.hint,
+    errorMessage: options.errorMessage,
+    items: [
+      {
+        name: "day",
+        value: values.day or ""
+      },
+      {
+        name: "month",
+        value: values.month or ""
+      },
+      {
+        name: "year",
+        value: values.year or ""
+      }
+    ]
+  }) }}
+{% endmacro %}

@@ -1,18 +1,29 @@
-{% extends "layouts/grantNoSignin.html" %}
+{% extends "layouts/base.html" %}
 
-{% set serviceName %}
-  Funding Service Prototype
-{% endset %}
+<!-- Import macro for forms -->
+{% from "macros/forms.njk" import radioField %}
+<!-- // -->
 
 {% set showGuidance = false %}
 {% set showBackApplicationsLink = false %}
 {% set showBackApplicationsOverview = false %}
 
-
 {% set pageSize = "xl" %}
-{% set pageHeading = "Preload data" %}
+{% set pageHeading = "Preload" %}
 {% set pageSection = "Prototype" %}
-{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% import "macros/prototype-header.njk" as protoHeader %}
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+{% block header %}
+      {{ protoHeader.prototypeHeader({ signedIn: false }) }}
+    {% endblock %}
+
+
+{% block pageTitle %}
+    {{ macroPageTitle.pageTitle(pageHeading) }}
+{% endblock %}
 
 {% block content %}
 
@@ -26,24 +37,25 @@
 
 			<form method="post" action="/sign-in/?signedIn=no" >
 
-			{{ govukRadios({
-				name: "authentication",
-				fieldset: {
-					legend: {
-						text: "Which type of user authentication?",
-						isPageHeading: false,
-						classes: "govuk-fieldset__legend--m"
-					}
-				},
-				items: [
-					{ value: "SSO", text: "Single sign on (SSO)", checked: checked("authentication", "SSO")  },
-					{ value: "Magic link", text: "Magic link", checked: checked("authentication", "Magic link")  }
-				]
-			}) }}
+			{{ radioField(
+				"authentication",
+				[
+					{ value: "SSO", text:  "Single sign on (SSO)", checked: authentication == "SSO" },
+					{ value: "Magic link", text:  "Magic link", checked: authentication == "no" }
+				],
+				"Which type of user authentication?",
+				{
+					idPrefix:           "authentication",
+					inline:             false,
+					classes:            "",
+					hint:               { text: "" },
+					labelClasses:       "govuk-fieldset__legend--m",
+					labelIsPageHeading: false,
+					labelAttributes:    { "data-auto": "legend" }
+				}
+			) }}
 
-			{{ govukButton({
-                text: "Preload choices and continue"
-            }) }}
+			{{ govukButton({ text: "Preload choices and continue" }) }}
 
 			</form>
 

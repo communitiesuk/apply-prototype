@@ -2,7 +2,6 @@
 
 {% set navID = 'grantApplications' %}
 {% set showBackLink = false %}
-{% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Applications" %}
@@ -11,18 +10,35 @@
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-
-
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
         <div class="govuk-grid-row">
-	        <div class="govuk-grid-column-two-thirds">
-
+            <div class="govuk-grid-column-two-thirds">
                 {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
+                    {% if not data['formApplication'] %} 
+                    <p class="govuk-body">There are no applications for {{ data.grantName or "NAME of GRANT" }}. Add an application to get started. </p>        
+                    {% endif %}
+
+                    <p class="govuk-body">An application is a 'Form' made up of 'Sections', 'tasks' and 'questions'.</p>
+                    <p><a href="#">See an example of a application form</a> and a description of the component parts of a form.</p>
             </div>
         </div>
+
+        <form method="post" action="/funding/grant/applications/" >
+            {% if data['formApplication'] == "yes" %}
+                {{ govukButton({
+                    text: "Add aan application",
+                    classes: "govuk-!-margin-top-5"
+                }) }}
+            {% else %}
+                {{ govukButton({
+                    text: "Add an application",
+                    classes: "govuk-!-margin-top-5"
+                }) }}
+            {% endif %}
+        </form>
 
     </div>
 </div>

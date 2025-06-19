@@ -1,0 +1,65 @@
+{% macro prototypeHeader(options = {}) %}
+  {# — Defaults — #}
+  {% set homeUrl  = options.homeUrl  or "/" %}
+  {% set logoPath = options.logoPath or "/public/images/MHCLG_WHITE_LANDSCP_AW.png" %}
+  {% set altText  = options.altText  or "Ministry of Housing, Communities and Local Government" %}
+
+  {# signedIn defaults to true unless explicitly false #}
+  {% if options.signedIn is defined %}
+    {% set signedIn = options.signedIn %}
+  {% else %}
+    {% set signedIn = true %}
+  {% endif %}
+
+  {# Default nav links if none passed in #}
+  {% set defaultNavLinks = [
+    { href: "/signed-out/?signedIn=no", text: "Sign out" }
+  ] %}
+  {% if options.navLinks is defined %}
+    {% set navLinks = options.navLinks %}
+  {% else %}
+    {% set navLinks = defaultNavLinks %}
+  {% endif %}
+
+  <header class="govuk-header" data-module="govuk-header" role="banner">
+    <div class="mhclg-header" data-one-login-header-nav>
+      <div class="mhclg-header__container govuk-width-container">
+
+        <div class="govuk-header__logo">
+          <a href="{{ homeUrl }}"
+             class="govuk-header__link govuk-header__link--homepage mhclg-header__link--homepage">
+            <img src="{{ logoPath }}"
+                 height="30"
+                 alt="{{ altText }}">
+          </a>
+        </div>
+
+        {% if signedIn and navLinks|length %}
+          <nav class="mhclg-header__nav">
+            <ul class="mhclg-header__nav__list">
+              {% for link in navLinks %}
+                <li class="mhclg-header__nav__list-item">
+                  <a href="{{ link.href }}" class="mhclg-header__nav__link">
+                    {{ link.text }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+
+      </div>
+    </div>
+  </header>
+{% endmacro %}
+
+{# {{ protoHeader.prototypeHeader({
+  navLinks: [
+    { href: "/profile",       text: "My profile" },
+    { href: "/settings",      text: "Settings" },
+    { href: "/signed-out/?signedIn=no", text: "Sign out" }
+  ]
+}) }} #}
+
+
+

@@ -1,6 +1,5 @@
-{% extends "layouts/grantNoSignin.html" %}
+{% extends "layouts/base.html" %}
 
-{% set showBackLink = false %}
 {% set showGuidance = false %}
 {% set showBackApplicationsLink = false %}
 {% set showBackApplicationsOverview = false %}
@@ -8,124 +7,127 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "The Funding Service" %}
 {% set pageSection = "Prototype" %}
-{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% import "macros/prototype-header.njk" as protoHeader %}
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+{% block header %}
+      {{ protoHeader.prototypeHeader({ signedIn: false }) }}
+    {% endblock %}
+
+
+{% block pageTitle %}
+    {{ macroPageTitle.pageTitle(pageHeading) }}
+{% endblock %}
 
 {% block content %}
+    <div class="govuk-grid-row govuk-!-margin-bottom-5">
+        <div class="govuk-grid-column-two-thirds">
 
-<div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-5">
+            {{ macroPageHeader.pageHeader(pageNested, pageHeading, pageSection, pageHidden, pageSize) }}
 
-		{{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+            <p class="govuk-body-s">Last updated on <time datetime="{{ "today" | govukDate('yyyy-MM-dd') }}">{{ "today" | govukDate }}</time><br>GOV.UK Prototype Kit: {{ releaseVersion }}</p>
 
-		<p class="govuk-body-s">Last updated on {{ "today" | govukDate }}
-    	<br>GOV.UK Prototype Kit: {{releaseVersion}}</p>
+            <p class="govuk-body">The Funding Service is a team at the Ministry of Housing, Communities and Local Government (MHCLG) that aims to improve how funding is given to local authorities, charities, and community groups.</p>
+        </div>
+    </div>
 
-		<p class="govuk-body">The Funding Service is a team at the Ministry of Housing, Communities and Local Government (MHCLG) that aims to improve how funding is given to local authorities, charities, and community groups. </p>
-	</div>
+    <section aria-labelledby="services-heading" class="govuk-!-margin-bottom-9">
+        <h2 id="services-heading" class="govuk-heading-l">Services</h2>
 
-	<div class="govuk-grid-column-full">
+        {% set serviceDeliverFundingHtml %}
+            <article aria-labelledby="deliver-heading">
+                <h3 id="deliver-heading" class="govuk-heading-m">Deliver grant funding</h3>
+                <p>A service for grant teams that helps them deliver and manage grant funding. This could include:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Setting up the grant and adding information, such as grant name and type</li>
+                    <li>Designing and publishing prospectuses</li>
+                    <li>Creating forms to collect information pre-award (business case, application)</li>
+                    <li>Creating forms to collect information post-award (monitoring funding progress)</li>
+                    <li>Assessing grant applications</li>
+                    <li>Viewing monitoring data</li>
+                    <li>Payment integration with SAP</li>
+                </ul>
+                <form method="post" action="/sign-in/">
+                    <input type="hidden" name="fundingService" value="deliver">
+                    <input type="hidden" name="authentication" value="SSO">
+                    {{ govukButton({ text: "Continue", classes: "govuk-!-margin-top-3" }) }}
+                </form>
+            </article>
+        {% endset %}
 
-		{% set serviceDeliverFundingHtml %}
-			<!-- Deliver service -->
-			<h2 class="govuk-heading-m">Deliver grant funding </h2>
-			<p>A service for grant teams that helps them deliver and manage grant funding. This could include: </p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>setting up the grant and adding information, such as grant name and type </li>
-				<li>designing and publishing prospectuses </li>
-				<li>creating forms to collect information pre-award (business case, application) </li>
-				<li>creating forms to collect information post-award (monitoring funding progress) </li>
-				<li>assessing grant applications </li>
-				<li>viewing monitoring data  </li>
-				<li>payment integration with SAP </li>
-			</ul>
+        {% set serviceAccessFundingHtml %}
+            <article aria-labelledby="access-heading">
+                <h3 id="access-heading" class="govuk-heading-m">Access grant funding</h3>
+                <p>A service for current and potential grant recipients to access grant funding. This could include:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Adding information pre-award, such as an application form, benchmarking data or a business case</li>
+                    <li>Reporting on the progress of funded programmes and projects</li>
+                </ul>
+                <form method="post" action="/sign-in/">
+                    <input type="hidden" name="fundingService" value="access">
+                    <input type="hidden" name="authentication" value="Magic link">
+                    {{ govukButton({ text: "Continue", classes: "govuk-!-margin-top-3" }) }}
+                </form>
+            </article>
+        {% endset %}
 
-			<form method="post" action="/sign-in/" >
-				<input type="hidden" name="fundingService" id="fundingService" value="deliver" />
-				<input type="hidden" name="authentication" id="authentication" value="SSO" />
-				{{ govukButton({
-					text: "Continue",
-					classes: "govuk-!-margin-top-3"
-				}) }}
-			</form>
-		{% endset %}
+        {% set serviceApplyHtml %}
+            <article aria-labelledby="apply-heading">
+                <h3 id="apply-heading" class="govuk-heading-m">Apply for funding</h3>
+                <p class="govuk-body">
+                    Apply for funding has been designed to allow local authorities, charities, and community groups to
+                    apply for different types of funding from MHCLG. You will be able to select which funding as part
+                    of the user flow.
+                </p>
+                <form method="post" action="/preload">
+                    <input type="hidden" name="fundingService" value="apply">
+                    {{ govukButton({ text: "Continue", classes: "govuk-!-margin-top-3" }) }}
+                </form>
+            </article>
+        {% endset %}
 
+        {% set serviceAssessHtml %}
+            <article aria-labelledby="assess-heading">
+                <h3 id="assess-heading" class="govuk-heading-m">Assess applications for funding</h3>
+                <p>The Funding Service assessment tool helps evaluate fund applications to facilitate decision-making. Here you can:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Assess applications end to end</li>
+                    <li>Comment on specific applicant responses</li>
+                    <li>Monitor the assessment progress of a fund</li>
+                </ul>
+                <form method="post" action="/assess/">
+                    <input type="hidden" name="fundingService" value="assess">
+                    {{ govukButton({ text: "Continue", classes: "govuk-!-margin-top-3" }) }}
+                </form>
+            </article>
+        {% endset %}
 
-		{% set serviceAccessFundingHtml %}
-			<!-- Assess service -->
-			<h2 class="govuk-heading-m">Access grant funding  </h2>
-			<p>A service for current and potential grant recipients to access grant funding. This could include: </p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>adding information pre-award, such as an application form, benchmarking data or a business case </li>
-				<li>reporting on the progress of their funded programmes and projects </li>
-			</ul>
+        {{ govukTabs({
+            items: [
+                { label: "Deliver grant funding", id: "service-deliver-funding", panel: { html: serviceDeliverFundingHtml } },
+                { label: "Access grant funding", id: "service-access-funding", panel: { html: serviceAccessFundingHtml } },
+                { label: "Apply for funding", id: "service-apply", panel: { html: serviceApplyHtml } },
+                { label: "Assess applications for funding", id: "service-assess", panel: { html: serviceAssessHtml } }
+            ]
+        }) }}
+    </section>
 
-			<form method="post" action="/sign-in/" >
-				<input type="hidden" name="fundingService" id="fundingService" value="access" />
-				<input type="hidden" name="authentication" id="authentication" value="Magic link" />				
-				{{ govukButton({
-					text: "Continue",
-					classes: "govuk-!-margin-top-3"
-				}) }}
-			</form>
-		{% endset %}
+    <div class="govuk-grid-row govuk-!-margin-top-9">
+        <section class="govuk-grid-column-one-half" aria-labelledby="user-research-heading">
+            <h2 id="user-research-heading" class="govuk-heading-m govuk-!-margin-bottom-1">User research</h2>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <p class="govuk-body-s govuk-!-margin-bottom-1">
+                <time datetime="{{ "today" | govukDate('yyyy-MM-dd') }}">{{ "today" | govukDate }}</time>
+            </p>
+            <p class="govuk-body">There is no research currently taking place.</p>
+        </section>
 
-		{% set serviceApplyHtml %}
-			<!-- Current apply for a grant service -->
-			<h2 class="govuk-heading-m">Apply for funding</h2>
-			<p class="govuk-body">Apply for funding has been designed to allow local authorities, charities, and community groups to apply for different types of funding from Ministry of Housing, Communities and Local Government (MHCLG).</p>
-			<p class="govuk-body">You will be able to select which funding as part of the user flow.</p>
-			<form method="post" action="/preload" >
-				<input type="hidden" name="fundingService" id="fundingService" value="apply" />
-				{{ govukButton({
-					text: "Continue",
-					classes: "govuk-!-margin-top-3"
-				}) }}
-			</form>			
-		{% endset %}
-
-		{% set serviceAssessHtml %}
-			<!-- Current assess applications service -->
-			<h2 class="govuk-heading-m">Assess applications for funding</h2>
-			<p class="govuk-body">The Funding Service assessment tool has been designed to help evaluate fund applications, to facilitate fund decision-making.</p>
-			<p class="govuk-body">Here you can:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>assess applications end to end</li>
-				<li>comment on specific applicant responses</li>
-				<li>monitor the assessment progress of a fund</li>
-			</ul>
-
-			<form method="post" action="/assess/" >
-				<input type="hidden" name="fundingService" id="fundingService" value="assess" />
-				{{ govukButton({
-					text: "Continue",
-					classes: "govuk-!-margin-top-3"
-				}) }}
-			</form>
-		{% endset %}
-
-		{{ govukTabs({
-			items: [
-				{ label: "Deliver grant funding", id: "service-deliver-funding", panel: { html: serviceDeliverFundingHtml } },
-				{ label: "Access grant funding", id: "service-access-funding", panel: { html: serviceAccessFundingHtml } },
-				{ label: "Apply for funding", id: "service-apply", panel: { html: serviceApplyHtml } },
-				{ label: "Assess applications for funding", id: "service-assess", panel: { html: serviceAssessHtml } }
-			]
-		}) }}
-
-		<div class="govuk-grid-row govuk-!-margin-top-9">
-			<div class="govuk-grid-column-one-half">
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">User research</h2>
-				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-				<p class="govuk-body-s govuk-!-margin-bottom-1">{{ "today" | govukDate }}</p>
-        		<p class="govuk-body">There is no research currently taking place.</p>
-
-			</div>
-			<div class="govuk-grid-column-one-half">
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Assets</h2>
-				<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-			</div>
-
-	</div>
-</div>
-
+        <aside class="govuk-grid-column-one-half" aria-labelledby="assets-heading">
+            <h2 id="assets-heading" class="govuk-heading-m govuk-!-margin-bottom-1">Assets</h2>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            {# …add your assets here… #}
+        </aside>
+    </div>
 {% endblock %}

@@ -100,4 +100,7 @@
     margin-bottom: 10px;
 }
 
-
+.prototype-visually-revealed {
+    background: #ff00dd33;
+    opacity: 80%;
+}

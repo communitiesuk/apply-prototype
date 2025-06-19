@@ -1,0 +1,54 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set navID = 'grantReports' %}
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "What type of question do you need?" %}
+{% set pageSection = 'Risks' %}
+{% set pageHidden = "yes" %}
+{% set pageNested = "yes" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+        
+        <form method="post" action="/funding/grant/reports/add/question/options" >        
+
+            {{ govukRadios({
+                name: "questionType",
+                fieldset: {
+                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-fieldset__legend govuk-visually-hidden" }
+                },
+                items: [
+                    { value: "Single input field", text: "Single input field", hint: {
+        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+      } },
+                    { value: "Text area", text: "Text area", hint: {
+        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+      } },
+                    { value: "Radio buttons", text: "Radio buttons", hint: {
+        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+      } },
+                    { value: "Checkboxes", text: "Checkboxes", hint: {
+        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+      } }
+                ]
+            }) }}     
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

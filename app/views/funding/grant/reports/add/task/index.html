@@ -1,0 +1,58 @@
+{% extends "layouts/grantManagement.html" %}
+
+{% set navID = 'grantReports' %}
+{% set showBackLink = false %}
+{% set showBackApplicationsLink = false %}
+
+{% set pageSize = "xl" %}
+{% set pageHeading = "What is the name of this task?" %}
+<!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
+ {% set pageSection = 'Issues and risks' %}
+ {% set pageHidden = "yes" %}
+{% set pageNested = "yes" %}
+
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}                
+
+        <p class="govuk-body">This is the name of a group of questions. Next, you'll be able to add 1 or more questions to this task. </p>
+        <p class="govuk-body">For example, the task might be 'Risks' and a question might be 'What is the risk status?'.</p>
+        
+        <form method="post" action="/funding/grant/reports/tasks?taskSetup=yes" >        
+
+            {{ govukInput({
+                label: {
+                    text: pageHeading,
+                    classes: "govuk-visually-hidden",
+                    isPageHeading: false
+                },
+                classes: "govuk-!-width-two-thirds",
+                id: "taskName",
+                name: "taskName",
+                value: data['taskName']
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+<!--
+{ text: "Assess applications", href: "#" },
+                { text: "Recipients", href: "#" },
+                { text: "Payments", href: "#" },
+                { text: "Reports", href: "#" } -->

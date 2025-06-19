@@ -121,7 +121,7 @@
 	<!-- Breadcrumb for report -->
 	{{ govukBreadcrumbs({
   		items: [    		
-    		{ text: data.reportName, href: "/funding/grant/reports/" },			
+    		{ text: data['grantName'], href: "/funding/grant/reports/" },			
     		{ text: "Sections", href: "/funding/grant/reports/sections" },
 			{ text: "Tasks", href: "/funding/grant/reports/tasks" }
   		]
@@ -151,8 +151,7 @@
 		meta: {
 			items: [
 				{ href: "/manage-prototype/clear-data", text: "Clear data" },
-				{ href: "/manage-prototype", text: "Manage prototype" },
-				{ href: "#", text: "Toggle hidden text", attributes: {"data-module": "prototype-reveal-hidden"} }
+				{ href: "/manage-prototype", text: "Manage prototype" }
 			],
 			html: 'Built by the <a href="#" class="govuk-footer__link">Ministry of Housing, Communites & Local Government Funding Service</a>'
 		}

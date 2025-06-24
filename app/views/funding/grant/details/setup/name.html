@@ -7,7 +7,7 @@
 {% set showBackLink = true %}
 
 {% set pageSize = "x" %}
-{% set pageHeading = "What is the name of this grant?" %}
+{% set pageHeading = "Update the name of this grant" %}
 {% set pageSection = "Set up the grant" %}
 {% set pageHidden = "" %}
 
@@ -37,22 +37,10 @@
                 value: data['grantName']
             }) }}
 
-
-
-             {% if data['change'] == "yes" %}
-
             {{ govukButton({
                 text: "Update"
             }) }}
-
-
-            {% else %}
-
-            {{ govukButton({
-                text: "Save and continue"
-            }) }}
-
-            {% endif %}
+                   
         </form>
 
     </div>

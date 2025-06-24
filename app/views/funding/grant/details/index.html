@@ -17,8 +17,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-        <div class="govuk-grid-row">
-	        <div class="govuk-grid-column-two-thirds">
+        
 
                 {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
@@ -27,9 +26,45 @@
         			tag: { text: "Incomplete", classes: "govuk-tag--blue" }
       			} %}
 
+				<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">GGIS reference number</dt>
+				<dd class="govuk-summary-list__value">
+					{% if data['grant-ggis'] == "Yes" %}
+						{{ data['grant-ggisNumber'] }}
+					{% else %}
+						Not known
+					{% endif %}
+				</dd>		
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/ggis-number?change=yes">Change<span class="govuk-visually-hidden"> the GGIS number of the grant</span></a></dd>		
+			</div>			
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Grant name</dt>
+				<dd class="govuk-summary-list__value">{{ data['grantName'] }}</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/name?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+			</div>			
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Main purpose</dt>
+				<dd class="govuk-summary-list__value">{{ data['grant-description'] }}</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/description?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+			</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Main contact</dt>
+				<dd class="govuk-summary-list__value">{{ data['grant-primaryContactName'] }}
+					<br>{{ data['grant-primaryContactEmail'] }}
+				</dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/primary-contact-details?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+			</div>
+		</dl>
+
+
 				<!-- To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" -->
 
-				<h2 class="govuk-heading-m">[ Heading for first set of tasks ]</h2>
+				<!-- <h2 class="govuk-heading-m">[ Heading for first set of tasks ]</h2>
       			{{ govukTaskList({
         			idPrefix: "first-section",
         			items: [
@@ -52,10 +87,7 @@
           				{ title: { text: "Name of third task" }, href: "#", status: incompleteStatus }
 
         			]
-      			}) }}
-
-            </div>
-        </div>
+      			}) }} -->
 
 
     </div>

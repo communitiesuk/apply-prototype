@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Who is the main contact for this grant?" %}
-{% set pageSection = "Set up the grant" %}
+{% set pageSection = "" %}
 {% set pageHidden = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -54,7 +54,7 @@
 
 
             {{ govukButton({
-                text: "Update"
+                text: "Update main contact"
             }) }}
         </form>
 

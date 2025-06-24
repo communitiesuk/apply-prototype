@@ -36,14 +36,25 @@
             	maxwords: 200,
             	rows: 6,            	
             	label: {
-              		text: "What is the main purpose of this grant?",
-              		classes: "govuk-label govuk-label--s",
+              		text: "Enter the main purpose of this grant",
+              		classes: "govuk-label govuk-visually-hidden",
               		isPageHeading: false
             	}
           	}) }}
 
             {% if data['change'] == "yes" %}
-                {% include "/includes/buttonUpdate.html" %}
+			   <div class="govuk-button-group">
+				{{ govukButton({
+    				text: "Update main purpose"
+				}) }}
+
+				  
+                  
+
+            
+			
+				<a class="govuk-link" href="#">Cancel</a>				 
+			</div>
             {% else %}
                 {% include "/includes/buttonSaveContinue.html" %}
             {% endif %}

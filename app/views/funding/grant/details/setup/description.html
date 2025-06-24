@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Purpose of this grant" %}
-{% set pageSection = "Set up the grant" %}
+{% set pageSection = "" %}
 {% set pageHidden = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -31,14 +31,14 @@
             	maxwords: 200,
             	rows: 6,            	
             	label: {
-              		text: "What is the main purpose of this grant?",
-              		classes: "govuk-label govuk-label--s",
+              		text: "Enter the main purpose of this grant",
+              		classes: "govuk-label govuk-visually-hidden",
               		isPageHeading: false
             	}
           	}) }}
 
             {{ govukButton({
-                text: "Update"
+                text: "Updat main purpose"
             }) }}
 
         </form>

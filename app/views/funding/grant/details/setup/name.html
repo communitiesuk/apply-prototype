@@ -6,7 +6,7 @@
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "What is the name of this grant?" %}
-{% set pageSection = "Set up the grant" %}
+{% set pageSection = "" %}
 {% set pageHidden = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -40,7 +40,7 @@
              {% if data['change'] == "yes" %}
 
             {{ govukButton({
-                text: "Update"
+                text: "Update grant name"
             }) }}
 
 

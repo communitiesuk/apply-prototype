@@ -58,7 +58,18 @@
             }) }}
 
             {% if data['change'] == "yes" %}
-                {% include "/includes/buttonUpdate.html" %}
+            <div class="govuk-button-group">
+				{{ govukButton({
+    				text: "Update main contact"
+				}) }}                
+
+                
+				
+
+            
+			
+				<a class="govuk-link" href="#">Cancel</a>				 
+			</div>
             {% else %}
                 {% include "/includes/buttonSaveContinue.html" %}
             {% endif %}

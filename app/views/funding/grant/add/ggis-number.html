@@ -4,7 +4,7 @@
 {% set showBackApplicationsLink = false %}
 
 {% set pageSize = "xl" %}
-{% set pageHeading = "Do you have a Government Grants Information System (GGIS) number?" %}
+{% set pageHeading = "Do you have a Government Grants Information System (GGIS) reference number?" %}
 {% set pageSection = "Set up the grant" %}
 {% set pageHidden = "yes" %}
 {% set pageNested = "yes" %}
@@ -18,7 +18,7 @@
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
 
-		<p class="govuk-body">You’ll need to provide your GGIS number before you can create forms or assess grant applications.</p>
+		<p class="govuk-body">You’ll need to provide your GGIS reference number before you can create forms or assess grant applications.</p>
 
         {% if data['change'] == "yes" %}
         <form method="post" action="/funding/grant/add/summary">
@@ -54,7 +54,7 @@
 					legend: {
 						text: "Do you have a GGIS number?",
 						isPageHeading: false,
-						classes: "govuk-fieldset__legend govuk-fieldset__legend--s"
+						classes: "govuk-fieldset__legend govuk-visually-hidden"
 					}
 				},
 				items: [
@@ -64,7 +64,14 @@
 			}) }}
 
             {% if data['change'] == "yes" %}
-                {% include "/includes/buttonUpdate.html" %}
+                
+				<div class="govuk-button-group">
+			{{ govukButton({
+    				text: "Update GGIS reference number"
+				}) }}
+				<a class="govuk-link" href="#">Cancel</a>				 
+			</div>
+
             {% else %}
                 {% include "/includes/buttonSaveContinue.html" %}
             {% endif %}			

@@ -24,7 +24,7 @@
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">GGIS</dt>
+				<dt class="govuk-summary-list__key">GGIS reference number</dt>
 				<dd class="govuk-summary-list__value">
 					{% if data['grant-ggis'] == "Yes" %}
 						{{ data['grant-ggisNumber'] or 123456789 }}
@@ -35,7 +35,7 @@
 				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/ggis-number?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Name</dt>
+				<dt class="govuk-summary-list__key">Grant name</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantName'] }}</dd>
 				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/name?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
 			</div>

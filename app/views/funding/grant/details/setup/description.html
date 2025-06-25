@@ -1,18 +1,11 @@
 {% extends "layouts/grantManagement.html" %}
 
-{% set showBackLink = true %}
-{% set showBackApplicationsLink = false %}
-
-
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "Purpose of this grant" %}
-{% set pageSection = "" %}
-{% set pageHidden = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
@@ -21,7 +14,7 @@
 
 		<p>Provide a brief description of the main purpose of the grant. This information will be seen by potential grant recipients.</p>
 
-        <form method="post" action="/funding/grant/details/setup/summary">
+        <form method="post" action="/funding/grant/details/?notification=&change=">
 
 
         	{{ govukCharacterCount({
@@ -37,9 +30,12 @@
             	}
           	}) }}
 
-            {{ govukButton({
-                text: "Updat main purpose"
-            }) }}
+			<div class="govuk-button-group">
+				{{ govukButton({
+					text: "Update main purpose"
+				}) }}
+				<a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/details/?notification=&change=">Cancel</a>
+			</div>
 
         </form>
     </div>

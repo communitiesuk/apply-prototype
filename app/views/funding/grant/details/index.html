@@ -1,14 +1,14 @@
 {% extends "layouts/grantManagement.html" %}
 
- {% set navID = 'grantDetails' %}
-
 {% set showBackLink = false %}
-{% set showBackApplicationsLink = false %}
+
+{% set navID = 'grantDetails' %}
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Grant details" %}
 {% set pageSection = '' + data['grantName'] + '' %}
 {% set pageHiddentext = "yes" %}
+{% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -37,19 +37,19 @@
 						Not known
 					{% endif %}
 				</dd>		
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/ggis-number?change=yes">Change<span class="govuk-visually-hidden"> the GGIS number of the grant</span></a></dd>		
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/ggis-number?change=yes">Change<span class="govuk-visually-hidden"> GGIS reference number</span></a></dd>		
 			</div>			
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Grant name</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantName'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/name?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/name?change=yes">Change<span class="govuk-visually-hidden"> grant name</span></a></dd>
 			</div>			
 
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Main purpose</dt>
 				<dd class="govuk-summary-list__value">{{ data['grant-description'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/description?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/description?change=yes">Change<span class="govuk-visually-hidden"> main purpose</span></a></dd>
 			</div>
 
 			<div class="govuk-summary-list__row">
@@ -57,7 +57,7 @@
 				<dd class="govuk-summary-list__value">{{ data['grant-primaryContactName'] }}
 					<br>{{ data['grant-primaryContactEmail'] }}
 				</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/primary-contact-details?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link" href="/funding/grant/details/setup/primary-contact-details?change=yes">Change<span class="govuk-visually-hidden"> main contact</span></a></dd>
 			</div>
 		</dl>
 

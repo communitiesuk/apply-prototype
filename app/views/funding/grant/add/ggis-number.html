@@ -1,8 +1,5 @@
 {% extends "layouts/deliver.html" %}
 
-{% set showBackLink = true %}
-{% set showBackApplicationsLink = false %}
-
 {% set pageSize = "l" %}
 {% set pageHeading = "Do you have a Government Grants Information System (GGIS) reference number?" %}
 {% set pageSection = "Set up the grant" %}
@@ -21,8 +18,7 @@
 		<p class="govuk-body">You’ll need to provide your GGIS reference number before you can create forms or assess grant applications.</p>
 
         {% if data['change'] == "yes" %}
-        <form method="post" action="/funding/grant/add/summary">
-			<input type="hidden" name="change" id="change" value="" />
+         <form method="post" action="/funding/grant/add/summary?notification=&change=">			
       	{% else %}
         <form method="post" action="/funding/grant/add/name">
         {% endif %}
@@ -68,9 +64,8 @@
 					{{ govukButton({
     					text: "Update GGIS reference number"
 					}) }}
-					<a class="govuk-link" href="#">Cancel</a>				 
-			</div>
-
+					<a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/summary?notification=&change=">Cancel</a>				 
+				</div>
             {% else %}
                 {% include "/includes/buttonSaveContinue.html" %}
             {% endif %}			

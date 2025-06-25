@@ -1,10 +1,7 @@
 {% extends "layouts/deliver.html" %}
 
-{% set showBackLink = true %}
-{% set showBackApplicationsLink = false %}
-
 <!-- These are options for the header macro -->
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "What is the name of this grant?" %}
 {% set pageSection = "Set up the grant" %}
 {% set pageHiddentext = "yes" %}
@@ -19,11 +16,8 @@
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
-        <!-- <p class="govuk-body">This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p> -->
-
         {% if data['change'] == "yes" %}
-        <form method="post" action="/funding/grant/add/summary">
-			<input type="hidden" name="change" id="change" value="" />
+        <form method="post" action="/funding/grant/add/summary?notification=&change=">			
       	{% else %}
         <form method="post" action="/funding/grant/add/description">
         {% endif %}
@@ -43,19 +37,12 @@
                 value: data['grantName']
             }) }}
             
-
-
             {% if data['change'] == "yes" %}
-
                 <div class="govuk-button-group">
-                                {{ govukButton({
+                {{ govukButton({
     				text: "Update grant name"
 				}) }}
-
-
-            
-			
-				<a class="govuk-link" href="#">Cancel</a>				 
+				<a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/summary?notification=&change=">Cancel</a>				 
 			</div>
             {% else %}
                 {% include "/includes/buttonSaveContinue.html" %}

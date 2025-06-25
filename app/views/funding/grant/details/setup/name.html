@@ -1,18 +1,13 @@
 {% extends "layouts/grantManagement.html" %}
 
-{% set showBackLink = true %}
-{% set showBackApplicationsLink = false %}
+{% set showBackLink = false %}
 
-
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "What is the name of this grant?" %}
-{% set pageSection = "" %}
-{% set pageHidden = "" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
-
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
@@ -21,11 +16,11 @@
 
         <p>This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p>
 
-        <form method="post" action="/funding/grant/details/setup/summary">
+        <form method="post" action="/funding/grant/details/?notification=&change=">
 
             {{ govukInput({
                 label: {
-                    text: "Grant name",
+                    text: "Enter the grant name",
                     classes: "govuk-label govuk-visually-hidden",
                     isPageHeading: false
                 },
@@ -34,23 +29,14 @@
                 name: "grantName",
                 value: data['grantName']
             }) }}
-
-
-
-             {% if data['change'] == "yes" %}
-
-            {{ govukButton({
-                text: "Update grant name"
-            }) }}
-
-
-            {% else %}
-
-            {{ govukButton({
-                text: "Save and continue"
-            }) }}
-
-            {% endif %}
+ 
+            <div class="govuk-button-group">
+				{{ govukButton({
+					text: "Update grant name"
+				}) }}
+				<a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/details/?notification=&change=">Cancel</a>				 
+			</div>
+            
         </form>
 
     </div>

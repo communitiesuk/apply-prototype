@@ -7,7 +7,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "What is the main purpose of this grant?" %}
 {% set pageSection = "Set up the grant" %}
-{% set pageHidden = "yes" %}
+{% set pageHiddentext = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -17,7 +17,7 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
 		<p class="govuk-body">Provide a brief description of the main purpose of the grant. This information will be seen by potential grant recipients.</p>
 

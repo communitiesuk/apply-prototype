@@ -7,7 +7,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "Reports" %}
 {% set pageSection = '' + data['grantName'] + '' %}
-{% set pageHidden = "yes" %}
+{% set pageHiddentext = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -20,7 +20,7 @@
 
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+                {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
                     {% if not data['formReport'] %} 
                     <p class="govuk-body">There are no monitoring reports for {{ data.grantName or "NAME of GRANT" }}. Add a monitoring report to get started. </p>        

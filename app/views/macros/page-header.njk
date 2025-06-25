@@ -2,7 +2,7 @@
     nested = "",
     heading = "",    
     section = "",    
-    hidden = "",
+    hiddentext = "",
     size = "",
     data = {}
 ) %}
@@ -11,7 +11,7 @@
 
         <h1 class="govuk-heading-{{ size }}">
             {% if section %}
-            <span class="govuk-caption-{{ size }}">{% if not hidden %}<span class="govuk-visually-hidden">This section is: </span>{% endif %}
+            <span class="govuk-caption-{{ size }}">{% if not hiddentext %}<span class="govuk-visually-hidden">This section is: </span>{% endif %}
             {{ section }}
             </span>
             {% endif %}
@@ -22,7 +22,7 @@
 
         {% if section %}
         <span class="govuk-caption-{{ size }}">      
-            {% if not hidden %}<span class="govuk-visually-hidden">This section is: </span>{% endif %}            
+            {% if not hiddentext %}<span class="govuk-visually-hidden">This section is: </span>{% endif %}            
             {{ section }}        
         </span>
         {% endif %}

@@ -8,7 +8,7 @@
 {% set pageHeading = "What is the name of this task?" %}
 <!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
  {% set pageSection = 'Issues and risks' %}
- {% set pageHidden = "yes" %}
+ {% set pageHiddentext = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}                
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}                
 
         <p class="govuk-body">This is the name of a group of questions. Next, you'll be able to add 1 or more questions to this task. </p>
         <p class="govuk-body">For example, the task might be 'Risks' and a question might be 'What is the risk status?'.</p>

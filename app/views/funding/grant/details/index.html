@@ -8,7 +8,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "Grant details" %}
 {% set pageSection = '' + data['grantName'] + '' %}
-{% set pageHidden = "yes" %}
+{% set pageHiddentext = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -19,7 +19,7 @@
 
         
 
-                {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+                {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
 				{% set completedStatus = { text: "Completed" } %}
       			{% set incompleteStatus = {

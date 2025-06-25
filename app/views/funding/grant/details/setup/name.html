@@ -1,6 +1,8 @@
 {% extends "layouts/grantManagement.html" %}
 
-{% set showBackLink = false %}
+{% if data['change'] == "yes" %}
+	{% set showBackLink = false %}
+{% endif %}
 
 {% set pageSize = "l" %}
 {% set pageHeading = "What is the name of this grant?" %}

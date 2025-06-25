@@ -1,5 +1,9 @@
 {% extends "layouts/deliver.html" %}
 
+{% if data['change'] == "yes" %}
+{% set showBackLink = false %}
+{% endif %}
+
 {% set pageSize = "l" %}
 {% set pageHeading = "Do you have a Government Grants Information System (GGIS) reference number?" %}
 {% set pageSection = "Set up the grant" %}

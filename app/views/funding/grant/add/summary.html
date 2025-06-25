@@ -9,7 +9,7 @@
 	{% set pageSection = "Grant set up" %}
 {% else %}
 	{% set pageSection = "Set up the grant" %}
-	{% set pageHidden = "yes" %}
+	{% set pageHiddentext = "yes" %}
 	{% set pageNested = "yes" %}
 {% endif %}
 
@@ -20,11 +20,11 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-full">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">GGIS</dt>
+				<dt class="govuk-summary-list__key">GGIS reference number</dt>
 				<dd class="govuk-summary-list__value">
 					{% if data['grant-ggis'] == "Yes" %}
 						{{ data['grant-ggisNumber'] or 123456789 }}
@@ -32,24 +32,24 @@
 						Not known
 					{% endif %}
 				</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/ggis-number?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/ggis-number?change=yes">Change<span class="govuk-visually-hidden"> GGIS reference number</span></a></dd>
 			</div>
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Name</dt>
+				<dt class="govuk-summary-list__key">Grant name</dt>
 				<dd class="govuk-summary-list__value">{{ data['grantName'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/name?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/name?change=yes">Change<span class="govuk-visually-hidden"> grant name</span></a></dd>
 			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Main purpose</dt>
 				<dd class="govuk-summary-list__value">{{ data['grant-description'] }}</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/description?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/description?change=yes">Change<span class="govuk-visually-hidden"> main purpose</span></a></dd>
 			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Main contact</dt>
 				<dd class="govuk-summary-list__value">{{ data['grant-primaryContactName'] }}
 					<br>{{ data['grant-primaryContactEmail'] }}
 				</dd>
-				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/primary-contact-details?change=yes">Change<span class="govuk-visually-hidden"> the name of the grant</span></a></dd>
+				<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/primary-contact-details?change=yes">Change<span class="govuk-visually-hidden"> main contact</span></a></dd>
 			</div>
 		</dl>
 			

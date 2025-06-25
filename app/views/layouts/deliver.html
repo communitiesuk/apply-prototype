@@ -1,5 +1,6 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
+{% import "macros/updateButton.njk" as macroUpdateButton %}
 {% import "macros/page-title.njk" as macroPageTitle %}
 {% import "macros/page-header.njk" as macroPageHeader %}
 {% import "macros/suggested-page.njk" as macroSuggested %}
@@ -93,7 +94,7 @@
 		{{ govukBackLink({
     		text: "Back",
     		href: "javascript:history.go(-1)"
-		}) }}
+		}) }} 
     {% endif %}
 
 {% endblock %}

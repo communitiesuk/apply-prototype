@@ -8,7 +8,7 @@
 {% set pageHeading = "Questions" %}
 <!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
  {% set pageSection = 'Risks' %}
-{% set pageHidden = "yes" %}
+{% set pageHiddentext = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -26,7 +26,7 @@
 
 		
 
-    	{{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+    	{{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
         
 

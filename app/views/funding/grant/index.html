@@ -1,11 +1,13 @@
 {% extends "layouts/grantManagement.html" %}
 
-{% set navID = 'grantHome' %}
 {% set showBackLink = false %}
+
+{% set navID = 'grantHome' %}
 
 {% set pageSize = "xl" %}
 {% set pageHeading = "Home" %}
 {% set pageSection = '' + data['grantName'] + '' %}
+{% set pageHiddentext = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -27,7 +29,7 @@
 
 		{% endif %}
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}                
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}                
 
     </div>
 </div>

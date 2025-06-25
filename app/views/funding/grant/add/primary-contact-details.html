@@ -1,12 +1,9 @@
 {% extends "layouts/deliver.html" %}
 
-{% set showBackLink = true %}
-{% set showBackApplicationsLink = false %}
-
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "Who is the main contact for this grant?" %}
 {% set pageSection = "Set up the grant" %}
-{% set pageHidden = "yes" %}
+{% set pageHiddentext = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -16,13 +13,12 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
         <p class="govuk-body">This is the person that teams at MHCLG can contact if they have any questions about the grant.</p>
 
         {% if data['change'] == "yes" %}
-        <form method="post" action="/funding/grant/add/summary">
-			<input type="hidden" name="change" id="change" value="" />
+         <form method="post" action="/funding/grant/add/summary?notification=&change=">			
       	{% else %}
         <form method="post" action="/funding/grant/add/summary">
         {% endif %}
@@ -31,7 +27,7 @@
             {{ govukInput({
                 label: {
                     text: "Full name",
-                    classes: "govuk-label govuk-label--s",
+                    classes: "govuk-label",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
@@ -44,7 +40,7 @@
             {{ govukInput({
                 label: {
                     text: "Email address",
-                    classes: "govuk-label govuk-label--s",
+                    classes: "govuk-label",
                     isPageHeading: false
                 },
                 classes: "govuk-!-width-two-thirds",
@@ -58,7 +54,12 @@
             }) }}
 
             {% if data['change'] == "yes" %}
-                {% include "/includes/buttonUpdate.html" %}
+                <div class="govuk-button-group">
+                    {{ govukButton({
+                        text: "Update main contact"
+                    }) }}                			
+                    <a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/add/summary?notification=&change=">Cancel</a>			 
+                </div>
             {% else %}
                 {% include "/includes/buttonSaveContinue.html" %}
             {% endif %}

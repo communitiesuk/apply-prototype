@@ -1,6 +1,10 @@
 
 {% extends "layouts/deliver.html" %}
 
+{% if data['change'] == "yes" %}
+	{% set showBackLink = false %}
+{% endif %}
+
 {% set pageSize = "l" %}
 {% set pageHeading = "What is the main purpose of this grant?" %}
 {% set pageSection = "Set up the grant" %}

@@ -1,5 +1,9 @@
 {% extends "layouts/deliver.html" %}
 
+{% if data['change'] == "yes" %}
+	{% set showBackLink = false %}
+{% endif %}
+
 <!-- These are options for the header macro -->
 {% set pageSize = "l" %}
 {% set pageHeading = "What is the name of this grant?" %}

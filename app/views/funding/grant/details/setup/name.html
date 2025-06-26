@@ -15,16 +15,18 @@
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
-
-        <p>This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p>
+       
 
         <form method="post" action="/funding/grant/details/?notification=&change=">
 
             {{ govukInput({
                 label: {
-                    text: "Enter the grant name",
+                    text: "Grant name",
                     classes: "govuk-label govuk-visually-hidden",
                     isPageHeading: false
+                },
+                hint: {
+                    text: "Use the full and official name of the grant - no abbreviations or acronyms"
                 },
                 classes: "govuk-!-width-two-thirds",
                 id: "grantName",

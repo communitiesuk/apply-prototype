@@ -4,7 +4,7 @@
 {% set showBackLink = false %}
 {% set showBackApplicationsLink = false %}
 
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "What is the name of this task?" %}
 <!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
  {% set pageSection = 'Issues and risks' %}
@@ -20,7 +20,8 @@
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}                
 
-        <p class="govuk-body">This is the name of a group of questions. Next, you'll be able to add 1 or more questions to this task. </p>
+        <p class="govuk-body">This is the name of a group of questions. </p>
+        <!-- Next, you'll be able to add 1 or more questions to this task.  -->
         <p class="govuk-body">For example, the task might be 'Risks' and a question might be 'What is the risk status?'.</p>
         
         <form method="post" action="/funding/grant/reports/tasks?taskSetup=yes" >        

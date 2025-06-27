@@ -11,7 +11,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "Question options" %}
 {% set pageSection = 'Risks' %}
-{% set pageHidden = "yes" %}
+{% set pageHiddentext = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -21,7 +21,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
         
 
         <p>This will give the user all the options to complete the format of the question.</p>

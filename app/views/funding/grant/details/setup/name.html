@@ -4,43 +4,49 @@
 {% from "macros/forms.njk" import singleInputField %}
 <!-- // -->
 
-{% set showBackLink = true %}
+
+{% if data['change'] == "yes" %}
+	{% set showBackLink = false %}
+{% endif %}
 
 {% set pageSize = "l" %}
-{% set pageHeading = "Update the name of this grant" %}
-{% set pageSection = "Set up the grant" %}
-{% set pageHidden = "" %}
+{% set pageHeading = "What is the name of this grant?" %}
+{% set pageSection = '' + data['grantName'] + '' %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
+       
 
-        <p>This should be the full and official name of the grant. Do not include abbreviations or acronyms.</p>
-
-        <form method="post" action="/funding/grant/details/setup/summary">
+        <form method="post" action="/funding/grant/details/?notification=&change=">
 
             {{ govukInput({
                 label: {
-                    text: "Grant name",
+                    text: "Enter the grant name",
                     classes: "govuk-label govuk-visually-hidden",
                     isPageHeading: false
+                },
+                hint: {
+                    text: "Use the full and official name of the grant - no abbreviations or acronyms"
                 },
                 classes: "govuk-!-width-two-thirds",
                 id: "grantName",
                 name: "grantName",
                 value: data['grantName']
             }) }}
-
-            {{ govukButton({
-                text: "Update"
-            }) }}
-                   
+ 
+            <div class="govuk-button-group">
+				{{ govukButton({
+					text: "Update grant name"
+				}) }}
+				<a class="govuk-link govuk-link--no-visited-state" href="/funding/grant/details/?notification=&change=">Cancel</a>				 
+			</div>
+            
         </form>
 
     </div>

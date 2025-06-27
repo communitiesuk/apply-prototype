@@ -30,6 +30,7 @@
         
         {{ macroPageHeader.pageHeader(pageNested, pageHeading, pageSection, pageHidden, pageSize) }}            
 
+<<<<<<< HEAD
         
         {% if data.authentication == "SSO" %}
             
@@ -38,6 +39,13 @@
                 A connected and consistent digital service for users within the Funding Service and grant teams.
             </p>
             <p class="govuk-body">The service includes:</p>
+=======
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
+
+        {% if data['authentication'] == "SSO" %}
+            <p class="gocuk-body">A connected and consistent digital service for users within Funding Service, and grant teams.</p>
+            <p class="gocuk-body">The service includes:</p>
+>>>>>>> main
             <ul class="govuk-list govuk-list--bullet">
                 <li>Grant set-up and management</li>
                 <li>Forms for pre-award and post-award data collection</li>

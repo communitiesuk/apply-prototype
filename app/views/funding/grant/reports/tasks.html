@@ -12,7 +12,7 @@
 {% set pageHeading = "Tasks" %}
 <!-- {% set pageSection = '' + data['addReport-Name'] + '' %} -->
  {% set pageSection = 'Issues and risks' %}
-{% set pageHidden = "yes" %}
+{% set pageHiddentext = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -27,7 +27,7 @@
 		<div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+    	{{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
 
 		</div>

@@ -2,12 +2,11 @@
 
 {% set navID = 'grantReports' %}
 {% set showBackLink = false %}
-{% set showBackApplicationsLink = false %}
 
-{% set pageSize = "xl" %}
+{% set pageSize = "l" %}
 {% set pageHeading = "Reports" %}
 {% set pageSection = '' + data['grantName'] + '' %}
-{% set pageHidden = "yes" %}
+{% set pageHiddentext = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -20,14 +19,14 @@
 
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+                {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
                     {% if not data['formReport'] %} 
                     <p class="govuk-body">There are no monitoring reports for {{ data.grantName or "NAME of GRANT" }}. Add a monitoring report to get started. </p>        
                     {% endif %}
-
-                    <p class="govuk-body">A monitoring report is a 'Form' made up of 'Sections', 'tasks' and 'questions'.</p>
-                    <p><a href="#">See an example of a monitoring report form</a> and a description of the component parts of a form.</p>
+                    
+                    <!-- Show this when a report doesnt exists -->
+                    <!-- <p><a href="#">See an example of a monitoring report form</a> and a description of the component parts of a form.</p> -->
             </div>
         </div>
         <!-- Have we set up a form, so we know to show the list -->
@@ -40,13 +39,13 @@
                 <h2 class="govuk-summary-card__title">{{ data['reportName'] or "Name of form" }}</h2>
                 <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="#">Preview<span class="govuk-visually-hidden"> this monitoring report</span></a>
+                        <a class="govuk-link" href="#">Preview<span class="govuk-visually-hidden"> report</span></a>
                     </li>
                     <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the name of this monitoring report</span></a>
+                        <a class="govuk-link" href="#">Change name<span class="govuk-visually-hidden"> of report</span></a>
                     </li>
                     <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> this monitoring report</span></a>
+                        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> report</span></a>
                     </li>
                 </ul>
             </div>
@@ -69,11 +68,12 @@
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">Sections</dt>
                         <dd class="govuk-summary-list__value">
-                            {% if data['formReport'] == "yes" %}
+                            
+                                <a href="/funding/grant/reports/add/section/" class="govuk-link govuk-link--no-visited-state">Add sections</a>
+                            <!-- {% if data['formReport'] == "yes" %}
                                 <a href="/funding/grant/reports/overview" class="govuk-link govuk-link--no-visited-state">10 sections</a>
-                            {% else %}                            
-                                <a href="/funding/grant/reports/add/section/" class="govuk-link govuk-link--no-visited-state">Add sections</a> to start creating your report
-                            {% endif %}
+                            {% else %}                             -->
+                                <!-- {% endif %} -->
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <!-- <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Lead tenant)</span></a> -->
@@ -103,7 +103,7 @@
                 ]
             }) }} -->
             
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-1">Live reports</h2>         
+            <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1 govuk-!-margin-top-1">Live reports</h2>         
             <p class="govuk-body">This shows all the monitoring reports for {{ data.grantName or "NAME of GRANT" }}. </p>   
             {{ govukSummaryList({
                 
@@ -144,7 +144,7 @@
                 ]
             }) }} 
 
-        {% endif %}
+        {% endif %} -->
 
 
         <form method="post" action="/funding/grant/reports/add/" >

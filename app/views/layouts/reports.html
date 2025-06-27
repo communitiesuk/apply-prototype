@@ -1,7 +1,5 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
-
-
 {% import "macros/page-title.njk" as macroPageTitle %}
 {% import "macros/page-header.njk" as macroPageHeader %}
 {% import "macros/suggested-page.njk" as macroSuggested %}
@@ -119,13 +117,13 @@
     }) }}
 
 	<!-- Breadcrumb for report -->
-	{{ govukBreadcrumbs({
+	<!-- {{ govukBreadcrumbs({
   		items: [    		
     		{ text: data['reportName'], href: "/funding/grant/reports/" },			
     		{ text: "Sections", href: "/funding/grant/reports/sections" },
 			{ text: "Tasks", href: "/funding/grant/reports/tasks" }
   		]
-	}) }}
+	}) }} -->
 	<!-- // breadcrumb report -->
 
     <!-- Back link -->

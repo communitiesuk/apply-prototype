@@ -11,7 +11,7 @@
 {% set pageSize = "xl" %}
 {% set pageHeading = "What type of question do you need?" %}
 {% set pageSection = 'Risks' %}
-{% set pageHidden = "yes" %}
+{% set pageHiddentext = "yes" %}
 {% set pageNested = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -21,7 +21,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
         
         <form method="post" action="/funding/grant/reports/add/question/options" >
             {{ radioField("questionType", 
@@ -34,7 +34,49 @@
                 pageHeading,  { hint: { text: "" }, inline: false, classes: "" }) 
             }}      
 
+<<<<<<< HEAD
             {{ govukButton({ text: "Continue" }) }}
+=======
+            {{ govukRadios({
+                name: "questionType",
+                fieldset: {
+                    legend: { text: pageHeading, isPageHeading: false, classes: "govuk-fieldset__legend govuk-visually-hidden" }
+                },
+                items: [
+                    { value: "Text", text: "Text", hint: {
+                        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+                    } },                    
+                    { value: "dateInput", text: "Date input", hint: {
+                        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+                    } },
+                    { value: "Selection from a list of options", text: "Selection from a list of options", hint: {
+                        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+                    } },
+                    { value: "Number", text: "Number", hint: {
+                        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+                    } },
+                    { value: "Email address", text: "Email address", hint: {
+                        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+                    } },
+                    { value: "Phone number", text: "Phone number", hint: {
+                        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+                    } },
+                    
+                    { value: "Address", text: "Address", hint: {
+                        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+                    } },
+                    { value: "File upload", text: "File upload", hint: {
+                        text: "You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before"
+                    } }
+                    
+                    
+                ]
+            }) }}     
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+>>>>>>> main
 
         </form>
 

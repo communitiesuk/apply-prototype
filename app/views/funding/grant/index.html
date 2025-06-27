@@ -4,12 +4,14 @@
 {% from "macros/forms.njk" import singleInputField %}
 <!-- // -->
 
-{% set navID = 'grantHome' %}
 {% set showBackLink = false %}
 
-{% set pageSize = "xl" %}
+{% set navID = 'grantHome' %}
+
+{% set pageSize = "l" %}
 {% set pageHeading = "Home" %}
 {% set pageSection = '' + data['grantName'] + '' %}
+{% set pageHiddentext = "yes" %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -31,7 +33,7 @@
 
 		{% endif %}
 
-        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHidden,pageSize) }}                
+        {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}                
 
     </div>
 </div>

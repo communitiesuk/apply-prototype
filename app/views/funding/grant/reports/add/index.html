@@ -19,11 +19,11 @@
 
         {{ macroPageHeader.pageHeader(pageNested,pageHeading,pageSection,pageHiddentext,pageSize) }}
 
-        <form method="post" action="/funding/grant/reports/?formReport=yes" >            
+        <form method="post" action="/funding/grant/reports/?setupReport=yes" >            
 
             {{ govukInput({
                 label: {
-                    text: pageHeading,
+                    text: "Enter the monitoring report name",
                     classes: "govuk-visually-hidden",
                     isPageHeading: false
                 },

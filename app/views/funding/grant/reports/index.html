@@ -47,35 +47,26 @@
                 {% else %}
                     {% set sectionCount = 0 %}
                 {% endif %}
-
-<!-- 
-                        {% if sectionCount == 0 %}
-                    {% set sectionsText = '<a href="/funding/grant/reports/add/section/another?reportId=' + report.id + '" class="govuk-link govuk-link--no-visited-state">Add sections</a> to start creating your report' %}
-                {% elif sectionCount == 1 %}
-                    {% set sectionsText = sectionCount|string + ' section added. <a href="/funding/grant/reports/add/section/another?reportId=' + report.id + '" class="govuk-link govuk-link--no-visited-state">Add another section</a>' %}
-                {% else %}
-                    {% set sectionsText = sectionCount|string + ' sections added. <a href="/funding/grant/reports/add/section/another?reportId=' + report.id + '" class="govuk-link govuk-link--no-visited-state">Add another section</a>' %}
-                {% endif %} -->
-
                 
-
-
-                
-{% if sectionCount == 0 %}
+                {% if sectionCount == 0 %}
  {% set sectionsText = '<a href="/funding/grant/reports/add/section/?reportId=' + report.id + '" class="govuk-link govuk-link--no-visited-state">Add sections</a> to start creating your report' %}
  {% set sectionsRow = {
  key: { text: "Sections" },
  value: { html: sectionsText }
  } %}
  {% elif sectionCount == 1 %}
- {% set sectionsText = sectionCount|string + ' section' %}
+ {% set sectionsText = '<a href="/funding/grant/reports/sections?reportId=' + report.id + '" class="govuk-link govuk-link--no-visited-state">' + sectionCount|string + ' section</a>' %}
+ {% set sectionsList = '<ul class="govuk-list">' %}
+ {% for section in report.sections %}
+ {% set sectionsList = sectionsList + '<li>' + section.sectionName + '</li>' %}
+ {% endfor %}
+ {% set sectionsList = sectionsList + '</ul>' %}
  {% set sectionsRow = {
  key: { text: "Sections" },
- value: { html: sectionsText },
+ value: { html: sectionsText + '<br>' + sectionsList },
  actions: {
  items: [
- {
- href: "/funding/grant/reports/add/section/?reportId=" + report.id,
+ { href: "/funding/grant/reports/add/section/?reportId=" + report.id,
  classes: "govuk-link govuk-link--no-visited-state",
  text: "Add another section",
  visuallyHiddenText: "to report"
@@ -84,10 +75,15 @@
  }
  } %}
  {% else %}
- {% set sectionsText = sectionCount|string + ' sections' %}
+ {% set sectionsText = '<a href="/funding/grant/reports/sections?reportId=' + report.id + '" class="govuk-link govuk-link--no-visited-state">' + sectionCount|string + ' sections</a>' %}
+ {% set sectionsList = '<ul class="govuk-list">' %}
+ {% for section in report.sections %}
+ {% set sectionsList = sectionsList + '<li>' + section.sectionName + '</li>' %}
+ {% endfor %}
+ {% set sectionsList = sectionsList + '</ul>' %}
  {% set sectionsRow = {
  key: { text: "Sections" },
- value: { html: sectionsText },
+ value: { html: sectionsText + '<br>' + sectionsList },
  actions: {
  items: [
  {
@@ -100,56 +96,48 @@
  }
  } %}
  {% endif %}
- {{ govukSummaryList({
- card: {
- title: { text: report.reportName or "Form name" },
- classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-7",
- actions: {
- items: [
- {
- href: "#",
- classes: "govuk-link govuk-link--no-visited-state",
- text: "Preview",
- visuallyHiddenText: "report"
- },
- {
- href: "#",
- classes: "govuk-link govuk-link--no-visited-state",
- text: "Change name",
- visuallyHiddenText: "of report"
- },
- {
- href: "/funding/grant/reports/delete/" + report.id,
- classes: "govuk-link govuk-link--no-visited-state govuk-link--destructive",
- text: "Delete",
- visuallyHiddenText: "report"
- }
- ]
- }
- },
- rows: [
- {
- key: { text: "Created by" },
- value: { html: '<a href="#">' + report.createdBy + '</a> on ' + report.createdDate }
- },
- {
- key: { text: "Last updated" },
- value: { html: '<a href="#">' + report.updatedBy + '</a> on ' + report.lastUpdated }
- },
- sectionsRow
- ]
- }) }}
+ 
+                {{ govukSummaryList({
+                    card: {
+                        title: { text: report.reportName or "Form name" },
+                        classes: "govuk-!-margin-top-7 govuk-!-margin-bottom-7",
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    classes: "govuk-link govuk-link--no-visited-state",
+                                    text: "Preview",
+                                    visuallyHiddenText: "report"
+                                },
+                                {
+                                    href: "#",
+                                    classes: "govuk-link govuk-link--no-visited-state",
+                                    text: "Change name",
+                                    visuallyHiddenText: "of report"
+                                },
+                                {
+                                    href: "/funding/grant/reports/delete/" + report.id,
+                                    classes: "govuk-link govuk-link--no-visited-state govuk-link--destructive",
+                                    text: "Delete",
+                                    visuallyHiddenText: "report"
+                                }
+                            ]
+                        }
+                    },
+                    rows: [
+                        {
+                            key: { text: "Created by" },
+                            value: { html: '<a href="#">' + report.createdBy + '</a> on ' + report.createdDate }
+                        },
+                        {
+                            key: { text: "Last updated" },
+                            value: { html: '<a href="#">' + report.updatedBy + '</a> on ' + report.lastUpdated }
+                        },
+                        sectionsRow
+                    ]
+                }) }}
                 
-                {% if report.sections and report.sections.length > 0 %}
-                    <div class="govuk-!-margin-bottom-7">
-                        <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Sections in this report:</h3>
-                        <ul class="govuk-list govuk-list--bullet">
-                            {% for section in report.sections %}
-                                <li>{{ section.sectionName }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                {% endif %}
+               
                 
             {% endfor %}
 
